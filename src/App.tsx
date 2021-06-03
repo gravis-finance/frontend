@@ -11,7 +11,7 @@ const Home = lazy(() => import('./views/Home'))
 // const ToastListener = lazy(() => import('./components/ToastListener'))
 
 const App: React.FC = () => {
-  const loginBlockHidden = true
+  const loginBlockHidden = false
 
   return (
     <Router>
