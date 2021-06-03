@@ -1,8 +1,9 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { MenuEntry, Menu as UikitMenu } from '@gravis.finance/uikit'
 import { Route, RouteProps } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import useTheme from 'hooks/useTheme'
+import i18next from '../../i18n'
 
 type PropsType = {
   loginBlockVisible?: boolean
@@ -16,6 +17,10 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [selectedLanguage, setSelectedLanguage] = useState('')
+
+  useEffect(() => {
+    i18next.changeLanguage(selectedLanguage.toLowerCase())
+  }, [selectedLanguage])
 
   const links: MenuEntry[] = [
     {
