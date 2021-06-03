@@ -392,7 +392,7 @@ const HomeGreetings: React.FC = () => {
           <Flex alignItems="center" style={{ marginTop: '25px' }}>
             <Button
               type="default"
-              href="https://gateway.pinata.cloud/ipfs/QmQyWnMBruL7n7vqyVYxNXQdpm5rffj9e1Wr2Q48LU9PvY/gravis_presentation.pdf"
+              href={t('presentationLink')}
               target="_blank"
             >
               <StyledArrowDownIcon />
