@@ -122,7 +122,6 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
       betaText=""
       betaLink="https://beta.exchange.gravis.finance"
       setSelectedLanguage={setSelectedLanguage}
-      hideConnectAndNetwork
       {...props}
     />
   )
