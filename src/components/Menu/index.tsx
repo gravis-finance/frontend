@@ -17,10 +17,7 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [selectedLanguage, setSelectedLanguage] = useState('')
-
-  useEffect(() => {
-    i18next.changeLanguage(selectedLanguage.toLowerCase())
-  }, [selectedLanguage])
+  const [presentationLink, setPresentationLink] = useState('https://gateway.pinata.cloud/ipfs/QmQyWnMBruL7n7vqyVYxNXQdpm5rffj9e1Wr2Q48LU9PvY/gravis_presentation.pdf')
 
   const links: MenuEntry[] = [
     {
@@ -92,7 +89,7 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
         },
         {
           label: t('mainMenu.pitchDeck'),
-          href: 'https://gateway.pinata.cloud/ipfs/QmQyWnMBruL7n7vqyVYxNXQdpm5rffj9e1Wr2Q48LU9PvY/gravis_presentation.pdf',
+          href: presentationLink,
         },
         {
           label: t('mainMenu.tokenomics'),
@@ -102,6 +99,14 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
       ],
     },
   ]
+
+  useEffect(() => {
+    i18next.changeLanguage(selectedLanguage.toLowerCase())
+    if(selectedLanguage && selectedLanguage.toLowerCase() === 'en')
+      setPresentationLink('https://gateway.pinata.cloud/ipfs/QmQyWnMBruL7n7vqyVYxNXQdpm5rffj9e1Wr2Q48LU9PvY/gravis_presentation.pdf')
+    else setPresentationLink('http://gateway.pinata.cloud/ipfs/QmS3gYhCphkyDN1GWg3TTqKFdJUCGXTKiGpi6BhSupjpJb/Gravis_presentation_JP.pdf')
+  }, [selectedLanguage])
+
 
   return (
     <UikitMenu
