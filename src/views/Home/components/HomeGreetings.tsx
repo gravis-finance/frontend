@@ -387,7 +387,7 @@ const HomeGreetings: React.FC = () => {
             {t('mainMessageDesktop.nftFocused')} <br /> {t('mainMessageDesktop.multichainDex')} <br /> {t('mainMessageDesktop.crossChainBridge')}
           </MainText>
           <MainText mobile>
-            {t('mainMessageDesktop.nftFocused')} <br /> {t('mainMessageDesktop.multichainDex')} <br /> {t('mainMessageDesktop.crossChainBridge')} <br /> {t('bridge')}
+            {t('mainMessageDesktop.nftFocused')} <br /> {t('mainMessageDesktop.multichainDex')} <br /> {t('mainMessageDesktop.crossChainBridge')} <br /> {t('mainMessageMobile.bridge')}
           </MainText>
           <Flex alignItems="center" style={{ marginTop: '25px' }}>
             <Button
