@@ -2,7 +2,7 @@ import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import XHR from 'i18next-xhr-backend'
 import LanguageDetector from 'i18next-browser-languagedetector'
-import { getDefaultLanguage } from '@gravis.finance/uikit'
+import { getLanguageSearchParam } from '@gravis.finance/uikit'
 
 i18next
   .use(XHR)
@@ -16,10 +16,10 @@ i18next
       useSuspense: true,
     },
     fallbackLng: 'en',
-    preload: [ getDefaultLanguage() ],
+    preload: [ getLanguageSearchParam() as string ],
     // keySeparator: false,
     interpolation: { escapeValue: false },
-    lng: getDefaultLanguage(),
+    lng: getLanguageSearchParam() as string,
   })
 
 export default i18next

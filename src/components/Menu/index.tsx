@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react'
-import { MenuEntry, Menu as UikitMenu } from '@gravis.finance/uikit'
+import { MenuEntry, Menu as UikitMenu, urlSearchLanguageParam } from '@gravis.finance/uikit'
 import { Route, RouteProps } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import useTheme from 'hooks/useTheme'
@@ -30,15 +30,15 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
       items: [
         {
           label: t('swap'),
-          href: process.env.REACT_APP_EXCHANGE_URL,
+          href: `${process.env.REACT_APP_EXCHANGE_URL}?${urlSearchLanguageParam}=${t('language')}`,
         },
         {
           label: t('mainMenu.liquidity'),
-          href: process.env.REACT_APP_LIQUIDITY_URL,
+          href: `${process.env.REACT_APP_LIQUIDITY_URL}?${urlSearchLanguageParam}=${t('language')}`,
         },
         {
           label: t('mainMenu.migrate'),
-          href: process.env.REACT_APP_MIGRATION_URL,
+          href: `${process.env.REACT_APP_MIGRATION_URL}?${urlSearchLanguageParam}=${t('language')}`,
         },
       ],
     },
@@ -48,15 +48,15 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
       items: [
         {
           label: t('mainMenu.analytics.overview'),
-          href: process.env.REACT_APP_INFO_URL,
+          href: `${process.env.REACT_APP_INFO_URL}?${urlSearchLanguageParam}=${t('language')}`,
         },
         {
           label: t('mainMenu.analytics.tokens'),
-          href: `${process.env.REACT_APP_INFO_URL}/tokens`,
+          href: `${process.env.REACT_APP_INFO_URL}/tokens?${urlSearchLanguageParam}=${t('language')}`,
         },
         {
           label: t('mainMenu.analytics.pairs'),
-          href: `${process.env.REACT_APP_INFO_URL}/pairs`,
+          href: `${process.env.REACT_APP_INFO_URL}/pairs?${urlSearchLanguageParam}=${t('language')}`,
         },
       ],
     },
@@ -66,7 +66,7 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
       items: [
         {
           label: t('mainMenu.ino.bbRound'),
-          href: `${process.env.REACT_APP_BIG_BANG_URL}/bigbangnft`,
+          href: `${process.env.REACT_APP_BIG_BANG_URL}/bigbangnft?${urlSearchLanguageParam}=${t('language')}`,
         }
       ]
     },
