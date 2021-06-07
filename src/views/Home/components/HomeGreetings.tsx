@@ -201,7 +201,6 @@ const DescriptionText = styled.div<{ mobile?: boolean }>`
   }
 `
 
-
 const Button = styled.a<{ type: string }>`
   padding: 0 24px;
   border: 2px solid ${({ type }) => (type === 'default' ? '#009CE1' : '#FFA100')};
@@ -366,8 +365,6 @@ const GravisLogoContainer = styled.div<{ text?: boolean }>`
   }
 `
 
-
-
 const HomeGreetings: React.FC = () => {
   const { t } = useTranslation()
   return (
@@ -384,17 +381,15 @@ const HomeGreetings: React.FC = () => {
         </Header>
         <Body>
           <MainText>
-            {t('mainMessageDesktop.nftFocused')} <br /> {t('mainMessageDesktop.multichainDex')} <br /> {t('mainMessageDesktop.crossChainBridge')}
+            {t('mainMessageDesktop.nftFocused')} <br /> {t('mainMessageDesktop.multichainDex')} <br />{' '}
+            {t('mainMessageDesktop.crossChainBridge')}
           </MainText>
           <MainText mobile>
-            {t('mainMessageDesktop.nftFocused')} <br /> {t('mainMessageDesktop.multichainDex')} <br /> {t('mainMessageDesktop.crossChainBridge')} <br /> {t('mainMessageMobile.bridge')}
+            {t('mainMessageDesktop.nftFocused')} <br /> {t('mainMessageDesktop.multichainDex')} <br />{' '}
+            {t('mainMessageDesktop.crossChainBridge')} <br /> {t('mainMessageMobile.bridge')}
           </MainText>
           <Flex alignItems="center" style={{ marginTop: '25px' }}>
-            <Button
-              type="default"
-              href={t('presentationLink')}
-              target="_blank"
-            >
+            <Button type="default" href={t('presentationLink')} target="_blank">
               <StyledArrowDownIcon />
               {t('learnMore')}
             </Button>
@@ -404,21 +399,17 @@ const HomeGreetings: React.FC = () => {
               </Button>
             </InputContainer>
           </Flex>
-          <DescriptionTextHeadline>
-            {t('weLaunched')}
-          </DescriptionTextHeadline>
-          <DescriptionTextHeadline mobile>
-            {t('weLaunched')}
-          </DescriptionTextHeadline>
+          <DescriptionTextHeadline>{t('roundClosed')}</DescriptionTextHeadline>
+          <DescriptionTextHeadline mobile>{t('roundClosed')}</DescriptionTextHeadline>
           <DescriptionText>
-            {t('hurryUp')} <br />
-            {t('nftCards')} <br />
-            {t('findInIno')}
+            {t('roundWasTargeted')} <br />
+            {t('weGathered')} <br />
+            {t('bigThank')}
           </DescriptionText>
           <DescriptionText mobile>
-            {t('hurryUp')} <br />
-            {t('nftCards')} <br />
-            {t('findInIno')}
+            {t('roundWasTargeted')} <br />
+            {t('weGathered')} <br />
+            {t('bigThank')}
           </DescriptionText>
         </Body>
         <Footer>
