@@ -422,6 +422,9 @@ const HomeGreetings: React.FC = () => {
               <NetworkItem>
                 <BscIcon />
               </NetworkItem>
+              <NetworkItem>
+                <InfIcon />
+              </NetworkItem>
             </Networks>
             <Networks>
               <NetworkItem>
@@ -429,6 +432,9 @@ const HomeGreetings: React.FC = () => {
               </NetworkItem>
               <NetworkItem>
                 <BscIcon />
+              </NetworkItem>
+              <NetworkItem>
+                <InfIcon />
               </NetworkItem>
               <NetworkItem disabled>
                 <Text style={{ top: '-40px', width: '180px', position: 'absolute' }} small>
@@ -444,9 +450,6 @@ const HomeGreetings: React.FC = () => {
               </NetworkItem>
               <NetworkItem disabled>
                 <AIcon />
-              </NetworkItem>
-              <NetworkItem disabled>
-                <InfIcon />
               </NetworkItem>
             </Networks>
           </NetworksContainer>
