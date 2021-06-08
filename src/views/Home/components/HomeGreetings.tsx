@@ -470,9 +470,6 @@ const HomeGreetings: React.FC = () => {
               <NetworkItem disabled>
                 <AIcon />
               </NetworkItem>
-              <NetworkItem disabled>
-                <InfIcon />
-              </NetworkItem>
             </Networks>
           </NetworksContainer>
         </Footer>
