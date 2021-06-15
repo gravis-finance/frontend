@@ -327,8 +327,8 @@ const NetworkItem = styled.div<{ disabled?: boolean }>`
   // height: 148px;
   background: ${({ disabled }) =>
     disabled
-      ? 'linear-gradient(90.28deg, #242424 0%, #1F1F1F 100%), #C4C4C4'
-      : 'linear-gradient(90.28deg, #292929 0%, #242424 100%), linear-gradient(90.28deg, #242424 0%, #1F1F1F 100%), #C4C4C4'};
+      ? 'linear-gradient(90.28deg, #242424 0%, #1F1F1F 100%)'
+      : 'linear-gradient(90.28deg, #292929 0%, #242424 100%), linear-gradient(90.28deg, #242424 0%, #1F1F1F 100%)'};
   border: ${({ disabled }) => (disabled ? 'none' : '1px solid #2E2E2E')};
   box-sizing: border-box;
   box-shadow: ${({ disabled }) =>
@@ -399,17 +399,23 @@ const HomeGreetings: React.FC = () => {
               </Button>
             </InputContainer>
           </Flex>
-          <DescriptionTextHeadline>{t('roundClosed')}</DescriptionTextHeadline>
-          <DescriptionTextHeadline mobile>{t('roundClosed')}</DescriptionTextHeadline>
+          <DescriptionTextHeadline>{t('weLaunched')}</DescriptionTextHeadline>
+          <DescriptionTextHeadline mobile>{t('weLaunched')}</DescriptionTextHeadline>
           <DescriptionText>
-            {t('roundWasTargeted')} <br />
-            {t('weGathered')} <br />
-            {t('bigThank')}
+            {t('hurryUp')} <br />
+            {t('nftCards')} <br />
+            {t('findInIno')}
+            <a href={t('mediumLink')} style={{ color: '#009CE1', fontWeight: 500 }}>
+              Medium.
+            </a>
           </DescriptionText>
           <DescriptionText mobile>
-            {t('roundWasTargeted')} <br />
-            {t('weGathered')} <br />
-            {t('bigThank')}
+            {t('hurryUp')} <br />
+            {t('nftCards')} <br />
+            {t('findInIno')}
+            <a href={t('mediumLink')} style={{ color: '#009CE1', fontWeight: 500 }}>
+              Medium.
+            </a>
           </DescriptionText>
         </Body>
         <Footer>
