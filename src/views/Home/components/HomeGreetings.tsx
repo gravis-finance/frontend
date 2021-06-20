@@ -302,12 +302,16 @@ const Networks = styled.div<{ mobile?: boolean }>`
   }
 
   @media screen and (max-width: 825px) {
+    margin-left: -10px;
+    
     > div:not(:last-child) {
-      margin-right: 10px;
+      margin-right: 0;
     }
 
     > div {
+      flex: 1;
       margin-top: 10px;
+      margin-left: 10px;
     }
   }
 
