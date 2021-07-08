@@ -165,42 +165,6 @@ const MainText = styled.div<{ mobile?: boolean }>`
   }
 `
 
-const DescriptionTextHeadline = styled.div<{ mobile?: boolean }>`
-  color: white;
-  margin-top: 35px;
-  text-align: center;
-  font-weight: 700;
-  font-size: 30px;
-  padding: 0;
-  ${({ mobile }) => (mobile ? 'display: none;' : 'display: block;')}
-
-  @media screen and (max-width: 670px) {
-    ${({ mobile }) => (mobile ? 'display: block;' : 'display: none;')}
-    font-size: 17px;
-  }
-`
-
-const DescriptionText = styled.div<{ mobile?: boolean }>`
-  color: white;
-  max-width: 90%;
-  margin-top: 15px;
-  text-align: center;
-  font-weight: 300;
-  font-size: 20px;
-  padding: 0;
-  line-height: 25px;
-  ${({ mobile }) => (mobile ? 'display: none;' : 'display: block;')}
-
-  @media screen and (max-width: 1440px) {
-    max-width: 100%;
-  }
-
-  @media screen and (max-width: 670px) {
-    ${({ mobile }) => (mobile ? 'display: block;' : 'display: none;')}
-    font-size: 14px;
-  }
-`
-
 const Button = styled.a<{ type: string }>`
   padding: 0 24px;
   border: 2px solid ${({ type }) => (type === 'default' ? '#009CE1' : '#FFA100')};
