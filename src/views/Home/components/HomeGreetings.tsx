@@ -8,8 +8,6 @@ import {
   AIcon,
   ArrowDownIcon,
   BscIcon,
-  GravisEmptyLogoIcon,
-  GravisLogoIcon,
   HuobiIcon,
   InfIcon,
   NearIcon,
@@ -23,23 +21,10 @@ const GreetingsWrapper = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
-  margin-top: -146px;
 
   @media screen and (max-width: 480px) {
     display: flex;
     flex-direction: column-reverse;
-  }
-
-  @media screen and (max-width: 968px) {
-    margin-top: -130px;
-  }
-
-  @media screen and (max-width: 825px) {
-    margin-top: -125px;
-  }
-
-  @media screen and (max-width: 575px) {
-    margin-top: -116px;
   }
 `
 
@@ -130,19 +115,16 @@ const GreetingsWrapper = styled.div`
 const StyledAppContainer = styled.div`
   height: 100%;
   padding: 32px 32px 0 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   @media screen and (max-width: 825px) {
     padding: 28px 10px 0 10px;
   }
 `
 
-const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
-
 const Body = styled.div`
-  margin-top: 80px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -155,49 +137,13 @@ const MainText = styled.div<{ mobile?: boolean }>`
   color: white;
   text-align: center;
   font-weight: 700;
-  font-size: 61px;
+  font-size: 70px;
   padding: 0;
   ${({ mobile }) => (mobile ? 'display: none;' : 'display: block;')}
 
   @media screen and (max-width: 670px) {
     ${({ mobile }) => (mobile ? 'display: block;' : 'display: none;')}
     font-size: 37px;
-  }
-`
-
-const DescriptionTextHeadline = styled.div<{ mobile?: boolean }>`
-  color: white;
-  margin-top: 35px;
-  text-align: center;
-  font-weight: 700;
-  font-size: 30px;
-  padding: 0;
-  ${({ mobile }) => (mobile ? 'display: none;' : 'display: block;')}
-
-  @media screen and (max-width: 670px) {
-    ${({ mobile }) => (mobile ? 'display: block;' : 'display: none;')}
-    font-size: 17px;
-  }
-`
-
-const DescriptionText = styled.div<{ mobile?: boolean }>`
-  color: white;
-  max-width: 90%;
-  margin-top: 15px;
-  text-align: center;
-  font-weight: 300;
-  font-size: 20px;
-  padding: 0;
-  line-height: 25px;
-  ${({ mobile }) => (mobile ? 'display: none;' : 'display: block;')}
-
-  @media screen and (max-width: 1440px) {
-    max-width: 100%;
-  }
-
-  @media screen and (max-width: 670px) {
-    ${({ mobile }) => (mobile ? 'display: block;' : 'display: none;')}
-    font-size: 14px;
   }
 `
 
@@ -302,12 +248,16 @@ const Networks = styled.div<{ mobile?: boolean }>`
   }
 
   @media screen and (max-width: 825px) {
+    margin-left: -10px;
+    
     > div:not(:last-child) {
-      margin-right: 10px;
+      margin-right: 0;
     }
 
     > div {
+      flex: 1;
       margin-top: 10px;
+      margin-left: 10px;
     }
   }
 
@@ -357,28 +307,12 @@ const NetworkItem = styled.div<{ disabled?: boolean }>`
   }
 `
 
-const GravisLogoContainer = styled.div<{ text?: boolean }>`
-  opacity: 0;
-  ${({ text }) => (text ? 'display: block;' : 'display: none;')}
-  @media screen and (max-width: 520px) {
-    ${({ text }) => (text ? 'display: none;' : 'display: block;')}
-  }
-`
-
 const HomeGreetings: React.FC = () => {
   const { t } = useTranslation()
   return (
     <GreetingsWrapper>
       <GreetingsConfetti />
       <StyledAppContainer>
-        <Header>
-          <GravisLogoContainer text>
-            <GravisLogoIcon />
-          </GravisLogoContainer>
-          <GravisLogoContainer>
-            <GravisEmptyLogoIcon />
-          </GravisLogoContainer>
-        </Header>
         <Body>
           <MainText>
             {t('mainMessageDesktop.nftFocused')} <br /> {t('mainMessageDesktop.multichainDex')} <br />{' '}
@@ -399,24 +333,6 @@ const HomeGreetings: React.FC = () => {
               </Button>
             </InputContainer>
           </Flex>
-          <DescriptionTextHeadline>{t('weLaunched')}</DescriptionTextHeadline>
-          <DescriptionTextHeadline mobile>{t('weLaunched')}</DescriptionTextHeadline>
-          <DescriptionText>
-            {t('hurryUp')} <br />
-            {t('nftCards')} <br />
-            {t('findInIno')}
-            <a href={t('mediumLink')} style={{ color: '#009CE1', fontWeight: 500 }}>
-              Medium.
-            </a>
-          </DescriptionText>
-          <DescriptionText mobile>
-            {t('hurryUp')} <br />
-            {t('nftCards')} <br />
-            {t('findInIno')}
-            <a href={t('mediumLink')} style={{ color: '#009CE1', fontWeight: 500 }}>
-              Medium.
-            </a>
-          </DescriptionText>
         </Body>
         <Footer>
           <NetworksContainer>
