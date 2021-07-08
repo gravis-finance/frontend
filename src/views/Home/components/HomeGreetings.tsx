@@ -8,8 +8,6 @@ import {
   AIcon,
   ArrowDownIcon,
   BscIcon,
-  GravisEmptyLogoIcon,
-  GravisLogoIcon,
   HuobiIcon,
   InfIcon,
   NearIcon,
@@ -23,23 +21,10 @@ const GreetingsWrapper = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
-  margin-top: -146px;
 
   @media screen and (max-width: 480px) {
     display: flex;
     flex-direction: column-reverse;
-  }
-
-  @media screen and (max-width: 968px) {
-    margin-top: -130px;
-  }
-
-  @media screen and (max-width: 825px) {
-    margin-top: -125px;
-  }
-
-  @media screen and (max-width: 575px) {
-    margin-top: -116px;
   }
 `
 
@@ -130,19 +115,16 @@ const GreetingsWrapper = styled.div`
 const StyledAppContainer = styled.div`
   height: 100%;
   padding: 32px 32px 0 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   @media screen and (max-width: 825px) {
     padding: 28px 10px 0 10px;
   }
 `
 
-const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
-
 const Body = styled.div`
-  margin-top: 80px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -325,28 +307,12 @@ const NetworkItem = styled.div<{ disabled?: boolean }>`
   }
 `
 
-const GravisLogoContainer = styled.div<{ text?: boolean }>`
-  opacity: 0;
-  ${({ text }) => (text ? 'display: block;' : 'display: none;')}
-  @media screen and (max-width: 520px) {
-    ${({ text }) => (text ? 'display: none;' : 'display: block;')}
-  }
-`
-
 const HomeGreetings: React.FC = () => {
   const { t } = useTranslation()
   return (
     <GreetingsWrapper>
       <GreetingsConfetti />
       <StyledAppContainer>
-        <Header>
-          <GravisLogoContainer text>
-            <GravisLogoIcon />
-          </GravisLogoContainer>
-          <GravisLogoContainer>
-            <GravisEmptyLogoIcon />
-          </GravisLogoContainer>
-        </Header>
         <Body>
           <MainText>
             {t('mainMessageDesktop.nftFocused')} <br /> {t('mainMessageDesktop.multichainDex')} <br />{' '}
