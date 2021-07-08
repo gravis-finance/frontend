@@ -129,10 +129,10 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
 }
 
 export const MenuWrappedRoute: FC<RouteProps & { loginBlockVisible: boolean }> = ({
-                                                                                    children,
-                                                                                    loginBlockVisible,
-                                                                                    ...props
-                                                                                  }) => (
+  children,
+  loginBlockVisible,
+  ...props
+}) => (
   <Route {...props}>
     <Menu loginBlockVisible={loginBlockVisible}>{children}</Menu>
   </Route>
