@@ -155,7 +155,7 @@ const MainText = styled.div<{ mobile?: boolean }>`
   color: white;
   text-align: center;
   font-weight: 700;
-  font-size: 61px;
+  font-size: 70px;
   padding: 0;
   ${({ mobile }) => (mobile ? 'display: none;' : 'display: block;')}
 
@@ -403,24 +403,6 @@ const HomeGreetings: React.FC = () => {
               </Button>
             </InputContainer>
           </Flex>
-          <DescriptionTextHeadline>{t('weLaunched')}</DescriptionTextHeadline>
-          <DescriptionTextHeadline mobile>{t('weLaunched')}</DescriptionTextHeadline>
-          <DescriptionText>
-            {t('hurryUp')} <br />
-            {t('nftCards')} <br />
-            {t('findInIno')}
-            <a href={t('mediumLink')} style={{ color: '#009CE1', fontWeight: 500 }}>
-              Medium.
-            </a>
-          </DescriptionText>
-          <DescriptionText mobile>
-            {t('hurryUp')} <br />
-            {t('nftCards')} <br />
-            {t('findInIno')}
-            <a href={t('mediumLink')} style={{ color: '#009CE1', fontWeight: 500 }}>
-              Medium.
-            </a>
-          </DescriptionText>
         </Body>
         <Footer>
           <NetworksContainer>
