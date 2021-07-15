@@ -15,7 +15,7 @@
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
     "generate:config": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/generateConfig",
-    "locales": "babel --extensions \".tsx\" --config-file ./babel-locales.config.js ./src"
+    "locales": "babel --extensions \".tsx\",\".ts\" --config-file ./babel-locales.config.js ./src"
   },
   "browserslist": {
     "production": [
