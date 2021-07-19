@@ -307,7 +307,6 @@
   "buyNFT": "Buy NFT",
   "sellNFT": "Sell NFT",
   "sendNFT": "Send NFT",
-  "NFTFarming": "NFT Farming",
 
   "mainMessageDesktop": {
     "nftFocused": "NFT-focused",
@@ -383,6 +382,8 @@
       "ino": "INO",
       "bbRound": "Big Bang Round",
       "angelRound": "Angel Round"
-    }
+    },
+    "NFTFarming": "NFT Farming",
+    "nftmarket": "NFT Market"
   }
 }
