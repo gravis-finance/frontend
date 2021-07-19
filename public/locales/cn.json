@@ -333,6 +333,8 @@
   "provideSecondToken": "提供第二个代币",
   "pendingActionInWallet": "You have a pending action in the wallet.",
   "confirmNetworkChange": "Please, confirm network change",
+  "nftFarmingAvailable": "Big Bang NFT farming和GMart NFT trading post现已上线！",
+  "jumpHere": "跳入参与 <a style='color: #009CE1; cursor: pointer; font-weight: 600;' href=https://nftfarming.gravis.finance>这里</a> 或 <a style='color: #009CE1; cursor: pointer; font-weight: 600;' href=https://gmart.gravis.finance>这里.</a>",
 
   "time": {
     "time": "时间",

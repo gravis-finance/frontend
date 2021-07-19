@@ -302,6 +302,12 @@
   "pendingActionInWallet": "You have a pending action in the wallet.",
   "confirmNetworkChange": "Please, confirm network change",
   "mediumLink": "https://gravis-finance.medium.com/gravis-finance%E3%81%AFshiba%E3%81%AB%E5%A4%A2%E4%B8%AD-4f6a4de711bb",
+  "nftFarmingAvailable": "ビッグバンNFT農業とGMart NFTトレーディングポストはライブです！",
+  "jumpHere": "参加するためにジャンプします <a style='color: #009CE1; cursor: pointer; font-weight: 600;' href=https://nftfarming.gravis.finance>ここでは、</a> または <a style='color: #009CE1; cursor: pointer; font-weight: 600;' href=https://gmart.gravis.finance>ここでは、.</a>",
+  "buyNFT": "NFTを購入",
+  "sellNFT": "NFTを売る",
+  "sendNFT": "NFTの送信",
+  "NFTFarming": "NFTファーミング",
 
   "mainMessageDesktop": {
     "nftFocused": "NFTに焦点を当てた",
