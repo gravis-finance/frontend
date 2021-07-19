@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 // import Lottie from 'react-lottie-player'
 import { useTranslation } from 'react-i18next'
@@ -306,9 +306,48 @@ const NetworkItem = styled.div<{ disabled?: boolean }>`
     min-height: 75px;
   }
 `
+const DescriptionTextHeadline = styled.div<{ mobile?: boolean }>`
+  color: white;
+  margin-top: 35px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 30px;
+  padding: 0;
+  ${({ mobile }) => (mobile ? 'display: none;' : 'display: block;')}
+  @media screen and (max-width: 670px) {
+    ${({ mobile }) => (mobile ? 'display: block;' : 'display: none;')}
+    font-size: 17px;
+  }
+`
+
+const DescriptionText = styled.div<{ mobile?: boolean }>`
+  color: white;
+  max-width: 90%;
+  margin-top: 15px;
+  text-align: center;
+  font-weight: 300;
+  font-size: 20px;
+  padding: 0;
+  line-height: 25px;
+  ${({ mobile }) => (mobile ? 'display: none;' : 'display: block;')}
+  @media screen and (max-width: 1440px) {
+    max-width: 100%;
+  }
+  @media screen and (max-width: 670px) {
+    ${({ mobile }) => (mobile ? 'display: block;' : 'display: none;')}
+    font-size: 14px;
+  }
+`
 
 const HomeGreetings: React.FC = () => {
+  const descriptionRef = useRef()
   const { t } = useTranslation()
+
+  useEffect(()=>{
+    // @ts-ignore
+    descriptionRef.current.innerHTML = t('jumpHere')
+  }, [t])
+
   return (
     <GreetingsWrapper>
       <GreetingsConfetti />
@@ -320,7 +359,7 @@ const HomeGreetings: React.FC = () => {
           </MainText>
           <MainText mobile>
             {t('mainMessageDesktop.nftFocused')} <br /> {t('mainMessageDesktop.multichainDex')} <br />{' '}
-            {t('mainMessageDesktop.crossChainBridge')} <br /> {t('mainMessageMobile.bridge')}
+            {t('mainMessageDesktop.crossChainBridge')}
           </MainText>
           <Flex alignItems="center" style={{ marginTop: '25px' }}>
             <Button type="default" href={t('presentationLink')} target="_blank">
@@ -333,6 +372,9 @@ const HomeGreetings: React.FC = () => {
               </Button>
             </InputContainer>
           </Flex>
+          <DescriptionTextHeadline>{t('nftFarmingAvailable')}</DescriptionTextHeadline>
+
+          <DescriptionText ref={descriptionRef}/>
         </Body>
         <Footer>
           <NetworksContainer>
