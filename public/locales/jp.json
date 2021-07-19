@@ -314,76 +314,29 @@
     "multichainDex": "マルチチェイン分散型取引所",
     "crossChainBridge": "クロスチェーンブリッジ"
   },
-
   "mainMessageMobile": {
-    "nftFocused": "NFTに焦点を当てた",
-    "multichainDex": "マルチチェイン分散型取引所",
-    "crossChainBridge": "クロスチェーンブリッジ",
-    "bridge": ""
-  },
-
-  "time": {
-    "time": "時間",
-    "1week": "1週間",
-    "1month": "1ヶ月",
-    "day": "日",
-    "hour": "時間"
-  },
-
-  "errorMessages": {
-    "validDeadline": "有効な期限を入力してください。",
-    "transactionMayFail": "トランザクションが失敗する可能性があります。",
-    "transactionMayFrontrun": "トランザクションがフロントランになる可能性があります",
-    "tokenNotWhitelisted": "警告! このトークンはホワイトリストに登録されていません。\n \n カスタムトークンとして追加することで、それ以降のやり取りはすべて自己責任であると確認したことになります。",
-    "invalidTokenAddress": "無効なトークンアドレス",
-    "importTokenWarning": " 既存のトークンの偽物や、本来トークンを持たないプロジェクトのトークンの作成を含め、誰でも任意の名前でBSC上にBEP20トークンを作成することができます。\n \n このインターフェースでは、トークン・アドレスによって任意のトークンを読み込むことができます。任意のBEP20トークンとやりとりする際には、十分に注意し、調査を行ってください。",
-    "importTokenWarningPurchase": "任意のトークンを購入した場合、",
-    "youMaybeUnable": "それを売り戻すことができない可能性があります。",
-    "transactionRejected": "トランザクションが拒否されました。",
-    "willNotSucceed": " このトランザクションは、価格変動や送金手数料により成功しません。スリッページの許容量を増やしてみてください。",
-    "timeoutError": "トランザクションが通りませんでした。おそらく、スリッページの許容範囲を超えたか、期限切れのタイムアウトが原因です。\n 再度お試しいただくか、設定メニューでこれらの設定を変更してください。",
-    "contactSupport": "予期せぬエラーです。サポートにお問い合わせください：どのコールもエラーになりませんでした。",
-    "swapFailed": "スワップ失敗",
-    "insufficientBalance": "{{ balance }}残高不足",
-    "invalidPair": "無効なペア",
-    "tokenAlreadyAdded": " このアドレスのトークンはすでに追加されています",
-    "routingThroughTokens": "これらのトークンを経由した結果、取引に最適な価格が得られました。"
-  },
-  "questionHelperMessages": {
-    "addLiquidity": "流動性を追加すると、自分のポジションを表すプールトークンが与えられます。これらのトークンは、プールのシェアに比例した手数料を自動的に獲得し、いつでも換金することができます。",
-    "removeTokens": "プールトークンを取り除くと、あなたのポジションはプールのシェアに比例して、現在のレートで原資産のトークンに戻されます。未払いの手数料は、あなたが受け取る金額に含まれています。",
-    "transactionRevert": "価格がこの割合以上に不利に変動した場合、あなたのトランザクションは元に戻ります。",
-    "transactionRevertPending": "この期間を超えて保留された場合、トランザクションは元に戻ります。",
-    "findTokenBySearching": "トークンの名前やシンボルを検索するか、下の欄にアドレスを貼り付けてトークンを探してください。",
-    "addCustomToken": "カスタムトークンを追加する。",
-    "toolToFindPairs": "このツールを使って、インターフェースに自動的に表示されないペアを見つけてください。",
-    "transactionWillRevert": "取引が確認される前に大きく不利な価格変動があった場合、トランザクションは元に戻ります。",
-    "feeTreasury": "各取引に対して、0.25%の手数料が支払われます。0.20%は流動性提供者に、0.05%はGravisSwapトレジャリーに支払われます。",
-    "differenceBetweenMarket": "取引量による市場価格とあなたの価格との差。"
+    "bridge": "bridge"
   },
   "mainMenu": {
-    "liquidity": "プール",
     "home": "ホーム",
     "trade": "交換",
-    "more": "もっと見る",
-    "github": "GitHub",
-    "blog": "ブログ",
-    "docs": "Docs",
+    "liquidity": "プール",
     "migrate": "移行",
-    "pitchDeck": "ピッチデッキ",
-    "tokenomics": "トケノミクス",
     "analytics": {
       "analytics": "アナリティクス",
       "overview": "概要",
       "tokens": "トークン",
-      "pairs": "ペア",
-      "gswap": "Gスワップ"
+      "pairs": "ペア"
     },
     "ino": {
       "ino": "INO",
-      "bbRound": "ビッグバンラウンド",
-      "angelRound": "エンジェルラウンド"
+      "bbRound": "ビッグバンラウンド"
     },
+    "more": "もっと見る",
+    "github": "GitHub",
+    "blog": "ブログ",
+    "pitchDeck": "ピッチデッキ",
+    "tokenomics": "トケノミクス",
     "NFTFarming": "NFTファーミング",
     "nftmarket": "NFTマーケット"
   }
