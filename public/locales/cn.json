@@ -361,41 +361,46 @@
     "invalidPair": "无效对",
     "tokenAlreadyAdded": "已添加带有此地址的代币",
     "routingThroughTokens": "通过这些代币选择路线会为您的交易带来最佳价格"
+  "mainMessageDesktop": {
+    "nftFocused": "NFT-focused",
+    "multichainDex": "multichain DEX with",
+    "crossChainBridge": "cross-chain bridge"
   },
-  "questionHelperMessages": {
-    "addLiquidity": "当您增加流动性时，您将获得代表您头寸的池代币。这些代币会自动赚取与您的池份额成比例的费用，并且可以随时兑换",
-    "removeTokens": "移除池代币将您的头寸按当前利率转换回基础代币，与您在池中的份额成比例。应收手续费包含在您收到的金额中",
-    "transactionRevert": "如果价格的变化超过这个百分比，你的交易将会取消",
-    "transactionRevertPending": "如果交易处理超过这个时间，你的交易将会取消",
-    "findTokenBySearching": "通过搜索代币的名称或符号或在下面粘贴其地址来查找代币",
-    "addCustomToken": "添加自定义代币",
-    "toolToFindPairs": "使用此工具查找不会自动出现在界面中的配对",
-    "transactionWillRevert": "如果在你的交易确认之前有大额交易，造成的价格变动，你的交易将会取消",
-    "feeTreasury": "每笔交易支付0.25%费用，0.20%给流动性提供者，0.05%给GravisSwap 国库",
-    "differenceBetweenMarket": "市场价格和你的价格之间的差异是由交易规模决定的"
+  "mainMessageMobile": {
+    "bridge": "bridge"
   },
+  "presentationLink": "https://gateway.pinata.cloud/ipfs/QmQyWnMBruL7n7vqyVYxNXQdpm5rffj9e1Wr2Q48LU9PvY/gravis_presentation.pdf",
+  "learnMore": "Learn more",
+  "tradeNow": "Trade now!",
+  "poweredBy": "Powered by",
+  "comingSoon": "很快来。",
   "mainMenu": {
-    "liquidity": "池",
     "home": "主页",
     "trade": "兑换",
-    "more": "更多",
-    "github": "GitHub",
-    "blog": "博客",
-    "docs": "文档",
+    "liquidity": "池",
     "migrate": "迁移",
-    "pitchDeck": "简报",
-    "tokenomics": "代币经济学",
     "analytics": {
       "analytics": "分析学",
       "overview": "概要",
       "tokens": "代币",
-      "pairs": "交易对",
-      "gswap": "Gswap"
+      "pairs": "交易对"
     },
     "ino": {
       "ino": "INO",
-      "bbRound": "大爆炸回合",
-      "angelRound": "天使轮"
-    }
-  }
+      "bbRound": "大爆炸回合"
+    },
+    "more": "更多",
+    "github": "GitHub",
+    "blog": "博客",
+    "pitchDeck": "简报",
+    "tokenomics": "代币经济学"
+  },
+  "swap": "兑换",
+  "language": "cn",
+  "connect": "连接",
+  "connectToWallet": "连接到钱包",
+  "learnHowConnect": "学习如何连接",
+  "logout": "登出",
+  "viewOnBscscan": "在BSCScan浏览器上查看",
+  "copyAddress": "复制地址"
 }

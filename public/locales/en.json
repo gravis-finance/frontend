@@ -314,75 +314,41 @@
     "multichainDex": "multichain DEX with",
     "crossChainBridge": "cross-chain bridge"
   },
-
   "mainMessageMobile": {
-    "nftFocused": "NFT-focused",
-    "multichainDex": "multichain DEX",
-    "crossChainBridge": "with cross-chain",
     "bridge": "bridge"
   },
-
-  "time": {
-    "time": "Time",
-    "1week": "1W",
-    "1month": "1M",
-    "day": "D",
-    "hour": "H"
-  },
-
-  "errorMessages": {
-    "validDeadline": "Enter a valid deadline",
-    "transactionMayFail": "Your transaction may fail",
-    "transactionMayFrontrun": "Your transaction may be frontrun",
-    "tokenNotWhitelisted": "Warning! This token is not whitelisted.\nBy adding it as a custom token, you confirm that all further interactions with it are at your own risk.",
-    "invalidTokenAddress": "Invalid token address",
-    "importTokenWarning": "Anyone can create an BEP20 token on BSC with any name, including creating fake versions of existing tokens and tokens that claim to represent projects that do not have a token.\nThis interface can load arbitrary tokens by token addresses. Please take extra caution and do your research when interacting with arbitrary BEP20 tokens.",
-    "importTokenWarningPurchase": "If you purchase an arbitrary token, ",
-    "youMaybeUnable": "you may be unable to sell it back.",
-    "transactionRejected": "Transaction rejected.",
-    "willNotSucceed": "This transaction will not succeed either due to price movement or fee on transfer. Try increasing your slippage tolerance.",
-    "timeoutError": "The transaction cannot succeed. This is probably caused by overrunning the slippage tolerance or expiring timeout.\n Please try again or change these settings in the Settings menu.",
-    "contactSupport": "Unexpected error. Please contact support: none of the calls threw an error",
-    "swapFailed": "Swap failed",
-    "insufficientBalance": "Insufficient {{ balance }} balance",
-    "invalidPair": "Invalid pair",
-    "tokenAlreadyAdded": "Token with this address already added",
-    "routingThroughTokens": "Routing through these tokens resulted in the best price for your trade."
-  },
-  "questionHelperMessages": {
-    "addLiquidity": "When you add liquidity, you are given pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time.",
-    "removeTokens": "Removing pool tokens converts your position back into underlying tokens at the current rate, proportional to your share of the pool. Accrued fees are included in the amounts you receive.",
-    "transactionRevert": "Your transaction will revert if the price changes unfavorably by more than this percentage.",
-    "transactionRevertPending": "Your transaction will revert if it is pending for more than this long.",
-    "findTokenBySearching": "Find a token by searching for its name or symbol or by pasting its address below.",
-    "addCustomToken": "Add a custom token.",
-    "toolToFindPairs": "Use this tool to find pairs that don't automatically appear in the interface",
-    "transactionWillRevert": "Your transaction will revert if there is a large, unfavorable price movement before it is confirmed.",
-    "feeTreasury": "For each trade a 0.25% fee is paid. 0.20% goes to liquidity providers and 0.05% goes to the GravisSwap treasury.",
-    "differenceBetweenMarket": "The difference between the market price and your price due to trade size."
-  },
+  "presentationLink": "https://gateway.pinata.cloud/ipfs/QmQyWnMBruL7n7vqyVYxNXQdpm5rffj9e1Wr2Q48LU9PvY/gravis_presentation.pdf",
+  "learnMore": "Learn more",
+  "tradeNow": "Trade now!",
+  "poweredBy": "Powered by",
+  "comingSoon": "Coming soon",
   "mainMenu": {
-    "liquidity": "Pool",
     "home": "Home",
     "trade": "Exchange",
-    "more": "More",
-    "github": "GitHub",
-    "blog": "Blog",
-    "docs": "Docs",
+    "liquidity": "Pool",
     "migrate": "Migrate",
-    "pitchDeck": "Pitch Deck",
-    "tokenomics": "Tokenomics",
     "analytics": {
       "analytics": "Analytics",
       "overview": "Overview",
       "tokens": "Tokens",
-      "pairs": "Pairs",
-      "gswap": "Gswap"
+      "pairs": "Pairs"
     },
     "ino": {
       "ino": "INO",
-      "bbRound": "Big Bang Round",
-      "angelRound": "Angel Round"
-    }
-  }
+      "bbRound": "Big Bang Round"
+    },
+    "more": "More",
+    "github": "GitHub",
+    "blog": "Blog",
+    "pitchDeck": "Pitch Deck",
+    "tokenomics": "Tokenomics"
+  },
+  "swap": "Swap",
+  "language": "en",
+  "connect": "Connect",
+  "connectToWallet": "Connect to a wallet",
+  "learnHowConnect": "Learn how to connect",
+  "logout": "Logout",
+  "viewOnBscscan": "View on BSCScan",
+  "copyAddress": "Copy Address"
 }
