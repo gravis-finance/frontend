@@ -361,46 +361,48 @@
     "invalidPair": "无效对",
     "tokenAlreadyAdded": "已添加带有此地址的代币",
     "routingThroughTokens": "通过这些代币选择路线会为您的交易带来最佳价格"
-  "mainMessageDesktop": {
-    "nftFocused": "NFT-focused",
-    "multichainDex": "multichain DEX with",
-    "crossChainBridge": "cross-chain bridge"
-  },
-  "mainMessageMobile": {
-    "bridge": "bridge"
-  },
-  "presentationLink": "https://gateway.pinata.cloud/ipfs/QmQyWnMBruL7n7vqyVYxNXQdpm5rffj9e1Wr2Q48LU9PvY/gravis_presentation.pdf",
-  "learnMore": "Learn more",
-  "tradeNow": "Trade now!",
-  "poweredBy": "Powered by",
-  "comingSoon": "很快来。",
-  "mainMenu": {
-    "home": "主页",
-    "trade": "兑换",
-    "liquidity": "池",
-    "migrate": "迁移",
-    "analytics": {
-      "analytics": "分析学",
-      "overview": "概要",
-      "tokens": "代币",
-      "pairs": "交易对"
+    "mainMessageDesktop": {
+      "nftFocused": "NFT-focused",
+      "multichainDex": "multichain DEX with",
+      "crossChainBridge": "cross-chain bridge"
     },
-    "ino": {
-      "ino": "INO",
-      "bbRound": "大爆炸回合"
+    "mainMessageMobile": {
+      "bridge": "bridge"
     },
-    "more": "更多",
-    "github": "GitHub",
-    "blog": "博客",
-    "pitchDeck": "简报",
-    "tokenomics": "代币经济学"
-  },
-  "swap": "兑换",
-  "language": "cn",
-  "connect": "连接",
-  "connectToWallet": "连接到钱包",
-  "learnHowConnect": "学习如何连接",
-  "logout": "登出",
-  "viewOnBscscan": "在BSCScan浏览器上查看",
-  "copyAddress": "复制地址"
-}
+    "presentationLink": "https://gateway.pinata.cloud/ipfs/QmQyWnMBruL7n7vqyVYxNXQdpm5rffj9e1Wr2Q48LU9PvY/gravis_presentation.pdf",
+    "learnMore": "Learn more",
+    "tradeNow": "Trade now!",
+    "poweredBy": "Powered by",
+    "comingSoon": "很快来。",
+    "mainMenu": {
+      "home": "主页",
+      "trade": "兑换",
+      "liquidity": "池",
+      "migrate": "迁移",
+      "analytics": {
+        "analytics": "分析学",
+        "overview": "概要",
+        "tokens": "代币",
+        "pairs": "交易对"
+      },
+      "ino": {
+        "ino": "INO",
+        "bbRound": "大爆炸回合"
+      },
+      "more": "更多",
+      "github": "GitHub",
+      "blog": "博客",
+      "pitchDeck": "简报",
+      "tokenomics": "代币经济学"
+    },
+    "swap": "兑换",
+    "language": "cn",
+    "connect": "连接",
+    "connectToWallet": "连接到钱包",
+    "learnHowConnect": "学习如何连接",
+    "logout": "登出",
+    "viewOnBscscan": "在BSCScan浏览器上查看",
+    "copyAddress": "复制地址",
+    "NFTFarming": "NFT农业",
+    "nftmarket": "NFT市场"
+  }

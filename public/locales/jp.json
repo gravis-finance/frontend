@@ -317,11 +317,6 @@
   "mainMessageMobile": {
     "bridge": "bridge"
   },
-  "presentationLink": "http://gateway.pinata.cloud/ipfs/QmS3gYhCphkyDN1GWg3TTqKFdJUCGXTKiGpi6BhSupjpJb/Gravis_presentation_JP.pdf",
-  "learnMore": "ﾂづ慊つｷﾂ。",
-  "tradeNow": "今すぐトレード！",
-  "poweredBy": "によって供給",
-  "comingSoon": "ﾂづ慊つｷﾂ。",
   "mainMenu": {
     "home": "ホーム",
     "trade": "交換",
@@ -341,14 +336,8 @@
     "github": "GitHub",
     "blog": "ブログ",
     "pitchDeck": "ピッチデッキ",
-    "tokenomics": "トケノミクス"
-  },
-  "swap": "スワップ",
-  "language": "jp",
-  "connect": "接続する",
-  "connectToWallet": "ウォレットと接続",
-  "learnHowConnect": "接続方法について学ぶ",
-  "logout": "ログアウト",
-  "viewOnBscscan": "BSCScanで見る",
-  "copyAddress": "アドレスをコピー"
+    "tokenomics": "トケノミクス",
+    "NFTFarming": "NFTファーミング",
+    "nftmarket": "NFTマーケット"
+  }
 }
