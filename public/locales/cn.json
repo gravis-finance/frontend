@@ -279,17 +279,14 @@
   "networkSwitchingError": "网络切换错误",
   "differentNetworks": "我们发现您的钱包和我们的网站上选择了不同的网络。",
   "presentationLink": "https://gateway.pinata.cloud/ipfs/QmQyWnMBruL7n7vqyVYxNXQdpm5rffj9e1Wr2Q48LU9PvY/gravis_presentation.pdf",
-
   "changeNetworkInTheWallet": "在钱包里换网络",
   "orChangeNetwork": " 或者在我们的网站上更改网络",
   "changeManually": "我们发现您的钱包和我们的网站中选择了不同的网络。请手动更改钱包中的网络或使用下面的按钮",
-
   "continue": "继续",
   "for": "为",
   "language": "cn",
   "inPool": "在游泳池",
   "comingSoon": "很快来。",
-
   "viewPairAnalytics": "查看交易对分析",
   "readingBlockchain": "阅读区块链",
   "addToMetamask": "添加到Metamask",
@@ -331,11 +328,10 @@
   "estimation": "估计",
   "place": "地方",
   "provideSecondToken": "提供第二个代币",
-  "pendingActionInWallet": "You have a pending action in the wallet.",
-  "confirmNetworkChange": "Please, confirm network change",
-  "nftFarmingAvailable": "Big Bang NFT farming和GMart NFT trading post现已上线！",
-  "jumpHere": "跳入参与 <a style='color: #009CE1; cursor: pointer; font-weight: 600;' href=https://nftfarming.gravis.finance>这里</a> 或 <a style='color: #009CE1; cursor: pointer; font-weight: 600;' href=https://gmart.gravis.finance>这里.</a>",
-
+  "pendingActionInWallet": "您在钱包中有一个待处理的操作。",
+  "confirmNetworkChange": "请确认网络变更",
+  "nftFarmingAvailable": "的销售 (A)steroid Mining 船长收集已经开始!",
+  "jumpHere": "赶快参加吧。 <a style='color: #009CE1; cursor: pointer; font-weight: 600;' href=https://captains.gravis.finance>买船长！</a>",
   "time": {
     "time": "时间",
     "1week": "1w",
@@ -360,7 +356,7 @@
     "insufficientBalance": "余额{{ balance }} 不足",
     "invalidPair": "无效对",
     "tokenAlreadyAdded": "已添加带有此地址的代币",
-    "routingThroughTokens": "通过这些代币选择路线会为您的交易带来最佳价格"
+    "routingThroughTokens": "通过这些代币选择路线会为您的交易带来最佳价格",
     "mainMessageDesktop": {
       "nftFocused": "NFT-focused",
       "multichainDex": "multichain DEX with",
@@ -395,7 +391,10 @@
       "pitchDeck": "简报",
       "tokenomics": "代币经济学",
       "NFTFarming": "NFT农业",
-      "nftmarket": "NFT市场"
+      "nftmarket": "NFT市场",
+      "asteroidMining": "小行星采矿",
+      "captainsIno": "船长 INO",
+      "docs": "文档"
     },
     "swap": "兑换",
     "language": "cn",
@@ -408,3 +407,4 @@
     "NFTFarming": "NFT农业",
     "nftmarket": "NFT市场"
   }
+}
