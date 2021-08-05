@@ -61,16 +61,6 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
       ],
     },
     {
-      label: t('mainMenu.ino.ino'),
-      icon: 'BigBangIcon',
-      items: [
-        {
-          label: t('mainMenu.ino.bbRound'),
-          href: `${process.env.REACT_APP_BIG_BANG_URL}/bigbangnft?${urlSearchLanguageParam}=${t('language')}`,
-        }
-      ]
-    },
-    {
       label: t('mainMenu.nftmarket'),
       icon: 'NFTMarketIcon',
       items: [
