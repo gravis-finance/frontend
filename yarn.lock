@@ -2163,6 +2163,19 @@
   resolved "https://registry.yarnpkg.com/@graphql-typed-document-node/core/-/core-3.1.0.tgz#0eee6373e11418bfe0b5638f654df7a4ca6a3950"
   integrity sha512-wYn6r8zVZyQJ6rQaALBEln5B1pzxb9shV5Ef97kTvn6yVGrqyXVnDqnU24MXnFubR+rZjBY9NWuxX3FB2sTsjg==
 
+"@gravis.finance/sdk@^1.0.13":
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/@gravis.finance/sdk/-/sdk-1.0.14.tgz#26f1c6088bdb8998556321ec305eddc0917dfd34"
+  integrity sha512-fR/UujteY2RMnZGho9MBrnnQJwLHJ90A08SMI4JPzlRYIUMPeINFVHGWS9bGDpTYGWjEpAVDydJYQffe3xKoRQ==
+  dependencies:
+    "@pancakeswap-libs/pancake-swap-core" "^0.1.0"
+    big.js "^5.2.2"
+    decimal.js-light "^2.5.0"
+    jsbi "^3.1.1"
+    tiny-invariant "^1.1.0"
+    tiny-warning "^1.0.3"
+    toformat "^2.0.0"
+
 "@gravis.finance/sdk@^1.0.6":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@gravis.finance/sdk/-/sdk-1.0.6.tgz#f0219d8c238b9877fa0d93ee3e045832d5f554d6"
@@ -2176,25 +2189,12 @@
     tiny-warning "^1.0.3"
     toformat "^2.0.0"
 
-"@gravis.finance/sdk@^1.0.9":
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/@gravis.finance/sdk/-/sdk-1.0.9.tgz#2b28032859ca03b75875d75ae731d4b816c22b16"
-  integrity sha512-LC3k2UKgnF+GDk37yjRXQRCzjunHbsOIlwzwpn7tSvoFlgLk8/RulwbaAR/Cb+uZAt/iTbyaF/gqnQ/983KYeQ==
+"@gravis.finance/uikit@^1.2.44":
+  version "1.2.44"
+  resolved "https://registry.yarnpkg.com/@gravis.finance/uikit/-/uikit-1.2.44.tgz#5879765ce52c2a7295817c3939a5a0f3c0795ef4"
+  integrity sha512-J2E2z9dhl7/9XqQJUAp4lj8CWDpc5p7Ya0gkCtL3WHafdtKzgnVEp5YucbwyJ3mcaf5+zfDd0dp+yjCSVFYKDQ==
   dependencies:
-    "@pancakeswap-libs/pancake-swap-core" "^0.1.0"
-    big.js "^5.2.2"
-    decimal.js-light "^2.5.0"
-    jsbi "^3.1.1"
-    tiny-invariant "^1.1.0"
-    tiny-warning "^1.0.3"
-    toformat "^2.0.0"
-
-"@gravis.finance/uikit@^1.2.25":
-  version "1.2.25"
-  resolved "https://registry.yarnpkg.com/@gravis.finance/uikit/-/uikit-1.2.25.tgz#bc974488beee39be5da152bae07a45e645db0f80"
-  integrity sha512-vdywKOHytb8MD7PahQMqSIy7Oz9Q9nKD0ot1Heg2LCL3wi++fYl8+BMCKXNf23cRimH2oqEyzCKykShDh271eQ==
-  dependencies:
-    "@gravis.finance/sdk" "^1.0.9"
+    "@gravis.finance/sdk" "^1.0.13"
     "@popperjs/core" "^2.9.2"
     "@types/lodash" "^4.14.162"
     "@types/styled-system" "^5.1.10"

@@ -298,12 +298,12 @@
   "nftCards": "Hurry up and take part!",
   "findInIno": "Read more about Shibomania Terms and Conditions on our ",
   "poweredBy": "によって供給",
-  "addToMetamask": "Add to Metamask",
-  "pendingActionInWallet": "You have a pending action in the wallet.",
-  "confirmNetworkChange": "Please, confirm network change",
+  "addToMetamask": "Metamaskに追加",
+  "pendingActionInWallet": "ウォレットに保留中のアクションがあります。",
+  "confirmNetworkChange": "ネットワークの変更を確認してください",
   "mediumLink": "https://gravis-finance.medium.com/gravis-finance%E3%81%AFshiba%E3%81%AB%E5%A4%A2%E4%B8%AD-4f6a4de711bb",
-  "nftFarmingAvailable": "ビッグバンNFT農業とGMart NFTトレーディングポストはライブです！",
-  "jumpHere": "参加するためにジャンプします <a style='color: #009CE1; cursor: pointer; font-weight: 600;' href=https://nftfarming.gravis.finance>ここでは、</a> または <a style='color: #009CE1; cursor: pointer; font-weight: 600;' href=https://gmart.gravis.finance>ここでは、.</a>",
+  "nftFarmingAvailable": "の販売 (A)steroid Mining キャプテンズコレクションが開始されました!",
+  "jumpHere": "参加するために急いで。 <a style='color: #009CE1; cursor: pointer; font-weight: 600;' href=https://captains.gravis.finance>キャプテンを買う！</a>",
   "buyNFT": "NFTを購入",
   "sellNFT": "NFTを売る",
   "sendNFT": "NFTの送信",
@@ -318,26 +318,31 @@
     "bridge": "bridge"
   },
   "mainMenu": {
+    "liquidity": "プール",
     "home": "ホーム",
     "trade": "交換",
-    "liquidity": "プール",
+    "more": "もっと見る",
+    "github": "GitHub",
+    "blog": "ブログ",
+    "docs": "ドキュメント",
     "migrate": "移行",
+    "pitchDeck": "ピッチデッキ",
+    "tokenomics": "トケノミクス",
     "analytics": {
       "analytics": "アナリティクス",
       "overview": "概要",
       "tokens": "トークン",
-      "pairs": "ペア"
+      "pairs": "ペア",
+      "gswap": "Gスワップ"
     },
     "ino": {
       "ino": "INO",
-      "bbRound": "ビッグバンラウンド"
+      "bbRound": "ビッグバンラウンド",
+      "angelRound": "エンジェルラウンド"
     },
-    "more": "もっと見る",
-    "github": "GitHub",
-    "blog": "ブログ",
-    "pitchDeck": "ピッチデッキ",
-    "tokenomics": "トケノミクス",
-    "NFTFarming": "NFTファーミング",
-    "nftmarket": "NFTマーケット"
+    "NFTFarming": "NFT 農業",
+    "nftmarket": "NFTマーケット",
+    "asteroidMining": "小惑星鉱業",
+    "captainsIno": "キャプテン INO"
   }
 }

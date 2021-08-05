@@ -5,7 +5,7 @@
   "installWeb3MobileBrowser": "Please visit us from a web3-enabled mobile browser such as Trust Wallet or Coinbase Wallet.",
   "installMetamask": "Please visit us after installing Metamask on Chrome or Brave.",
   "disconnected": "Disconnected",
-  "swap": "Swap",
+  "swap": "Обменять",
   "swapAnyway": "Swap Anyway",
   "send": "Send",
   "sendAnyway": "Send Anyway",
@@ -282,13 +282,13 @@
   "changeNetworkInTheWallet": "Change network in the wallet",
   "orChangeNetwork": "Or change network on our site",
   "changeManually": "We found that you have different networks\nselected in your wallet and on our site.\nChange network in your wallet manually or use the button below",
-  "learnMore": "Learn more",
-  "tradeNow": "Trade now!",
+  "learnMore": "Подробнее",
+  "tradeNow": "Торговать сейчас!",
   "weLaunched": "Gravis Finance has launched Shibomania on the Polygon network!",
   "hurryUp": "Shibomania Promo started at 9 am UTC, June 15, 2021, and will continue for 2 weeks, finishing at 9 am UTC, June 29, 2021.",
   "nftCards": "Hurry up and take part!",
   "findInIno": "Read more about Shibomania Terms and Conditions on our ",
-  "poweredBy": "Powered by",
+  "poweredBy": "Работает на",
   "continue": "Continue",
   "for": "for",
   "language": "en",
@@ -296,30 +296,30 @@
   "viewPairAnalytics": "View pair analytics",
   "provideSecondToken": "Provide second token",
   "readingBlockchain": "Reading blockchain...",
-  "comingSoon": "Coming soon",
+  "comingSoon": "Скоро",
   "addToMetamask": "Add to Metamask",
   "pendingActionInWallet": "You have a pending action in the wallet.",
   "confirmNetworkChange": "Please, confirm network change",
   "mediumLink": "https://gravis-finance.medium.com/gravis-finance-goes-crazy-with-shiba-335c840bd2c3",
   "presentationLink": "https://gateway.pinata.cloud/ipfs/QmQyWnMBruL7n7vqyVYxNXQdpm5rffj9e1Wr2Q48LU9PvY/gravis_presentation.pdf",
-  "nftFarmingAvailable": "The sale of (A)steroid Mining Captains Collection has started!",
-  "jumpHere": "Hurry up to participate. <a style='color: #009CE1; cursor: pointer; font-weight: 600;' href=https://captains.gravis.finance>Buy Captains!</a>",
-  "buyNFT": "Buy NFT",
-  "sellNFT": "Sell NFT",
-  "sendNFT": "Send NFT",
+  "nftFarmingAvailable": "Продажа (A)steroid Mining Капитанов началась!",
+  "jumpHere": "Поторопитесь поучаствовать. <a style='color: #009CE1; cursor: pointer; font-weight: 600;' href=https://captains.gravis.finance>Купить капитанов!</a>",
+  "buyNFT": "Купить NFT",
+  "sellNFT": "Продать NFT",
+  "sendNFT": "Отправить NFT",
   "NFTFarming": "NFT Farming",
 
   "mainMessageDesktop": {
-    "nftFocused": "NFT-focused",
-    "multichainDex": "multichain DEX with",
-    "crossChainBridge": "cross-chain bridge"
+    "nftFocused": "NFT-ориентированная",
+    "multichainDex": "многосетевая Децентрализованная биржа",
+    "crossChainBridge": "межсетевой мост"
   },
 
   "mainMessageMobile": {
-    "nftFocused": "NFT-focused",
-    "multichainDex": "multichain DEX",
-    "crossChainBridge": "with cross-chain",
-    "bridge": "bridge"
+    "nftFocused": "NFT-ориентированная",
+    "multichainDex": "многосетевая Децентрализованная биржа",
+    "crossChainBridge": "межсетевой",
+    "bridge": "мост"
   },
 
   "time": {
@@ -362,21 +362,21 @@
     "differenceBetweenMarket": "The difference between the market price and your price due to trade size."
   },
   "mainMenu": {
-    "liquidity": "Pool",
-    "home": "Home",
-    "trade": "Exchange",
-    "more": "More",
+    "home": "Главная",
+    "trade": "Биржа",
+    "liquidity": "Ликвидность",
+    "more": "Подробнее",
     "github": "GitHub",
-    "blog": "Blog",
-    "docs": "Docs",
-    "migrate": "Migrate",
+    "blog": "Блог",
+    "docs": "Документы",
+    "migrate": "Миграция",
     "pitchDeck": "Pitch Deck",
     "tokenomics": "Tokenomics",
     "analytics": {
-      "analytics": "Analytics",
-      "overview": "Overview",
-      "tokens": "Tokens",
-      "pairs": "Pairs",
+      "analytics": "Аналитика",
+      "overview": "Обзор",
+      "tokens": "Токены",
+      "pairs": "Пары",
       "gswap": "Gswap"
     },
     "ino": {
@@ -384,9 +384,9 @@
       "bbRound": "Big Bang Round",
       "angelRound": "Angel Round"
     },
-    "NFTFarming": "NFT Farming",
-    "nftmarket": "NFT Market",
+    "NFTFarming": "NFT Фарминг",
+    "nftmarket": "NFT Маркет",
     "asteroidMining": "(A)steroid Mining",
-    "captainsIno": "Captains INO"
+    "captainsIno": "Капитаны INO"
   }
 }
