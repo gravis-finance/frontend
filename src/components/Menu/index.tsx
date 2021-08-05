@@ -25,6 +25,22 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
       href: '/',
     },
     {
+      label: t('mainMenu.asteroidMining'),
+      icon: 'AsteroidMiningIcon',
+      blink: true,
+      items: [
+        {
+          label: t('mainMenu.captainsIno'),
+          href: `${process.env.REACT_APP_CAPTAINS_URL}`
+        },
+        {
+          label: t('mainMenu.docs'),
+          href: 'https://docs.gravis.finance/-Mfs8idXX2JlhTmRjO0Y/',
+          external: true
+        }
+      ]
+    },
+    {
       label: t('mainMenu.trade'),
       icon: 'TradeIcon',
       items: [
