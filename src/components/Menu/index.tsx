@@ -31,7 +31,7 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
       items: [
         {
           label: t('mainMenu.captainsIno'),
-          href: `${process.env.REACT_APP_CAPTAINS_URL}`
+          href: `${process.env.REACT_APP_CAPTAINS_URL}?${urlSearchLanguageParam}=${t('language')}`
         },
         {
           label: t('mainMenu.docs'),
@@ -82,22 +82,22 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
       items: [
         {
           label: t('buyNFT'),
-          href: `${process.env.REACT_APP_GMART_URL}/buy`,
+          href: `${process.env.REACT_APP_GMART_URL}/buy?${urlSearchLanguageParam}=${t('language')}`,
         },
         {
           label: t('sellNFT'),
-          href: `${process.env.REACT_APP_GMART_URL}/sell`,
+          href: `${process.env.REACT_APP_GMART_URL}/sell?${urlSearchLanguageParam}=${t('language')}`,
         },
         {
           label: t('sendNFT'),
-          href: `${process.env.REACT_APP_GMART_URL}/transfer`,
+          href: `${process.env.REACT_APP_GMART_URL}/transfer?${urlSearchLanguageParam}=${t('language')}`,
         },
       ]
     },
     {
       label: t('mainMenu.NFTFarming'),
       icon: 'NFTFarmingIcon',
-      href: process.env.REACT_APP_NFTFARMING_URL
+      href: `${process.env.REACT_APP_NFTFARMING_URL}?${urlSearchLanguageParam}=${t('language')}`
     },
     {
       label: t('mainMenu.more'),
