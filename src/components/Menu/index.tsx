@@ -35,7 +35,7 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
         },
         {
           label: t('mainMenu.docs'),
-          href: 'https://docs.gravis.finance/-Mfs8idXX2JlhTmRjO0Y/',
+          href: 'https://docs.gravis.finance',
           external: true
         }
       ]
