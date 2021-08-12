@@ -3,7 +3,6 @@ import styled from 'styled-components'
 // import Lottie from 'react-lottie-player'
 import { useTranslation } from 'react-i18next'
 import { Flex } from '@gravis.finance/uikit'
-import GreetingsConfetti from './GreetingsConfetti'
 import {
   AIcon,
   ArrowDownIcon,
@@ -350,7 +349,6 @@ const HomeGreetings: React.FC = () => {
 
   return (
     <GreetingsWrapper>
-      <GreetingsConfetti />
       <StyledAppContainer>
         <Body>
           <MainText>
