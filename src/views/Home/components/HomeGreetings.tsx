@@ -135,16 +135,40 @@ const Body = styled.div`
 
 const MainText = styled.div<{ mobile?: boolean }>`
   color: white;
+  width: content-fit;
+  height: 95px;
   text-align: center;
   font-weight: 700;
-  font-size: 70px;
+  font-size: 85px;
   padding: 0;
   ${({ mobile }) => (mobile ? 'display: none;' : 'display: block;')}
+  
+  @media screen and (max-width: 1380px) {
+    font-size: 60px;
+  }
+  
+  @media screen and (max-width: 1140px) {
+    font-size: 45px;
+  }
 
   @media screen and (max-width: 670px) {
     ${({ mobile }) => (mobile ? 'display: block;' : 'display: none;')}
     font-size: 37px;
   }
+  
+  @media screen and (max-width: 525px) {
+    ${({ mobile }) => (mobile ? 'display: block;' : 'display: none;')}
+    font-size: 25px;
+  }
+`
+
+const AdditionalText = styled.div`
+  margin-top: 14px;
+  color: white;
+  text-align: center;
+  font-family: 'Inter var'
+  font-weight: 500;
+  font-size: 28px;
 `
 
 const Button = styled.a<{ type: string }>`
@@ -179,7 +203,8 @@ const Text = styled.p<{ small?: boolean }>`
   margin-top: 77px;
   font-weight: 500;
   font-size: 23px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 1px 1px 10px;
 
   ${({ small }) =>
     small
@@ -324,6 +349,7 @@ const DescriptionText = styled.div<{ mobile?: boolean }>`
   color: white;
   max-width: 90%;
   margin-top: 15px;
+  font-family: 'Inter var';
   text-align: center;
   font-weight: 300;
   font-size: 20px;
@@ -345,7 +371,7 @@ const HomeGreetings: React.FC = () => {
 
   useEffect(()=>{
     // @ts-ignore
-    descriptionRef.current.innerHTML = t('jumpHere')
+    descriptionRef.current.innerHTML = t('getReady')
   }, [t])
 
   return (
@@ -354,13 +380,14 @@ const HomeGreetings: React.FC = () => {
       <StyledAppContainer>
         <Body>
           <MainText>
-            {t('mainMessageDesktop.nftFocused')} <br /> {t('mainMessageDesktop.multichainDex')} <br />{' '}
-            {t('mainMessageDesktop.crossChainBridge')}
+            {t('mainMessageDesktop.gamified')}
           </MainText>
           <MainText mobile>
-            {t('mainMessageDesktop.nftFocused')} <br /> {t('mainMessageDesktop.multichainDex')} <br />{' '}
-            {t('mainMessageDesktop.crossChainBridge')}
+            {t('mainMessageDesktop.gamified')}
           </MainText>
+          <AdditionalText>
+            {t('mainMessageDesktop.smartNFTAssets')}
+          </AdditionalText>
           <Flex alignItems="center" style={{ marginTop: '25px' }}>
             <Button type="default" href={t('presentationLink')} target="_blank">
               <StyledArrowDownIcon />
@@ -372,7 +399,7 @@ const HomeGreetings: React.FC = () => {
               </Button>
             </InputContainer>
           </Flex>
-          <DescriptionTextHeadline>{t('nftFarmingAvailable')}</DescriptionTextHeadline>
+          <DescriptionTextHeadline>{t('nftFarmingSoon')}</DescriptionTextHeadline>
 
           <DescriptionText ref={descriptionRef}/>
         </Body>
