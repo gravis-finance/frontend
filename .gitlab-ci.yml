@@ -10,7 +10,7 @@ build:
     script:
         - yarn global add dotenv-cli
         - yarn install
-        - yarn build
+        - yarn build:dev
     artifacts:
         expire_in: 1 week
         paths:
@@ -19,8 +19,7 @@ deploy_develop:
     stage: deploy
     tags: 
       - shell
-      - prod
+      - dev
       - deploy-runner
-    when: manual
     script:
         - rsync -a ./build/* /var/www/frontend
