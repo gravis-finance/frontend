@@ -135,7 +135,7 @@ const Body = styled.div`
 
 const MainText = styled.div<{ mobile?: boolean }>`
   color: white;
-  width: content-fit;
+  width: fit-content;
   height: 95px;
   text-align: center;
   font-weight: 700;
@@ -143,7 +143,7 @@ const MainText = styled.div<{ mobile?: boolean }>`
   padding: 0;
   ${({ mobile }) => (mobile ? 'display: none;' : 'display: block;')}
   
-  @media screen and (max-width: 1380px) {
+  @media screen and (max-width: 1435px) {
     font-size: 60px;
   }
   
@@ -152,12 +152,14 @@ const MainText = styled.div<{ mobile?: boolean }>`
   }
 
   @media screen and (max-width: 670px) {
-    ${({ mobile }) => (mobile ? 'display: block;' : 'display: none;')}
     font-size: 37px;
   }
   
   @media screen and (max-width: 525px) {
-    ${({ mobile }) => (mobile ? 'display: block;' : 'display: none;')}
+    font-size: 30px;
+  }
+  
+  @media screen and (max-width: 430px) {
     font-size: 25px;
   }
 `
@@ -203,7 +205,7 @@ const Text = styled.p<{ small?: boolean }>`
   margin-top: 77px;
   font-weight: 500;
   font-size: 23px;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 215, 0, 1);
   text-shadow: 1px 1px 10px;
 
   ${({ small }) =>

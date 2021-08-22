@@ -23,16 +23,18 @@ const Wrapper = styled.div`
 
 const StyledBackground = styled.div`
   height: 100%;
+  min-height: 100%;
+  width: 100vw;
   position: absolute;
   left: 0;
   top 0;
   bottom: 0;
   right: 0;
   background-image: url(${background});
-  background-size: cover;
+  background-position: center center;    
   background-repeat: no-repeat;
-  background-position: center center;
   background-attachment: fixed;
+  background-size: cover;
   z-index: 1;
 `
 
