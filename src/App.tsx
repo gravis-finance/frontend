@@ -34,6 +34,15 @@ const StyledBackground = styled.div`
   background-position: center center;
   background-attachment: fixed;
   z-index: 1;
+  
+  :after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 135px;
+    background: linear-gradient(rgba(28, 28, 28, 0.1) 0%, rgb(28, 28, 28) 100%);
+    bottom: -1px;
+  }
 `
 
 const App: React.FC = () => {
