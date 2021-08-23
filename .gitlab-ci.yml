@@ -54,4 +54,4 @@ deploy_develop:
       - dev
       - deploy-runner
     script:
-        - rsync -a ./build/* /var/www/frontend
+        - rsync -a ./build/* /var/www/frontend/dev
