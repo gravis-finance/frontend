@@ -2189,10 +2189,10 @@
     tiny-warning "^1.0.3"
     toformat "^2.0.0"
 
-"@gravis.finance/uikit@^1.2.46":
-  version "1.2.46"
-  resolved "https://registry.yarnpkg.com/@gravis.finance/uikit/-/uikit-1.2.46.tgz#ba9c752ae47b9b204b9a7bd33ce955bf211f0bb6"
-  integrity sha512-mnWtIRUf/EqYiTutQvjBodF+hchOQ7zG6f1ccjFwqpdx++rKCgO4EPBFEjxe63D92U6L3BRi7CTfG/xPioNzdQ==
+"@gravis.finance/uikit@^1.2.51":
+  version "1.2.54"
+  resolved "https://registry.yarnpkg.com/@gravis.finance/uikit/-/uikit-1.2.54.tgz#8dc1f4acddd3d908e8a3a43baa9f1eff82e0d91a"
+  integrity sha512-2KjdD70QoWHRrgOkahwDs2sV5f9KNJtfEA2kNjOUb9LwL+zeyy2t7/KUycUsSOGpfjUNLhbIgoY2VFmocZpd1g==
   dependencies:
     "@gravis.finance/sdk" "^1.0.13"
     "@popperjs/core" "^2.9.2"

@@ -312,14 +312,18 @@
   "mainMessageDesktop": {
     "nftFocused": "NFT-ориентированная",
     "multichainDex": "многосетевая Децентрализованная биржа",
-    "crossChainBridge": "межсетевой мост"
+    "gamified": "Gamified DeFi ecosystem",
+    "crossChainBridge": "межсетевой мост",
+    "smartNFTAssets": "Smart NFT assets. Multichain. Cross-chain. High profit yield farming."
   },
 
   "mainMessageMobile": {
     "nftFocused": "NFT-ориентированная",
     "multichainDex": "многосетевая Децентрализованная биржа",
     "crossChainBridge": "межсетевой",
-    "bridge": "мост"
+    "gamified": "Gamified DeFi ecosystem",
+    "bridge": "мост",
+    "smartNFTAssets": "Smart NFT assets. Multichain. Cross-chain. High profit yield farming."
   },
 
   "time": {
