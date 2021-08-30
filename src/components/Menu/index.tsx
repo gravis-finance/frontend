@@ -34,6 +34,10 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
           href: `${process.env.REACT_APP_CAPTAINS_URL}?${urlSearchLanguageParam}=${t('language')}`
         },
         {
+          label: '(A)steroid pitch deck',
+          href: `https://gateway.pinata.cloud/ipfs/QmWPNbXLtqh1gkXEe5BR5BLadGcz7sYAXjooSzrouBi9an`
+        },
+        {
           label: t('mainMenu.docs'),
           href: 'https://docs.gravis.finance',
           external: true
