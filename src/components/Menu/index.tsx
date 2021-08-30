@@ -30,12 +30,16 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
       blink: true,
       items: [
         {
-          label: t('mainMenu.captainsIno'),
-          href: `${process.env.REACT_APP_CAPTAINS_URL}?${urlSearchLanguageParam}=${t('language')}`
+          label: t('mainMenu.buyLootBoxes'),
+          href: `${process.env.REACT_APP_ASTEROID_MINING_URL}?${urlSearchLanguageParam}=${t('language')}`,
+        },
+        {
+          label: t('mainMenu.hangar'),
+          href: `${process.env.REACT_APP_ASTEROID_MINING_URL}/hangar?${urlSearchLanguageParam}=${t('language')}`,
         },
         {
           label: '(A)steroid pitch deck',
-          href: `https://gateway.pinata.cloud/ipfs/QmWPNbXLtqh1gkXEe5BR5BLadGcz7sYAXjooSzrouBi9an`
+          href: 'https://gateway.pinata.cloud/ipfs/QmWPNbXLtqh1gkXEe5BR5BLadGcz7sYAXjooSzrouBi9an'
         },
         {
           label: t('mainMenu.docs'),

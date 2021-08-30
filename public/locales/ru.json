@@ -366,6 +366,8 @@
     "differenceBetweenMarket": "The difference between the market price and your price due to trade size."
   },
   "mainMenu": {
+    "buyLootBoxes": "Купить лутбоксы",
+    "hangar": "Ангар",
     "home": "Главная",
     "trade": "Биржа",
     "liquidity": "Ликвидность",

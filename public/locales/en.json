@@ -303,7 +303,7 @@
   "mediumLink": "https://gravis-finance.medium.com/gravis-finance-goes-crazy-with-shiba-335c840bd2c3",
   "presentationLink": "https://gateway.pinata.cloud/ipfs/QmPyzebkCrP7C8R2WhHxnWcoGXoAb6T1dREZHAZkzCUt7F",
   "nftFarmingAvailable": "The sale of (A)steroid Mining Captains Collection has started!",
-  "nftFarmingSoon": "The first (A)steroid Mining loot boxes shipment arrives on 30 August 2021.",
+  "nftFarmingSoon": "The first (A)steroid Mining loot boxes shipment arrives on 31 August 2021.",
   "getReady": "Get ready, the amount of loot boxes is limited.",
   "jumpHere": "Hurry up to participate. <a style='color: #009CE1; cursor: pointer; font-weight: 600;' href=https://captains.gravis.finance>Buy Captains!</a>",
   "buyNFT": "Buy NFT",
@@ -366,6 +366,8 @@
     "differenceBetweenMarket": "The difference between the market price and your price due to trade size."
   },
   "mainMenu": {
+    "buyLootBoxes": "Buy Loot Boxes",
+    "hangar": "Hangar",
     "liquidity": "Pool",
     "home": "Home",
     "trade": "Exchange",
