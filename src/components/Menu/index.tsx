@@ -56,26 +56,30 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
           label: t('mainMenu.migrate'),
           href: `${process.env.REACT_APP_MIGRATION_URL}?${urlSearchLanguageParam}=${t('language')}`,
         },
-      ],
-    },
-    {
-      label: t('mainMenu.analytics.analytics'),
-      icon: 'InfoIcon',
-      items: [
         {
-          label: t('mainMenu.analytics.overview'),
+          label: t('mainMenu.analytics.analytics'),
           href: `${process.env.REACT_APP_INFO_URL}?${urlSearchLanguageParam}=${t('language')}`,
         },
-        {
-          label: t('mainMenu.analytics.tokens'),
-          href: `${process.env.REACT_APP_INFO_URL}/tokens?${urlSearchLanguageParam}=${t('language')}`,
-        },
-        {
-          label: t('mainMenu.analytics.pairs'),
-          href: `${process.env.REACT_APP_INFO_URL}/pairs?${urlSearchLanguageParam}=${t('language')}`,
-        },
       ],
     },
+    // {
+    //   label: t('mainMenu.analytics.analytics'),
+    //   icon: 'InfoIcon',
+    //   items: [
+    //     {
+    //       label: t('mainMenu.analytics.overview'),
+    //       href: `${process.env.REACT_APP_INFO_URL}?${urlSearchLanguageParam}=${t('language')}`,
+    //     },
+    //     {
+    //       label: t('mainMenu.analytics.tokens'),
+    //       href: `${process.env.REACT_APP_INFO_URL}/tokens?${urlSearchLanguageParam}=${t('language')}`,
+    //     },
+    //     {
+    //       label: t('mainMenu.analytics.pairs'),
+    //       href: `${process.env.REACT_APP_INFO_URL}/pairs?${urlSearchLanguageParam}=${t('language')}`,
+    //     },
+    //   ],
+    // },
     {
       label: t('mainMenu.nftmarket'),
       icon: 'NFTMarketIcon',
