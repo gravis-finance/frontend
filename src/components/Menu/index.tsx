@@ -30,8 +30,12 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
       blink: true,
       items: [
         {
-          label: t('mainMenu.captainsIno'),
-          href: `${process.env.REACT_APP_CAPTAINS_URL}?${urlSearchLanguageParam}=${t('language')}`
+          label: t('mainMenu.buyLootBoxes'),
+          href: `${process.env.REACT_APP_ASTEROID_MINING_URL}?${urlSearchLanguageParam}=${t('language')}`,
+        },
+        {
+          label: t('mainMenu.hangar'),
+          href: `${process.env.REACT_APP_ASTEROID_MINING_URL}/hangar?${urlSearchLanguageParam}=${t('language')}`,
         },
         {
           label: '(A)steroid pitch deck',
