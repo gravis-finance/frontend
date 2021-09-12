@@ -6,13 +6,29 @@ import {
   AIcon,
   ArrowDownIcon,
   BscIcon,
-  HuobiIcon,
-  InfIcon,
+  PolygonIcon,
   NearIcon,
   PolkadotIcon,
   SolanaIcon,
+  TriangleIcon,
+  EtheriumLogo
 } from '../../../components/Svg'
-import Union from '../../../assets/Union.png'
+
+import Star_1 from '../../../assets/stars/star_1.svg'
+import Star_2 from '../../../assets/stars/star_2.svg'
+import Star_3 from '../../../assets/stars/star_3.svg'
+import Star_4 from '../../../assets/stars/star_4.svg'
+import Star_5 from '../../../assets/stars/star_5.svg'
+import Star_6 from '../../../assets/stars/star_6.svg'
+import planet from '../../../assets/stars/planet.svg'
+import Users from '../../../assets/users.svg'
+import Coins from '../../../assets/coins.svg'
+import Arrows from '../../../assets/arrows.svg'
+import Astronaut from '../../../assets/astronaut.svg'
+import Swap from '../../../assets/swap.svg'
+import UFO from '../../../assets/ufo.svg'
+import Farming from '../../../assets/farming.svg'
+
 
 // import greetingsAnimationJSON from '../../../assets/data/greetings-animation.json'
 
@@ -167,9 +183,10 @@ const Body = styled.div`
 `
 
 const MainText = styled.div<{ mobile?: boolean }>`
+  position: relative;
   color: white;
-  width: fit-content;
-  height: 1em;
+  width: 100%;
+  height: fit-content;
   text-align: center;
   font-weight: 700;
   font-size: 85px;
@@ -182,7 +199,6 @@ const MainText = styled.div<{ mobile?: boolean }>`
   
   @media screen and (max-width: 1140px) {
     font-size: 45px;
-    // height: 50px;
   }
 
   @media screen and (max-width: 670px) {
@@ -193,12 +209,12 @@ const MainText = styled.div<{ mobile?: boolean }>`
     font-size: 24px;
   }
   
-  // @media screen and (max-width: 432px) {
-  //   font-size: 24px;
-  // }
-  
   @media screen and (max-width: 368px) {
     font-size: 19px;
+  }
+  
+  p {
+    text-align: center;
   }
 `
 
@@ -348,22 +364,22 @@ const Networks = styled.div<{ mobile?: boolean }>`
   }
 `
 
+// background: ${({ disabled }) =>
+// disabled
+//   ? 'linear-gradient(90.28deg, #242424 0%, #1F1F1F 100%)'
+//   : 'linear-gradient(90.28deg, #292929 0%, #242424 100%), linear-gradient(90.28deg, #242424 0%, #1F1F1F 100%)'};
+
+// box-shadow: ${({ disabled }) =>
+// disabled
+//   ? 'inset 0px -1px 0px rgba(129, 129, 129, 0.15), inset 0px 4px 25px rgba(0, 0, 0, 0.25)'
+//   : '4px 4px 12px rgba(0, 0, 0, 0.4), -4px -4px 12px rgba(255, 255, 255, 0.05)'};
+// border: ${({ disabled }) => (disabled ? 'none' : '1px solid #2E2E2E')};
+
 const NetworkItem = styled.div<{ disabled?: boolean }>`
-  // width: 180px;
   width: 20%;
   min-width: 150px;
   min-height: 110px;
-  // height: 148px;
-  background: ${({ disabled }) =>
-  disabled
-    ? 'linear-gradient(90.28deg, #242424 0%, #1F1F1F 100%)'
-    : 'linear-gradient(90.28deg, #292929 0%, #242424 100%), linear-gradient(90.28deg, #242424 0%, #1F1F1F 100%)'};
-  border: ${({ disabled }) => (disabled ? 'none' : '1px solid #2E2E2E')};
   box-sizing: border-box;
-  box-shadow: ${({ disabled }) =>
-  disabled
-    ? 'inset 0px -1px 0px rgba(129, 129, 129, 0.15), inset 0px 4px 25px rgba(0, 0, 0, 0.25)'
-    : '4px 4px 12px rgba(0, 0, 0, 0.4), -4px -4px 12px rgba(255, 255, 255, 0.05)'};
   border-radius: 16px;
   position: relative;
   display: flex;
@@ -384,13 +400,40 @@ const NetworkItem = styled.div<{ disabled?: boolean }>`
     min-width: 150px;
     min-height: 75px;
   }
+  
+  :first-of-type::before {
+    position: absolute;
+    left: 50px;
+    content: '';
+    background: #1c1c1c;
+    width: 20px;
+    height: 100%;
+    opacity: .3;
+    z-index: 999999;
+  }
+  
+  :last-of-type::after {
+    position: absolute;
+    right: 50px;
+    content: '';
+    background: #1c1c1c;
+    width: 20px;
+    height: 100%;
+    opacity: .3;
+    z-index: 999999;
+  }
 `
+
 const DescriptionTextHeadline = styled.div<{ mobile?: boolean }>`
   color: white;
-  margin-top: 35px;
+  width: 517px;
+  height: 60px;
+  margin-top: 16px;
   text-align: center;
-  font-weight: 700;
-  font-size: 30px;
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 30px;
+  opacity: .7;
   padding: 0;
   // ${({ mobile }) => (mobile ? 'display: none;' : 'display: block;')}
   @media screen and (max-width: 766px) {
@@ -427,112 +470,351 @@ const DescriptionText = styled.div<{ mobile?: boolean }>`
   }
 `
 
+const Section = styled.section`
+  
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+
+  :first-of-type::after{
+    display: block;
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 100%;
+    background-color: #FFFFFF;
+    opacity: 0.07;
+    bottom: 0;
+  }
+`
+
+const Star = styled.img`
+  position: absolute;
+  transition: transform 0.5s ease-in-out;
+  
+  :hover {
+    cursor: pointer;
+    transform: scale(1.3);
+    transition: transform 0.5s ease-in-out;
+  }
+`
+
+const Planet = styled.div``
+
+const Used = styled.div`
+  width: 605px;
+  height: 144px;
+  color: #FFFFFF;
+  font-family: Inter;
+  font-size: 61px;
+  font-weight: 700;
+  line-height: 72px;
+  text-align: left;
+`
+
+const StatsBlock = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // box-sizing: border-box;
+  width: 370px;
+  height: 298px;
+  border-radius: 24px;
+  border: 1.5px solid rgba(255, 255, 255, 0.07);
+  
+  :nth-of-type(2) {
+    background: radial-gradient(57.38% 86.66% at 98.38% 5.37%, #FFCD1A 0%, rgba(255, 208, 43, 0) 100%),
+    linear-gradient(180deg, #F9A400 0%, #FF6813 100%);
+  }
+`
+
+const Circle = styled.div`
+  position: relative;
+  width: 92px;
+  height: 92px;
+  background: #282828;
+  border-radius: 46px;
+`
+
+const CoinsCircle = styled(Circle)`
+  background: transparent;
+  border: 1.5px solid Gainsboro;
+  // opacity: 0.4;
+`
+
+const CircleImg = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+`
+
+const CircleText = styled(Text)`
+  margin: 20px auto 0;
+  font-family: Inter;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 48px;
+  text-align: center;
+`
+
+const StyledSpan = styled.span`
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  color: #FFFFFF;
+  opacity: 0.7;
+`
+
+const AbsoluteImg = styled.img`
+  position: absolute;
+  transform: scale(1.3);
+`
+
+const TradeSection = styled(Section)`
+  flex-direction: row;
+  justify-content: space-between;
+  justify-items: start;
+  align-items: start;
+  width: 1110px; 
+  height: 400px;
+  margin-top: 197px;
+`
+
+const TradeContainer = styled.div`
+  width: 45%;
+`
+
+const TradeTitle = styled.p`
+  color: #FFFFFF;
+  font-family: Inter;
+  font-size: 61px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 72px;
+  text-align: left;
+`
+
+const TradeInfo = styled.p`
+margin-top: 15px;
+color: #FFFFFF;
+  width: 415px;
+  font-family: Inter;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: left;
+`
+
+const FarmingSection = styled(TradeSection)`
+  flex-direction: row-reverse;
+`
+
+const FarmingContainer = styled(TradeContainer)``;
+
+const FarmingTitle = styled(TradeTitle)``;
+
+const FarmingInfo = styled(TradeInfo)``;
+
 const HomeGreetings: React.FC = () => {
   const descriptionRef = useRef()
   const { t } = useTranslation()
 
   useEffect(() => {
     // @ts-ignore
-    descriptionRef.current.innerHTML = t('getReady')
+    // descriptionRef.current.innerHTML = t('getReady')
   }, [t])
 
   return (
     <>
-      <Logo>
-        <img src={Union} alt="Gravis-Logo" />
-        <LogoText>
-          <p>Gravis</p>
-          <p>Finance</p>
-        </LogoText>
-      </Logo>
       <GreetingsWrapper>
         <StyledAppContainer>
           <Body>
-            <MainText>
-              {t('mainMessageDesktop.gamified')}
-            </MainText>
-            <MainText mobile>
-              {t('mainMessageDesktop.gamified')}
-            </MainText>
-            <AdditionalText>
-              {t('mainMessageDesktop.smartNFTAssets')}
-            </AdditionalText>
-            <Flex alignItems="center" style={{ marginTop: '25px' }}>
-              <Button type="default" href={t('presentationLink')} target="_blank">
-                <StyledArrowDownIcon />
-                {t('learnMore')}
-              </Button>
-              <InputContainer>
-                <Button type="danger" href={process.env.REACT_APP_EXCHANGE_URL}>
+            <Section>
+              <MainText>
+                <p>NFT-focused</p>
+                <p>DeFi ecosystem</p>
+              </MainText>
+              <MainText mobile>
+                NFT-focused
+              </MainText>
+              <DescriptionTextHeadline>
+                We are up and running. Join us now to get
+                the maximum benefit from the very beginning!
+              </DescriptionTextHeadline>
+              {/* <DescriptionText ref={descriptionRef} /> */}
+              <Flex alignItems="center" style={{ marginTop: '60px' }}>
+                <Button type="default" href={t('presentationLink')} target="_blank">
+                  {/* <StyledArrowDownIcon /> */}
                   {t('tradeNow')}
                 </Button>
-              </InputContainer>
-            </Flex>
-            <DescriptionTextHeadline>{t('nftFarmingSoon')}</DescriptionTextHeadline>
-
-            <DescriptionText ref={descriptionRef} />
+                <InputContainer>
+                  <Button type="danger" href={process.env.REACT_APP_EXCHANGE_URL}>
+                    {t('farmGRVX')}
+                  </Button>
+                </InputContainer>
+              </Flex>
+              <Planet>
+                <img src={planet} alt="planet" />
+              </Planet>
+              <Star style={{ 'left': '50px', 'top': '50px' }} src={Star_1} alt="Star_1" />
+              <Star style={{ 'left': '75px', 'top': '250px' }} src={Star_2} alt="Star_2" />
+              <Star style={{ 'right': '175px', 'top': '400px' }} src={Star_2} alt="Star_2" />
+              <Star style={{ 'right': '0px', 'top': '350px' }} src={Star_3} alt="Star_3" />
+              <Star style={{ 'left': '200px', 'top': '475px' }} src={Star_3} alt="Star_3" />
+              <Star style={{ 'right': '50px', 'top': '50px' }} src={Star_4} alt="Star_4" />
+              <Star style={{ 'right': '250px', 'top': '550px' }} src={Star_5} alt="Star_5" />
+              <Star style={{ 'left': '15px', 'top': '600px' }} src={Star_6} alt="Star_6" />
+            </Section>
+            <Section>
+              <NetworksContainer>
+                <Networks mobile>
+                  <NetworkItem>
+                    <PolygonIcon />
+                  </NetworkItem>
+                  <NetworkItem>
+                    <BscIcon />
+                  </NetworkItem>
+                  <NetworkItem>
+                    <PolygonIcon />
+                  </NetworkItem>
+                </Networks>
+                <Networks>
+                  <NetworkItem>
+                    <PolygonIcon />
+                  </NetworkItem>
+                  <NetworkItem>
+                    <BscIcon />
+                  </NetworkItem>
+                  <NetworkItem>
+                    <EtheriumLogo />
+                  </NetworkItem>
+                  <NetworkItem disabled>
+                    <PolkadotIcon />
+                  </NetworkItem>
+                  <NetworkItem disabled>
+                    <NearIcon />
+                  </NetworkItem>
+                  <NetworkItem disabled>
+                    <TriangleIcon />
+                  </NetworkItem>
+                  <NetworkItem disabled>
+                    <PolygonIcon />
+                  </NetworkItem>
+                </Networks>
+              </NetworksContainer>
+              <NetworksContainer mobile>
+                <Text small style={{ marginTop: '24px' }}>
+                  {t('comingSoon')}
+                </Text>
+                <Networks mobile>
+                  <NetworkItem disabled>
+                    <SolanaIcon />
+                  </NetworkItem>
+                  <NetworkItem disabled>
+                    <PolkadotIcon />
+                  </NetworkItem>
+                  <NetworkItem disabled>
+                    <NearIcon />
+                  </NetworkItem>
+                  <NetworkItem disabled>
+                    <AIcon />
+                  </NetworkItem>
+                </Networks>
+              </NetworksContainer>
+            </Section>
+            <Section style={{ 'marginTop': '113px' }}>
+              <Flex style={{ 'justifyContent': 'space-between', 'width': '100%' }}>
+                <Used>
+                  Used by millions, trusted with billions
+                </Used>
+                <Button type="danger" href={process.env.REACT_APP_EXCHANGE_URL}>
+                  Watch detailed statistics
+                </Button>
+              </Flex>
+            </Section>
+            <Section style={{ 'width': '1110px', 'marginTop': '24px', 'height': '405px' }}>
+              <StatsBlock style={{ 'top': '104px', 'left': '0' }}>
+                <Circle>
+                  <CircleImg src={Users} alt="users" />
+                </Circle>
+                <CircleText>72K users</CircleText>
+                <StyledSpan>Last month</StyledSpan>
+              </StatsBlock>
+              <StatsBlock style={{ 'top': '54px', 'left': '345px' }}>
+                <CoinsCircle>
+                  <CircleImg src={Coins} alt="coins" />
+                </CoinsCircle>
+                <CircleText>5 605 503 $</CircleText>
+                <StyledSpan>Total Value Locked</StyledSpan>
+              </StatsBlock>
+              <StatsBlock style={{ 'right': '40px' }}>
+                <Circle>
+                  <CircleImg src={Arrows} alt="arrows" />
+                </Circle>
+                <CircleText>3 186 824 $ </CircleText>
+                <StyledSpan>Transactions for all time</StyledSpan>
+              </StatsBlock>
+            </Section>
+            <TradeSection>
+              <div style={{ 'position': 'relative', 'width': '35%' }}>
+                <img style={{
+                  "display": "block",
+                  "margin": "0 auto",
+                }} src={Astronaut} alt='astronaut' />
+                <AbsoluteImg style={{ 'top': '125px', 'left': '35px' }} src={Swap} alt='swap' />
+              </div>
+              <TradeContainer>
+                <TradeTitle>Trade anything anywhere</TradeTitle>
+                <TradeInfo>Trade any asset by only connecting your wallet</TradeInfo>
+                <Flex alignItems="center" style={{ marginTop: '48px' }}>
+                  <Button type="default" href={t('presentationLink')} target="_blank">
+                    {t('tradeNow')}
+                  </Button>
+                  <InputContainer>
+                    <Button type="danger" href={process.env.REACT_APP_EXCHANGE_URL}>
+                      Learn more
+                    </Button>
+                  </InputContainer>
+                </Flex>
+              </TradeContainer>
+            </TradeSection>
+            <FarmingSection>
+              <div style={{ 'position': 'relative', 'width': '35%' }}>
+                <img style={{
+                  "display": "block",
+                  "margin": "0 auto",
+                }} src={UFO} alt='astronaut' />
+                <AbsoluteImg style={{ 'top': '155px', 'left': '35px' }} src={Farming} alt='swap' />
+              </div>
+              <FarmingContainer>
+                <FarmingTitle>Farming</FarmingTitle>
+                <FarmingInfo>
+                  Higher than other projects yield is ensured by smart contract management and unique strategies
+                </FarmingInfo>
+                <Flex alignItems="center" style={{ marginTop: '48px' }}>
+                  <Button type="default" href={t('presentationLink')} target="_blank">
+                    Start Farming
+                  </Button>
+                  <InputContainer>
+                    <Button type="danger" href={process.env.REACT_APP_EXCHANGE_URL}>
+                      Start Auto-farming
+                    </Button>
+                  </InputContainer>
+                </Flex>
+              </FarmingContainer>
+            </FarmingSection>
           </Body>
-          <Footer>
-            <NetworksContainer>
-              <Text small>{t('poweredBy')}</Text>
-              <Networks mobile>
-                <NetworkItem>
-                  <HuobiIcon />
-                </NetworkItem>
-                <NetworkItem>
-                  <BscIcon />
-                </NetworkItem>
-                <NetworkItem>
-                  <InfIcon />
-                </NetworkItem>
-              </Networks>
-              <Networks>
-                <NetworkItem>
-                  <HuobiIcon />
-                </NetworkItem>
-                <NetworkItem>
-                  <BscIcon />
-                </NetworkItem>
-                <NetworkItem>
-                  <InfIcon />
-                </NetworkItem>
-                <NetworkItem disabled>
-                  <Text style={{ top: '-40px', width: '180px', position: 'absolute' }} small>
-                    {t('comingSoon')}
-                  </Text>
-                  <SolanaIcon />
-                </NetworkItem>
-                <NetworkItem disabled>
-                  <PolkadotIcon />
-                </NetworkItem>
-                <NetworkItem disabled>
-                  <NearIcon />
-                </NetworkItem>
-                <NetworkItem disabled>
-                  <AIcon />
-                </NetworkItem>
-              </Networks>
-            </NetworksContainer>
-            <NetworksContainer mobile>
-              <Text small style={{ marginTop: '24px' }}>
-                {t('comingSoon')}
-              </Text>
-              <Networks mobile>
-                <NetworkItem disabled>
-                  <SolanaIcon />
-                </NetworkItem>
-                <NetworkItem disabled>
-                  <PolkadotIcon />
-                </NetworkItem>
-                <NetworkItem disabled>
-                  <NearIcon />
-                </NetworkItem>
-                <NetworkItem disabled>
-                  <AIcon />
-                </NetworkItem>
-              </Networks>
-            </NetworksContainer>
-          </Footer>
         </StyledAppContainer>
         {/* <InfoWrapper>
         <StyledHeading className="animate__animated animate__fadeInUp animate__delay-2s animate__fast ">

@@ -72,7 +72,7 @@ const App: React.FC = () => {
       <Suspense fallback={<PageLoader />}>
         <ResetCSS />
         <GlobalStyle />
-        <StyledBackground/>
+        {/* <StyledBackground/> */}
         <Wrapper>
         <Switch>
           <MenuWrappedRoute loginBlockVisible={loginBlockHidden} path="/" exact>
