@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Icon: React.FC = (props) => {
+const Icon: React.FC = () => {
   return (
     <svg width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path opacity="0.8" fillRule="evenodd" clipRule="evenodd" d="M32.3909 27.8072L32.3911 27.8073L44.7772 20.5057L44.7768 20.5055L32.3911 0.000715711V0.00012207L32.3909 0.000418832L32.3907 0.00012207V0.000715476L20 20.5057L32.3907 27.8071V27.8073L32.3909 27.8072ZM32.3909 40.2581L32.3911 40.2584V40.2579L44.7866 22.8473L32.3909 30.1487L20 22.8473L32.3907 40.2579V40.2584L32.3909 40.2581Z" fill="white"/>

@@ -1,10 +1,9 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { Flex } from '@gravis.finance/uikit'
 import {
   AIcon,
-  ArrowDownIcon,
   BscIcon,
   PolygonIcon,
   NearIcon,
@@ -128,39 +127,39 @@ const GreetingsWrapper = styled.div`
 //   }
 // `
 
-const Logo = styled.div`
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  width: 206px;
-  height: 66px;
-  margin: auto;
-  margin-top: -75px;
-  top: 0; 
-  left: 0; 
-  bottom: 0; 
-  right: 0;
-  
-  @media screen and (max-width: 968px) {
-    display: none;
-  }
-`
+// const Logo = styled.div`
+//   position: absolute;
+//   display: flex;
+//   justify-content: space-between;
+//   width: 206px;
+//   height: 66px;
+//   margin: auto;
+//   margin-top: -75px;
+//   top: 0;
+//   left: 0;
+//   bottom: 0;
+//   right: 0;
+//
+//   @media screen and (max-width: 968px) {
+//     display: none;
+//   }
+// `
 
-const LogoText = styled.div`
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 60%;
-  color: white;
-  
-  p {
-    font-family: Inter;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 28px;
-    line-height: 31px;
-  }
-`
+// const LogoText = styled.div`
+//   display: flex;
+//   align-items: center;
+//   flex-wrap: wrap;
+//   width: 60%;
+//   color: white;
+//
+//   p {
+//     font-family: Inter;
+//     font-style: normal;
+//     font-weight: bold;
+//     font-size: 28px;
+//     line-height: 31px;
+//   }
+// `
 
 const StyledAppContainer = styled.div`
   height: 100%;
@@ -219,28 +218,28 @@ const MainText = styled.div<{ mobile?: boolean }>`
   }
 `
 
-const AdditionalText = styled.div`
-  margin-top: 35px;
-  color: white;
-  text-align: center;
-  font-family: 'Inter var';
-  font-style: italic;
-  font-weight: 500;
-  font-size: 26px;
-  
-  @media screen and (max-width: 670px) {
-    margin-top: 20px;
-  }
-  
-  @media screen and (max-width: 525px) {
-    font-size: 24px;
-    margin-top: 25px;
-  }
-  
-  @media screen and (max-width: 400px) {
-    font-size: 19px;
-  }
-`
+// const AdditionalText = styled.div`
+//   margin-top: 35px;
+//   color: white;
+//   text-align: center;
+//   font-family: 'Inter var';
+//   font-style: italic;
+//   font-weight: 500;
+//   font-size: 26px;
+//
+//   @media screen and (max-width: 670px) {
+//     margin-top: 20px;
+//   }
+//
+//   @media screen and (max-width: 525px) {
+//     font-size: 24px;
+//     margin-top: 25px;
+//   }
+//
+//   @media screen and (max-width: 400px) {
+//     font-size: 19px;
+//   }
+// `
 
 const Button = styled.a<{ type: string }>`
   padding: 0 24px;
@@ -266,9 +265,9 @@ const Button = styled.a<{ type: string }>`
   }
 `
 
-const StyledArrowDownIcon = styled(ArrowDownIcon)`
-  margin-right: 16px;
-`
+// const StyledArrowDownIcon = styled(ArrowDownIcon)`
+//   margin-right: 16px;
+// `
 
 const Text = styled.p<{ small?: boolean }>`
   margin-top: 77px;
@@ -317,16 +316,16 @@ const InputContainer = styled.div`
   }
 `
 
-const Footer = styled.div`
-  display: flex;
-
-  > div:not(:last-child) {
-    margin-right: 20px;
-  }
-  @media screen and (max-width: 825px) {
-    flex-direction: column;
-  }
-`
+// const Footer = styled.div`
+//   display: flex;
+//
+//   > div:not(:last-child) {
+//     margin-right: 20px;
+//   }
+//   @media screen and (max-width: 825px) {
+//     flex-direction: column;
+//   }
+// `
 
 const NetworksContainer = styled.div<{ mobile?: boolean }>`
   width: 100%;
@@ -451,25 +450,25 @@ const DescriptionTextHeadline = styled.div<{ mobile?: boolean }>`
   }
 `
 
-const DescriptionText = styled.div<{ mobile?: boolean }>`
-  color: white;
-  max-width: 90%;
-  margin-top: 25px;
-  font-family: 'Inter var';
-  text-align: center;
-  font-weight: 300;
-  font-size: 20px;
-  padding: 0;
-  line-height: 25px;
-  // ${({ mobile }) => (mobile ? 'display: none;' : 'display: block;')}
-  @media screen and (max-width: 1440px) {
-    max-width: 100%;
-  }
-  @media screen and (max-width: 670px) {
-    // ${({ mobile }) => (mobile ? 'display: block;' : 'display: none;')}
-    font-size: 19px;
-  }
-`
+// const DescriptionText = styled.div<{ mobile?: boolean }>`
+//   color: white;
+//   max-width: 90%;
+//   margin-top: 25px;
+//   font-family: 'Inter var';
+//   text-align: center;
+//   font-weight: 300;
+//   font-size: 20px;
+//   padding: 0;
+//   line-height: 25px;
+//   // ${({ mobile }) => (mobile ? 'display: none;' : 'display: block;')}
+//   @media screen and (max-width: 1440px) {
+//     max-width: 100%;
+//   }
+//   @media screen and (max-width: 670px) {
+//     // ${({ mobile }) => (mobile ? 'display: block;' : 'display: none;')}
+//     font-size: 19px;
+//   }
+// `
 
 const Section = styled.section`
   
@@ -648,7 +647,7 @@ const VideoButton = styled<any>(Button)`
 `
 
 const HomeGreetings: React.FC = () => {
-  const descriptionRef = useRef()
+  // const descriptionRef = useRef()
   const { t } = useTranslation()
 
   useEffect(() => {
