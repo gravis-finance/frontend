@@ -28,6 +28,7 @@ import Astronaut from '../../../assets/astronaut.svg'
 import Swap from '../../../assets/swap.svg'
 import UFO from '../../../assets/ufo.svg'
 import Farming from '../../../assets/farming.svg'
+import Captains from '../../../assets/captains.svg'
 
 
 // import greetingsAnimationJSON from '../../../assets/data/greetings-animation.json'
@@ -626,6 +627,26 @@ const FarmingTitle = styled(TradeTitle)``;
 
 const FarmingInfo = styled(TradeInfo)``;
 
+const CaptainsSection = styled<any>(Section)`
+  position: relative;
+  margin-top: 310px;
+  background: url(${props => props.url});
+  width: 1057px;
+  height: 652px;
+`;
+
+const VideoButton = styled<any>(Button)`
+  width: 160px;
+  height: 48px;
+  background: linear-gradient(180deg, #FFBE1A 0%, #F59300 100%), linear-gradient(180deg, #FEE29A 0%, #FA9D00 100%);
+  backdrop-filter: blur(19px);
+  border-radius: 39px;
+  
+  :hover {
+    background: none;
+  }
+`
+
 const HomeGreetings: React.FC = () => {
   const descriptionRef = useRef()
   const { t } = useTranslation()
@@ -814,6 +835,9 @@ const HomeGreetings: React.FC = () => {
                 </Flex>
               </FarmingContainer>
             </FarmingSection>
+            <CaptainsSection url={Captains}>
+              <VideoButton type="danger">123</VideoButton>
+            </CaptainsSection>
           </Body>
         </StyledAppContainer>
         {/* <InfoWrapper>
