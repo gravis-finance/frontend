@@ -356,7 +356,7 @@ const InputContainer = styled.div`
 const NetworksContainer = styled.div<{ mobile?: boolean }>`
   width: 100%;
   ${({ mobile }) => (mobile ? 'display: none;' : '')}
-  @media screen and (max-width: 825px) {
+  @media screen and (max-width: 1000px) {
     ${({ mobile }) => (mobile ? 'display: block;' : '')}
   }
 `
@@ -857,13 +857,13 @@ const CaptainsSection = styled(Section)`
   height: 750px;
   
   @media screen and (max-width: 1400px) {
-    width: 700px;
-    height: 450px;
+    width: 916.5px;
+    height: 650px;
   }
   
-  @media screen and (max-width: 1200px) {
-    width: 600px;
-    height: 350px;
+  @media screen and (max-width: 1250px) {
+    width: 705px;
+    height: 500px;
   }
   
   @media screen and (max-width: 800px) {
@@ -888,8 +888,8 @@ const CaptainsSection = styled(Section)`
 const VideoButton = styled.a`
   box-sizing: border-box;
   position: absolute;
-  top: 40px;
-  right: 40px;
+  top: 25px;
+  right: 22px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -899,15 +899,6 @@ const VideoButton = styled.a`
   background: linear-gradient(180deg, #FFBE1A 0%, #F59300 100%), linear-gradient(180deg, #FEE29A 0%, #FA9D00 100%);
   border-radius: 39px;
   
-  @media screen and (max-width: 1400px) {
-    top: 20px;
-    right: 60px;
-  }
-  
-  @media screen and (max-width: 800px) {
-    margin-top: 6px;
-  }
-  
   span {
     color: #FFFFFF;
     font-family: Inter;
@@ -916,6 +907,21 @@ const VideoButton = styled.a`
     font-weight: 700;
     line-height: 20px;
     margin-right: 10px;
+  }
+  
+  @media screen and (max-width: 1400px) {
+    width: 140px;
+    top: 20px;
+    right: 22px;
+    
+    span {
+      font-size: 12px;    
+      line-height: 18px;
+    }
+  }
+  
+  @media screen and (max-width: 800px) {
+    margin-top: 6px;
   }
   
   :hover {
@@ -967,17 +973,17 @@ const CaptainsTitle = styled.div`
   text-align: center;
   
   @media screen and (max-width: 1400px) {
-    bottom: 125px;
+    width: 450px;
+    bottom: 175px;
     font-size: 40px;
     line-height: 48px;
   }
   
-  @media screen and (max-width: 1200px) {
-    width: 300px;
-    bottom: 100px;
-    font-size: 24px;
-    line-height: 32px;
-  }
+  // @media screen and (max-width: 1200px) {
+  //   width: 360px;
+  //   font-size: 32px;
+  //   line-height: 40px;
+  // }
   
   @media screen and (max-width: 800px) {
     width: 260px;
@@ -1018,14 +1024,8 @@ const CaptainsButtons = styled(Flex)`
   position: absolute;
   bottom: 40px;
   
-  @media screen and (max-width: 1400px) {
-    bottom: 20px;
-  }
-  
-  @media screen and (max-width: 1200px) {
-    a {
-      height: 30px;
-    }
+  @media screen and (max-width: 1250px) {
+    bottom: 30px;
   }
   
   @media screen and (max-width: 800px) {
@@ -1513,25 +1513,6 @@ const HomeGreetings: React.FC = () => {
                   </NetworkItem>
                   <NetworkItem disabled>
                     <AIcon />
-                  </NetworkItem>
-                </Networks>
-              </NetworksContainer>
-              <NetworksContainer mobile>
-                <Text small style={{ marginTop: '24px' }}>
-                  {t('comingSoon')}
-                </Text>
-                <Networks mobile>
-                  <NetworkItem disabled>
-                    <PolkadotIcon />
-                  </NetworkItem>
-                  <NetworkItem disabled>
-                    <NearIcon />
-                  </NetworkItem>
-                  <NetworkItem disabled>
-                    <AIcon />
-                  </NetworkItem>
-                  <NetworkItem disabled>
-                    <SolanaIcon />
                   </NetworkItem>
                 </Networks>
               </NetworksContainer>
