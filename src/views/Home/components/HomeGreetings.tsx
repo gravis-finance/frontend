@@ -9,7 +9,7 @@ import {
   NearIcon,
   PolkadotIcon,
   SolanaIcon,
-  HuobiIcon
+  HuobiIcon,
 } from '../../../components/Svg'
 
 import special_27x48 from '../../../assets/stars/special_27x48.svg'
@@ -44,9 +44,6 @@ import cap_orange from '../../../assets/cap_orange.svg'
 import block from '../../../assets/block.svg'
 import networks from '../../../assets/networks.svg'
 
-
-// import greetingsAnimationJSON from '../../../assets/data/greetings-animation.json'
-
 const GreetingsWrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -58,123 +55,6 @@ const GreetingsWrapper = styled.div`
     flex-direction: column-reverse;
   }
 `
-
-// const InfoWrapper = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   width: 352px;
-//   margin-top: 7%;
-//   margin-left: 26%;
-//   position: absolute;
-//   z-index: 2;
-//
-//   @media screen and (max-width: 1700px) {
-//     margin-left: 12%;
-//   }
-//   @media screen and (max-width: 1440px) {
-//     margin-left: 10%;
-//     margin-top: 10%;
-//   }
-//   @media screen and (max-width: 1224px) {
-//     margin-left: 0%;
-//   }
-//   @media screen and (max-width: 480px) {
-//     position: relative;
-//     width: 100%;
-//   }
-// `
-// const StyledHeading = styled(Heading)`
-//   font-weight: bold;
-//   font-size: 90px;
-//   line-height: 90px;
-//
-//   @media screen and (max-width: 1024px) {
-//     font-size: 64px;
-//     overflow: hidden;
-//     line-height: 64px;
-//   }
-//   @media screen and (max-width: 480px) {
-//     font-size: 40px;
-//     line-height: 36px;
-//     text-align: center;
-//   }
-// `
-//
-// const StyledText = styled(Text)`
-//   font-size: 24px;
-//   line-height: 30px;
-//   margin: 32px 0 40px 0;
-//   color: #909090;
-//   font-weight: 400;
-//
-//   @media screen and (max-width: 1024px) {
-//     font-size: 20px;
-//     line-height: 26px;
-//     margin: 24px 0 32px 0;
-//   }
-//   @media screen and (max-width: 480px) {
-//     font-size: 16px;
-//     line-height: 20px;
-//     text-align: center;
-//   }
-// `
-// const StyledButton = styled(Button)`
-//   @media screen and (max-width: 480px) {
-//     display: block;
-//     margin: 0 auto;
-//   }
-// `
-
-// const ImageFrapper = styled.div`
-//   display: flex;
-//   justify-content: flex-end;
-//   margin-right: 10%;
-//   position: relative;
-//   & img {
-//     position: absolute;
-//     &:last-child {
-//       position: relative;
-//     }
-//   }
-//
-//   @media screen and (max-width: 1440px) {
-//     margin-right: 0%;
-//   }
-// `
-
-// const Logo = styled.div`
-//   position: absolute;
-//   display: flex;
-//   justify-content: space-between;
-//   width: 206px;
-//   height: 66px;
-//   margin: auto;
-//   margin-top: -75px;
-//   top: 0;
-//   left: 0;
-//   bottom: 0;
-//   right: 0;
-//
-//   @media screen and (max-width: 968px) {
-//     display: none;
-//   }
-// `
-
-// const LogoText = styled.div`
-//   display: flex;
-//   align-items: center;
-//   flex-wrap: wrap;
-//   width: 60%;
-//   color: white;
-//
-//   p {
-//     font-family: Inter;
-//     font-style: normal;
-//     font-weight: bold;
-//     font-size: 28px;
-//     line-height: 31px;
-//   }
-// `
 
 const StyledAppContainer = styled.div`
   height: 100%;
@@ -233,29 +113,6 @@ const MainText = styled.div<{ mobile?: boolean }>`
   }
 `
 
-// const AdditionalText = styled.div`
-//   margin-top: 35px;
-//   color: white;
-//   text-align: center;
-//   font-family: 'Inter var';
-//   font-style: italic;
-//   font-weight: 500;
-//   font-size: 26px;
-//
-//   @media screen and (max-width: 670px) {
-//     margin-top: 20px;
-//   }
-//
-//   @media screen and (max-width: 525px) {
-//     font-size: 24px;
-//     margin-top: 25px;
-//   }
-//
-//   @media screen and (max-width: 400px) {
-//     font-size: 19px;
-//   }
-// `
-
 const Button = styled.a<{ type: string, mobile?: boolean, desktop?: boolean }>`
   padding: 0 24px;
   border: 2px solid ${({ type }) => (type === 'default' ? '#009CE1' : '#FFA100')};
@@ -291,10 +148,6 @@ const Button = styled.a<{ type: string, mobile?: boolean, desktop?: boolean }>`
   }
 `
 
-// const StyledArrowDownIcon = styled(ArrowDownIcon)`
-//   margin-right: 16px;
-// `
-
 const Text = styled.p<{ small?: boolean }>`
   margin-top: 77px;
   font-weight: 500;
@@ -322,36 +175,7 @@ const Text = styled.p<{ small?: boolean }>`
 const InputContainer = styled.div`
   margin-left: 21px;
   display: flex;
-
-  @media screen and (max-width: 520px) {
-    // flex-direction: column;
-    // align-items: center;
-    // width: 100%;
-
-    // > input {
-    //     width: 100%;
-    //     margin: 0;
-    // }
-    //
-    // > a {
-    //     box-sizing: border-box;
-    //     margin-top: 16px;
-    //     place-content: center;
-    //     width: 100%;
-    // }
-  }
 `
-
-// const Footer = styled.div`
-//   display: flex;
-//
-//   > div:not(:last-child) {
-//     margin-right: 20px;
-//   }
-//   @media screen and (max-width: 825px) {
-//     flex-direction: column;
-//   }
-// `
 
 const NetworksContainer = styled.div<{ mobile?: boolean }>`
   width: 100%;
@@ -385,8 +209,6 @@ const Networks = styled.div<{ mobile?: boolean }>`
     }
   }
 `
-
-
 
 const NetworkItem = styled.div<{ disabled?: boolean }>`
   width: 20%;
@@ -461,36 +283,17 @@ const DescriptionTextHeadline = styled.div<{ mobile?: boolean }>`
   }
 `
 
-// const DescriptionText = styled.div<{ mobile?: boolean }>`
-//   color: white;
-//   max-width: 90%;
-//   margin-top: 25px;
-//   font-family: 'Inter var';
-//   text-align: center;
-//   font-weight: 300;
-//   font-size: 20px;
-//   padding: 0;
-//   line-height: 25px;
-//   // ${({ mobile }) => (mobile ? 'display: none;' : 'display: block;')}
-//   @media screen and (max-width: 1440px) {
-//     max-width: 100%;
-//   }
-//   @media screen and (max-width: 670px) {
-//     // ${({ mobile }) => (mobile ? 'display: block;' : 'display: none;')}
-//     font-size: 19px;
-//   }
-// `
-
 const Section = styled.section<{ desktop?: boolean, mobile?: boolean, url?: string, desktopUrl?: string, mobileUrl?: string }>`
-  
   position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-items: center;
   align-items: center;
+`
 
-  :first-of-type::after{
+const GamifiedSection = styled(Section)`
+  :first-child::after{
     display: block;
     position: absolute;
     content: "";
@@ -505,7 +308,7 @@ const Section = styled.section<{ desktop?: boolean, mobile?: boolean, url?: stri
 const Star = styled.img<{ mobile?: boolean }>`
   // ${({ mobile }) => (mobile ? '' : 'display: none;')}
   position: absolute;
-  transition: transform 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   
   @media screen and (max-width: 825px) {
     ${({ mobile }) => (mobile ? 'display: none;' : '')}
@@ -514,13 +317,12 @@ const Star = styled.img<{ mobile?: boolean }>`
   :hover {
     cursor: pointer;
     transform: scale(1.3);
-    transition: transform 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    filter: brightness(150%) drop-shadow(0 0 .3em #FFFFFF);;
   }
 `
 
-const UsedSection = styled(Section)`
-  
-`
+const UsedSection = styled(Section)``
 
 const UsedText = styled.div`
   width: 605px;
@@ -569,6 +371,11 @@ const StatsBlock = styled.div`
   height: 298px;
   border-radius: 24px;
   border: 1.5px solid rgba(255, 255, 255, 0.07);
+  transition: transform 0.3s ease-in-out;
+  
+  :hover {
+    transform: scale(1.1);
+  }
   
   :nth-of-type(1) {
     top: 104px;
@@ -857,11 +664,13 @@ const CaptainsSection = styled(Section)`
   height: 750px;
   
   @media screen and (max-width: 1400px) {
+    margin-top: 260px;
     width: 916.5px;
     height: 650px;
   }
   
   @media screen and (max-width: 1250px) {
+    margin-top: 210px;
     width: 705px;
     height: 500px;
   }
@@ -869,6 +678,7 @@ const CaptainsSection = styled(Section)`
   @media screen and (max-width: 800px) {
     ${({ desktop }) => desktop ? 'display: none;' : ''}
     ${({ mobile }) => mobile ? 'display: flex;' : ''}
+    margin-top: 160px;
     padding-bottom: 45px;
     width: 355px;
     height: 695px;
@@ -880,6 +690,7 @@ const CaptainsSection = styled(Section)`
   }
   
   @media screen and (max-width: 500px) {
+    margin-top: 130px;
     width: 300px;
     height: 585px;
   }
@@ -896,8 +707,18 @@ const VideoButton = styled.a`
   width: 160px;
   height: 48px;
   padding: 5px;
-  background: linear-gradient(180deg, #FFBE1A 0%, #F59300 100%), linear-gradient(180deg, #FEE29A 0%, #FA9D00 100%);
+  background-color: #FA9D00;
   border-radius: 39px;
+  transition: all 0.5s ease-in-out;
+  
+  :hover {
+    background: #FFFFFF;
+    border: 1px solid #FA9D00;
+    
+    span {
+      color: #FA9D00;
+    } 
+  }
   
   span {
     color: #FFFFFF;
@@ -1068,7 +889,7 @@ const EmailSection = styled(Section)`
   margin-top: 218px;
   
   @media screen and (max-width: 800px) {
-    margin-top: 50px;
+    margin-top: 119px;
   }
 `
 
@@ -1169,6 +990,20 @@ const Planet = styled.img`
   left: -105px;
 `
 
+const Tokens = styled.div`
+  section:first-child {
+    div:first-child {
+      div:first-child + div {
+        width: 356px;
+        
+        @media screen and (max-width: 1475px) {
+          width: 225px;
+        }
+      }
+    }
+  }
+`
+
 const TokenSection = styled(Section)`
   position: relative;
   margin-top: 190px;
@@ -1185,8 +1020,12 @@ const TokenSection = styled(Section)`
     margin-top: 70px;
   }
   
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1000px) {
     margin-top: 50px;
+  }
+  
+  @media screen and (max-width: 800px) {
+    margin-top: 100px;
   }
 `
 
@@ -1222,13 +1061,17 @@ const TokenName = styled.div`
 
 const TokenDescription = styled.div`
   margin-left: 46px;
-  width: 353px;
+  // width: 353px;
   color: #FFFFFF;
   font-family: Inter;
   font-size: 19px;
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
+  
+  // :first-child {
+  //   width: 356px;
+  // }
 `
 
 const TokenButtons = styled.div<{ mobile?: boolean }>`
@@ -1272,9 +1115,10 @@ const TokenCard = styled.div`
   height: 282px;
   background-color: #252525;
   border-radius: 16px;
+  transition: transform 0.2s linear;
   
-  :nth-of-type(n + 2) {
-    margin-top: 16px;
+  :hover {
+    transform: translateY(-25px);
   }
   
   @media screen and (max-width: 1475px) {
@@ -1347,7 +1191,7 @@ const TokenCard = styled.div`
       }
     }
     
-    :nth-of-type {
+    :nth-child(n + 2) {
       margin-top: 16px;
     }
   }
@@ -1378,7 +1222,19 @@ const AmountSection = styled(Section)`
   margin: 157px 0 300px;
   
   @media screen and (max-width: 1475px) {
-    margin-top: 122px;
+    margin: 122px 0 250px;
+  }
+  
+  @media screen and (max-width: 1200px) {
+    margin-bottom: 200px;
+  }
+  
+  @media screen and (max-width: 1000px) {
+    margin-bottom: 125px;
+  }
+  
+  @media screen and (max-width: 800px) {
+    margin-bottom: 66px;
   }
 `
 
@@ -1390,6 +1246,7 @@ const AmountDollars = styled(Text)`
   line-height: 72px;
   
   @media screen and (max-width: 600px) {
+    margin: 0;
     font-size: 37px;
     line-height: 48px;
   }
@@ -1441,7 +1298,7 @@ const HomeGreetings: React.FC = () => {
       <GreetingsWrapper>
         <StyledAppContainer>
           <Body>
-            <Section>
+            <GamifiedSection>
               <MainText>
                 <p>Gamified DeFi</p>
                 <p>ecosystem</p>
@@ -1474,7 +1331,7 @@ const HomeGreetings: React.FC = () => {
               <Star mobile style={{ 'right': '50px', 'top': '50px' }} src={grey_24x26} alt="grey_24x26" />
               <Star mobile style={{ 'right': '250px', 'top': '550px' }} src={white_18x19} alt="white_18x19" />
               <Star mobile style={{ 'left': '15px', 'top': '600px' }} src={white_13x14} alt="white_13x14" />
-            </Section>
+            </GamifiedSection>
             <Section>
               <NetworksContainer>
                 <Text small>{t('poweredBy')}</Text>
@@ -1692,144 +1549,146 @@ const HomeGreetings: React.FC = () => {
               <PresentationButton>Open presentation</PresentationButton>
               <Planet src={planet_2} alt="Planet_2" />
             </PresentationSection>
-            <TokenSection>
-              <TokenHeader>
-                <TokenName>grvs</TokenName>
-                <TokenDescription>Governance token with limited emission to rule any Gravis product</TokenDescription>
-                <TokenButtons>
+            <Tokens>
+              <TokenSection>
+                <TokenHeader>
+                  <TokenName>grvs</TokenName>
+                  <TokenDescription>Governance token with limited emission to rule any Gravis product</TokenDescription>
+                  <TokenButtons>
+                    <Button style={{ 'fontSize': '13px' }} type="default" href={t('presentationLink')} target="_blank">
+                      Buy GRVS
+                    </Button>
+                    <InputContainer>
+                      <Button style={{ 'fontSize': '13px' }} type="danger" href={process.env.REACT_APP_EXCHANGE_URL}>
+                        Learn more
+                      </Button>
+                    </InputContainer>
+                  </TokenButtons>
+                </TokenHeader>
+                <TokenBody>
+                  <TokenCard>
+                    <Circle>
+                      <CircleImg src={stack} alt="stack" />
+                    </Circle>
+                    <TokenInfoFlex>
+                      <CircleText>320 005</CircleText>
+                      <StyledSpan>Circulating supply</StyledSpan>
+                    </TokenInfoFlex>
+                  </TokenCard>
+                  <TokenCard>
+                    <Circle>
+                      <CircleImg src={supply} alt="supply" />
+                    </Circle>
+                    <TokenInfoFlex>
+                      <CircleText>150M</CircleText>
+                      <StyledSpan>Max total supply</StyledSpan>
+                    </TokenInfoFlex>
+                  </TokenCard>
+                  <TokenCard>
+                    <Circle>
+                      <CircleImg src={stonks} alt="stonks" />
+                    </Circle>
+                    <TokenInfoFlex>
+                      <CircleText>2,23 $</CircleText>
+                      <StyledSpan>Current price</StyledSpan>
+                    </TokenInfoFlex>
+                  </TokenCard>
+                  <TokenCard>
+                    <Circle>
+                      <CircleImg src={cap} alt="cap" />
+                    </Circle>
+                    <TokenInfoFlex>
+                      <CircleText>$2 348 423</CircleText>
+                      <StyledSpan>Market cap</StyledSpan>
+                    </TokenInfoFlex>
+                  </TokenCard>
+                </TokenBody>
+                <TokenButtons mobile>
                   <Button style={{ 'fontSize': '13px' }} type="default" href={t('presentationLink')} target="_blank">
                     Buy GRVS
                   </Button>
-                  <InputContainer>
-                    <Button style={{ 'fontSize': '13px' }} type="danger" href={process.env.REACT_APP_EXCHANGE_URL}>
-                      Learn more
-                    </Button>
-                  </InputContainer>
+                  <Button style={{ 'fontSize': '13px' }} type="danger" href={process.env.REACT_APP_EXCHANGE_URL}>
+                    Learn more
+                  </Button>
                 </TokenButtons>
-              </TokenHeader>
-              <TokenBody>
-                <TokenCard>
-                  <Circle>
-                    <CircleImg src={stack} alt="stack" />
-                  </Circle>
-                  <TokenInfoFlex>
-                    <CircleText>320 005</CircleText>
-                    <StyledSpan>Circulating supply</StyledSpan>
-                  </TokenInfoFlex>
-                </TokenCard>
-                <TokenCard>
-                  <Circle>
-                    <CircleImg src={supply} alt="supply" />
-                  </Circle>
-                  <TokenInfoFlex>
-                    <CircleText>150M</CircleText>
-                    <StyledSpan>Max total supply</StyledSpan>
-                  </TokenInfoFlex>
-                </TokenCard>
-                <TokenCard>
-                  <Circle>
-                    <CircleImg src={stonks} alt="stonks" />
-                  </Circle>
-                  <TokenInfoFlex>
-                    <CircleText>2,23 $</CircleText>
-                    <StyledSpan>Current price</StyledSpan>
-                  </TokenInfoFlex>
-                </TokenCard>
-                <TokenCard>
-                  <Circle>
-                    <CircleImg src={cap} alt="cap" />
-                  </Circle>
-                  <TokenInfoFlex>
-                    <CircleText>$2 348 423</CircleText>
-                    <StyledSpan>Market cap</StyledSpan>
-                  </TokenInfoFlex>
-                </TokenCard>
-              </TokenBody>
-              <TokenButtons mobile>
-                <Button style={{ 'fontSize': '13px' }} type="default" href={t('presentationLink')} target="_blank">
-                  Buy GRVS
-                </Button>
-                <Button style={{ 'fontSize': '13px' }} type="danger" href={process.env.REACT_APP_EXCHANGE_URL}>
-                  Learn more
-                </Button>
-              </TokenButtons>
-            </TokenSection>
-            <TokenSection>
-              <Star style={{
-                'left': '175px',
-                'top': '-125px',
-                'opacity': '0.6',
-                'transform': 'rotate(-50.29deg)',
-              }} src={special_27x48} alt="special_27x48" />
-              <Star style={{
-                'width': '18px',
-                'height': '19px',
-                'left': '550px',
-                'top': '-75px',
-              }} src={grey_13x14} alt="grey_13x14" />
-              <Star style={{ 'right': '175px', 'top': '-125px' }} src={white_18x19} alt="white_18x19" />
-              <TokenHeader>
-                <TokenName>grvx</TokenName>
-                <TokenDescription>Unlimited supply, reward for various activities. <br />
-                  Farm, autofarm, mine, use it to buy loot boxes, bridge it.</TokenDescription>
-                <TokenButtons>
+              </TokenSection>
+              <TokenSection>
+                <Star style={{
+                  'left': '175px',
+                  'top': '-125px',
+                  'opacity': '0.6',
+                  'transform': 'rotate(-50.29deg)',
+                }} src={special_27x48} alt="special_27x48" />
+                <Star style={{
+                  'width': '18px',
+                  'height': '19px',
+                  'left': '550px',
+                  'top': '-75px',
+                }} src={grey_13x14} alt="grey_13x14" />
+                <Star style={{ 'right': '175px', 'top': '-125px' }} src={white_18x19} alt="white_18x19" />
+                <TokenHeader>
+                  <TokenName>grvx</TokenName>
+                  <TokenDescription>Unlimited supply, reward for various activities. <br />
+                    Farm, autofarm, mine, use it to buy loot boxes, bridge it.</TokenDescription>
+                  <TokenButtons>
+                    <Button style={{ 'fontSize': '13px' }} type="default" href={t('presentationLink')} target="_blank">
+                      Buy GRVX
+                    </Button>
+                    <InputContainer>
+                      <Button style={{ 'fontSize': '13px' }} type="danger" href={process.env.REACT_APP_EXCHANGE_URL}>
+                        Learn more
+                      </Button>
+                    </InputContainer>
+                  </TokenButtons>
+                </TokenHeader>
+                <TokenBody>
+                  <TokenCard>
+                    <Circle>
+                      <CircleImg src={Users_orange} alt="users" />
+                    </Circle>
+                    <TokenInfoFlex>
+                      <CircleText>320 005</CircleText>
+                      <StyledSpan>Circulating supply</StyledSpan>
+                    </TokenInfoFlex>
+                  </TokenCard>
+                  <TokenCard>
+                    <Circle>
+                      <CircleImg src={block} alt="block" />
+                    </Circle>
+                    <TokenInfoFlex>
+                      <CircleText>1752</CircleText>
+                      <StyledSpan>Current generation per block</StyledSpan>
+                    </TokenInfoFlex>
+                  </TokenCard>
+                  <TokenCard>
+                    <Circle>
+                      <CircleImg src={stonks_orange} alt="stonks" />
+                    </Circle>
+                    <TokenInfoFlex>
+                      <CircleText>2,14 $</CircleText>
+                      <StyledSpan>Current price</StyledSpan>
+                    </TokenInfoFlex>
+                  </TokenCard>
+                  <TokenCard>
+                    <Circle>
+                      <CircleImg src={cap_orange} alt="cap" />
+                    </Circle>
+                    <TokenInfoFlex>
+                      <CircleText>$1 523 512</CircleText>
+                      <StyledSpan>Market cap</StyledSpan>
+                    </TokenInfoFlex>
+                  </TokenCard>
+                </TokenBody>
+                <TokenButtons mobile>
                   <Button style={{ 'fontSize': '13px' }} type="default" href={t('presentationLink')} target="_blank">
                     Buy GRVX
                   </Button>
-                  <InputContainer>
-                    <Button style={{ 'fontSize': '13px' }} type="danger" href={process.env.REACT_APP_EXCHANGE_URL}>
-                      Learn more
-                    </Button>
-                  </InputContainer>
+                  <Button style={{ 'fontSize': '13px' }} type="danger" href={process.env.REACT_APP_EXCHANGE_URL}>
+                    Learn more
+                  </Button>
                 </TokenButtons>
-              </TokenHeader>
-              <TokenBody>
-                <TokenCard>
-                  <Circle>
-                    <CircleImg src={Users_orange} alt="users" />
-                  </Circle>
-                  <TokenInfoFlex>
-                    <CircleText>320 005</CircleText>
-                    <StyledSpan>Circulating supply</StyledSpan>
-                  </TokenInfoFlex>
-                </TokenCard>
-                <TokenCard>
-                  <Circle>
-                    <CircleImg src={block} alt="block" />
-                  </Circle>
-                  <TokenInfoFlex>
-                    <CircleText>1752</CircleText>
-                    <StyledSpan>Current generation per block</StyledSpan>
-                  </TokenInfoFlex>
-                </TokenCard>
-                <TokenCard>
-                  <Circle>
-                    <CircleImg src={stonks_orange} alt="stonks" />
-                  </Circle>
-                  <TokenInfoFlex>
-                    <CircleText>2,14 $</CircleText>
-                    <StyledSpan>Current price</StyledSpan>
-                  </TokenInfoFlex>
-                </TokenCard>
-                <TokenCard>
-                  <Circle>
-                    <CircleImg src={cap_orange} alt="cap" />
-                  </Circle>
-                  <TokenInfoFlex>
-                    <CircleText>$1 523 512</CircleText>
-                    <StyledSpan>Market cap</StyledSpan>
-                  </TokenInfoFlex>
-                </TokenCard>
-              </TokenBody>
-              <TokenButtons mobile>
-                <Button style={{ 'fontSize': '13px' }} type="default" href={t('presentationLink')} target="_blank">
-                  Buy GRVX
-                </Button>
-                <Button style={{ 'fontSize': '13px' }} type="danger" href={process.env.REACT_APP_EXCHANGE_URL}>
-                  Learn more
-                </Button>
-              </TokenButtons>
-            </TokenSection>
+              </TokenSection>
+            </Tokens>
             <AmountSection>
               <Star style={{ 'left': '400px', 'top': '0' }} src={grey_13x14} alt="grey_13x14" />
               <Star style={{
@@ -1869,24 +1728,6 @@ const HomeGreetings: React.FC = () => {
             </AmountSection>
           </Body>
         </StyledAppContainer>
-        {/* <InfoWrapper>
-        <StyledHeading className="animate__animated animate__fadeInUp animate__delay-2s animate__fast ">
-          {t('hurray')}!
-        </StyledHeading>
-        <StyledText className="animate__animated animate__fadeInUp animate__delay-2s animate__fast">
-          {t('greetingsMessage')}
-        </StyledText>
-        <a
-          href={process.env.REACT_APP_START_TO_TRADE}
-          className="animate__animated animate__fadeInUp animate__delay-2s animate__fast"
-        >
-          <StyledButton>{t('startTrading')}</StyledButton>
-        </a>
-      </InfoWrapper> */}
-
-        {/* <ImageFrapper>
-      {animationInited && <Lottie loop={false} animationData={greetingsAnimationJSON} play />}
-      </ImageFrapper> */}
       </GreetingsWrapper>
     </>
   )
