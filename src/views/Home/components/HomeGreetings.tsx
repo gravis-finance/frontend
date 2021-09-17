@@ -713,7 +713,6 @@ const VideoButton = styled.a`
   
   :hover {
     background: #FFFFFF;
-    border: 1px solid #FA9D00;
     
     span {
       color: #FA9D00;
