@@ -709,15 +709,7 @@ const VideoButton = styled.a`
   padding: 5px;
   background-color: #FA9D00;
   border-radius: 39px;
-  transition: all 0.5s ease-in-out;
-  
-  :hover {
-    background: #FFFFFF;
-    
-    span {
-      color: #FA9D00;
-    } 
-  }
+  transition: all 0.3s ease-in-out;
   
   span {
     color: #FFFFFF;
@@ -727,6 +719,15 @@ const VideoButton = styled.a`
     font-weight: 700;
     line-height: 20px;
     margin-right: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  :hover {
+    background: #FFFFFF;
+    
+    span {
+      color: #FA9D00;
+    } 
   }
   
   @media screen and (max-width: 1400px) {
@@ -1310,7 +1311,6 @@ const HomeGreetings: React.FC = () => {
               </DescriptionTextHeadline>
               <Flex alignItems="center" style={{ marginTop: '60px' }}>
                 <Button type="default" href={t('presentationLink')} target="_blank">
-                  {/* <StyledArrowDownIcon /> */}
                   {t('tradeNow')}
                 </Button>
                 <InputContainer>
