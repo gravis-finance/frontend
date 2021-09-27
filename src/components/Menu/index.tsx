@@ -38,6 +38,10 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
           href: `${process.env.REACT_APP_ASTEROID_MINING_URL}/hangar?${urlSearchLanguageParam}=${t('language')}`,
         },
         {
+          label: "Dashboard",
+          href: `${process.env.REACT_APP_ASTEROID_MINING_URL}/dashboard?${urlSearchLanguageParam}=${t('language')}`,
+        },
+        {
           label: '(A)steroid pitch deck',
           href: `https://gateway.pinata.cloud/ipfs/QmWPNbXLtqh1gkXEe5BR5BLadGcz7sYAXjooSzrouBi9an`,
           external: true
