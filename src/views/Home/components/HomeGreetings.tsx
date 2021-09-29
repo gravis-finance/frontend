@@ -1,20 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
-import {
-  Flex,
-  // Input,
-  urlSearchLanguageParam, Button,
-} from '@gravis.finance/uikit'
+import { Button, Flex, urlSearchLanguageParam } from '@gravis.finance/uikit'
 import YouTube from 'react-youtube'
 import {
   AIcon,
   BscIcon,
-  PolygonIcon,
+  GravisEmptyLogoIcon,
+  HuobiIcon,
   NearIcon,
   PolkadotIcon,
+  PolygonIcon,
   SolanaIcon,
-  HuobiIcon,
 } from '../../../components/Svg'
 
 import special_27x48 from '../../../assets/stars/special_27x48.svg'
@@ -713,6 +710,7 @@ const VideoButton = styled.a<{ showVideo?: boolean }>`
   background-color: #FA9D00;
   border-radius: 39px;
   transition: all 0.3s ease-in-out;
+  width: 180px;
   
   span {
     color: #FFFFFF;
@@ -742,7 +740,7 @@ const VideoButton = styled.a<{ showVideo?: boolean }>`
   ` : ''}
   
   @media screen and (max-width: 1400px) {
-    width: 140px;
+    width: 160px;
     top: 20px;
     right: 22px;
     
@@ -804,7 +802,7 @@ const LowerShip = styled(StyledShip)<{ showVideo?: boolean }>`
 
 const InfoText = styled.div`
   position: absolute;
-  bottom: 150px;
+  bottom: 200px;
   left: 0;
   right: 0;
   width: 100%;
@@ -889,7 +887,7 @@ const CaptainsButtons = styled(Flex)`
   }
   
   @media screen and (max-width: 800px) {
-    margin-top: 43px;
+    margin-top: 100px;
     display: block;
     width: 90%;
     display: flex;
@@ -1378,6 +1376,56 @@ const StyledYouTube = styled(YouTube)<{ showVideo?: boolean }>`
   }
 `
 
+const ComingSoonButton = styled(Button)`
+  animation: shine-text 6s ease-in-out infinite;
+  
+  @keyframes shine-text {
+    0% {
+      box-shadow: 0 0 6px rgba(255,255,255,0);
+    }
+    50% {
+    box-shadow: 0 0 16px rgba(255,255,255,0.5);
+    }
+    100% {
+    box-shadow: 0 0 6px rgba(255,255,255,0);
+    }
+  }
+`
+
+const ComingSoonContainer = styled.div`
+  margin: 100px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 80px;
+  font-weight: 600;
+  animation: shine-coming-soon-text 3s ease-in-out infinite;
+  flex-direction: column;
+  align-items: center;
+  
+  > h1 {
+    margin-bottom: 40px;
+  }
+  
+  > svg {
+    width: 84px;
+    height: 84px;
+  }
+  
+  @keyframes shine-coming-soon-text {
+    0% {
+    text-shadow: 0 0 0 white;
+    }
+    50% {
+    text-shadow: 0 0 16px rgba(255, 255, 255, 0.6);
+    }
+    100% {
+      text-shadow: 0 0 0 white;
+    }
+  }
+`
+
 const HomeGreetings: React.FC = () => {
   const { t } = useTranslation()
 
@@ -1408,14 +1456,14 @@ const HomeGreetings: React.FC = () => {
           <Body>
             <GamifiedSection>
               <MainText>
-                <p>Gamified DeFi</p>
-                <p>ecosystem</p>
+                <p>{t('Gamified DeFi')}</p>
+                <p>{t('ecosystem')}</p>
               </MainText>
               <MainText mobile>
                 Gamified DeFi ecosystem
               </MainText>
               <DescriptionTextHeadline>
-                <div>Smart NFT assets. Multichain. Cross-chain. High profit yield farming.</div>
+                <div>{t('Smart NFT assets')}</div>
               </DescriptionTextHeadline>
               <Flex alignItems="center" style={{ marginTop: '60px' }}>
                 <Button type="default"
@@ -1546,8 +1594,8 @@ const HomeGreetings: React.FC = () => {
                 <AbsoluteImg desktop style={{ 'top': '175px', 'left': '35px' }} src={Swap} alt='swap' />
               </ImageBox>
               <TradeContainer>
-                <TradeTitle>Trade anything anywhere</TradeTitle>
-                <TradeInfo>Trade any asset by only connecting your wallet</TradeInfo>
+                <TradeTitle>{t('Trade anything anywhere')}</TradeTitle>
+                <TradeInfo>{t('Trade any asset by only connecting your wallet')}</TradeInfo>
                 <AbsoluteImg mobile src={Swap} alt='swap' />
                 <Flex alignItems="center" style={{ marginTop: '48px' }}>
                   <Button type="default"
@@ -1585,15 +1633,15 @@ const HomeGreetings: React.FC = () => {
                 <AbsoluteImg desktop style={{ 'top': '155px', 'left': '35px' }} src={Farming} alt='Farming' />
               </ImageBox>
               <FarmingContainer>
-                <FarmingTitle>Farming</FarmingTitle>
+                <FarmingTitle>{t('Farming')}</FarmingTitle>
                 <FarmingInfo>
-                  Higher than other projects yield is ensured by smart contract management and unique strategies
+                  {t('Higher than other projects yield is ensured by smart contract management and unique strategies')}
                 </FarmingInfo>
                 <AbsoluteImg mobile style={{ 'top': '155px', 'left': '35px' }} src={Farming} alt='Farming' />
                 <Flex alignItems="center" style={{ marginTop: '48px' }}>
-                  <Button disabled style={{ zIndex: 1 }}>
+                  <ComingSoonButton disabled style={{ zIndex: 1 }}>
                     {t('comingSoon')}
-                  </Button>
+                  </ComingSoonButton>
                   {/* <Button type="default" href={t('presentationLink')} target="_blank">
                     Start Farming
                   </Button>
@@ -1618,10 +1666,10 @@ const HomeGreetings: React.FC = () => {
               <UpperShip src={ship_1} alt='ship_1' showVideo={showVideo} />
               <InfoText>
                 <CaptainsTitle>
-                  Revolutionary gamified yield farming
+                  {t('Revolutionary gamified yield farming')}
                 </CaptainsTitle>
                 <CaptainsDescription>
-                  (A)steroid Mining is being created as a community-driven project that will allow users to add game mechanics, generate asteroids for farming, and even entire worlds in the Gravis Finance Universe.
+                  {t('asteroidMiningDescription')}
                 </CaptainsDescription>
               </InfoText>
               <VideoButton type="danger"
@@ -1630,41 +1678,41 @@ const HomeGreetings: React.FC = () => {
                            onClick={() => setShowVideo(true)}
                            target="_blank">
                 <img src={Video_Icon} alt="video-icon" />
-                <span>Watch video</span>
+                <span>{t('watchVideo')}</span>
               </VideoButton>
               <LowerShip src={ship_2} alt='ship_2' showVideo={showVideo} />
               <CaptainsButtons>
                 <StyledButton type="default"
                               href={`${process.env.REACT_APP_ASTEROID_MINING_URL}?${urlSearchLanguageParam}=${t('language')}`}>
-                  Buy lootboxes
+                  {t('buyLootboxes')}
                 </StyledButton>
                 <InputContainer>
                   <StyledButton type="danger"
                                 href={`${process.env.REACT_APP_ASTEROID_MINING_URL}/hangar?${urlSearchLanguageParam}=${t('language')}`}>
-                    Play now
+                    {t('playNow')}
                   </StyledButton>
                 </InputContainer>
               </CaptainsButtons>
             </CaptainsSection>
             <CaptainsSection mobile url={Captains_mobile}>
               <CaptainsTitle>
-                Revolutionary gamified yield farming
+                {t('Revolutionary gamified yield farming')}
               </CaptainsTitle>
               <VideoButton type="danger" href="https://www.youtube.com/watch?v=kUpv-AYXyew" target="_blank">
                 <img src={Video_Icon} alt="video-icon" />
-                <span>Watch video</span>
+                <span>{t('watchVideo')}</span>
               </VideoButton>
               <CaptainsDescription>
-                (A)steroid Mining is being created as a community-driven project that will allow users to add game mechanics, generate asteroids for farming, and even entire worlds in the Gravis Finance Universe.
+                {t('asteroidMiningDescription')}
               </CaptainsDescription>
               <CaptainsButtons>
                 <StyledButton type="default"
                               href={`${process.env.REACT_APP_ASTEROID_MINING_URL}?${urlSearchLanguageParam}=${t('language')}`}>
-                  Buy lootboxes
+                  {t('buyLootboxes')}
                 </StyledButton>
                 <StyledButton type="danger"
                               href={`${process.env.REACT_APP_ASTEROID_MINING_URL}/hangar?${urlSearchLanguageParam}=${t('language')}`}>
-                  Play now
+                  {t('playNow')}
                 </StyledButton>
               </CaptainsButtons>
             </CaptainsSection>
@@ -1866,6 +1914,12 @@ const HomeGreetings: React.FC = () => {
                 'bottom': '-150px',
               }} src={orange_9x10} alt="orange_9x10" />
             </AmountSection> */}
+            <ComingSoonContainer>
+              <h1>
+                {t('comingSoon')}
+              </h1>
+              <GravisEmptyLogoIcon />
+            </ComingSoonContainer>
           </Body>
         </StyledAppContainer>
       </GreetingsWrapper>
