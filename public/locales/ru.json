@@ -58,7 +58,6 @@
   "youAreSending": "You are sending",
   "willReceive": "will receive at least",
   "to": "to",
-  "addLiquidity": "Add Liquidity",
   "liquidityDescription": "Add liquidity to receive LP tokens",
   "deposit": "Deposit",
   "currentPoolSize": "Current Pool Size",
@@ -398,7 +397,7 @@
   "playNow": "Играть сейчас!",
   "asteroidMiningDescription": "(A)Стероидный майнинг был создан как проект, управляемый сообществом, который позволит пользователям добавлять игровые механики, генерировать астероиды для фарминга и даже целые миры во Вселенной Gravis Finance.",
   "watchVideo": "Смотреть видео",
-  "buyLootboxes": "Купить лутбоксы",
+  "buyLootBoxes": "Купить лутбоксы",
   "Revolutionary gamified yield farming": "Революционный геймифицированный фарминг",
   "Gamified DeFi": "Геймифицированная децентрализованная",
   "ecosystem": "экосистема",
@@ -406,5 +405,7 @@
   "Trade anything anywhere": "Торгуйте чем угодно и где угодно",
   "Trade any asset by only connecting your wallet": "Торгуйте любыми токенами подключив свой кошелек",
   "Farming": "Фарминг",
-  "Higher than other projects yield is ensured by smart contract management and unique strategies": "Более высокая, чем у других проектов, доходность обеспечивается управлением смарт-контрактами и уникальными стратегиями"
+  "Higher than other projects yield is ensured by smart contract management and unique strategies": "Более высокая, чем у других проектов, доходность обеспечивается управлением смарт-контрактами и уникальными стратегиями",
+  "moreComingSoon": "Продолжение следует...",
+  "addLiquidity": "Добавить ликвидность"
 }
