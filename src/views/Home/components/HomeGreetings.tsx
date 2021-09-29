@@ -712,6 +712,11 @@ const VideoButton = styled.a<{ showVideo?: boolean }>`
   transition: all 0.3s ease-in-out;
   width: 180px;
   
+  > img {
+    background-color: white;
+    border-radius: 100%;
+  }
+  
   span {
     color: #FFFFFF;
     font-family: Inter;
@@ -779,8 +784,8 @@ const UpperShip = styled(StyledShip)<{ showVideo?: boolean }>`
   ${({ showVideo }) => showVideo ? 'opacity: 0;' : ''}
   
   @media screen and (max-width: 1400px) {
-    top: -125px;
-    left: 25px;
+    top: -85px;
+    left: -85px;
   }
 `
 
@@ -795,8 +800,8 @@ const LowerShip = styled(StyledShip)<{ showVideo?: boolean }>`
   ${({ showVideo }) => showVideo ? 'opacity: 0' : ''};
   
   @media screen and (max-width: 1400px) {
-    bottom: -115px;
-    right: -25px;
+    bottom: -105px;
+    right: -175px;
   }
 `
 
@@ -1400,29 +1405,17 @@ const ComingSoonContainer = styled.div`
   color: white;
   font-size: 80px;
   font-weight: 600;
-  animation: shine-coming-soon-text 3s ease-in-out infinite;
   flex-direction: column;
   align-items: center;
   
   > h1 {
     margin-bottom: 40px;
+    text-align: center;
   }
   
   > svg {
     width: 84px;
     height: 84px;
-  }
-  
-  @keyframes shine-coming-soon-text {
-    0% {
-    text-shadow: 0 0 0 white;
-    }
-    50% {
-    text-shadow: 0 0 16px rgba(255, 255, 255, 0.6);
-    }
-    100% {
-      text-shadow: 0 0 0 white;
-    }
   }
 `
 
@@ -1684,7 +1677,7 @@ const HomeGreetings: React.FC = () => {
               <CaptainsButtons>
                 <StyledButton type="default"
                               href={`${process.env.REACT_APP_ASTEROID_MINING_URL}?${urlSearchLanguageParam}=${t('language')}`}>
-                  {t('buyLootboxes')}
+                  {t('buyLootBoxes')}
                 </StyledButton>
                 <InputContainer>
                   <StyledButton type="danger"
@@ -1916,7 +1909,7 @@ const HomeGreetings: React.FC = () => {
             </AmountSection> */}
             <ComingSoonContainer>
               <h1>
-                {t('comingSoon')}
+                {t('moreComingSoon')}
               </h1>
               <GravisEmptyLogoIcon />
             </ComingSoonContainer>
