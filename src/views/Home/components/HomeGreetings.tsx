@@ -695,8 +695,7 @@ const CaptainsSection = styled(Section)`
   
   @media screen and (max-width: 500px) {
     margin-top: 130px;
-    width: 300px;
-    height: 585px;
+    height: 625px;
   }
 `
 
@@ -803,12 +802,20 @@ const LowerShip = styled(StyledShip)<{ showVideo?: boolean }>`
   }
 `
 
-const CaptainsTitle = styled.div`
+const InfoText = styled.div`
   position: absolute;
-  width: 680px;
-  bottom: 200px;
+  bottom: 150px;
   left: 0;
   right: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const CaptainsTitle = styled.div`
+  // position: absolute;
+  width: 680px;
   margin: 0 auto;
   color: #FFFFFF;
   font-family: Inter;
@@ -845,23 +852,31 @@ const CaptainsTitle = styled.div`
 `
 
 const CaptainsDescription = styled.div`
-  width: 319px;
   height: 66px;
   color: #FFFFFF;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 22px;
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 26px;
   text-align: center;
   opacity: 0.7;
+  padding: 0 20%;
+  margin-top: 24px;
+  
+  @media screen and (max-width: 1250px) {
+    font-size: 20px;
+  }
   
   @media screen and (max-width: 800px) {
     margin-top: 24px;
+    font-size: 18px;
+    padding: 0;
   }
   
   @media screen and (max-width: 500px) {
     width: 82%;
     font-size: 12px;
     line-height: 18px;
+    margin-bottom: 20px;
   }
 `
 
@@ -1601,9 +1616,14 @@ const HomeGreetings: React.FC = () => {
               <StyledYouTube videoId="kUpv-AYXyew" showVideo={showVideo} ref={videoRef} id="videoPlayer"/>
               <Star style={{ 'right': '100px', 'top': '-75px' }} src={grey_13x14} alt="grey_13x14" />
               <UpperShip src={ship_1} alt='ship_1' showVideo={showVideo} />
-              <CaptainsTitle>
-                Revolutionary gamified yield farming
-              </CaptainsTitle>
+              <InfoText>
+                <CaptainsTitle>
+                  Revolutionary gamified yield farming
+                </CaptainsTitle>
+                <CaptainsDescription>
+                  (A)steroid Mining is being created as a community-driven project that will allow users to add game mechanics, generate asteroids for farming, and even entire worlds in the Gravis Finance Universe.
+                </CaptainsDescription>
+              </InfoText>
               <VideoButton type="danger"
                 // href="https://www.youtube.com/watch?v=kUpv-AYXyew"
                            showVideo={showVideo}
@@ -1635,7 +1655,7 @@ const HomeGreetings: React.FC = () => {
                 <span>Watch video</span>
               </VideoButton>
               <CaptainsDescription>
-                Higher than other projects yield is ensured by smart contract management and unique strategies
+                (A)steroid Mining is being created as a community-driven project that will allow users to add game mechanics, generate asteroids for farming, and even entire worlds in the Gravis Finance Universe.
               </CaptainsDescription>
               <CaptainsButtons>
                 <StyledButton type="default"
