@@ -43,13 +43,12 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
         },
         {
           label: '(A)steroid pitch deck',
-          href: `https://gateway.pinata.cloud/ipfs/QmWPNbXLtqh1gkXEe5BR5BLadGcz7sYAXjooSzrouBi9an`,
-          external: true
+          href: 'https://gateway.pinata.cloud/ipfs/QmWPNbXLtqh1gkXEe5BR5BLadGcz7sYAXjooSzrouBi9an'
         },
         {
           label: t('mainMenu.docs'),
           href: 'https://docs.gravis.finance',
-          external: true
+          external: true,
         }
       ]
     },
@@ -127,23 +126,23 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
         {
           label: t('mainMenu.github'),
           href: 'https://github.com/gravis-finance',
-          external: true
+          external: true,
         },
         {
           label: t('mainMenu.blog'),
           href: 'https://gravis-finance.medium.com/',
-          external: true
+          external: true,
         },
         {
           label: t('mainMenu.pitchDeck'),
           href: t('presentationLink'),
-          external: true
+          external: true,
         },
         {
           label: t('mainMenu.tokenomics'),
           href:
             'https://docs.google.com/spreadsheets/d/1JfHN1J_inbAbANSCuspO8CIWuyiCDLB36pcuHItW0eM/edit#gid=1509806282',
-            external: true
+          external: true,
         },
       ],
     },

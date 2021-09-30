@@ -284,6 +284,7 @@
   "changeManually": "We found that you have different networks\nselected in your wallet and on our site.\nChange network in your wallet manually or use the button below",
   "learnMore": "Learn more",
   "tradeNow": "Trade now!",
+  "farmGRVX": "Farm GRVX",
   "weLaunched": "Gravis Finance has launched Shibomania on the Polygon network!",
   "hurryUp": "Shibomania Promo started at 9 am UTC, June 15, 2021, and will continue for 2 weeks, finishing at 9 am UTC, June 29, 2021.",
   "nftCards": "Hurry up and take part!",
@@ -366,6 +367,8 @@
     "differenceBetweenMarket": "The difference between the market price and your price due to trade size."
   },
   "mainMenu": {
+    "buyLootBoxes": "Buy Loot Boxes",
+    "hangar": "Hangar",
     "liquidity": "Pool",
     "home": "Home",
     "trade": "Exchange",
@@ -391,8 +394,24 @@
     "NFTFarming": "NFT Farming",
     "nftmarket": "NFT Market",
     "asteroidMining": "(A)steroid Mining",
-    "captainsIno": "Captains INO",
-    "buyLootBoxes": "Buy Loot Boxes",
-    "hangar": "Hangar"
-  }
+    "captainsIno": "Captains INO"
+  },
+  "playNow": "Play now!",
+  "asteroidMiningDescription": "(A)steroid Mining is being created as a community-driven project that will allow users to add game mechanics, generate asteroids for farming, and even entire worlds in the Gravis Finance Universe.",
+  "watchVideo": "Watch video",
+  "buyLootBoxes": "Buy Loot Boxes",
+  "Revolutionary gamified yield farming": "Revolutionary gamified yield farming",
+  "Gamified DeFi": "Gamified DeFi",
+  "ecosystem": "ecosystem",
+  "Smart NFT assets": "Smart NFT assets. Multichain. Cross-chain. High profit yield farming.",
+  "Trade anything anywhere": "Trade anything anywhere",
+  "Trade any asset by only connecting your wallet": "Trade any asset by only connecting your wallet",
+  "Farming": "Farming",
+  "Higher than other projects yield is ensured by smart contract management and unique strategies": "Higher than other projects yield is ensured by smart contract management and unique strategies",
+  "moreComingSoon": "More coming soon",
+  "Easy-to-use transparent bridge for GRVS and GRVX tokens across 3 networks": "Easy-to-use transparent bridge for GRVS and GRVX tokens across 3 networks",
+  "Stay tuned for public round launch": "Stay tuned for public round launch",
+  "Your email": "Your email",
+  "Open presentation": "Open presentation",
+  "Subscribe": "Subscribe"
 }

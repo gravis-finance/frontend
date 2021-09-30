@@ -1,0 +1,14 @@
+<svg width="92" height="92" viewBox="0 0 92 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle opacity="0.07" cx="46" cy="46" r="46" fill="#C4C4C4"/>
+<path d="M39 58.75V63.75C39 64.0815 38.8736 64.3995 38.6485 64.6339C38.4235 64.8683 38.1183 65 37.8 65H28.2C27.8817 65 27.5765 64.8683 27.3515 64.6339C27.1264 64.3995 27 64.0815 27 63.75V56.25C27 55.9185 27.1264 55.6005 27.3515 55.3661C27.5765 55.1317 27.8817 55 28.2 55H35.4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M53 33.25V28.25C53 27.9185 53.1264 27.6005 53.3515 27.3661C53.5765 27.1317 53.8817 27 54.2 27H63.8C64.1183 27 64.4235 27.1317 64.6485 27.3661C64.8736 27.6005 65 27.9185 65 28.25V35.75C65 36.0815 64.8736 36.3995 64.6485 36.6339C64.4235 36.8683 64.1183 37 63.8 37H56.6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M45 31H47" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M45 62H47" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M32 42V43" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M32 49V50" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M60 42V43" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M60 49V50" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="45.5" cy="46.5" r="5.75" stroke="white" stroke-width="1.5"/>
+<path d="M35.4 37H28.2C27.8817 37 27.5765 36.8683 27.3515 36.6339C27.1264 36.3995 27 36.0815 27 35.75V28.25C27 27.9185 27.1264 27.6005 27.3515 27.3661C27.5765 27.1317 27.8817 27 28.2 27H37.8C38.1183 27 38.4235 27.1317 38.6485 27.3661C38.8736 27.6005 39 27.9185 39 28.25V33.25" stroke="#FFA100" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M56.6 55H63.8C64.1183 55 64.4235 55.1317 64.6485 55.3661C64.8736 55.6005 65 55.9185 65 56.25V63.75C65 64.0815 64.8736 64.3995 64.6485 64.6339C64.4235 64.8683 64.1183 65 63.8 65H54.2C53.8817 65 53.5765 64.8683 53.3515 64.6339C53.1264 64.3995 53 64.0815 53 63.75V58.75" stroke="#FFA100" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
