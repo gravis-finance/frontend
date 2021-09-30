@@ -1523,6 +1523,7 @@ const ComingSoonContainer = styled.div`
 
 const StyledFlex = styled(Flex)`
   margin-top: 60px;
+  z-index: 1;
   
   @media screen and (max-width: 415px) {
     flex-direction: column;
@@ -1620,16 +1621,16 @@ const HomeGreetings: React.FC = () => {
                 <div>{t('Smart NFT assets')}</div>
               </DescriptionTextHeadline>
               <StyledFlex alignItems="center" >
-                <Button type="default"
+                <StyledButton type="default"
                         href={`${process.env.REACT_APP_EXCHANGE_URL}?${urlSearchLanguageParam}=${t('language')}`}
                         target="_blank">
                   {t('tradeNow')}
-                </Button>
+                </StyledButton>
                 <InputContainer>
-                  <Button variant="danger"
+                  <StyledButton type="danger"
                           href={`${process.env.REACT_APP_ASTEROID_MINING_URL}/hangar?${urlSearchLanguageParam}=${t('language')}`}>
                     {t('playNow')}
-                  </Button>
+                  </StyledButton>
                 </InputContainer>
               </StyledFlex>
               <PlanetBox>
@@ -1752,16 +1753,16 @@ const HomeGreetings: React.FC = () => {
                 <TradeInfo>{t('Trade any asset by only connecting your wallet')}</TradeInfo>
                 <AbsoluteImg mobile src={Swap} alt='swap' />
                 <TradeNowFlex alignItems="center">
-                  <Button type="default"
+                  <StyledButton type="default"
                           href={`${process.env.REACT_APP_EXCHANGE_URL}?${urlSearchLanguageParam}=${t('language')}`}
                           target="_blank">
                     {t('tradeNow')}
-                  </Button>
+                  </StyledButton>
                   <InputContainer>
-                    <Button variant="danger"
+                    <StyledButton type="danger"
                             href={`${process.env.REACT_APP_LIQUIDITY_URL}?${urlSearchLanguageParam}=${t('language')}`}>
                       {t('addLiquidity')}
-                    </Button>
+                    </StyledButton>
                   </InputContainer>
                 </TradeNowFlex>
               </TradeContainer>
