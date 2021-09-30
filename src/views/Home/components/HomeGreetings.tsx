@@ -54,6 +54,10 @@ const GreetingsWrapper = styled.div`
     display: flex;
     flex-direction: column-reverse;
   }
+  
+  button {
+    z-index: 1;
+  }
 `
 
 const StyledAppContainer = styled.div`
@@ -208,6 +212,14 @@ const Networks = styled.div<{ mobile?: boolean }>`
       margin-left: 10px;
     }
   }
+  
+  @media screen and (max-width: 385px) {
+    flex-wrap: wrap;
+    
+    > div {
+      height: 77px;
+    }
+  }
 `
 
 const NetworkItem = styled.div<{ disabled?: boolean }>`
@@ -277,9 +289,9 @@ const DescriptionTextHeadline = styled.div<{ mobile?: boolean }>`
     font-size: 19px;
   }
   
-  @media screen and (max-width: 368px) {
+  @media screen and (max-width: 386px) {
     margin-top: 25px;
-    font-size: 19px;
+    font-size: 14px;
   }
 `
 
@@ -542,6 +554,14 @@ const TradeSection = styled(Section)`
     width: 90%;
     flex-direction: column-reverse;
   }
+  
+  @media screen and (max-width: 480px) {
+    margin-top: 297px;
+  }
+  
+  @media screen and (max-width: 340px) {
+    margin-top: 397px;
+  }
 `
 
 const TradeContainer = styled.div`
@@ -620,6 +640,10 @@ const FarmingSection = styled(TradeSection)`
   @media screen and (max-width: 800px) {
     width: 90%;
     flex-direction: column-reverse;
+  }
+  
+  @media screen and (max-width: 330px) {
+    margin-top: 340px;
   }
 `
 
@@ -841,7 +865,7 @@ const CaptainsTitle = styled.div`
   // }
   
   @media screen and (max-width: 800px) {
-    width: 260px;
+    width: 100%;
     height: 144px;
     font-size: 37px;
     line-height: 48px;
@@ -851,6 +875,10 @@ const CaptainsTitle = styled.div`
     font-size: 27px;
     line-height: 38px;
     height: 130px;
+  }
+  
+  @media screen and (max-width: 380px) {
+    font-size: 20px;
   }
 `
 
@@ -927,6 +955,14 @@ const CaptainsButtons = styled(Flex)`
         margin-top: 10px;
       }
     }
+  }
+  
+  @media screen and (max-width: 450px) {
+    margin-top: 40px;
+  }
+  
+  @media screen and (max-width: 380px) {
+    margin-top: 80px;
   }
 `
 
@@ -1411,11 +1447,51 @@ const ComingSoonContainer = styled.div`
   > h1 {
     margin-bottom: 40px;
     text-align: center;
+    
+    @media screen and (max-width: 625px) {
+      font-size: 60px;
+    }
+    
+    @media screen and (max-width: 465px) {
+      font-size: 40px;
+    }
+    
+    @media screen and (max-width: 330px) {
+      font-size: 30px;
+    }
   }
   
   > svg {
     width: 84px;
     height: 84px;
+  }
+`
+
+const StyledFlex = styled(Flex)`
+  margin-top: 60px;
+  
+  @media screen and (max-width: 415px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    > div:last-child {
+      margin-top: 20px;
+      width: 100%;
+    }
+  }
+`
+
+const TradeNowFlex = styled(Flex)`
+  margin-top: 48px;
+  
+  @media screen and (max-width: 420px) {
+    flex-direction: column;
+    
+    > *:last-child {
+      margin-top: 20px;
+      margin-left: 0;
+    }
   }
 `
 
@@ -1458,7 +1534,7 @@ const HomeGreetings: React.FC = () => {
               <DescriptionTextHeadline>
                 <div>{t('Smart NFT assets')}</div>
               </DescriptionTextHeadline>
-              <Flex alignItems="center" style={{ marginTop: '60px' }}>
+              <StyledFlex alignItems="center" >
                 <Button type="default"
                         href={`${process.env.REACT_APP_EXCHANGE_URL}?${urlSearchLanguageParam}=${t('language')}`}
                         target="_blank">
@@ -1470,7 +1546,7 @@ const HomeGreetings: React.FC = () => {
                     {t('playNow')}
                   </Button>
                 </InputContainer>
-              </Flex>
+              </StyledFlex>
               <PlanetBox>
                 <svg width="722" height="397" viewBox="0 0 722 397" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path opacity="0.1"
@@ -1590,7 +1666,7 @@ const HomeGreetings: React.FC = () => {
                 <TradeTitle>{t('Trade anything anywhere')}</TradeTitle>
                 <TradeInfo>{t('Trade any asset by only connecting your wallet')}</TradeInfo>
                 <AbsoluteImg mobile src={Swap} alt='swap' />
-                <Flex alignItems="center" style={{ marginTop: '48px' }}>
+                <TradeNowFlex alignItems="center">
                   <Button type="default"
                           href={`${process.env.REACT_APP_EXCHANGE_URL}?${urlSearchLanguageParam}=${t('language')}`}
                           target="_blank">
@@ -1602,7 +1678,7 @@ const HomeGreetings: React.FC = () => {
                       {t('addLiquidity')}
                     </Button>
                   </InputContainer>
-                </Flex>
+                </TradeNowFlex>
               </TradeContainer>
               <Star style={{ 'left': '550px', 'bottom': '30px' }} src={white_18x19} alt="white_18x19" />
               <Star style={{ 'left': '100px', 'bottom': '-100px' }} src={grey_13x14} alt="grey_13x14" />
@@ -1701,7 +1777,7 @@ const HomeGreetings: React.FC = () => {
               <CaptainsButtons>
                 <StyledButton type="default"
                               href={`${process.env.REACT_APP_ASTEROID_MINING_URL}?${urlSearchLanguageParam}=${t('language')}`}>
-                  {t('buyLootboxes')}
+                  {t('buyLootBoxes')}
                 </StyledButton>
                 <StyledButton type="danger"
                               href={`${process.env.REACT_APP_ASTEROID_MINING_URL}/hangar?${urlSearchLanguageParam}=${t('language')}`}>
