@@ -42,7 +42,7 @@ import presentation_mobile from '../../../assets/presentation_mobile.svg'
 // import cap from '../../../assets/cap.svg'
 // import cap_orange from '../../../assets/cap_orange.svg'
 // import block from '../../../assets/block.svg'
-import networks from '../../../assets/networks.svg'
+import networks from '../../../assets/networks.png'
 
 const GreetingsWrapper = styled.div`
   width: 100%;
@@ -2060,7 +2060,7 @@ const HomeGreetings: React.FC = () => {
                 $ 1,423,631.536
               </AmountDollars>
               <AmountText>Amount of tokens transferred</AmountText> */}
-              <img style={{ 'marginTop': '42px' }} src={networks} alt='networks' />
+              <img style={{ 'marginTop': '42px', zIndex: 1 }} src={networks} alt='networks' />
               <AmountDescription>
                 {t('Easy-to-use transparent bridge for GRVS and GRVX tokens across 3 networks')}
               </AmountDescription>
