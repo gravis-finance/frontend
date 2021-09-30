@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, urlSearchLanguageParam } from '@gravis.finance/uikit'
+import { Button, Flex, Input, urlSearchLanguageParam } from '@gravis.finance/uikit'
 import YouTube from 'react-youtube'
 import {
   AIcon,
@@ -33,8 +33,8 @@ import Captains_mobile from '../../../assets/captains_mobile.png'
 import Video_Icon from '../../../assets/video-icon.svg'
 import ship_1 from '../../../assets/ship_1.svg'
 import ship_2 from '../../../assets/ship_2.svg'
-// import presentation from '../../../assets/presentation.svg'
-// import presentation_mobile from '../../../assets/presentation_mobile.svg'
+import presentation from '../../../assets/presentation.svg'
+import presentation_mobile from '../../../assets/presentation_mobile.svg'
 // import stack from '../../../assets/stack.svg'
 // import supply from '../../../assets/supply.svg'
 // import stonks from '../../../assets/stonks.svg'
@@ -968,7 +968,7 @@ const CaptainsButtons = styled(Flex)`
   }
 `
 
-/* const EmailSection = styled(Section)`
+ const EmailSection = styled(Section)`
   margin-top: 218px;
 
   @media screen and (max-width: 800px) {
@@ -999,22 +999,53 @@ const EmailTitle = styled.div`
 `
 
 const InputBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 405px;
+  // display: flex;
+  // justify-content: space-between;
+  width: 100%;
   margin-top: 30px;
-
-  @media screen and (max-width: 600px) {
-    width: 300px;
+  // align-items: center;
+  
+  > form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media screen and (max-width: 426px) {
+      flex-direction: column;
+      > input {
+        margin: 0;
+      }
+      > input:last-child {
+        margin-top: 20px;
+      }
+    }
   }
 `
 
 const EmailInput = styled(Input)`
   width: 285px;
   height: 48px;
+  
+  margin-right: 40px;
+  @media screen and (max-width: 426px) {
+    width: 100%;
+  }
+`
 
-  @media screen and (max-width: 600px) {
-    width: 65%;
+const SubmitInput = styled(Input)<{ disabled?: boolean }>`
+  width: 285px;
+  height: 48px;
+  background: #242424;
+  ${({ disabled }) => disabled ? '' : 'border: 2px solid #009CE1;'}
+  box-sizing: border-box;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.4), -4px -4px 12px rgba(255, 255, 255, 0.05), 4px 4px 12px rgba(0, 0, 0, 0.4), -4px -4px 12px rgba(255, 255, 255, 0.05);
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  width: 150px;
+  transition: all 200ms ease-in-out;
+  
+  :hover {
+    ${({ disabled }) => disabled ? 'background: #303030;' : 'border: 2px solid #009CE1;background: #009CE1;'}
   }
 `
 
@@ -1045,15 +1076,36 @@ const PresentationSection = styled(Section)`
     width: 355px;
     height: 555px;
   }
+  
+  @media screen and (max-width: 410px) {
+    width: 100%;
+    height: 555px;
+  }
 `
 
-const PresentationButton = styled<any>(Button)`
+const PresentationButton = styled.a`
   position: absolute;
   bottom: 50px;
   left: 50px;
   background: #FFA100;
   transition: transform 0.3s ease-in-out;
-
+  border: 1px solid #FFA100;
+  border-radius: 41px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  height: 48px;
+  line-height: 1;
+  justify-content: center;
+  outline: 0;
+  padding: 0 24px;
+  opacity: 1;
+  box-shadow: 4px 4px 12px rgb(0 0 0 / 40%), -4px -4px 12px rgb(255, 255, 255, 0.05), 4px 4px 12px rgb(0, 0, 0, 0.4), -4px -4px 12px rgb(255, 255, 255, 0.05);
+  text-align: center;
+  align-items: center;
   :hover {
     transform: scale(1.1);
   }
@@ -1065,7 +1117,7 @@ const PresentationButton = styled<any>(Button)`
     bottom: 25px;
     margin: 0 auto;
   }
-` */
+`
 
 const PlanetBox = styled.div`
   svg {
@@ -1083,11 +1135,11 @@ const PlanetBox = styled.div`
   }
 `
 
-//  const Planet = styled(PlanetBox)`
-//   position: absolute;
-//   bottom: -285px;
-//   left: -105px;
-// `
+ const Planet = styled(PlanetBox)`
+  position: absolute;
+  bottom: -285px;
+  left: -105px;
+`
 //
 // const Tokens = styled.div`
 //   section:first-child {
@@ -1511,6 +1563,37 @@ const HomeGreetings: React.FC = () => {
     }
   }
 
+  // const emailInputRef = useRef(null);
+  //
+  const validateEmailString = (email: string): boolean => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+  //
+  const [validEmail, setValidEmail] = useState(null)
+
+  const validateEmail = (e) => {
+    if(validateEmailString(e.target.value))
+      setValidEmail(true)
+    else
+      setValidEmail(false)
+  }
+  //
+  // const sendEmail = () => {
+  //   if(validateEmailString(emailInputRef.current.value)) {
+  //     const formData = new FormData();
+  //     formData.append("EMAIL", emailInputRef.current.value)
+  //     formData.append("subscribe", "Subscribe")
+  //     fetch('https://gmail.us5.list-manage.com/subscribe/post?u=c026fa072d55de036c533ca41&id=f5865b85b1',
+  //       {
+  //         method: 'POST',
+  //         mode: 'no-cors',
+  //         body: formData,
+  //       })
+  //       .then(result => console.log('res', result))
+  //   }
+  // }
+
   useEffect(() => {
     if (showVideo) {
       videoRef.current.internalPlayer.playVideo()
@@ -1787,19 +1870,35 @@ const HomeGreetings: React.FC = () => {
                 </StyledButton>
               </CaptainsButtons>
             </CaptainsSection>
-            {/* <EmailSection>
+             <EmailSection>
               <EmailTitle>
-                Stay tuned for public round launch
+                {t('Stay tuned for public round launch')}
               </EmailTitle>
+               {/* <form
+                 action="https://gmail.us5.list-manage.com/subscribe/post?u=c026fa072d55de036c533ca41&amp;id=f5865b85b1"
+                 method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate"
+                 target="_blank" noValidate>
+                 <input type="email" name="EMAIL" className="email" id="mce-EMAIL" placeholder="email address"
+                        required />
+                 <input type="submit" value="Subscribe" name="subscribe"
+                        id="mc-embedded-subscribe" className="button" />
+               </form> */}
               <InputBox>
-                <EmailInput placeholder="Your email" />
-                <Button type="default" href={t('presentationLink')} target="_blank">
+                {/* <EmailInput placeholder="Your email" ref={emailInputRef} onChange={validateEmail}/>
+                <Button type="default" href={t('presentationLink')} target="_blank" onClick={sendEmail} disabled={!validEmail}>
                   Send
-                </Button>
+                </Button> */}
+                <form
+                  action="https://finance.us1.list-manage.com/subscribe/post?u=b29c873bb0dd6ca7e92c4b734&amp;id=93d219f749"
+                  method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate"
+                  target="_blank" noValidate>
+                  <EmailInput type="email" name="EMAIL" className="required email" id="mce-EMAIL" placeholder={t('Your email')} onChange={validateEmail} />
+                  <SubmitInput type="submit" value={t('Subscribe')} name="subscribe" id="mc-embedded-subscribe" className="button" disabled={!validEmail}/>
+                </form>
               </InputBox>
             </EmailSection>
             <PresentationSection desktopUrl={presentation} mobileUrl={presentation_mobile}>
-              <PresentationButton>Open presentation</PresentationButton>
+              <PresentationButton href="https://gateway.pinata.cloud/ipfs/QmPyzebkCrP7C8R2WhHxnWcoGXoAb6T1dREZHAZkzCUt7F" target="_blank">{t('Open presentation')}</PresentationButton>
               <Planet>
                 <svg width="302" height="321" viewBox="0 0 302 321" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -1807,7 +1906,7 @@ const HomeGreetings: React.FC = () => {
                     fill="#232323" />
                 </svg>
               </Planet>
-            </PresentationSection> */}
+            </PresentationSection>
             {/* <Tokens>
               <TokenSection>
                 <TokenHeader>
