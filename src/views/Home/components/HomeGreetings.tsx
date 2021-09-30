@@ -157,7 +157,7 @@ const Text = styled.p<{ small?: boolean }>`
   font-weight: 500;
   font-size: 23px;
   color: rgba(255, 255, 255, 1);
-  text-shadow: 1px 1px 10px;
+  // text-shadow: 1px 1px 10px;
 
   ${({ small }) =>
   small
@@ -281,7 +281,7 @@ const DescriptionTextHeadline = styled.div<{ mobile?: boolean }>`
   }
   
   @media screen and (max-width: 670px) {
-    width: 359px;
+    width: 100%;
     
     div:first-of-type {
       width: 100%;
@@ -992,7 +992,7 @@ const EmailTitle = styled.div`
   }
 
   @media screen and (max-width: 600px) {
-    width: 370px;
+    width: 100%;
     font-size: 28px;
     line-height: 36px;
   }
@@ -1056,25 +1056,20 @@ const PresentationSection = styled(Section)`
   background-image: url(${props => props.desktopUrl});
   background-size: 100% 100%;
 
-  @media screen and (max-width: 1475px) {
-    width: 830px;
+  @media screen and (max-width: 1400px) {
+    width: 916.5px;
+    height: 650px;
+  }
+  //
+  @media screen and (max-width: 1250px) {
+    width: 705px;
     height: 500px;
-  }
-
-  @media screen and (max-width: 1200px) {
-    width: 664px;
-    height: 400px;
-  }
-
-  @media screen and (max-width: 1000px) {
-    width: 581px;
-    height: 350px;
   }
 
   @media screen and (max-width: 800px) {
     background-image: url(${props => props.mobileUrl});
-    width: 355px;
-    height: 555px;
+    width: 100%;
+    height: 695px;
   }
   
   @media screen and (max-width: 410px) {
@@ -1111,7 +1106,7 @@ const PresentationButton = styled.a`
   }
 
   @media screen and (max-width: 800px) {
-    width: 80%;
+    width: 50%;
     left: 0;
     right: 0;
     bottom: 25px;
@@ -1120,6 +1115,11 @@ const PresentationButton = styled.a`
 `
 
 const PlanetBox = styled.div`
+
+  @media screen and (max-width: 500px) {
+    margin-top: -125px;
+  }
+  
   svg {
     width: 100%;
   }
