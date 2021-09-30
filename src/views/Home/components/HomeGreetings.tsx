@@ -135,6 +135,7 @@ const StyledButton = styled.a<{ type: string, mobile?: boolean, desktop?: boolea
   width: fit-content;
   height: 44px;
   text-decoration: none;
+  z-index: 1;
 
   transition: background 200ms ease-in-out;
 
@@ -1539,6 +1540,7 @@ const StyledFlex = styled(Flex)`
 
 const TradeNowFlex = styled(Flex)`
   margin-top: 48px;
+  z-index: 1;
   
   @media screen and (max-width: 420px) {
     flex-direction: column;
@@ -1622,8 +1624,7 @@ const HomeGreetings: React.FC = () => {
               </DescriptionTextHeadline>
               <StyledFlex alignItems="center" >
                 <StyledButton type="default"
-                        href={`${process.env.REACT_APP_EXCHANGE_URL}?${urlSearchLanguageParam}=${t('language')}`}
-                        target="_blank">
+                        href={`${process.env.REACT_APP_EXCHANGE_URL}?${urlSearchLanguageParam}=${t('language')}`}>
                   {t('tradeNow')}
                 </StyledButton>
                 <InputContainer>
@@ -1754,8 +1755,7 @@ const HomeGreetings: React.FC = () => {
                 <AbsoluteImg mobile src={Swap} alt='swap' />
                 <TradeNowFlex alignItems="center">
                   <StyledButton type="default"
-                          href={`${process.env.REACT_APP_EXCHANGE_URL}?${urlSearchLanguageParam}=${t('language')}`}
-                          target="_blank">
+                          href={`${process.env.REACT_APP_EXCHANGE_URL}?${urlSearchLanguageParam}=${t('language')}`}>
                     {t('tradeNow')}
                   </StyledButton>
                   <InputContainer>
