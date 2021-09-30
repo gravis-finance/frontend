@@ -42,7 +42,7 @@ import ship_2 from '../../../assets/ship_2.svg'
 // import cap from '../../../assets/cap.svg'
 // import cap_orange from '../../../assets/cap_orange.svg'
 // import block from '../../../assets/block.svg'
-// import networks from '../../../assets/networks.svg'
+import networks from '../../../assets/networks.svg'
 
 const GreetingsWrapper = styled.div`
   width: 100%;
@@ -685,12 +685,13 @@ const CaptainsSection = styled(Section)`
   border-radius: 25px;
   width: 1057px;
   height: 750px;
-  margin-bottom: 100px;
+  margin-bottom: 0;
   
   @media screen and (max-width: 1400px) {
     margin-top: 260px;
     width: 916.5px;
     height: 650px;
+    margin-bottom: 80px;
   }
   
   @media screen and (max-width: 1250px) {
@@ -717,6 +718,7 @@ const CaptainsSection = styled(Section)`
   @media screen and (max-width: 500px) {
     margin-top: 130px;
     height: 625px;
+    margin-bottom: 20px;
   }
 `
 
@@ -1081,245 +1083,245 @@ const PlanetBox = styled.div`
   }
 `
 
-/* const Planet = styled(PlanetBox)`
-  position: absolute;
-  bottom: -285px;
-  left: -105px;
-`
-
-const Tokens = styled.div`
-  section:first-child {
-    div:first-child {
-      div:first-child + div {
-        width: 356px;
-
-        @media screen and (max-width: 1475px) {
-          width: 225px;
-        }
-      }
-    }
-  }
-`
-
-const TokenSection = styled(Section)`
-  position: relative;
-  margin-top: 190px;
-  width: 1057px;
-  display: flex;
-  height: fit-content;
-
-  @media screen and (max-width: 1475px) {
-    margin-top: 130px;
-    width: 100%;
-  }
-
-  @media screen and (max-width: 1200px) {
-    margin-top: 70px;
-  }
-
-  @media screen and (max-width: 1000px) {
-    margin-top: 50px;
-  }
-
-  @media screen and (max-width: 800px) {
-    margin-top: 100px;
-  }
-`
-
-const TokenHeader = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-
-  @media screen and (max-width: 1475px) {
-    > div:nth-of-type(2) {
-      max-width: 500px;
-      font-size: 12px;
-      line-height: 20px;
-      margin-left: 20px;
-    }
-  }
-
-  @media screen and (max-width: 800px) {
-    flex-direction: column;
-    text-align: center;
-  }
-`
-
-const TokenName = styled.div`
-  color: #FFFFFF;
-  text-transform: uppercase;
-  font-family: Inter;
-  font-size: 61px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 72px;
-`
-
-const TokenDescription = styled.div`
-  margin-left: 46px;
-  // width: 353px;
-  color: #FFFFFF;
-  font-family: Inter;
-  font-size: 19px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 28px;
-
-  // :first-child {
-  //   width: 356px;
-  // }
-`
-
-const TokenButtons = styled.div<{ mobile?: boolean }>`
-  ${({ mobile }) => mobile ? 'display: none;' : 'display: flex;'}
-  justify-content: space-between;
-  width: 267px;
-  margin-left: auto;
-  margin-right: 0;
-  font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 20px;
-
-  a {
-    padding: 14px 24px;
-  }
-
-  @media screen and (max-width: 800px) {
-    ${({ mobile }) => mobile ? 'display: flex;' : 'display: none;'}
-    width: 100%;
-    margin-top: 28px;
-    justify-content: center;
-
-    a {
-      width: 45%;
-
-      :last-of-type {
-        margin-left: 10px;
-      }
-    }
-  }
-`
-
-const TokenCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 256px;
-  height: 282px;
-  background-color: #252525;
-  border-radius: 16px;
-  transition: transform 0.2s linear;
-
-  :hover {
-    transform: translateY(-25px);
-  }
-
-  @media screen and (max-width: 1475px) {
-    width: 200px;
-    height: 220px;
-  }
-
-  @media screen and (max-width: 1200px) {
-    width: 150px;
-    height: 165px;
-
-    > div:first-of-type {
-      width: 36px;
-      height: 36px;
-
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    p {
-      font-size: 20px;
-      line-height: 28px;
-    }
-  }
-
-   @media screen and (max-width: 1000px) {
-    width: 140px;
-    height: 154px;
-
-    > div:first-of-type {
-      width: 24px;
-      height: 24px;
-    }
-
-    p {
-      font-size: 14px;
-      line-height: 22px;
-    }
-  }
-
-  @media screen and (max-width: 800px) {
-    width: 90%;
-    border-radius: 24px;
-    padding: 15px;
-    height: 120px;
-    flex-direction: row;
-    justify-content: flex-start;
-
-    > div:first-of-type {
-      width: 72px;
-      height: 72px;
-    }
-
-    > div:last-of-type {
-      width: 80%;
-      align-items: flex-start;
-      margin-left: 20px;
-
-      p {
-        margin: 0;
-        font-size: 24px;
-        line-height: 48px;
-      }
-
-      div {
-        font-size: 18px;
-        line-height: 24px;
-      }
-    }
-
-    :nth-child(n + 2) {
-      margin-top: 16px;
-    }
-  }
-`
-
-const TokenInfoFlex = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
-
-const TokenBody = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 45px;
-
-  @media screen and (max-width: 800px) {
-    flex-direction: column;
-    width: 100%;
-  }
-`
+//  const Planet = styled(PlanetBox)`
+//   position: absolute;
+//   bottom: -285px;
+//   left: -105px;
+// `
+//
+// const Tokens = styled.div`
+//   section:first-child {
+//     div:first-child {
+//       div:first-child + div {
+//         width: 356px;
+//
+//         @media screen and (max-width: 1475px) {
+//           width: 225px;
+//         }
+//       }
+//     }
+//   }
+// `
+//
+// const TokenSection = styled(Section)`
+//   position: relative;
+//   margin-top: 190px;
+//   width: 1057px;
+//   display: flex;
+//   height: fit-content;
+//
+//   @media screen and (max-width: 1475px) {
+//     margin-top: 130px;
+//     width: 100%;
+//   }
+//
+//   @media screen and (max-width: 1200px) {
+//     margin-top: 70px;
+//   }
+//
+//   @media screen and (max-width: 1000px) {
+//     margin-top: 50px;
+//   }
+//
+//   @media screen and (max-width: 800px) {
+//     margin-top: 100px;
+//   }
+// `
+//
+// const TokenHeader = styled.div`
+//   width: 100%;
+//   display: flex;
+//   align-items: center;
+//
+//   @media screen and (max-width: 1475px) {
+//     > div:nth-of-type(2) {
+//       max-width: 500px;
+//       font-size: 12px;
+//       line-height: 20px;
+//       margin-left: 20px;
+//     }
+//   }
+//
+//   @media screen and (max-width: 800px) {
+//     flex-direction: column;
+//     text-align: center;
+//   }
+// `
+//
+// const TokenName = styled.div`
+//   color: #FFFFFF;
+//   text-transform: uppercase;
+//   font-family: Inter;
+//   font-size: 61px;
+//   font-style: normal;
+//   font-weight: 700;
+//   line-height: 72px;
+// `
+//
+// const TokenDescription = styled.div`
+//   margin-left: 46px;
+//   // width: 353px;
+//   color: #FFFFFF;
+//   font-family: Inter;
+//   font-size: 19px;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 28px;
+//
+//   // :first-child {
+//   //   width: 356px;
+//   // }
+// `
+//
+// const TokenButtons = styled.div<{ mobile?: boolean }>`
+//   ${({ mobile }) => mobile ? 'display: none;' : 'display: flex;'}
+//   justify-content: space-between;
+//   width: 267px;
+//   margin-left: auto;
+//   margin-right: 0;
+//   font-family: Inter;
+//   font-size: 14px;
+//   font-style: normal;
+//   font-weight: 700;
+//   line-height: 20px;
+//
+//   a {
+//     padding: 14px 24px;
+//   }
+//
+//   @media screen and (max-width: 800px) {
+//     ${({ mobile }) => mobile ? 'display: flex;' : 'display: none;'}
+//     width: 100%;
+//     margin-top: 28px;
+//     justify-content: center;
+//
+//     a {
+//       width: 45%;
+//
+//       :last-of-type {
+//         margin-left: 10px;
+//       }
+//     }
+//   }
+// `
+//
+// const TokenCard = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   width: 256px;
+//   height: 282px;
+//   background-color: #252525;
+//   border-radius: 16px;
+//   transition: transform 0.2s linear;
+//
+//   :hover {
+//     transform: translateY(-25px);
+//   }
+//
+//   @media screen and (max-width: 1475px) {
+//     width: 200px;
+//     height: 220px;
+//   }
+//
+//   @media screen and (max-width: 1200px) {
+//     width: 150px;
+//     height: 165px;
+//
+//     > div:first-of-type {
+//       width: 36px;
+//       height: 36px;
+//
+//       img {
+//         width: 100%;
+//         height: 100%;
+//       }
+//     }
+//
+//     p {
+//       font-size: 20px;
+//       line-height: 28px;
+//     }
+//   }
+//
+//    @media screen and (max-width: 1000px) {
+//     width: 140px;
+//     height: 154px;
+//
+//     > div:first-of-type {
+//       width: 24px;
+//       height: 24px;
+//     }
+//
+//     p {
+//       font-size: 14px;
+//       line-height: 22px;
+//     }
+//   }
+//
+//   @media screen and (max-width: 800px) {
+//     width: 90%;
+//     border-radius: 24px;
+//     padding: 15px;
+//     height: 120px;
+//     flex-direction: row;
+//     justify-content: flex-start;
+//
+//     > div:first-of-type {
+//       width: 72px;
+//       height: 72px;
+//     }
+//
+//     > div:last-of-type {
+//       width: 80%;
+//       align-items: flex-start;
+//       margin-left: 20px;
+//
+//       p {
+//         margin: 0;
+//         font-size: 24px;
+//         line-height: 48px;
+//       }
+//
+//       div {
+//         font-size: 18px;
+//         line-height: 24px;
+//       }
+//     }
+//
+//     :nth-child(n + 2) {
+//       margin-top: 16px;
+//     }
+//   }
+// `
+//
+// const TokenInfoFlex = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+// `
+//
+// const TokenBody = styled.div`
+//   width: 100%;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   margin-top: 45px;
+//
+//   @media screen and (max-width: 800px) {
+//     flex-direction: column;
+//     width: 100%;
+//   }
+// `
 
 const AmountSection = styled(Section)`
   position: relative;
-  margin: 157px 0 300px;
+  margin: 157px 0 100px;
 
   @media screen and (max-width: 1475px) {
-    margin: 122px 0 250px;
+    margin: 0 0 100px;
   }
 
   @media screen and (max-width: 1200px) {
@@ -1327,7 +1329,7 @@ const AmountSection = styled(Section)`
   }
 
   @media screen and (max-width: 1000px) {
-    margin-bottom: 125px;
+    margin-bottom: 80px;
   }
 
   @media screen and (max-width: 800px) {
@@ -1335,30 +1337,30 @@ const AmountSection = styled(Section)`
   }
 `
 
-const AmountDollars = styled(Text)`
-  font-family: Inter;
-  font-size: 61px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 72px;
-
-  @media screen and (max-width: 600px) {
-    margin: 0;
-    font-size: 37px;
-    line-height: 48px;
-  }
-`
-
-const AmountText = styled(Text)`
-  margin-top: 15px;
-  opacity: 0.7;
-  text-shadow: none;
-
-  @media screen and (max-width: 600px) {
-    font-size: 16px;
-    line-height: 24px;
-  }
-`
+// const AmountDollars = styled(Text)`
+//   font-family: Inter;
+//   font-size: 61px;
+//   font-style: normal;
+//   font-weight: 700;
+//   line-height: 72px;
+//
+//   @media screen and (max-width: 600px) {
+//     margin: 0;
+//     font-size: 37px;
+//     line-height: 48px;
+//   }
+// `
+//
+// const AmountText = styled(Text)`
+//   margin-top: 15px;
+//   opacity: 0.7;
+//   text-shadow: none;
+//
+//   @media screen and (max-width: 600px) {
+//     font-size: 16px;
+//     line-height: 24px;
+//   }
+// `
 
 const AmountDescription = styled(Text)`
   width: 696px;
@@ -1381,11 +1383,11 @@ const AmountDescription = styled(Text)`
   }
 
   @media screen and (max-width: 600px) {
-    width: 354px;
+    width: 100%;
     font-size: 24px;
     line-height: 32px;
   }
-` */
+`
 
 const StyledYouTube = styled(YouTube)<{ showVideo?: boolean }>`
   width: 100%;
@@ -1946,7 +1948,7 @@ const HomeGreetings: React.FC = () => {
                 </TokenButtons>
               </TokenSection>
             </Tokens> */}
-            {/* <AmountSection>
+             <AmountSection>
               <Star style={{ 'left': '400px', 'top': '0' }} src={grey_13x14} alt="grey_13x14" />
               <Star style={{
                 'left': '425px',
@@ -1955,14 +1957,13 @@ const HomeGreetings: React.FC = () => {
                 'transform': 'rotate(-50.29deg)',
               }} src={special_27x48} alt="special_27x48" />
               <Star style={{ 'left': '400px', 'bottom': '25px' }} src={white_18x19} alt="white_18x19" />
-              <AmountDollars>
+             {/* <AmountDollars>
                 $ 1,423,631.536
               </AmountDollars>
-              <AmountText>Amount of tokens transferred</AmountText>
+              <AmountText>Amount of tokens transferred</AmountText> */}
               <img style={{ 'marginTop': '42px' }} src={networks} alt='networks' />
               <AmountDescription>
-                Easy-to-use transparent bridge
-                for GRVS and GRVX tokens across 3 networks
+                {t('Easy-to-use transparent bridge for GRVS and GRVX tokens across 3 networks')}
               </AmountDescription>
               <Star style={{
                 'width': '18px',
@@ -1982,7 +1983,7 @@ const HomeGreetings: React.FC = () => {
                 'right': '775px',
                 'bottom': '-150px',
               }} src={orange_9x10} alt="orange_9x10" />
-            </AmountSection> */}
+            </AmountSection>
             <ComingSoonContainer>
               <h1>
                 {t('moreComingSoon')}
