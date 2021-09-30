@@ -1045,7 +1045,7 @@ const SubmitInput = styled(Input)<{ disabled?: boolean }>`
   width: 150px;
   transition: all 200ms ease-in-out;
   
-  :hover {
+  :hover, :focus:not(:disabled) {
     ${({ disabled }) => disabled ? 'background: #303030;' : 'border: 2px solid #009CE1;background: #009CE1;'}
   }
 `
@@ -1427,6 +1427,8 @@ const AmountDescription = styled(Text)`
   @media screen and (max-width: 1475px) {
     font-size: 50px;
     line-height: 58px;
+    background: #1c1c1c;
+    z-index: 1;
   }
 
   @media screen and (max-width: 1000px) {
