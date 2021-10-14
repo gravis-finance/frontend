@@ -278,7 +278,7 @@
   "priceAndCurrency": "价格和货币",
   "networkSwitchingError": "网络切换错误",
   "differentNetworks": "我们发现您的钱包和我们的网站上选择了不同的网络。",
-  "presentationLink": "https://gateway.pinata.cloud/ipfs/QmPyzebkCrP7C8R2WhHxnWcoGXoAb6T1dREZHAZkzCUt7F",
+  "presentationLink": "https://gateway.pinata.cloud/ipfs/QmcvjVeZQ3NvokvdT3Bv9kF4k79qsP3GHE2jzoFjfekevS",
   "changeNetworkInTheWallet": "在钱包里换网络",
   "orChangeNetwork": " 或者在我们的网站上更改网络",
   "changeManually": "我们发现您的钱包和我们的网站中选择了不同的网络。请手动更改钱包中的网络或使用下面的按钮",
