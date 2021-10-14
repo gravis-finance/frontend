@@ -133,11 +133,6 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
       ]
     },
     {
-      label: t('mainMenu.NFTFarming'),
-      icon: 'NFTFarmingIcon',
-      href: `${process.env.REACT_APP_NFTFARMING_URL}?${urlSearchLanguageParam}=${t('language')}`
-    },
-    {
       label: t('mainMenu.more'),
       icon: 'MoreIcon',
       items: [
