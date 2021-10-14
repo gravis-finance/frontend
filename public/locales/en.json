@@ -394,7 +394,10 @@
     "NFTFarming": "NFT Farming",
     "nftmarket": "NFT Market",
     "asteroidMining": "(A)steroid Mining",
-    "captainsIno": "Captains INO"
+    "captainsIno": "Captains INO",
+    "farming": "Farming",
+    "staking": "GRVX Staking",
+    "farms": "Farms"
   },
   "playNow": "Play now!",
   "asteroidMiningDescription": "(A)steroid Mining is being created as a community-driven project that will allow users to add game mechanics, generate asteroids for farming, and even entire worlds in the Gravis Finance Universe.",
