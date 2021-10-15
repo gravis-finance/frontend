@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, Input, urlSearchLanguageParam } from '@gravis.finance/uikit'
+import { Flex, Input, urlSearchLanguageParam } from '@gravis.finance/uikit'
 import YouTube from 'react-youtube'
 import {
   AIcon,
@@ -1474,21 +1474,21 @@ const StyledYouTube = styled(YouTube)<{ showVideo?: boolean }>`
   }
 `
 
-const ComingSoonButton = styled(Button)`
-  animation: shine-text 6s ease-in-out infinite;
-  
-  @keyframes shine-text {
-    0% {
-      box-shadow: 0 0 6px rgba(255,255,255,0);
-    }
-    50% {
-    box-shadow: 0 0 16px rgba(255,255,255,0.5);
-    }
-    100% {
-    box-shadow: 0 0 6px rgba(255,255,255,0);
-    }
-  }
-`
+// const ComingSoonButton = styled(Button)`
+//   animation: shine-text 6s ease-in-out infinite;
+//
+//   @keyframes shine-text {
+//     0% {
+//       box-shadow: 0 0 6px rgba(255,255,255,0);
+//     }
+//     50% {
+//     box-shadow: 0 0 16px rgba(255,255,255,0.5);
+//     }
+//     100% {
+//     box-shadow: 0 0 6px rgba(255,255,255,0);
+//     }
+//   }
+// `
 
 const ComingSoonContainer = styled.div`
   margin: 100px 0;
@@ -1796,9 +1796,9 @@ const HomeGreetings: React.FC = () => {
                 </FarmingInfo>
                 <AbsoluteImg mobile style={{ 'top': '155px', 'left': '35px' }} src={Farming} alt='Farming' />
                 <Flex alignItems="center" style={{ marginTop: '48px' }}>
-                  <ComingSoonButton disabled style={{ zIndex: 1 }}>
-                    {t('comingSoon')}
-                  </ComingSoonButton>
+                  <StyledButton type="default" href={`${process.env.REACT_APP_FARMING_URL}/farms?${urlSearchLanguageParam}=${t('language')}`}>
+                    {t('Farm now')}
+                  </StyledButton>
                   {/* <Button type="default" href={t('presentationLink')} target="_blank">
                     Start Farming
                   </Button>
