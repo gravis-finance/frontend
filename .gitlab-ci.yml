@@ -28,3 +28,31 @@ deploy_develop:
       - deploy-runner
     script:
         - rsync -a ./build/* /var/www/frontend/dev
+
+build_prod:
+    stage: build
+    only:
+        - master
+    image: node:12-buster
+    tags: &b_runner 
+        - builder
+        - docker-executor
+    script:
+        - yarn global add dotenv-cli
+        - yarn install
+        - yarn build
+    artifacts:
+        expire_in: 1 week
+        paths:
+            - build
+deploy_prod:
+    stage: deploy
+    only:
+        - master
+    tags: 
+      - shell
+      - prod
+      - deploy-runner
+    when: manual
+    script:
+        - rsync -a ./build/* /var/www/frontend
