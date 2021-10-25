@@ -302,7 +302,7 @@
   "pendingActionInWallet": "You have a pending action in the wallet.",
   "confirmNetworkChange": "Please, confirm network change",
   "mediumLink": "https://gravis-finance.medium.com/gravis-finance-goes-crazy-with-shiba-335c840bd2c3",
-  "presentationLink": "https://gateway.pinata.cloud/ipfs/QmcvjVeZQ3NvokvdT3Bv9kF4k79qsP3GHE2jzoFjfekevS",
+  "presentationLink": "https://gateway.pinata.cloud/ipfs/QmNg3RR7BYiSbcKKLZLz3Kb18y6fZa5jruJ9VFacV4WfdW",
   "nftFarmingAvailable": "The sale of (A)steroid Mining Captains Collection has started!",
   "nftFarmingSoon": "The first (A)steroid Mining loot boxes shipment arrives on 31 August 2021.",
   "getReady": "Get ready, the amount of loot boxes is limited.",
@@ -368,6 +368,7 @@
   },
   "mainMenu": {
     "buyLootBoxes": "Buy Loot Boxes",
+    "dashboard": "Dashboard",
     "hangar": "Hangar",
     "liquidity": "Pool",
     "home": "Home",
@@ -380,7 +381,7 @@
     "pitchDeck": "Pitch Deck",
     "tokenomics": "Tokenomics",
     "analytics": {
-      "analytics": "Analytics",
+      "analytics": "DEX analytics",
       "overview": "Overview",
       "tokens": "Tokens",
       "pairs": "Pairs",
@@ -392,12 +393,13 @@
       "angelRound": "Angel Round"
     },
     "NFTFarming": "NFT Farming",
-    "nftmarket": "NFT Market",
+    "nftmarket": "Gmart NFT market",
     "asteroidMining": "(A)steroid Mining",
     "captainsIno": "Captains INO",
     "farming": "Farming",
     "staking": "GRVX Staking",
-    "farms": "Farms"
+    "farms": "Farms",
+    "audit": "Audit"
   },
   "playNow": "Play now!",
   "asteroidMiningDescription": "(A)steroid Mining is being created as a community-driven project that will allow users to add game mechanics, generate asteroids for farming, and even entire worlds in the Gravis Finance Universe.",
@@ -417,5 +419,6 @@
   "Your email": "Your email",
   "Open presentation": "Open presentation",
   "Subscribe": "Subscribe",
-  "Farm now": "Farm now!"
+  "Farm now": "Farm now!",
+  "Activity": "Market activity"
 }
