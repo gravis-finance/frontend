@@ -284,7 +284,7 @@
   "changeManually": "あなたのウォレットと弊社サイトで選択されているネットワークが異なることがわかりました\n \n ウォレットと当社サイトで異なるネットワークが選択されています。\n \n ウォレットのネットワークを手動で変更するか、下のボタンを使用してください",
   "continue": "続ける",
   "for": "にとって",
-  "presentationLink": "https://gateway.pinata.cloud/ipfs/QmcvjVeZQ3NvokvdT3Bv9kF4k79qsP3GHE2jzoFjfekevS",
+  "presentationLink": "https://gateway.pinata.cloud/ipfs/QmNg3RR7BYiSbcKKLZLz3Kb18y6fZa5jruJ9VFacV4WfdW",
   "language": "jp",
   "inPool": "インプール",
   "viewPairAnalytics": "View pair analytics",
@@ -329,7 +329,7 @@
     "pitchDeck": "ピッチデッキ",
     "tokenomics": "トケノミクス",
     "analytics": {
-      "analytics": "アナリティクス",
+      "analytics": "DEX アナリティクス",
       "overview": "概要",
       "tokens": "トークン",
       "pairs": "ペア",
@@ -341,7 +341,7 @@
       "angelRound": "エンジェルラウンド"
     },
     "NFTFarming": "NFT 農業",
-    "nftmarket": "NFTマーケット",
+    "nftmarket": "Gmart NFTマーケット",
     "asteroidMining": "小惑星鉱業",
     "captainsIno": "キャプテン INO",
     "buyLootBoxes": "ルートボックスを購入する",

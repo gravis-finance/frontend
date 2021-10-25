@@ -300,7 +300,7 @@
   "pendingActionInWallet": "You have a pending action in the wallet.",
   "confirmNetworkChange": "Please, confirm network change",
   "mediumLink": "https://gravis-finance.medium.com/gravis-finance-goes-crazy-with-shiba-335c840bd2c3",
-  "presentationLink": "https://gateway.pinata.cloud/ipfs/QmcvjVeZQ3NvokvdT3Bv9kF4k79qsP3GHE2jzoFjfekevS",
+  "presentationLink": "https://gateway.pinata.cloud/ipfs/QmNg3RR7BYiSbcKKLZLz3Kb18y6fZa5jruJ9VFacV4WfdW",
   "nftFarmingAvailable": "Продажа (A)steroid Mining Капитанов началась!",
   "jumpHere": "Поторопитесь поучаствовать. <a style='color: #009CE1; cursor: pointer; font-weight: 600;' href=https://captains.gravis.finance>Купить капитанов!</a>",
   "buyNFT": "Купить NFT",
@@ -366,6 +366,7 @@
   },
   "mainMenu": {
     "buyLootBoxes": "Купить лутбоксы",
+    "dashboard": "Дашборд",
     "hangar": "Ангар",
     "home": "Главная",
     "trade": "Биржа",
@@ -378,7 +379,7 @@
     "pitchDeck": "Pitch Deck",
     "tokenomics": "Tokenomics",
     "analytics": {
-      "analytics": "Аналитика",
+      "analytics": "DEX аналитика",
       "overview": "Обзор",
       "tokens": "Токены",
       "pairs": "Пары",
@@ -390,7 +391,7 @@
       "angelRound": "Angel Round"
     },
     "NFTFarming": "NFT Фарминг",
-    "nftmarket": "NFT Маркет",
+    "nftmarket": "Gmart NFT маркет",
     "asteroidMining": "(A)steroid Mining",
     "captainsIno": "Капитаны INO",
     "farming": "Фарминг",
@@ -418,5 +419,5 @@
   "Open presentation": "Открыть презентацию",
   "Subscribe": "Подписаться",
   "Farm now": "Фармить сейчас!",
-  "Audited": "Проверено"
+  "Activity": "Рыночная активность"
 }
