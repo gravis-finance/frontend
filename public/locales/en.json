@@ -310,7 +310,7 @@
   "buyNFT": "Buy NFT",
   "sellNFT": "Sell NFT",
   "sendNFT": "Send NFT",
-  "NFTFarming": "NFT Farming",
+  "NFTFarming": "Big Bang Farming",
 
   "mainMessageDesktop": {
     "nftFocused": "NFT-focused",
@@ -392,7 +392,7 @@
       "bbRound": "Big Bang Round",
       "angelRound": "Angel Round"
     },
-    "NFTFarming": "NFT Farming",
+    "NFTFarming": "Big Bang Farming",
     "nftmarket": "Gmart NFT market",
     "asteroidMining": "(A)steroid Mining",
     "captainsIno": "Captains INO",
