@@ -367,35 +367,36 @@
     "differenceBetweenMarket": "The difference between the market price and your price due to trade size."
   },
   "mainMenu": {
+    "dailyRewards": "Daily Rewards",
+    "getResources": "Get Resources",
+    "leaderboard": "Leaderboard",
     "buyLootBoxes": "Buy Loot Boxes",
     "dashboard": "Dashboard",
     "hangar": "Hangar",
-    "liquidity": "Pool",
     "home": "Home",
     "trade": "Exchange",
-    "more": "More",
-    "github": "GitHub",
-    "blog": "Blog",
-    "docs": "Docs",
+    "liquidity": "Pool",
     "migrate": "Migrate",
-    "pitchDeck": "Pitch Deck",
-    "tokenomics": "Tokenomics",
     "analytics": {
       "analytics": "DEX analytics",
       "overview": "Overview",
       "tokens": "Tokens",
-      "pairs": "Pairs",
-      "gswap": "Gswap"
+      "pairs": "Pairs"
     },
     "ino": {
       "ino": "INO",
-      "bbRound": "Big Bang Round",
-      "angelRound": "Angel Round"
+      "bbRound": "Big Bang Round"
     },
+    "more": "More",
+    "github": "GitHub",
+    "blog": "Blog",
+    "pitchDeck": "Pitch Deck",
+    "tokenomics": "Tokenomics",
     "NFTFarming": "Big Bang Farming",
     "nftmarket": "Gmart NFT market",
     "asteroidMining": "(A)steroid Mining",
     "captainsIno": "Captains INO",
+    "docs": "Docs",
     "farming": "Farming",
     "staking": "GRVX Staking",
     "farms": "Farms",
