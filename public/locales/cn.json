@@ -296,7 +296,7 @@
   "bonus": "奖励",
   "details": "细节",
   "limitOrders": "限价单",
-  "NFTFarming": "NFT农业",
+  "NFTFarming": "Big Bang 农业",
   "buyNFT": "购买NFT",
   "NFTPrice": "NFT价格",
   "nominalTokens": "名义代币",
@@ -390,7 +390,7 @@
       "blog": "博客",
       "pitchDeck": "简报",
       "tokenomics": "代币经济学",
-      "NFTFarming": "NFT农业",
+      "NFTFarming": "Big Bang农业",
       "nftmarket": "Gmart NFT市场",
       "asteroidMining": "小行星采矿",
       "captainsIno": "船长 INO",
@@ -404,7 +404,7 @@
     "logout": "登出",
     "viewOnBscscan": "在BSCScan浏览器上查看",
     "copyAddress": "复制地址",
-    "NFTFarming": "NFT农业",
+    "NFTFarming": "Big Bang 农业",
     "nftmarket": "Gmart NFT市场"
   }
 }
