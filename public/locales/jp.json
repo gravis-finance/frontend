@@ -284,7 +284,7 @@
   "changeManually": "あなたのウォレットと弊社サイトで選択されているネットワークが異なることがわかりました\n \n ウォレットと当社サイトで異なるネットワークが選択されています。\n \n ウォレットのネットワークを手動で変更するか、下のボタンを使用してください",
   "continue": "続ける",
   "for": "にとって",
-  "presentationLink": "http://gateway.pinata.cloud/ipfs/QmS3gYhCphkyDN1GWg3TTqKFdJUCGXTKiGpi6BhSupjpJb/Gravis_presentation_JP.pdf",
+  "presentationLink": "https://gateway.pinata.cloud/ipfs/QmNg3RR7BYiSbcKKLZLz3Kb18y6fZa5jruJ9VFacV4WfdW",
   "language": "jp",
   "inPool": "インプール",
   "viewPairAnalytics": "View pair analytics",
@@ -307,7 +307,7 @@
   "buyNFT": "NFTを購入",
   "sellNFT": "NFTを売る",
   "sendNFT": "NFTの送信",
-  "NFTFarming": "NFTファーミング",
+  "NFTFarming": "Big Bang ファーミング",
 
   "mainMessageDesktop": {
     "nftFocused": "NFTに焦点を当てた",
@@ -329,7 +329,7 @@
     "pitchDeck": "ピッチデッキ",
     "tokenomics": "トケノミクス",
     "analytics": {
-      "analytics": "アナリティクス",
+      "analytics": "DEX アナリティクス",
       "overview": "概要",
       "tokens": "トークン",
       "pairs": "ペア",
@@ -340,9 +340,11 @@
       "bbRound": "ビッグバンラウンド",
       "angelRound": "エンジェルラウンド"
     },
-    "NFTFarming": "NFT 農業",
-    "nftmarket": "NFTマーケット",
+    "NFTFarming": "Big Bang 農業",
+    "nftmarket": "Gmart NFTマーケット",
     "asteroidMining": "小惑星鉱業",
-    "captainsIno": "キャプテン INO"
+    "captainsIno": "キャプテン INO",
+    "buyLootBoxes": "ルートボックスを購入する",
+    "hangar": "ハンガー"
   }
 }

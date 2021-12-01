@@ -1,8 +1,10 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
-  body {
-
+  html, body {
+    
+    overflow-x: hidden;
+    
     img {
       height: auto;
       max-width: 100%;

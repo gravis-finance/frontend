@@ -58,7 +58,6 @@
   "youAreSending": "You are sending",
   "willReceive": "will receive at least",
   "to": "to",
-  "addLiquidity": "Add Liquidity",
   "liquidityDescription": "Add liquidity to receive LP tokens",
   "deposit": "Deposit",
   "currentPoolSize": "Current Pool Size",
@@ -291,7 +290,7 @@
   "poweredBy": "Работает на",
   "continue": "Continue",
   "for": "for",
-  "language": "en",
+  "language": "ru",
   "inPool": "in pool",
   "viewPairAnalytics": "View pair analytics",
   "provideSecondToken": "Provide second token",
@@ -301,25 +300,29 @@
   "pendingActionInWallet": "You have a pending action in the wallet.",
   "confirmNetworkChange": "Please, confirm network change",
   "mediumLink": "https://gravis-finance.medium.com/gravis-finance-goes-crazy-with-shiba-335c840bd2c3",
-  "presentationLink": "https://gateway.pinata.cloud/ipfs/QmQyWnMBruL7n7vqyVYxNXQdpm5rffj9e1Wr2Q48LU9PvY/gravis_presentation.pdf",
+  "presentationLink": "https://gateway.pinata.cloud/ipfs/QmNg3RR7BYiSbcKKLZLz3Kb18y6fZa5jruJ9VFacV4WfdW",
   "nftFarmingAvailable": "Продажа (A)steroid Mining Капитанов началась!",
   "jumpHere": "Поторопитесь поучаствовать. <a style='color: #009CE1; cursor: pointer; font-weight: 600;' href=https://captains.gravis.finance>Купить капитанов!</a>",
   "buyNFT": "Купить NFT",
   "sellNFT": "Продать NFT",
   "sendNFT": "Отправить NFT",
-  "NFTFarming": "NFT Farming",
+  "NFTFarming": "Big Bang Farming",
 
   "mainMessageDesktop": {
     "nftFocused": "NFT-ориентированная",
     "multichainDex": "многосетевая Децентрализованная биржа",
-    "crossChainBridge": "межсетевой мост"
+    "gamified": "Gamified DeFi ecosystem",
+    "crossChainBridge": "межсетевой мост",
+    "smartNFTAssets": "Smart NFT assets. Multichain. Cross-chain. High profit yield farming."
   },
 
   "mainMessageMobile": {
     "nftFocused": "NFT-ориентированная",
     "multichainDex": "многосетевая Децентрализованная биржа",
     "crossChainBridge": "межсетевой",
-    "bridge": "мост"
+    "gamified": "Gamified DeFi ecosystem",
+    "bridge": "мост",
+    "smartNFTAssets": "Smart NFT assets. Multichain. Cross-chain. High profit yield farming."
   },
 
   "time": {
@@ -362,6 +365,9 @@
     "differenceBetweenMarket": "The difference between the market price and your price due to trade size."
   },
   "mainMenu": {
+    "buyLootBoxes": "Купить лутбоксы",
+    "dashboard": "Дашборд",
+    "hangar": "Ангар",
     "home": "Главная",
     "trade": "Биржа",
     "liquidity": "Ликвидность",
@@ -373,7 +379,7 @@
     "pitchDeck": "Pitch Deck",
     "tokenomics": "Tokenomics",
     "analytics": {
-      "analytics": "Аналитика",
+      "analytics": "DEX аналитика",
       "overview": "Обзор",
       "tokens": "Токены",
       "pairs": "Пары",
@@ -384,9 +390,34 @@
       "bbRound": "Big Bang Round",
       "angelRound": "Angel Round"
     },
-    "NFTFarming": "NFT Фарминг",
-    "nftmarket": "NFT Маркет",
-    "asteroidMining": "(A)steroid Mining",
-    "captainsIno": "Капитаны INO"
-  }
+    "NFTFarming": "Big Bang Фарминг",
+    "nftmarket": "Gmart NFT маркет",
+    "asteroidMining": "Evervoid",
+    "captainsIno": "Капитаны INO",
+    "farming": "Фарминг",
+    "staking": "Стейкинг GRVX",
+    "farms": "Фермы",
+    "audit": "Аудит"
+  },
+  "playNow": "Играть сейчас!",
+  "asteroidMiningDescription": "(A)Стероидный майнинг был создан как проект, управляемый сообществом, который позволит пользователям добавлять игровые механики, генерировать астероиды для фарминга и даже целые миры во Вселенной Gravis Finance.",
+  "watchVideo": "Смотреть видео",
+  "buyLootBoxes": "Купить лутбоксы",
+  "Revolutionary gamified yield farming": "Революционный геймифицированный фарминг",
+  "Gamified DeFi": "Геймифицированная децентрализованная",
+  "ecosystem": "экосистема",
+  "Smart NFT assets": "Коллекции NFT. Multichain. Cross-chain. Высокоприбыльный фарминг",
+  "Trade anything anywhere": "Торгуйте чем угодно и где угодно",
+  "Trade any asset by only connecting your wallet": "Торгуйте любыми токенами подключив свой кошелек",
+  "Farming": "Фарминг",
+  "Higher than other projects yield is ensured by smart contract management and unique strategies": "Более высокая, чем у других проектов, доходность обеспечивается управлением смарт-контрактами и уникальными стратегиями",
+  "moreComingSoon": "Продолжение следует...",
+  "addLiquidity": "Добавить ликвидность",
+  "Easy-to-use transparent bridge for GRVS and GRVX tokens across 3 networks": "Простой в использовании прозрачный мост для токенов GRVS и GRVX в 3 сетях",
+  "Stay tuned for public round launch": "Следите за обновлениями для запуска публичного раунда",
+  "Your email": "Ваш email",
+  "Open presentation": "Открыть презентацию",
+  "Subscribe": "Подписаться",
+  "Farm now": "Фармить сейчас!",
+  "Activity": "Рыночная активность"
 }

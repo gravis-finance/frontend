@@ -1,9 +1,10 @@
 import React, { FC, useEffect, useState } from 'react'
-import { MenuEntry, Menu as UikitMenu, urlSearchLanguageParam } from '@gravis.finance/uikit'
+import { Menu as UikitMenu } from '@gravis.finance/uikit'
 import { Route, RouteProps } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import useTheme from 'hooks/useTheme'
 import i18next from '../../i18n'
+import useGetMenuLinks from './config'
 
 type PropsType = {
   loginBlockVisible?: boolean
@@ -18,125 +19,7 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [selectedLanguage, setSelectedLanguage] = useState('')
 
-  const links: MenuEntry[] = [
-    {
-      label: t('mainMenu.home'),
-      icon: 'HomeIcon',
-      href: '/',
-    },
-    {
-      label: t('mainMenu.asteroidMining'),
-      icon: 'AsteroidMiningIcon',
-      blink: true,
-      items: [
-        {
-          label: t('mainMenu.captainsIno'),
-          href: `${process.env.REACT_APP_CAPTAINS_URL}`
-        },
-        {
-          label: t('mainMenu.docs'),
-          href: 'https://docs.gravis.finance/-Mfs8idXX2JlhTmRjO0Y/',
-          external: true
-        }
-      ]
-    },
-    {
-      label: t('mainMenu.trade'),
-      icon: 'TradeIcon',
-      items: [
-        {
-          label: t('swap'),
-          href: `${process.env.REACT_APP_EXCHANGE_URL}?${urlSearchLanguageParam}=${t('language')}`,
-        },
-        {
-          label: t('mainMenu.liquidity'),
-          href: `${process.env.REACT_APP_LIQUIDITY_URL}?${urlSearchLanguageParam}=${t('language')}`,
-        },
-        {
-          label: t('mainMenu.migrate'),
-          href: `${process.env.REACT_APP_MIGRATION_URL}?${urlSearchLanguageParam}=${t('language')}`,
-        },
-      ],
-    },
-    {
-      label: t('mainMenu.analytics.analytics'),
-      icon: 'InfoIcon',
-      items: [
-        {
-          label: t('mainMenu.analytics.overview'),
-          href: `${process.env.REACT_APP_INFO_URL}?${urlSearchLanguageParam}=${t('language')}`,
-        },
-        {
-          label: t('mainMenu.analytics.tokens'),
-          href: `${process.env.REACT_APP_INFO_URL}/tokens?${urlSearchLanguageParam}=${t('language')}`,
-        },
-        {
-          label: t('mainMenu.analytics.pairs'),
-          href: `${process.env.REACT_APP_INFO_URL}/pairs?${urlSearchLanguageParam}=${t('language')}`,
-        },
-      ],
-    },
-    {
-      label: t('mainMenu.ino.ino'),
-      icon: 'BigBangIcon',
-      items: [
-        {
-          label: t('mainMenu.ino.bbRound'),
-          href: `${process.env.REACT_APP_BIG_BANG_URL}/bigbangnft?${urlSearchLanguageParam}=${t('language')}`,
-        }
-      ]
-    },
-    {
-      label: t('mainMenu.nftmarket'),
-      icon: 'NFTMarketIcon',
-      items: [
-        {
-          label: t('buyNFT'),
-          href: `${process.env.REACT_APP_GMART_URL}/buy`,
-        },
-        {
-          label: t('sellNFT'),
-          href: `${process.env.REACT_APP_GMART_URL}/sell`,
-        },
-        {
-          label: t('sendNFT'),
-          href: `${process.env.REACT_APP_GMART_URL}/transfer`,
-        },
-      ]
-    },
-    {
-      label: t('mainMenu.NFTFarming'),
-      icon: 'NFTFarmingIcon',
-      href: process.env.REACT_APP_NFTFARMING_URL
-    },
-    {
-      label: t('mainMenu.more'),
-      icon: 'MoreIcon',
-      items: [
-        // {
-        //   label: 'Audits',
-        //   href: '/audits',
-        // },
-        {
-          label: t('mainMenu.github'),
-          href: 'https://github.com/gravis-finance',
-        },
-        {
-          label: t('mainMenu.blog'),
-          href: 'https://gravis-finance.medium.com/',
-        },
-        {
-          label: t('mainMenu.pitchDeck'),
-          href: t('presentationLink'),
-        },
-        {
-          label: t('mainMenu.tokenomics'),
-          href:
-            'https://docs.google.com/spreadsheets/d/1JfHN1J_inbAbANSCuspO8CIWuyiCDLB36pcuHItW0eM/edit#gid=1509806282',
-        },
-      ],
-    },
-  ]
+  const links = useGetMenuLinks()
 
   useEffect(() => {
     i18next.changeLanguage(selectedLanguage.toLowerCase())

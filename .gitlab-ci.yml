@@ -1,8 +1,38 @@
 stages:
     - build
     - deploy
-build:
+
+build_develop:
     stage: build
+    only:
+        - develop
+    image: node:12-buster
+    tags: &b_runner 
+        - builder
+        - docker-executor
+    script:
+        - yarn global add dotenv-cli
+        - yarn install
+        - yarn build:dev
+    artifacts:
+        expire_in: 1 week
+        paths:
+            - build
+deploy_develop:
+    stage: deploy
+    only: 
+        - develop
+    tags: 
+      - shell
+      - dev
+      - deploy-runner
+    script:
+        - rsync -a ./build/* /var/www/frontend/dev
+
+build_prod:
+    stage: build
+    only:
+        - master
     image: node:12-buster
     tags: &b_runner 
         - builder
@@ -15,8 +45,10 @@ build:
         expire_in: 1 week
         paths:
             - build
-deploy_develop:
+deploy_prod:
     stage: deploy
+    only:
+        - master
     tags: 
       - shell
       - prod
