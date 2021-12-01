@@ -14,19 +14,19 @@ const menuLinks: MenuEntry[] = [
     items: [
       {
         label: 'mainMenu.home',
-        href: `/home`,
+        href: `${process.env.REACT_APP_ASTEROID_MINING_URL}/home`,
       },
       {
         label: 'mainMenu.hangar',
-        href: `/hangar`,
+        href: `${process.env.REACT_APP_ASTEROID_MINING_URL}/hangar`,
       },
       {
         label: 'mainMenu.buyLootBoxes',
-        href: `/lootboxes`,
+        href: `${process.env.REACT_APP_ASTEROID_MINING_URL}/lootboxes`,
       },
       {
         label: 'mainMenu.craft',
-        href: `/craft`,
+        href: `${process.env.REACT_APP_ASTEROID_MINING_URL}/craft`,
       },
       {
         label: 'Evervoid pitch deck',
