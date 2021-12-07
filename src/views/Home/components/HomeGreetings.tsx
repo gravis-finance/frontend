@@ -1901,7 +1901,7 @@ const HomeGreetings: React.FC = () => {
               </InputBox>
             </EmailSection>
             <PresentationSection desktopUrl={presentation} mobileUrl={presentation_mobile}>
-              <PresentationButton href="https://gateway.pinata.cloud/ipfs/QmPyzebkCrP7C8R2WhHxnWcoGXoAb6T1dREZHAZkzCUt7F" target="_blank">{t('Open presentation')}</PresentationButton>
+              <PresentationButton href="https://gateway.pinata.cloud/ipfs/QmWhkTENrj9Z3juVUdB2G8NaqnN2ipmLxYw6Nrt9TLh4Qe" target="_blank">{t('Open presentation')}</PresentationButton>
               <Planet>
                 <svg width="302" height="321" viewBox="0 0 302 321" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
