@@ -25,8 +25,8 @@ const menuLinks: MenuEntry[] = [
         href: `${process.env.REACT_APP_ASTEROID_MINING_URL}/lootboxes`,
       },
       {
-        label: 'mainMenu.craft',
-        href: `${process.env.REACT_APP_ASTEROID_MINING_URL}/craft`,
+        label: 'mainMenu.firstMates',
+        href: `${process.env.REACT_APP_ASTEROID_MINING_URL}/first-mate-search`,
       },
       {
         label: 'Evervoid pitch deck',
