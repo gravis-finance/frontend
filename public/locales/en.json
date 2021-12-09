@@ -367,6 +367,7 @@
     "differenceBetweenMarket": "The difference between the market price and your price due to trade size."
   },
   "mainMenu": {
+    "firstMates": "First Mates",
     "dailyRewards": "Daily Rewards",
     "getResources": "Get Resources",
     "leaderboard": "Leaderboard",
