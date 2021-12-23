@@ -368,6 +368,7 @@
   },
   "mainMenu": {
     "firstMates": "First Mates",
+    "publicRound": "Public Round",
     "dailyRewards": "Daily Rewards",
     "getResources": "Get Resources",
     "leaderboard": "Leaderboard",
