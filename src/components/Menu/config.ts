@@ -39,6 +39,10 @@ const menuLinks: MenuEntry[] = [
         external: true,
       },
     ],
+    chip: {
+      title: 'GAME',
+      color: 'rgb(235, 149, 0)',
+    },
   },
   {
     label: 'mainMenu.farming',
@@ -52,7 +56,11 @@ const menuLinks: MenuEntry[] = [
       {
         label: 'mainMenu.staking',
         href: `${process.env.REACT_APP_FARMING_URL}/staking`,
-        hot: true,
+        chip: {
+          title: 'HOT',
+          color: 'rgb(235, 149, 0)',
+          animation: true,
+        },
         external: true,
       },
       {
@@ -139,7 +147,10 @@ const menuLinks: MenuEntry[] = [
     icon: 'BridgeIcon',
     href: `${process.env.REACT_APP_BRIDGE_URL}/swap`,
     external: true,
-    beta: true,
+    chip: {
+      title: 'BETA',
+      color: '#009ce1',
+    },
   },
   {
     label: 'mainMenu.publicRound',
