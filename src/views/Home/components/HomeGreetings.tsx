@@ -1582,18 +1582,14 @@ const SupportersBlock = styled.div`
 
 const SupportersItemsBlock = styled.div`
   width: 100%;
-  display: grid;
-  gap: 40px 30px;
-  grid-template-columns: repeat(auto-fit, minmax(max-content, 175px));
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  
-  > img:not(:last-child) {
-    margin-right: 48px;
-  }
 `
 
 const SupportersImage = styled.img`
+  margin: 24px;
   max-height: 130px;
   max-width: 130px;
   width: auto;
@@ -1608,10 +1604,10 @@ const SupportersImage = styled.img`
 
 const SupportersText = styled(Text)`
   text-align: center;
-  margin-bottom: 24px;
   font-size: 26px;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
   // color: rgb(0, 156, 225);
+  margin-bottom: 0;
 `
 
 const HomeGreetings: React.FC = () => {
@@ -2144,6 +2140,11 @@ const HomeGreetings: React.FC = () => {
               <AmountDescription>
                 {t('Easy-to-use transparent bridge for GRVS and GRVX tokens across 3 networks')}
               </AmountDescription>
+               <StyledButton
+                 style={{ marginTop: 18 }}
+                 type="default" href={`${process.env.REACT_APP_BRIDGE_URL}/?${urlSearchLanguageParam}=${t('language')}`} target="_blank">
+                 {t('Bridge now!')}
+               </StyledButton>
               <Star style={{
                 'width': '18px',
                 'height': '19px',
