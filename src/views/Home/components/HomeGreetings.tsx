@@ -1703,12 +1703,12 @@ const HomeGreetings: React.FC = () => {
                   <SupportersImage src={backedBy2} alt=""/>
                   <SupportersImage src={backedBy3} alt=""/>
                   <SupportersImage src={backedBy4} alt=""/>
-                  <SupportersImage src={backedBy5} alt=""/>
+                  <SupportersImage src={backedBy11} alt=""/>
                   <SupportersImage src={backedBy7} alt=""/>
                   <SupportersImage src={backedBy8} alt=""/>
                   <SupportersImage src={backedBy9} alt=""/>
                   <SupportersImage src={backedBy10} alt=""/>
-                  <SupportersImage src={backedBy11} alt=""/>
+                  <SupportersImage src={backedBy5} alt=""/>
                 </SupportersItemsBlock>
                 <SupportersText>Supported by</SupportersText>
                 <SupportersItemsBlock>
