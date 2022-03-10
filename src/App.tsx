@@ -1,13 +1,14 @@
-import React, { Suspense, lazy } from 'react'
+import React, { lazy, Suspense } from 'react'
 import styled from 'styled-components'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { NotFound, Maintenance, ResetCSS } from '@gravis.finance/uikit'
+import { Maintenance, NotFound, ResetCSS } from '@gravis.finance/uikit'
 import GlobalStyle from './style/Global'
 import { MenuWrappedRoute } from './components/Menu'
 import PageLoader from './components/PageLoader'
+import Landing from './views/Landing'
 
 // Route-based code splitting
-const Home = lazy(() => import('./views/Home'))
+// const Home = lazy(() => import('./views/Home'))
 const AuditsPage = lazy(() => import('./views/AuditsPage'))
 // const BigBangNft = lazy(() => import('./views/BigBangNft'))
 // const ToastListener = lazy(() => import('./components/ToastListener'))
@@ -75,10 +76,10 @@ const App: React.FC = () => {
         {/* <StyledBackground/> */}
         <Wrapper>
           <Switch>
-            <MenuWrappedRoute loginBlockVisible={loginBlockHidden} path="/" exact>
-              <Home />
-            </MenuWrappedRoute>
-            <MenuWrappedRoute loginBlockVisible={loginBlockHidden} exact path="/assets">
+            <Route path="/" exact>
+              <Landing />
+            </Route>
+            <MenuWrappedRoute loginBlockVisible={loginBlockHidden} exact path="/audits">
               <AuditsPage />
             </MenuWrappedRoute>
             {/* <MenuWrappedRoute loginBlockVisible={loginBlockHidden} path="/bigbangnft">
