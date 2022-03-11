@@ -12,6 +12,7 @@ const Container = styled(Flex)`
   width: 100%;
   height: 70px;
   padding: 18px 80px;
+  position: fixed;
 `
 
 const StyledGravisLogo = styled(GravisLogo)`
@@ -19,7 +20,7 @@ const StyledGravisLogo = styled(GravisLogo)`
 `
 
 const AnchorFlex = styled(Flex)`
-  > div:not(:last-child) {
+  > a:not(:last-child) {
     margin-right: 25.5px;
   }
 `
@@ -31,6 +32,11 @@ const AnchorText = styled(Text)`
   font-size: 12px;
   line-height: 100%;
   letter-spacing: -0.02em;
+  transition: color 100ms ease-in-out;
+
+  :hover {
+    color: rgba(255, 255, 255, 0.7);
+  }
 `
 
 const TokensContainer = styled(Flex)`
@@ -44,19 +50,48 @@ const TokenText = styled(AnchorText)`
   line-height: 15px;
 `
 
+const links = [
+  {
+    text: 'Why Us',
+    href: '#whyus',
+  },
+  {
+    text: 'Products',
+    href: '#products',
+  },
+  {
+    text: 'Mobile Wallet',
+    href: '#mobilewallet',
+  },
+  {
+    text: 'Roadmap',
+    href: '#roadmap',
+  },
+  {
+    text: 'Team',
+    href: '#team',
+  },
+  {
+    text: 'Tokenomics',
+    href: '#tokenomics',
+  },
+  {
+    text: 'Partners',
+    href: '#partners',
+  },
+]
+
 const Header = () => {
   return (
     <Container alignItems="center">
       <StyledGravisLogo />
       <Flex justifyContent="space-between" alignItems="center" width="calc(100% - 108px)">
         <AnchorFlex p="0 52px">
-          <AnchorText>Why Us</AnchorText>
-          <AnchorText>Products</AnchorText>
-          <AnchorText>Mobile Wallet</AnchorText>
-          <AnchorText>Roadmap</AnchorText>
-          <AnchorText>Team</AnchorText>
-          <AnchorText>Tokenomics</AnchorText>
-          <AnchorText>Partners</AnchorText>
+          {links.map((link) => (
+            <AnchorText as="a" href={link.href}>
+              {link.text}
+            </AnchorText>
+          ))}
         </AnchorFlex>
         <Flex>
           <TokensContainer mr={51}>
