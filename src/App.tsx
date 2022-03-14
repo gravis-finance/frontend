@@ -19,7 +19,6 @@ const Wrapper = styled.div`
 
   > div > div {
     z-index: 2;
-    background: transparent;
   }
 `
 
