@@ -12,6 +12,11 @@ const menuLinks: MenuEntry[] = [
     blink: true,
     items: [
       {
+        label: 'Evervoid 2.0',
+        href: process.env.REACT_APP_ASTEROID_MINING_URL,
+        external: true,
+      },
+      {
         label: 'mainMenu.home',
         href: `${process.env.REACT_APP_ASTEROID_MINING_URL}/home`,
         external: true,
@@ -74,7 +79,7 @@ const menuLinks: MenuEntry[] = [
       {
         label: 'Multi-chain Bridge',
         href: `${process.env.REACT_APP_BRIDGE_URL}/swap`,
-        external: true
+        external: true,
       },
       {
         label: 'mainMenu.analytics.analytics',
@@ -90,7 +95,7 @@ const menuLinks: MenuEntry[] = [
       {
         label: 'Collections',
         href: `${process.env.REACT_APP_GMART_URL}/collections`,
-        external: true
+        external: true,
       },
       {
         label: 'buyNFT',
