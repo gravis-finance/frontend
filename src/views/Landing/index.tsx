@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import bg from 'assets/BG.png'
 import Header from './components/Header'
 import MainInfo from './components/MainInfo'
+import Partners from './components/Partners'
 
 const Container = styled.div`
   background-image: url(${bg});
