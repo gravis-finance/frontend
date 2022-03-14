@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex, Text } from '@gravis.finance/uikit'
-import GravisLogo from '../Svg/Icons/GravisLogo'
-import TokenInfo from '../TokenInfo'
-import { GRVSFilledLogo, GRVXFilledLogo } from '../Svg'
+import GravisLogo from '../../../../components/Svg/Icons/GravisLogo'
+import TokenInfo from '../../../../components/TokenInfo'
+import { GRVSFilledLogo, GRVXFilledLogo } from '../../../../components/Svg'
 import Apps from '../Apps'
 
 const Container = styled(Flex)`

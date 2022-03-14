@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Flex, NumericalArrow, Text } from '@gravis.finance/uikit'
 import AppItem from '../AppItem'
-import { AppsConfig } from '../../config/constants/apps'
+import { AppsConfig } from '../../../../config/constants/apps'
 
 const Container = styled(Flex)`
   width: 74px;

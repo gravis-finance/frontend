@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import bg from 'assets/BG.png'
-import Header from '../../components/Header'
+import Header from './components/Header'
 import MainInfo from './components/MainInfo'
 
 const Container = styled.div`

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Button, Flex, Text } from '@gravis.finance/uikit'
-import { AppItemType } from '../../config/constants/apps'
+import { AppItemType } from '../../../../config/constants/apps'
 
 const Container = styled(Flex)`
   background: rgba(255, 255, 255, 0.05);
