@@ -12,6 +12,7 @@ const Container = styled.div`
 `
 
 const TokenomicsInfoContainer = styled(Flex)<{ activeIndex: number }>`
+  height: 555px;
   > div:first-child {
     position: absolute;
     left: ${({ activeIndex }) => (activeIndex ? 'calc(-100% - 80px)' : 0)};
