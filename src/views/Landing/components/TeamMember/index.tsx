@@ -1,10 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 import DefaultText from '../../../../components/DefaultText'
-import { TeamMemberType } from '../../../../config/constants/team'
+import { TeamCategory, TeamMemberType } from '../../../../config/constants/team'
 
-const Container = styled.div`
+const Container = styled.div<{ isHidden: boolean }>`
   margin: 25px 7.5px;
+  ${({ isHidden }) =>
+    isHidden
+      ? `
+      opacity: 0.5;
+    > img {
+        filter: grayscale(100%);
+    }
+  `
+      : ''};
+  transition: all 200ms ease-in-out;
 `
 
 const Image = styled.img`
@@ -14,11 +24,11 @@ const Image = styled.img`
   object-fit: cover;
 `
 
-const TeamMember: React.FC<{ member: TeamMemberType }> = ({ member }) => {
-  const { name, image, position } = member
+const TeamMember: React.FC<{ member: TeamMemberType; activeCategory: TeamCategory }> = ({ member, activeCategory }) => {
+  const { name, image, position, category } = member
 
   return (
-    <Container>
+    <Container isHidden={activeCategory === undefined ? false : category !== activeCategory}>
       <Image src={image} alt="" />
       <DefaultText fontSize="18px" fontWeight={600} textAlign="center" mt="14px">
         {name}

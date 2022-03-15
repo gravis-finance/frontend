@@ -19,10 +19,11 @@ const Team = () => {
   const [activeIndex, setActiveIndex] = useState(0)
 
   const filteredTeamMembers = useMemo(() => {
-    if (activeIndex === 0) return teamMembers
-    const currentIndex = activeIndex - 1
-    return teamMembers.filter((member) => member.category === Object.values(TeamCategory)[currentIndex])
-  }, [activeIndex])
+    return teamMembers
+    // if (activeIndex === 0) return teamMembers
+    // const currentIndex = activeIndex - 1
+    // return teamMembers.filter((member) => member.category === Object.values(TeamCategory)[currentIndex])
+  }, [])
 
   return (
     <Container>
@@ -34,7 +35,7 @@ const Team = () => {
       </Flex>
       <MembersContainer flexWrap="wrap">
         {filteredTeamMembers.map((member) => (
-          <TeamMember member={member} />
+          <TeamMember member={member} activeCategory={Object.values(TeamCategory)[activeIndex - 1]} />
         ))}
       </MembersContainer>
     </Container>
