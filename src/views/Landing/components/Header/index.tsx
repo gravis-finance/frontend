@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex, Text } from '@gravis.finance/uikit'
+import { useLocation } from 'react-router-dom'
 import GravisLogo from '../../../../components/Svg/Icons/GravisLogo'
 import TokenInfo from '../../../../components/TokenInfo'
 import { GRVSFilledLogo, GRVXFilledLogo } from '../../../../components/Svg'
@@ -25,7 +26,7 @@ const AnchorFlex = styled(Flex)`
   }
 `
 
-const AnchorText = styled(Text)`
+const AnchorText = styled(Text)<{ isActive?: boolean }>`
   font-family: 'Inter', serif;
   font-style: normal;
   font-weight: 500;
@@ -33,9 +34,10 @@ const AnchorText = styled(Text)`
   line-height: 100%;
   letter-spacing: -0.02em;
   transition: color 100ms ease-in-out;
+  color: ${({ isActive }) => (isActive ? 'white' : 'rgba(255, 255, 255, 0.5)')};
 
   :hover {
-    color: rgba(255, 255, 255, 0.7);
+    color: white;
   }
 `
 
@@ -82,13 +84,14 @@ const links = [
 ]
 
 const Header = () => {
+  const location = useLocation()
   return (
     <Container alignItems="center">
       <StyledGravisLogo />
       <Flex justifyContent="space-between" alignItems="center" width="calc(100% - 108px)">
         <AnchorFlex p="0 52px">
           {links.map((link) => (
-            <AnchorText as="a" href={link.href}>
+            <AnchorText as="a" href={link.href} isActive={location.hash === link.href}>
               {link.text}
             </AnchorText>
           ))}
