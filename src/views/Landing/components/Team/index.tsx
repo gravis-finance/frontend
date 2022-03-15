@@ -20,9 +20,6 @@ const Team = () => {
 
   const filteredTeamMembers = useMemo(() => {
     return teamMembers
-    // if (activeIndex === 0) return teamMembers
-    // const currentIndex = activeIndex - 1
-    // return teamMembers.filter((member) => member.category === Object.values(TeamCategory)[currentIndex])
   }, [])
 
   return (
