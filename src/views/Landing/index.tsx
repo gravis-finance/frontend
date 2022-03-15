@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import bg from 'assets/BG.png'
 import Header from './components/Header'
 import MainInfo from './components/MainInfo'
-import Team from './components/Team'
 
 const Container = styled.div`
   background-image: url(${bg});
@@ -19,7 +18,6 @@ const Landing = () => {
       <Container>
         <Header />
         <MainInfo />
-        <Team />
       </Container>
     </>
   )
