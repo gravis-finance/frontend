@@ -12,11 +12,6 @@ const menuLinks: MenuEntry[] = [
     blink: true,
     items: [
       {
-        label: 'Evervoid 2.0',
-        href: process.env.REACT_APP_ASTEROID_MINING_URL,
-        external: true,
-      },
-      {
         label: 'mainMenu.home',
         href: `${process.env.REACT_APP_ASTEROID_MINING_URL}/home`,
         external: true,
@@ -145,7 +140,7 @@ const menuLinks: MenuEntry[] = [
       },
       {
         label: 'mainMenu.tokenomics',
-        href: 'https://docs.google.com/spreadsheets/d/1avYbOzMg7vDt5Gmw16V8WomZG8RfHtaFGEUeZHOZ8vw/edit#gid=0',
+        href: 'https://docs.google.com/spreadsheets/d/1avYbOzMg7vDt5Gmw16V8WomZG8RfHtaFGEUeZHOZ8vw',
         external: true,
       },
       {
