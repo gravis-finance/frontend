@@ -77,7 +77,7 @@ const Roadmap = () => {
   }
 
   return (
-    <Container>
+    <Container id="roadmap">
       <Flex alignItems="center" justifyContent="space-between" m="0 81px 42px 81px">
         <DefaultText fontWeight={700} fontSize="44px">
           Roadmap

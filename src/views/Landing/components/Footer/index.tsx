@@ -6,7 +6,6 @@ import DefaultText from '../../../../components/DefaultText'
 import { MediumIcon, TelegramIcon, TwitterIcon } from '../../../../components/Svg'
 
 const Container = styled(Flex)`
-  width: 1440px;
   height: 180px;
 
   background: rgba(255, 255, 255, 0.03);

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Box, Flex } from '@gravis.finance/uikit'
+import { Flex } from '@gravis.finance/uikit'
 import DefaultText from '../../../../components/DefaultText'
 import PartnersItem from '../PartnersItem'
 import PartnersConfig from '../../../../config/constants/partners'
@@ -15,7 +15,7 @@ const PartnersContainer = styled(Flex)`
 
 const Partners = () => {
   return (
-    <Container>
+    <Container id="partners">
       <DefaultText fontWeight="700" fontSize="44px" lineHeight="120%" textAlign="center">
         Partners
       </DefaultText>

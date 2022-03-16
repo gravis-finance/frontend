@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex, Text } from '@gravis.finance/uikit'
+import { Flex } from '@gravis.finance/uikit'
 import { space, SpaceProps } from 'styled-system'
 import { comingSoonPartners } from '../../../../config/constants/partners'
 import DefaultText from '../../../../components/DefaultText'

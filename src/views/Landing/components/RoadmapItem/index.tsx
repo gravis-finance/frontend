@@ -4,6 +4,7 @@ import { Box, Flex } from '@gravis.finance/uikit'
 import { useInView } from 'react-intersection-observer'
 import { RoadmapType } from '../../../../config/constants/roadmap'
 import DefaultText from '../../../../components/DefaultText'
+import { RoadmapCheckMarkIcon } from '../../../../components/Svg'
 
 const Wrapper = styled(Box)<{ inView: boolean }>`
   background: radial-gradient(100% 174.41% at 0% 0%, #272a2f 0%, #202327 100%)
@@ -54,6 +55,17 @@ const ProjectContainer = styled(Box)`
   }
 `
 
+const CheckmarkBox = styled(Box)<{ color: string }>`
+  margin-right: -4px;
+
+  > svg {
+    margin-bottom: 2px;
+    * {
+      stroke: ${({ color }) => color};
+    }
+  }
+`
+
 const RoadmapItem: React.FC<{ item: RoadmapType }> = ({ item }) => {
   const { period, projects } = item
   const { ref, inView } = useInView({
@@ -76,7 +88,13 @@ const RoadmapItem: React.FC<{ item: RoadmapType }> = ({ item }) => {
                 <ProjectContainer pr="8px">
                   {projectItems.map((projectItem) => (
                     <Flex>
-                      <Hint color={project.color} mt="6px" />
+                      {projectItem.done ? (
+                        <CheckmarkBox color={project.color}>
+                          <RoadmapCheckMarkIcon />
+                        </CheckmarkBox>
+                      ) : (
+                        <Hint color={project.color} mt="6px" />
+                      )}
                       <DefaultText ml={12} fontSize="13px">
                         {projectItem.text.split('\n').map((str) => (
                           <p>{str}</p>

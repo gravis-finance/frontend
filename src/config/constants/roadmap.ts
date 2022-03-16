@@ -17,6 +17,33 @@ export type RoadmapType = {
 
 export const roadmapConfig: RoadmapType[] = [
   {
+    period: 'Q2 2021',
+    projects: [
+      {
+        title: 'Gswap Project Start',
+        color: '#70DD75',
+        items: [
+          {
+            text: 'First Drone mission, Drone upgrades',
+            done: true,
+          },
+          {
+            text: 'New Evervoid trailer',
+          },
+        ],
+      },
+      {
+        title: 'Gswap',
+        color: '#5AC2E3',
+        items: [
+          {
+            text: 'Autofarming',
+          },
+        ],
+      },
+    ],
+  },
+  {
     period: 'Q3 2021',
     projects: [
       {
@@ -25,6 +52,7 @@ export const roadmapConfig: RoadmapType[] = [
         items: [
           {
             text: 'First Drone mission, Drone upgrades',
+            done: true,
           },
           {
             text: 'New Evervoid trailer',

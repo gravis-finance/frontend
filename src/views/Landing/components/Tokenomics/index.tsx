@@ -29,7 +29,7 @@ const TokenomicsInfoContainer = styled(Flex)<{ activeIndex: number }>`
 const Tokenomics = () => {
   const [activeIndex, setActiveIndex] = useState(0)
   return (
-    <Container>
+    <Container id="tokenomics">
       <Flex justifyContent="center" alignItems="center" mb={80}>
         <DefaultText fontWeight={700} fontSize="44px" mr={25}>
           Tokenomics

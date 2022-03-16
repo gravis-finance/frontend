@@ -14,6 +14,7 @@ const Container = styled(Flex)`
   height: 70px;
   padding: 18px 80px;
   position: fixed;
+  z-index: 3 !important;
 `
 
 const StyledGravisLogo = styled(GravisLogo)`
