@@ -93,7 +93,7 @@ const Roadmap = () => {
       </Flex>
       <StyledScrollContainer vertical={false} ref={scrollRef}>
         {roadmapConfig.map((item) => (
-          <RoadmapItem item={item} />
+          <RoadmapItem item={item} key={item.period} />
         ))}
       </StyledScrollContainer>
     </Container>
