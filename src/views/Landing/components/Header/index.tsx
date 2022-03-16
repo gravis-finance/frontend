@@ -6,6 +6,7 @@ import GravisLogo from '../../../../components/Svg/Icons/GravisLogo'
 import TokenInfo from '../../../../components/TokenInfo'
 import { GRVSFilledLogo, GRVXFilledLogo } from '../../../../components/Svg'
 import Apps from '../Apps'
+import { useGetTokensData } from '../../../../hooks/useTokenomicsConfig'
 
 const Container = styled(Flex)`
   background: rgba(255, 255, 255, 0.03);
@@ -51,6 +52,12 @@ const TokensContainer = styled(Flex)`
 const TokenText = styled(AnchorText)`
   font-size: 12px;
   line-height: 15px;
+  color: white;
+  cursor: pointer;
+
+  :hover {
+    color: rgba(255, 255, 255, 0.5);
+  }
 `
 
 const links = [
@@ -86,6 +93,13 @@ const links = [
 
 const Header = () => {
   const location = useLocation()
+  const { isLoading, data: tokensInfo } = useGetTokensData()
+
+  const foundGRVXAmount =
+    (tokensInfo?.find((token) => token.symbol === 'GRVX' && token.chain === 'bsc').price +
+      tokensInfo?.find((token) => token.symbol === 'GRVX' && token.chain === 'polygon').price) /
+    2
+  // const foundGRVSAmount = (tokensInfo?.find((token) => token.symbol === 'GRVS' && token.chain === 'bsc') + tokensInfo?.find((token) => token.symbol === 'GRVS' && token.chain === 'polygon')) / 2
   return (
     <Container alignItems="center">
       <StyledGravisLogo />
@@ -99,8 +113,28 @@ const Header = () => {
         </AnchorFlex>
         <Flex>
           <TokensContainer mr={51}>
-            <TokenInfo logo={<GRVXFilledLogo />} title="GRVX" text={<TokenText>$0.00006</TokenText>} />
-            <TokenInfo logo={<GRVSFilledLogo />} title="GRVS" text={<TokenText>Join Sale</TokenText>} />
+            <TokenInfo
+              logo={<GRVSFilledLogo />}
+              title="GRVS"
+              text={
+                <TokenText as="a" href={process.env.REACT_APP_PUBLIC_ROUND_URL} target="_blank">
+                  Join Sale
+                </TokenText>
+              }
+            />
+            <TokenInfo
+              logo={<GRVXFilledLogo />}
+              title="GRVX"
+              text={
+                <TokenText
+                  as="a"
+                  href={`${process.env.REACT_APP_EXCHANGE_URL}/swap?network=56&inputCurrency=0xe9e7cea3dedca5984780bafc599bd69add087d56&outputCurrency=0xa349fD455A457467D31cA8Db59052dAEBBBcc108`}
+                  target="_blank"
+                >
+                  {isLoading ? 'Loading...' : `$${foundGRVXAmount.toFixed(5)}`}
+                </TokenText>
+              }
+            />
           </TokensContainer>
           <Apps />
         </Flex>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useQuery } from 'react-query'
 import DefaultTokenomicItem from '../views/Landing/components/DefaultTokenomicItem'
 import {
   AprIcon,
@@ -17,15 +18,68 @@ import {
 } from '../components/Svg'
 import { TokenomicsTokenType } from '../config/constants/types'
 import GRVXTokenomicItem from '../views/Landing/components/GRVXTokenomicItem'
+import { GRVS_ADDRESSES, GRVX_ADDRESSES } from '../config/constants/tokensAddresses'
+import { numberWithSpaces } from '../utils/numberWithSpaces'
 
-const useTokenomicsConfig = () => {
+export const useGetTokensData = () => {
+  const fetchTokens = async () => {
+    const result = await fetch(`${process.env.REACT_APP_ASSETS_API_URL}/tokens`)
+    const fetchedResult = await result.json()
+
+    return [
+      ...fetchedResult.data.filter((token) =>
+        Object.values(GRVX_ADDRESSES).find((address) => token.token_address === address.toLowerCase()),
+      ),
+      ...fetchedResult.data.filter((token) =>
+        Object.values(GRVS_ADDRESSES).find((address) => token.token_address === address.toLowerCase()),
+      ),
+    ]
+  }
+
+  return useQuery('getTokens', fetchTokens)
+}
+
+const useTokenomicsConfig = (chain = 'bsc') => {
+  const { isLoading, data: tokensInfo } = useGetTokensData()
+
+  const foundGRVX = tokensInfo?.find((token) => token.symbol === 'GRVX' && token.chain === chain)
+  const foundGRVS = tokensInfo?.find((token) => token.symbol === 'GRVS' && token.chain === chain)
+
   return React.useMemo(() => {
     return {
+      isLoading,
+      links: {
+        [TokenomicsTokenType.GRVS]: {
+          seeMore: [],
+          buyToken: process.env.REACT_APP_PUBLIC_ROUND_URL,
+        },
+        [TokenomicsTokenType.GRVX]: {
+          seeMore: [
+            {
+              text: 'DEX Guru (Binance Network)',
+              link: 'https://dex.guru/token/0xa349fd455a457467d31ca8db59052daebbbcc108-bsc',
+            },
+            {
+              text: 'DEX Guru (Polygon Network)',
+              link: 'https://dex.guru/token/0xd322da59c420e0827e31c40f1886346fb19c6687-polygon',
+            },
+            {
+              text: 'Token statistics on DEX analytics (Binance Network)',
+              link: 'https://info.gravis.finance/token/0xa349fd455a457467d31ca8db59052daebbbcc108?network=binance',
+            },
+            {
+              text: 'Token statistics on DEX analytics (Polygon Network)',
+              link: 'https://info.gravis.finance/token/0xd322da59c420e0827e31c40f1886346fb19c6687?network=polygon',
+            },
+          ],
+          buyToken: `${process.env.REACT_APP_EXCHANGE_URL}/swap?network=56&inputCurrency=0xe9e7cea3dedca5984780bafc599bd69add087d56&outputCurrency=0xa349fD455A457467D31cA8Db59052dAEBBBcc108`,
+        },
+      },
       cells: {
         [TokenomicsTokenType.GRVS]: [
           {
             title: 'Price',
-            text: '$0.03',
+            text: foundGRVS?.price ? `$${foundGRVS?.price}` : 'Coming soon',
           },
           {
             title: 'Chains',
@@ -37,17 +91,17 @@ const useTokenomicsConfig = () => {
           },
           {
             title: 'Circulation supply',
-            text: '802 923 423',
+            text: foundGRVS?.live_count > 0 ? numberWithSpaces(parseInt(foundGRVS?.live_count)) : 'Coming soon',
           },
           {
             title: 'Burned',
-            text: '23 812 912',
+            text: foundGRVS?.burned > 0 ? numberWithSpaces(parseInt(foundGRVS?.burned)) : 'Coming soon',
           },
         ],
         [TokenomicsTokenType.GRVX]: [
           {
             title: 'Price',
-            text: '$0.03',
+            text: `$${foundGRVX?.price}`,
           },
           {
             title: 'Chains',
@@ -55,11 +109,11 @@ const useTokenomicsConfig = () => {
           },
           {
             title: 'Circulation supply',
-            text: '802 923 423',
+            text: numberWithSpaces(parseInt(foundGRVX?.live_count)),
           },
           {
             title: 'Burned',
-            text: '23 812 912',
+            text: numberWithSpaces(parseInt(foundGRVX?.burned)),
           },
         ],
       },
@@ -133,7 +187,15 @@ loot boxes"
         ],
       },
     }
-  }, [])
+  }, [
+    foundGRVS?.burned,
+    foundGRVS?.live_count,
+    foundGRVS?.price,
+    foundGRVX?.burned,
+    foundGRVX?.live_count,
+    foundGRVX?.price,
+    isLoading,
+  ])
 }
 
 export default useTokenomicsConfig
