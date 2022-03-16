@@ -6,69 +6,69 @@ import PartnersItem from '../PartnersItem'
 import PartnersConfig from '../../../../config/constants/partners'
 
 const Container = styled.div`
-  margin: 57px 80px 90px 80px;
+  margin: 5.7rem 8rem 9rem 8rem;
 `
 
 const PartnersContainer = styled(Flex)`
-  margin: -5px;
+  margin: -0.5rem;
 `
 
 const Partners = () => {
-  return (
-    <Container id="partners">
-      <DefaultText fontWeight="700" fontSize="44px" lineHeight="120%" textAlign="center">
-        Partners
-      </DefaultText>
-      <DefaultText
-        textTransform="uppercase"
-        fontWeight="600"
-        fontSize="11px"
-        mt={13}
-        mb={15}
-        letterSpacing="0"
-        ml="4px"
-      >
-        Backed By
-      </DefaultText>
-      <PartnersContainer flexWrap="wrap">
-        {PartnersConfig.backed.map((image) => (
-          <PartnersItem image={image} />
-        ))}
-      </PartnersContainer>
-      <DefaultText
-        textTransform="uppercase"
-        fontWeight="600"
-        fontSize="11px"
-        mt={40}
-        mb={15}
-        letterSpacing="0"
-        ml="4px"
-      >
-        Supported By
-      </DefaultText>
-      <PartnersContainer flexWrap="wrap">
-        {PartnersConfig.supported.map((image) => (
-          <PartnersItem image={image} />
-        ))}
-      </PartnersContainer>
-      <DefaultText
-        textTransform="uppercase"
-        fontWeight="600"
-        fontSize="11px"
-        mt={40}
-        mb={15}
-        letterSpacing="0"
-        ml="4px"
-      >
-        Powered By
-      </DefaultText>
-      <PartnersContainer flexWrap="wrap">
-        {PartnersConfig.powered.map((image) => (
-          <PartnersItem image={image} />
-        ))}
-      </PartnersContainer>
-    </Container>
-  )
+    return (
+        <Container id="partners">
+            <DefaultText fontWeight="700" fontSize="4.4rem" lineHeight="120%" textAlign="center">
+                Partners
+            </DefaultText>
+            <DefaultText
+                textTransform="uppercase"
+                fontWeight="600"
+                fontSize="1.1rem"
+                mt={13}
+                mb={15}
+                letterSpacing="0"
+                ml="0.4rem"
+            >
+                Backed By
+            </DefaultText>
+            <PartnersContainer flexWrap="wrap">
+                {PartnersConfig.backed.map((image) => (
+                    <PartnersItem image={image} />
+                ))}
+            </PartnersContainer>
+            <DefaultText
+                textTransform="uppercase"
+                fontWeight="600"
+                fontSize="1.1rem"
+                mt={40}
+                mb={15}
+                letterSpacing="0"
+                ml="0.4rem"
+            >
+                Supported By
+            </DefaultText>
+            <PartnersContainer flexWrap="wrap">
+                {PartnersConfig.supported.map((image) => (
+                    <PartnersItem image={image} />
+                ))}
+            </PartnersContainer>
+            <DefaultText
+                textTransform="uppercase"
+                fontWeight="600"
+                fontSize="1.1rem"
+                mt={40}
+                mb={15}
+                letterSpacing="0"
+                ml="0.4rem"
+            >
+                Powered By
+            </DefaultText>
+            <PartnersContainer flexWrap="wrap">
+                {PartnersConfig.powered.map((image) => (
+                    <PartnersItem image={image} />
+                ))}
+            </PartnersContainer>
+        </Container>
+    )
 }
 
 export default Partners

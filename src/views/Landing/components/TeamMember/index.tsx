@@ -4,7 +4,7 @@ import DefaultText from '../../../../components/DefaultText'
 import { TeamCategory, TeamMemberType } from '../../../../config/constants/team'
 
 const Container = styled.div<{ isHidden: boolean }>`
-  margin: 25px 7.5px;
+  margin: 2.5rem 0.75rem;
   ${({ isHidden }) =>
     isHidden
       ? `
@@ -18,9 +18,9 @@ const Container = styled.div<{ isHidden: boolean }>`
 `
 
 const Image = styled.img`
-  height: 240px;
-  width: 240px;
-  border-radius: 20px;
+  height: 24rem;
+  width: 24rem;
+  border-radius: 2rem;
   object-fit: cover;
 `
 
@@ -30,10 +30,10 @@ const TeamMember: React.FC<{ member: TeamMemberType; activeCategory: TeamCategor
   return (
     <Container isHidden={activeCategory === undefined ? false : category !== activeCategory}>
       <Image src={image} alt="" />
-      <DefaultText fontSize="18px" fontWeight={600} textAlign="center" mt="14px">
+      <DefaultText fontSize="1.8rem" fontWeight={600} textAlign="center" mt="1.4rem">
         {name}
       </DefaultText>
-      <DefaultText fontSize="13px" fontWeight={500} textAlign="center" color="rgba(255, 255, 255, 0.5)">
+      <DefaultText fontSize="1.3rem" fontWeight={500} textAlign="center" color="rgba(255, 255, 255, 0.5)">
         {position}
       </DefaultText>
     </Container>

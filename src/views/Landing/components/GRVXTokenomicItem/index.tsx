@@ -11,9 +11,9 @@ import DefaultText from '../../../../components/DefaultText'
 
 const Container = styled(Flex)`
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  width: 610px;
-  height: 156px;
+  border-radius: 2rem;
+  width: 61rem;
+  height: 15.6rem;
   justify-content: center;
   align-items: center;
 `
@@ -22,36 +22,36 @@ const ElementsContainer = styled(Flex)`
   //width: 211px;
   > img:nth-child(2) {
     position: relative;
-    left: -12px;
+    left: -1.2rem;
   }
   > img:nth-child(3) {
     position: relative;
-    left: -25px;
+    left: -2.5rem;
   }
   > img:nth-child(4) {
     position: relative;
-    left: -38px;
+    left: -3.8rem;
   }
 `
 
 const ElementImage = styled.img`
-  width: 65px;
-  height: 65px;
-  border: 5px solid #222529;
-  border-radius: 66px;
+  width: 6.5rem;
+  height: 6.5rem;
+  border: 0.5rem solid #222529;
+  border-radius: 6.6rem;
 `
 
 const Elements = [metalImage, fuelImage, sbpImage, matrixImage]
 
 const GRVXTokenomicItem: React.FC = () => {
   return (
-    <Container m="5px">
+    <Container m="0.5rem">
       <ElementsContainer>
         {Elements.map((element) => (
           <ElementImage src={element} alt="" />
         ))}
       </ElementsContainer>
-      <DefaultText fontSize="14px" fontWeight={500} ml="-20px">
+      <DefaultText fontSize="1.4rem" fontWeight={500} ml="-2rem">
         {'Stake GRVX token\nto get useful valuable resources '.split('\n').map((str) => (
           <p>{str}</p>
         ))}

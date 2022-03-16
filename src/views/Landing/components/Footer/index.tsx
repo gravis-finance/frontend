@@ -6,14 +6,14 @@ import DefaultText from '../../../../components/DefaultText'
 import { MediumIcon, TelegramIcon, TwitterIcon } from '../../../../components/Svg'
 
 const Container = styled(Flex)`
-  height: 180px;
+  height: 18rem;
 
   background: rgba(255, 255, 255, 0.03);
 `
 
 const StyledWrapper = styled(Flex)`
   > *:not(:last-child) {
-    margin-right: 10px;
+    margin-right: 1rem;
   }
 `
 
@@ -21,7 +21,7 @@ const LinkItem = styled.a`
   cursor: pointer;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 49px;
-  padding: 22px 22px 18px 22px;
+  padding: 2.2rem 2.2rem 1.8rem 2.2rem;
   transition: background-color 200ms ease-in-out;
 
   :hover {
@@ -48,7 +48,7 @@ const FooterNetworks = () => {
         href="https://discord.gg/GravisFinance"
         target="_blank"
         rel="noopener  noreferrer"
-        style={{ padding: '22px 19.5px 19px 19.5px' }}
+        style={{ padding: '2.2rem 1.95rem 1.9rem 1.95rem' }}
       >
         <DiscordIcon />
       </LinkItem>
@@ -65,11 +65,11 @@ const LinkedDefaultText = styled(DefaultText)`
 
 const Footer: React.FC = () => {
   return (
-    <Container p="60px 80px" alignItems="center" justifyContent="space-between">
+    <Container p="6rem 8rem" alignItems="center" justifyContent="space-between">
       <Flex alignItems="center">
         <LinkedDefaultText
           color="rgba(255,255,255,0.7)"
-          fontSize="14px"
+          fontSize="1.4rem"
           fontWeight={500}
           as="a"
           href={privacyAndPoliceLink}
@@ -78,12 +78,12 @@ const Footer: React.FC = () => {
         >
           Privacy & Policy
         </LinkedDefaultText>
-        <DefaultText color="rgba(255,255,255,0.1)" fontSize="14px" m="0 20px" fontWeight={500}>
+        <DefaultText color="rgba(255,255,255,0.1)" fontSize="1.4rem" m="0 2rem" fontWeight={500}>
           |
         </DefaultText>
         <LinkedDefaultText
           color="rgba(255,255,255,0.7)"
-          fontSize="14px"
+          fontSize="1.4rem"
           fontWeight={500}
           as="a"
           href={termsOfUseLink}
@@ -95,7 +95,7 @@ const Footer: React.FC = () => {
       </Flex>
       <FooterNetworks />
       <Flex>
-        <DefaultText color="rgba(255,255,255,0.7)" fontSize="14px" fontWeight={500}>
+        <DefaultText color="rgba(255,255,255,0.7)" fontSize="1.4rem" fontWeight={500}>
           All rights reserved. © 2022 Gravis Finance
         </DefaultText>
       </Flex>

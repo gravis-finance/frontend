@@ -7,21 +7,21 @@ import TokenomicInfo from '../TokenomicInfo'
 import { TokenomicsTokenType } from '../../../../config/constants/types'
 
 const Container = styled.div`
-  margin: 70px 80px;
+  //margin: 7rem 8rem;
   position: relative;
 `
 
 const TokenomicsInfoContainer = styled(Flex)<{ activeIndex: number }>`
-  height: 555px;
+  height: 55.5rem;
   > div:first-child {
     position: absolute;
-    left: ${({ activeIndex }) => (activeIndex ? 'calc(-100% - 80px)' : 0)};
+    left: ${({ activeIndex }) => (activeIndex ? 'calc(-100% - 8rem)' : 0)};
     transition: left 500ms ease-in-out;
   }
 
   > div:last-child {
     position: absolute;
-    right: ${({ activeIndex }) => (activeIndex ? 0 : 'calc(-100% - 80px)')};
+    right: ${({ activeIndex }) => (activeIndex ? 0 : 'calc(-100% - 8rem)')};
     transition: right 500ms ease-in-out;
   }
 `
@@ -30,8 +30,8 @@ const Tokenomics = () => {
   const [activeIndex, setActiveIndex] = useState(0)
   return (
     <Container id="tokenomics">
-      <Flex justifyContent="center" alignItems="center" mb={80}>
-        <DefaultText fontWeight={700} fontSize="44px" mr={25}>
+      <Flex justifyContent="center" alignItems="center" mb="8rem">
+        <DefaultText fontWeight={700} fontSize="4.4rem" mr="2.5rem">
           Tokenomics
         </DefaultText>
         <TokensSwitcher activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
