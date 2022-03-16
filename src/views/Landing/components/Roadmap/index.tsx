@@ -7,16 +7,16 @@ import RoadmapItem from '../RoadmapItem'
 import { roadmapConfig } from '../../../../config/constants/roadmap'
 
 const Container = styled.div`
-  margin: 77px 0;
-  height: calc(100vh - 170px);
+  margin: 7.7rem 0;
+  height: calc(100vh - 17rem);
 `
 
 const StyledScrollContainer = styled(ScrollContainer)`
   display: flex;
-  padding: 0 80px;
+  padding: 0 8rem;
   scroll-behavior: smooth;
   > div:not(:last-child) {
-    margin-right: 10px;
+    margin-right: 1rem;
   }
 `
 
@@ -24,8 +24,8 @@ const ButtonsContainer = styled(Flex)``
 
 const ButtonArrow = styled(Flex)`
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 5rem;
+  height: 5rem;
   user-select: none;
 
   background-color: rgba(255, 255, 255, 0.05);
@@ -78,12 +78,12 @@ const Roadmap = () => {
 
   return (
     <Container id="roadmap">
-      <Flex alignItems="center" justifyContent="space-between" m="0 81px 42px 81px">
-        <DefaultText fontWeight={700} fontSize="44px">
+      <Flex alignItems="center" justifyContent="space-between" m="0 8.1rem 4.2rem 8.1rem">
+        <DefaultText fontWeight={700} fontSize="4.4rem">
           Roadmap
         </DefaultText>
         <ButtonsContainer>
-          <ButtonArrow mr="10px" onClick={() => makeScroll('prev')}>
+          <ButtonArrow mr="1rem" onClick={() => makeScroll('prev')}>
             <ChevronLeftIcon />
           </ButtonArrow>
           <ButtonArrow onClick={() => makeScroll('next')}>

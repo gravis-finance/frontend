@@ -6,27 +6,27 @@ import PartnersItem from '../PartnersItem'
 import PartnersConfig from '../../../../config/constants/partners'
 
 const Container = styled.div`
-  margin: 57px 80px;
+  margin: 5.7rem 8rem;
 `
 
 const PartnersContainer = styled(Flex)`
-  margin: -5px;
+  margin: -0.5rem;
 `
 
 const Partners = () => {
   return (
     <Container id="partners">
-      <DefaultText fontWeight="700" fontSize="44px" lineHeight="120%" textAlign="center">
+      <DefaultText fontWeight="700" fontSize="4.4rem" lineHeight="120%" textAlign="center">
         Partners
       </DefaultText>
       <DefaultText
         textTransform="uppercase"
         fontWeight="600"
-        fontSize="11px"
+        fontSize="1.1rem"
         mt={13}
         mb={15}
         letterSpacing="0"
-        ml="4px"
+        ml="0.4rem"
       >
         Backed By
       </DefaultText>
@@ -38,11 +38,11 @@ const Partners = () => {
       <DefaultText
         textTransform="uppercase"
         fontWeight="600"
-        fontSize="11px"
+        fontSize="1.1rem"
         mt={40}
         mb={15}
         letterSpacing="0"
-        ml="4px"
+        ml="0.4rem"
       >
         Supported By
       </DefaultText>
@@ -54,11 +54,11 @@ const Partners = () => {
       <DefaultText
         textTransform="uppercase"
         fontWeight="600"
-        fontSize="11px"
+        fontSize="1.1rem"
         mt={40}
         mb={15}
         letterSpacing="0"
-        ml="4px"
+        ml="0.4rem"
       >
         Powered By
       </DefaultText>

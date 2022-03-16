@@ -6,13 +6,13 @@ import { TeamCategory } from '../../../../config/constants/team'
 
 const Container = styled(Flex)`
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 45px;
+  border-radius: 4.5rem;
   position: relative;
 `
 
 const FilterItem = styled(DefaultText)<{ active: boolean }>`
-  padding: 14.5px 25px;
-  font-size: 14px;
+  padding: 1.45rem 2.5rem;
+  font-size: 1.4rem;
   font-weight: 600;
   color: ${({ active }) => (active ? '#000' : 'rgba(255, 255, 255, 0.7)')};
   text-transform: capitalize;

@@ -10,12 +10,12 @@ const Wrapper = styled(Box)<{ inView: boolean }>`
   background: radial-gradient(100% 174.41% at 0% 0%, #272a2f 0%, #202327 100%)
     /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
   backdrop-filter: blur(250px);
-  border-radius: 15px;
-  width: 312.5px;
-  height: 516px;
-  min-width: 312.5px;
-  min-height: 516px;
-  padding: 25px;
+  border-radius: 1.5rem;
+  width: 31.25rem;
+  height: 51.6rem;
+  min-width: 31.25rem;
+  min-height: 51.6rem;
+  padding: 2.5rem;
   transition: opacity 200ms ease-in-out;
   opacity: ${({ inView }) => (inView ? '1' : '0.3')};
 `
@@ -26,40 +26,40 @@ const Container = styled(Box)`
 
   ::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
+    border-radius: 0.6rem;
   }
 
   ::-webkit-scrollbar-track {
     background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 6px;
+    border-radius: 0.6rem;
   }
 `
 
 const Hint = styled(Box)<{ color: string }>`
   border-radius: 100%;
-  width: 5px;
-  height: 5px;
+  width: 0.5rem;
+  height: 0.5rem;
 
   background: ${({ color }) => color};
 `
 
 const ProjectsContainer = styled(Box)`
   > div:not(:last-child) {
-    margin-bottom: 35px;
+    margin-bottom: 3.5rem;
   }
 `
 
 const ProjectContainer = styled(Box)`
   > div:not(:last-child) {
-    margin-bottom: 12px;
+    margin-bottom: 1.2rem;
   }
 `
 
 const CheckmarkBox = styled(Box)<{ color: string }>`
-  margin-right: -4px;
+  margin-right: -0.4rem;
 
   > svg {
-    margin-bottom: 2px;
+    margin-bottom: 0.2rem;
     * {
       stroke: ${({ color }) => color};
     }
@@ -74,7 +74,7 @@ const RoadmapItem: React.FC<{ item: RoadmapType }> = ({ item }) => {
   return (
     <Wrapper ref={ref} inView={inView}>
       <Container>
-        <DefaultText fontSize="24px" fontWeight={800} lineHeight="100%" mb={35}>
+        <DefaultText fontSize="2.4rem" fontWeight={800} lineHeight="100%" mb={35}>
           {period}
         </DefaultText>
         <ProjectsContainer>
@@ -82,10 +82,10 @@ const RoadmapItem: React.FC<{ item: RoadmapType }> = ({ item }) => {
             const { items: projectItems, title } = project
             return (
               <Box>
-                <DefaultText fontSize="18px" fontWeight={800} lineHeight="100%" mb="20px">
+                <DefaultText fontSize="1.8rem" fontWeight={800} lineHeight="100%" mb="2rem">
                   {title}
                 </DefaultText>
-                <ProjectContainer pr="8px">
+                <ProjectContainer pr="0.8rem">
                   {projectItems.map((projectItem) => (
                     <Flex>
                       {projectItem.done ? (
@@ -93,9 +93,9 @@ const RoadmapItem: React.FC<{ item: RoadmapType }> = ({ item }) => {
                           <RoadmapCheckMarkIcon />
                         </CheckmarkBox>
                       ) : (
-                        <Hint color={project.color} mt="6px" />
+                        <Hint color={project.color} mt="0.6rem" />
                       )}
-                      <DefaultText ml={12} fontSize="13px">
+                      <DefaultText ml="1.2rem" fontSize="1.3rem">
                         {projectItem.text.split('\n').map((str) => (
                           <p>{str}</p>
                         ))}

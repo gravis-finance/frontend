@@ -10,9 +10,9 @@ const Container = styled(Flex)``
 const TokenItemContainer = styled(Flex)<{ isActive: boolean } & SpaceProps>`
   background-color: ${({ isActive }) => (isActive ? '#ffffff' : 'rgba(255, 255, 255, 0.05)')};
   border-radius: 48px;
-  padding: 10px;
-  width: 120px;
-  height: 50px;
+  padding: 1rem;
+  width: 12rem;
+  height: 5rem;
   cursor: pointer;
   transition: background-color 200ms ease-in-out;
 
@@ -32,7 +32,7 @@ const TokenItem: React.FC<TokenItemProps & SpaceProps> = ({ isGrvx, isActive, on
   return (
     <TokenItemContainer alignItems="center" onClick={onClick} isActive={isActive} {...props}>
       {isGrvx ? <GRVXFilledLogo width={30} height={30} /> : <GRVSFilledLogo width={30} height={30} />}
-      <DefaultText color={isActive ? 'rgb(0,0,0)' : 'rgb(255, 255, 255)'} ml={10} fontWeight={600} fontSize="18px">
+      <DefaultText color={isActive ? 'rgb(0,0,0)' : 'rgb(255, 255, 255)'} ml={10} fontWeight={600} fontSize="1.8rem">
         {isGrvx ? 'GRVX' : 'GRVS'}
       </DefaultText>
     </TokenItemContainer>
@@ -47,7 +47,7 @@ type Props = {
 const TokensSwitcher: React.FC<Props> = ({ activeIndex, setActiveIndex }) => {
   return (
     <Container>
-      <TokenItem isActive={activeIndex === 0} onClick={() => setActiveIndex(0)} mr={10} />
+      <TokenItem isActive={activeIndex === 0} onClick={() => setActiveIndex(0)} mr="1rem" />
       <TokenItem isActive={activeIndex === 1} onClick={() => setActiveIndex(1)} isGrvx />
     </Container>
   )

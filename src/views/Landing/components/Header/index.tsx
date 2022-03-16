@@ -11,19 +11,21 @@ const Container = styled(Flex)`
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(500px);
   width: 100%;
-  height: 70px;
-  padding: 18px 80px;
+  height: 7rem;
+  padding: 1.8rem 8rem;
   position: fixed;
-  z-index: 3 !important;
+  top: 0;
+  left: 0;
+  z-index: 3;
 `
 
 const StyledGravisLogo = styled(GravisLogo)`
-  width: 108px;
+  width: 10.8rem;
 `
 
 const AnchorFlex = styled(Flex)`
   > a:not(:last-child) {
-    margin-right: 25.5px;
+    margin-right: 2.55rem;
   }
 `
 
@@ -31,7 +33,7 @@ const AnchorText = styled(Text)<{ isActive?: boolean }>`
   font-family: 'Inter', serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 1.2rem;
   line-height: 100%;
   letter-spacing: -0.02em;
   transition: color 100ms ease-in-out;
@@ -44,13 +46,13 @@ const AnchorText = styled(Text)<{ isActive?: boolean }>`
 
 const TokensContainer = styled(Flex)`
   > div:not(:last-child) {
-    margin-right: 22px;
+    margin-right: 2.2rem;
   }
 `
 
 const TokenText = styled(AnchorText)`
-  font-size: 12px;
-  line-height: 15px;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
 `
 
 const links = [
@@ -89,10 +91,10 @@ const Header = () => {
   return (
     <Container alignItems="center">
       <StyledGravisLogo />
-      <Flex justifyContent="space-between" alignItems="center" width="calc(100% - 108px)">
-        <AnchorFlex p="0 52px">
+      <Flex justifyContent="space-between" alignItems="center" width="calc(100% - 10.8rem)">
+        <AnchorFlex p="0 5.2rem">
           {links.map((link) => (
-            <AnchorText as="a" href={link.href} isActive={location.hash === link.href}>
+            <AnchorText as="a" href={link.href} key={link.href}  isActive={location.hash === link.href}>
               {link.text}
             </AnchorText>
           ))}

@@ -5,21 +5,16 @@ import { Maintenance, NotFound, ResetCSS } from '@gravis.finance/uikit'
 import GlobalStyle from './style/Global'
 import { MenuWrappedRoute } from './components/Menu'
 import PageLoader from './components/PageLoader'
-import Landing from './views/Landing'
 
 // Route-based code splitting
 // const Home = lazy(() => import('./views/Home'))
 const AuditsPage = lazy(() => import('./views/AuditsPage'))
+const Landing = lazy(() => import('./views/Landing'))
 // const BigBangNft = lazy(() => import('./views/BigBangNft'))
 // const ToastListener = lazy(() => import('./components/ToastListener'))
 
 const Wrapper = styled.div`
   position: relative;
-  overflow-x: hidden;
-
-  > div > div {
-    z-index: 2;
-  }
 `
 
 // const StyledBackground = styled.div`

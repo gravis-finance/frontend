@@ -7,14 +7,13 @@ import { TokenomicsTokenType } from '../../../../config/constants/types'
 
 const Container = styled(Box)`
   width: 100%;
-  //height: 558px;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
+  border-radius: 2rem;
 `
 
 const Header = styled(Flex)<{ token?: TokenomicsTokenType }>`
   border-radius: 20px 20px 0px 0px;
-  height: 130px;
+  height: 13rem;
 
   ${({ token }) =>
     token === TokenomicsTokenType.GRVX
@@ -31,7 +30,7 @@ const Header = styled(Flex)<{ token?: TokenomicsTokenType }>`
 
 const CellsContainer = styled(Flex)`
   > div:not(:last-child) {
-    margin-right: 42px;
+    margin-right: 4.2rem;
   }
 `
 
@@ -45,32 +44,32 @@ const TokenomicInfo: React.FC<Props> = ({ token = TokenomicsTokenType.GRVS }) =>
   const { tokenomicsConfig, cells } = useTokenomicsConfig()
   return (
     <Container>
-      <Header alignItems="center" p="44px 45px" token={token}>
+      <Header alignItems="center" p="4.4rem 4.5rem" token={token}>
         <Flex justifyContent="space-between" width="100%">
           <CellsContainer>
             {cells[token].map((cell) => (
               <Flex flexDirection="column">
-                <DefaultText fontWeight={500} fontSize="13px" color="rgba(255, 255, 255, 0.7)">
+                <DefaultText fontWeight={500} fontSize="1.3rem" color="rgba(255, 255, 255, 0.7)">
                   {cell.title}
                 </DefaultText>
-                <DefaultText fontWeight={700} fontSize="20px" color="rgb(255, 255, 255)">
+                <DefaultText fontWeight={700} fontSize="2rem" color="rgb(255, 255, 255)">
                   {cell.text}
                 </DefaultText>
               </Flex>
             ))}
           </CellsContainer>
           <Flex>
-            <Button variant="light" mr={15}>
+            <Button variant="light" mr="1.5rem">
               See more
             </Button>
             <Button variant="darkened">Buy token</Button>
           </Flex>
         </Flex>
       </Header>
-      <DefaultText fontWeight={600} fontSize="22px" textAlign="center" mt={35} mb={15}>
+      <DefaultText fontWeight={600} fontSize="2.2rem" textAlign="center" mt="3.5rem" mb="1.5rem">
         Token utility value in Evervoid
       </DefaultText>
-      <TokenomicTable flexWrap="wrap" m="-5px" p="0 25px 20px 25px">
+      <TokenomicTable flexWrap="wrap" m="-0.5rem" p="0 2.5rem 2rem 2.5rem">
         {tokenomicsConfig[token].map((item) => item)}
       </TokenomicTable>
     </Container>

@@ -7,12 +7,12 @@ import { TeamCategory, teamMembers } from '../../../../config/constants/team'
 import TeamFilters from '../TeamFilters'
 
 const Container = styled.div`
-  padding: 34px 80px;
+  padding: 3.4rem 8rem;
   height: fit-content;
 `
 
 const MembersContainer = styled(Flex)`
-  margin: -25px -7.5px;
+  margin: -2.5rem -0.75rem;
 `
 
 const Team = () => {
@@ -27,7 +27,7 @@ const Team = () => {
   return (
     <Container id="team">
       <Flex alignItems="center" justifyContent="space-between" mb={60}>
-        <DefaultText fontSize="44px" fontWeight={700}>
+        <DefaultText fontSize="4.4rem" fontWeight={700}>
           Our Team
         </DefaultText>
         <TeamFilters activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
