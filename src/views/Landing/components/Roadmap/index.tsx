@@ -42,7 +42,7 @@ const Roadmap = () => {
   const scrollRef = useRef(null)
 
   useEffect(() => {
-    if (scrollRef.current) scrollRef.current?.container.current.scrollTo(312.5 * 2 + 20, 0)
+    if (scrollRef.current) scrollRef.current?.container.current.scrollTo(312.5 * 3 + 10 * 3, 0)
   }, [scrollRef])
 
   const makeScroll = (option) => {
@@ -93,7 +93,7 @@ const Roadmap = () => {
       </Flex>
       <StyledScrollContainer vertical={false} ref={scrollRef}>
         {roadmapConfig.map((item) => (
-          <RoadmapItem item={item} />
+          <RoadmapItem item={item} key={item.period} />
         ))}
       </StyledScrollContainer>
     </Container>

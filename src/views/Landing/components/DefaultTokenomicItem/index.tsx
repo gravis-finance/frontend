@@ -20,8 +20,8 @@ const DefaultTokenomicItem = ({ icon, text }) => {
     <Container m="0.5rem">
       <Icon />
       <DefaultText fontSize="1.4rem" textAlign="center" mt="1.8rem" fontWeight={500}>
-        {text.split('\n').map((str) => (
-          <p>{str}</p>
+        {text.split('\n').map((str, index) => (
+          <p key={index}>{str}</p>
         ))}
       </DefaultText>
     </Container>

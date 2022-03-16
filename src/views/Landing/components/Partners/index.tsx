@@ -6,7 +6,7 @@ import PartnersItem from '../PartnersItem'
 import PartnersConfig from '../../../../config/constants/partners'
 
 const Container = styled.div`
-  margin: 5.7rem 8rem;
+  margin: 5.7rem 8rem 9rem 8rem;
 `
 
 const PartnersContainer = styled(Flex)`
@@ -32,7 +32,7 @@ const Partners = () => {
       </DefaultText>
       <PartnersContainer flexWrap="wrap">
         {PartnersConfig.backed.map((image) => (
-          <PartnersItem image={image} />
+          <PartnersItem image={image} key={image} />
         ))}
       </PartnersContainer>
       <DefaultText
@@ -48,7 +48,7 @@ const Partners = () => {
       </DefaultText>
       <PartnersContainer flexWrap="wrap">
         {PartnersConfig.supported.map((image) => (
-          <PartnersItem image={image} />
+          <PartnersItem image={image} key={image} />
         ))}
       </PartnersContainer>
       <DefaultText
@@ -64,7 +64,7 @@ const Partners = () => {
       </DefaultText>
       <PartnersContainer flexWrap="wrap">
         {PartnersConfig.powered.map((image) => (
-          <PartnersItem image={image} />
+          <PartnersItem image={image} key={image} />
         ))}
       </PartnersContainer>
     </Container>

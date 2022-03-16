@@ -2184,9 +2184,9 @@
     toformat "^2.0.0"
 
 "@gravis.finance/sdk@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@gravis.finance/sdk/-/sdk-1.0.6.tgz#f0219d8c238b9877fa0d93ee3e045832d5f554d6"
-  integrity sha512-NJx6gtGQ/5nuFQBm6OZXhtzSfQMVSThL2ta5MvIiMt588L1V556uEklOK4hs1pI91rhyVBsg9QXxYlMavCCjaQ==
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/@gravis.finance/sdk/-/sdk-1.0.16.tgz#6f28b6964e6a3b55820f2be6055bc4de1c9212b1"
+  integrity sha512-KeaB7B7D7qqpHZelLV55bc2jKu0qcPFNSnFsz2dX/RMVB6pVCJWgwpkEPVzNvBeeqQ66fb/kNbKi6zITJYEOvw==
   dependencies:
     "@pancakeswap-libs/pancake-swap-core" "^0.1.0"
     big.js "^5.2.2"
@@ -16155,6 +16155,15 @@ react-query@^3.34.15:
     broadcast-channel "^3.4.1"
     match-sorter "^6.0.2"
 
+react-query@^3.34.16:
+  version "3.34.16"
+  resolved "https://registry.yarnpkg.com/react-query/-/react-query-3.34.16.tgz#279ea180bcaeaec49c7864b29d1711ee9f152594"
+  integrity sha512-7FvBvjgEM4YQ8nPfmAr+lJfbW95uyW/TVjFoi2GwCkF33/S8ajx45tuPHPFGWs4qYwPy1mzwxD4IQfpUDrefNQ==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    broadcast-channel "^3.4.1"
+    match-sorter "^6.0.2"
+
 react-redux@^7.2.2:
   version "7.2.4"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.2.4.tgz#1ebb474032b72d806de2e0519cd07761e222e225"
@@ -17746,9 +17755,6 @@ spdx-expression-parse@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/spdx-expression-parse/-/spdx-expression-parse-3.0.1.tgz#cf70f50482eefdc98e3ce0a6833e4a53ceeba679"
   integrity sha512-cbqHunsQWnJNE6KhVSMsMeH5H/L9EpymbzqTQ3uLwNCLZ1Q481oWaofqH7nO6V07xlXwY6PhQdQ2IedWx/ZK4Q==
-  dependencies:
-    spdx-exceptions "^2.1.0"
-    spdx-license-ids "^3.0.0"
 
 spdx-license-ids@^3.0.0:
   version "3.0.9"

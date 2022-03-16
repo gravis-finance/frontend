@@ -34,7 +34,7 @@ const Team = () => {
       </Flex>
       <MembersContainer flexWrap="wrap">
         {filteredTeamMembers.map((member) => (
-          <TeamMember member={member} activeCategory={Object.values(TeamCategory)[activeIndex - 1]} />
+          <TeamMember member={member} activeCategory={Object.values(TeamCategory)[activeIndex - 1]} key={member.name} />
         ))}
       </MembersContainer>
     </Container>

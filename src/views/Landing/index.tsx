@@ -87,17 +87,14 @@ const Landing = () => {
   React.useEffect(() => {
     document.body.onload = () => {
       if (layer1Ref.current && anim1Ref.current) {
-        const firstLayerEnd = () => `+=${layer1Ref.current.offsetHeight * 3}`
-
         gsap.from(anim1Ref.current, {
           opacity: 0,
           ease: 'none',
           scrollTrigger: {
             trigger: layer1Ref.current,
             scrub: 1,
-            start: 'bottom bottom',
-            end: firstLayerEnd,
-            pin: true,
+            start: 'top top',
+            end: 'bottom bottom',
           },
         })
 
@@ -119,9 +116,8 @@ const Landing = () => {
             scrollTrigger: {
               trigger: layer1Ref.current,
               scrub: 1,
-              start: 'bottom bottom',
-              end: firstLayerEnd,
-              pin: true,
+              start: 'top top',
+              end: 'bottom bottom',
               onUpdate: (self) => {
                 if (layer2Ref.current) {
                   layer2Ref.current.style['pointer-events'] = self.progress > 0.5 ? 'all' : 'none'
@@ -168,33 +164,35 @@ const Landing = () => {
         <Spinner size="6rem" />
       </Loader>
       <Header />
-      <Layer1 ref={layer1Ref}>
-        <MainInfo />
-        <Layer2 ref={layer2Ref}>
-          <Box
-            position="absolute"
-            backgroundColor="#090d11"
-            top={0}
-            left={0}
-            ref={anim1Ref}
-            width="100%"
-            height="100%"
-            opacity={1}
-          />
-          <Flex
-            position="absolute"
-            width="100%"
-            height="100%"
-            top={0}
-            left={0}
-            justifyContent="center"
-            alignItems="center"
-          >
-            <WhyTextSvg ref={anim2Ref} />
-          </Flex>
-        </Layer2>
-      </Layer1>
-      <Container className="sticky-container" maxHeight="90rem">
+      <Box {...styles.stickyContainer} minHeight="300vh" ref={layer1Ref}>
+        <Layer1 className="sticky-content">
+          <MainInfo />
+          <Layer2 ref={layer2Ref}>
+            <Box
+              position="absolute"
+              backgroundColor="#090d11"
+              top={0}
+              left={0}
+              ref={anim1Ref}
+              width="100%"
+              height="100%"
+              opacity={1}
+            />
+            <Flex
+              position="absolute"
+              width="100%"
+              height="100%"
+              top={0}
+              left={0}
+              justifyContent="center"
+              alignItems="center"
+            >
+              <WhyTextSvg ref={anim2Ref} />
+            </Flex>
+          </Layer2>
+        </Layer1>
+      </Box>
+      <Container maxHeight="90rem" className="sticky-content">
         <Box {...styles.content} display="flex" justifyContent="center" alignItems="center" ref={anim3Ref}>
           <Box width="100%" mb="10rem">
             <Title textAlign="center">All your DeFi apps one place</Title>
@@ -239,7 +237,7 @@ const Landing = () => {
         </Box>
       </Container>
       <Box position="relative" height="auto" minHeight="min(180rem, 200vh)" ref={layer3Ref}>
-        <Container className="sticky-container" maxHeight="90rem">
+        <Container maxHeight="90rem" className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
             <Box width="100%" height="72rem" mb="2rem" borderRadius="2rem" overflow="hidden" ref={anim4Ref}>
               <Flex
