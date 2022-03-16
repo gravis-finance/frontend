@@ -8,9 +8,10 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   
-  .sticky-container {
+  .sticky-content {
     position: sticky !important;
     top: 0;
+    will-change: transform;
   }
 `
 
