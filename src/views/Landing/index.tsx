@@ -11,7 +11,7 @@ import * as styles from './styles'
 import { WhyTextSvg } from './components/WhyTextSvg'
 import { AppsConfig } from '../../config/constants/apps'
 import AppItem from './components/AppItem'
-import { EvervoidLogo, GmartLogo, ExternalIcon, CheckMarkIcon } from './components/Icons'
+import { EvervoidLogo, GmartLogo, ExternalIcon, CheckMarkIcon, AppleIcon, AndroidIcon } from './components/Icons'
 import { Button } from './components/Button'
 import Roadmap from './components/Roadmap'
 import Team from './components/Team'
@@ -72,6 +72,27 @@ const Layer2 = styled.div`
   height: 100%;
   pointer-events: none;
 `
+
+const ComingSoon = ({ variant }: { variant: 'apple' | 'android' }) => {
+  const isApple = variant === 'apple'
+  const label = isApple ? 'App Store' : 'Goolge Play'
+
+  return (
+    <Button variant="dark" className="pointer-events-none" height="5rem">
+      <Flex alignItems="center" gridGap="1.5rem">
+        {isApple ? <AppleIcon /> : <AndroidIcon />}
+        <Box lineHeight="1" textAlign="left">
+          <Box opacity="0.5" fontSize="1.1rem" fontWeight={500}>
+            Coming soon on
+          </Box>
+          <Box mt="0.5rem" fontWeight={600} fontSize="1.4rem">
+            {label}
+          </Box>
+        </Box>
+      </Flex>
+    </Button>
+  )
+}
 
 const Landing = () => {
   useResponsiveness()
@@ -339,6 +360,37 @@ const Landing = () => {
             alignItems="center"
             mb="2rem"
           />
+        </Box>
+      </Container>
+      <Container maxHeight="90rem">
+        <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
+          <Box width="100%">
+            <Box
+              as="img"
+              src="/landing/mockup.png"
+              width="39.2rem"
+              height="70.3rem"
+              position="absolute"
+              bottom={0}
+              left="18rem"
+            />
+            <Box position="absolute" bottom="31rem" right="18rem">
+              <Box fontSize="6.2rem" fontWeight={600}>
+                Gravis Finance
+                <br />
+                mobile wallet
+              </Box>
+              <Box opacity={0.7} fontSize="1.6rem" mt="1.5rem" fontWeight={500} lineHeight="145%">
+                Secure innovative solution for storing, receiving, sending
+                <br />
+                and exchanging crypto assets using a smartphone
+              </Box>
+              <Flex mt="3.5rem" gridGap="1.5rem">
+                <ComingSoon variant="apple" />
+                <ComingSoon variant="android" />
+              </Flex>
+            </Box>
+          </Box>
         </Box>
       </Container>
       <Container maxHeight="90rem">

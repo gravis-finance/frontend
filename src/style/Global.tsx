@@ -13,6 +13,10 @@ const GlobalStyle = createGlobalStyle`
     top: 0;
     will-change: transform;
   }
+  
+  .pointer-events-none {
+    pointer-events: none;
+  }
 `
 
 export default GlobalStyle

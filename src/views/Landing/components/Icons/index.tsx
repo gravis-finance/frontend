@@ -106,3 +106,141 @@ export const ExternalIcon = (props: React.ComponentProps<typeof Box>) => {
     </Box>
   )
 }
+
+export const AppleIcon = (props: React.ComponentProps<typeof Box>) => {
+  return (
+    <Box
+      as="svg"
+      width="1.9rem"
+      height="2.3rem"
+      viewBox="0 0 19 23"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M16.0341 11.5102C16.009 8.67977 18.3227 7.30274 18.4285 7.23864C17.1181 5.30395 15.0871 5.03961 14.3734 5.01853C12.6676 4.83674 11.0129 6.05218 10.144 6.05218C9.25771 6.05218 7.91959 5.0361 6.47741 5.06596C4.62157 5.09494 2.88541 6.18303 1.93321 7.8727C-0.0319031 11.3179 1.43369 16.3807 3.31641 19.1655C4.25821 20.5294 5.35871 22.0522 6.79915 21.9986C8.20837 21.9398 8.73478 21.0888 10.4354 21.0888C12.1204 21.0888 12.6147 21.9986 14.0838 21.9644C15.5962 21.9398 16.5484 20.5944 17.4572 19.2182C18.5456 17.655 18.9827 16.1155 19 16.0365C18.9644 16.0242 16.0627 14.9027 16.0341 11.5102Z"
+        fill="white"
+      />
+      <path
+        d="M12.9652 3.47043C13.6433 2.54278 14.1073 1.28072 13.9785 0C12.997 0.0475285 11.7695 0.742633 11.0627 1.64992C10.4373 2.44942 9.87864 3.75984 10.023 4.99219C11.1255 5.08216 12.2576 4.38366 12.9652 3.47043Z"
+        fill="white"
+      />
+    </Box>
+  )
+}
+
+export const AndroidIcon = (props: React.ComponentProps<typeof Box>) => {
+  return (
+    <Box
+      as="svg"
+      width="1.9rem"
+      height="2.2rem"
+      viewBox="0 0 19 22"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M0.37175 1.32202C0.135683 1.57574 0 1.96624 0 2.47367V20.5229C0 21.0303 0.135683 21.4208 0.380575 21.6657L0.444556 21.7197L10.5579 11.6064V11.3791L0.435731 1.26797L0.37175 1.32202Z"
+        fill="url(#paint0_linear_11703_88755)"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13.9222 14.9907L10.5488 11.6163V11.3802L13.9233 8.00579L13.9961 8.05102L17.9871 10.319C19.13 10.9632 19.13 12.0244 17.9871 12.6775L13.9961 14.9455C13.995 14.9455 13.9222 14.9907 13.9222 14.9907Z"
+        fill="url(#paint1_linear_11703_88755)"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13.9946 14.9453L10.5484 11.498L0.371094 21.6754C0.742844 22.0747 1.36831 22.12 2.06769 21.7294L13.9946 14.9453Z"
+        fill="url(#paint2_linear_11703_88755)"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13.9946 8.0521L2.06769 1.27676C1.36941 0.877435 0.742844 0.931488 0.371094 1.33082L10.5473 11.4982L13.9946 8.0521Z"
+        fill="url(#paint3_linear_11703_88755)"
+      />
+      <path
+        opacity="0.2"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13.9227 14.8726L2.07745 21.6027C1.41558 21.9832 0.825415 21.9568 0.44484 21.6115L0.380859 21.6755L0.44484 21.7295C0.825415 22.0737 1.41558 22.1013 2.07745 21.7207L14.0043 14.9454L13.9227 14.8726Z"
+        fill="black"
+      />
+      <path
+        opacity="0.12"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M17.9868 12.5592L13.9141 14.8725L13.9869 14.9453L17.9779 12.6773C18.5494 12.3508 18.8307 11.9249 18.8307 11.498C18.7942 11.8885 18.5041 12.2603 17.9868 12.5592Z"
+        fill="black"
+      />
+      <path
+        opacity="0.25"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2.06834 1.39482L17.9863 10.4382C18.5037 10.7283 18.7938 11.1089 18.839 11.4994C18.839 11.0736 18.5577 10.6467 17.9863 10.3201L2.06834 1.27679C0.925515 0.623742 0 1.16758 0 2.47367V2.5917C0 1.28561 0.925515 0.7506 2.06834 1.39482Z"
+        fill="white"
+      />
+      <defs>
+        <linearGradient
+          id="paint0_linear_11703_88755"
+          x1="9.64979"
+          y1="2.27966"
+          x2="-6.55008"
+          y2="6.59613"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#00A0FF" />
+          <stop offset="0.007" stopColor="#00A1FF" />
+          <stop offset="0.26" stopColor="#00BEFF" />
+          <stop offset="0.512" stopColor="#00D2FF" />
+          <stop offset="0.76" stopColor="#00DFFF" />
+          <stop offset="1" stopColor="#00E3FF" />
+        </linearGradient>
+        <linearGradient
+          id="paint1_linear_11703_88755"
+          x1="19.4743"
+          y1="11.4988"
+          x2="-0.278029"
+          y2="11.4988"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#FFE000" />
+          <stop offset="0.409" stopColor="#FFBD00" />
+          <stop offset="0.775" stopColor="#FFA500" />
+          <stop offset="1" stopColor="#FF9C00" />
+        </linearGradient>
+        <linearGradient
+          id="paint2_linear_11703_88755"
+          x1="12.1207"
+          y1="13.3734"
+          x2="-0.884645"
+          y2="35.2622"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#FF3A44" />
+          <stop offset="1" stopColor="#C31162" />
+        </linearGradient>
+        <linearGradient
+          id="paint3_linear_11703_88755"
+          x1="-2.1908"
+          y1="-4.68204"
+          x2="3.61127"
+          y2="5.09384"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#32A071" />
+          <stop offset="0.069" stopColor="#2DA771" />
+          <stop offset="0.476" stopColor="#15CF74" />
+          <stop offset="0.801" stopColor="#06E775" />
+          <stop offset="1" stopColor="#00F076" />
+        </linearGradient>
+      </defs>
+    </Box>
+  )
+}
