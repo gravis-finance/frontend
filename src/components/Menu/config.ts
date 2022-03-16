@@ -140,7 +140,7 @@ const menuLinks: MenuEntry[] = [
     items: [
       {
         label: 'mainMenu.pitchDeck',
-        href: 'https://drive.google.com/file/d/13HIl141DzXV-YHemaoG5jvK2c95cWW7L/view?usp=sharing',
+        href: 'https://drive.google.com/file/d/1EuhdeqZioyO4jpzkoo31rWB_8SjC9pgi/view',
         external: true,
       },
       {
