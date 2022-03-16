@@ -81,13 +81,13 @@ const RoadmapItem: React.FC<{ item: RoadmapType }> = ({ item }) => {
           {projects.map((project) => {
             const { items: projectItems, title } = project
             return (
-              <Box>
+              <Box key={title}>
                 <DefaultText fontSize="1.8rem" fontWeight={800} lineHeight="100%" mb="2rem">
                   {title}
                 </DefaultText>
                 <ProjectContainer pr="0.8rem">
                   {projectItems.map((projectItem) => (
-                    <Flex>
+                    <Flex key={projectItem.text}>
                       {projectItem.done ? (
                         <CheckmarkBox color={project.color}>
                           <RoadmapCheckMarkIcon />
@@ -96,8 +96,8 @@ const RoadmapItem: React.FC<{ item: RoadmapType }> = ({ item }) => {
                         <Hint color={project.color} mt="0.6rem" />
                       )}
                       <DefaultText ml="1.2rem" fontSize="1.3rem">
-                        {projectItem.text.split('\n').map((str) => (
-                          <p>{str}</p>
+                        {projectItem.text.split('\n').map((str, index) => (
+                          <p key={index}>{str}</p>
                         ))}
                       </DefaultText>
                     </Flex>

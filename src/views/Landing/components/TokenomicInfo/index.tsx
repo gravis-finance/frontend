@@ -1,14 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Box, Button, Flex } from '@gravis.finance/uikit'
+import { Box, Button, Flex, LinkExternal, Modal, useModal } from '@gravis.finance/uikit'
 import DefaultText from '../../../../components/DefaultText'
 import useTokenomicsConfig from '../../../../hooks/useTokenomicsConfig'
 import { TokenomicsTokenType } from '../../../../config/constants/types'
 
 const Container = styled(Box)`
   width: 100%;
+  //height: 558px;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 2rem;
+  border-radius: 20px;
 `
 
 const Header = styled(Flex)<{ token?: TokenomicsTokenType }>`
@@ -40,37 +41,63 @@ type Props = {
   token?: TokenomicsTokenType
 }
 
+const defaultOnDismiss = () => null
+
+const LinksBlock = styled(Box)`
+  > a:not(:last-child) {
+    margin-bottom: 8px;
+  }
+`
+
+const LinksModal = ({ links, token, onDismiss = defaultOnDismiss }) => {
+  return (
+    <Modal title={`${token} links`} onDismiss={onDismiss}>
+      <LinksBlock>
+        {links.map((item) => (
+          <LinkExternal href={item.link} target="_blank">
+            {item.text}
+          </LinkExternal>
+        ))}
+      </LinksBlock>
+    </Modal>
+  )
+}
+
 const TokenomicInfo: React.FC<Props> = ({ token = TokenomicsTokenType.GRVS }) => {
-  const { tokenomicsConfig, cells } = useTokenomicsConfig()
+  const { tokenomicsConfig, cells, isLoading, links } = useTokenomicsConfig()
+
+  const [openLinksModal] = useModal(<LinksModal links={links[token].seeMore} token={token} />)
   return (
     <Container>
       <Header alignItems="center" p="4.4rem 4.5rem" token={token}>
         <Flex justifyContent="space-between" width="100%">
           <CellsContainer>
-            {cells[token].map((cell) => (
-              <Flex flexDirection="column">
+            {cells[token].map((cell, index) => (
+              <Flex flexDirection="column" key={index}>
                 <DefaultText fontWeight={500} fontSize="1.3rem" color="rgba(255, 255, 255, 0.7)">
                   {cell.title}
                 </DefaultText>
                 <DefaultText fontWeight={700} fontSize="2rem" color="rgb(255, 255, 255)">
-                  {cell.text}
+                  {isLoading ? 'Loading...' : cell.text}
                 </DefaultText>
               </Flex>
             ))}
           </CellsContainer>
           <Flex>
-            <Button variant="light" mr="1.5rem">
-              See more
+            <Button variant="light" mr="1.5rem" onClick={links[token].seeMore.length > 0 ? openLinksModal : undefined}>
+              {links[token].seeMore.length > 0 ? 'See more' : 'Coming soon'}
             </Button>
-            <Button variant="darkened">Buy token</Button>
+            <Button variant="darkened" as="a" href={links[token].buyToken} target="_blank">
+              Buy token
+            </Button>
           </Flex>
         </Flex>
       </Header>
-      <DefaultText fontWeight={600} fontSize="2.2rem" textAlign="center" mt="3.5rem" mb="1.5rem">
+      <DefaultText fontWeight={600} fontSize="2.2rem" textAlign="center" mt={35} mb={15}>
         Token utility value in Evervoid
       </DefaultText>
       <TokenomicTable flexWrap="wrap" m="-0.5rem" p="0 2.5rem 2rem 2.5rem">
-        {tokenomicsConfig[token].map((item) => item)}
+        {tokenomicsConfig[token].map((item, index) => ({ ...item, key: index }))}
       </TokenomicTable>
     </Container>
   )

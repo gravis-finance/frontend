@@ -48,12 +48,12 @@ const GRVXTokenomicItem: React.FC = () => {
     <Container m="0.5rem">
       <ElementsContainer>
         {Elements.map((element) => (
-          <ElementImage src={element} alt="" />
+          <ElementImage src={element} alt="" key={element} />
         ))}
       </ElementsContainer>
       <DefaultText fontSize="1.4rem" fontWeight={500} ml="-2rem">
-        {'Stake GRVX token\nto get useful valuable resources '.split('\n').map((str) => (
-          <p>{str}</p>
+        {'Stake GRVX token\nto get useful valuable resources '.split('\n').map((str, index) => (
+          <p key={index}>{str}</p>
         ))}
       </DefaultText>
     </Container>
