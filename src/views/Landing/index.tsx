@@ -11,7 +11,15 @@ import * as styles from './styles'
 import { WhyTextSvg } from './components/WhyTextSvg'
 import { AppsConfig } from '../../config/constants/apps'
 import AppItem from './components/AppItem'
-import { EvervoidLogo, GmartLogo, ExternalIcon, CheckMarkIcon, AppleIcon, AndroidIcon } from './components/Icons'
+import {
+  EvervoidLogo,
+  GmartLogo,
+  ExternalIcon,
+  CheckMarkIcon,
+  AppleIcon,
+  AndroidIcon,
+  GswapIcon,
+} from './components/Icons'
 import { Button } from './components/Button'
 import Roadmap from './components/Roadmap'
 import Team from './components/Team'
@@ -354,12 +362,36 @@ const Landing = () => {
           <Flex
             width="100%"
             height="72rem"
-            background="url(/landing/bg4.png) no-repeat"
+            background="url(/landing/bg5.png) no-repeat"
             backgroundSize="cover"
             borderRadius="2rem"
             alignItems="center"
             mb="2rem"
-          />
+          >
+            <Box ml="75rem">
+              <Flex alignItems="center" gridGap="1.287rem" fontSize="3.03rem" fontWeight={500} lineHeight="120%">
+                <GswapIcon />
+                <div>Gswap</div>
+              </Flex>
+              <Box fontSize="4.4rem" fontWeight={600} lineHeight="110%" mt="2.5rem">
+                Tools for successful
+                <br />
+                crypto trading
+              </Box>
+              <Box opacity={0.7} fontSize="1.6rem" maxWidth="40.6rem" mt="1rem" fontWeight={500} lineHeight="145%">
+                We offer several features for decentralized trading.
+                <br />
+                Swapping, liquidity pool, migration and more.
+              </Box>
+              <Flex mt="4rem" gridGap="1.5rem">
+                <Button>Open Gswap</Button>
+                <Button variant="dark">
+                  <ExternalIcon mr="1rem" />
+                  <div>Learn more</div>
+                </Button>
+              </Flex>
+            </Box>
+          </Flex>
         </Box>
       </Container>
       <Container maxHeight="90rem">
