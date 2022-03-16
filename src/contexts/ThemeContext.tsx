@@ -2,6 +2,19 @@ import React, { useState } from 'react'
 import { ThemeProvider as SCThemeProvider } from 'styled-components'
 import { light, dark } from '@gravis.finance/uikit'
 
+export const breakpoints: Array<string> & {
+  sm?: string
+  md?: string
+  lg?: string
+  xl?: string
+} = ['574px', '852px', '1080px', '1440px']
+
+// aliases
+breakpoints.sm = breakpoints[0]
+breakpoints.md = breakpoints[1]
+breakpoints.lg = breakpoints[2]
+breakpoints.xl = breakpoints[3]
+
 const CACHE_KEY = 'IS_DARK'
 
 const ThemeContext = React.createContext({ isDark: null, toggleTheme: () => null })
@@ -21,7 +34,7 @@ const ThemeContextProvider = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={{ isDark, toggleTheme }}>
-      <SCThemeProvider theme={isDark ? dark : light}>{children}</SCThemeProvider>
+      <SCThemeProvider theme={{ ...(isDark ? dark : light), breakpoints }}>{children}</SCThemeProvider>
     </ThemeContext.Provider>
   )
 }
