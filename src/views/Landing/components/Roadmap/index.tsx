@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { ChevronLeftIcon, ChevronRightIcon, Flex } from '@gravis.finance/uikit'
 import ScrollContainer from 'react-indiana-drag-scroll'
+import { ReactComponent as ScrollHintIcon } from 'assets/svg/scroll-hint.svg'
 import DefaultText from '../../../../components/DefaultText'
 import RoadmapItem from '../RoadmapItem'
 import { roadmapConfig } from '../../../../config/constants/roadmap'
@@ -50,12 +51,21 @@ const StyledFlex = styled(Flex)`
   }
 `
 
+const StyledScrollHint = styled.div`
+  display: none;
+  @media screen and (max-width: 515px) {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+`
+
 const Roadmap = () => {
   const scrollRef = useRef(null)
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.md})`)
 
   useEffect(() => {
-    if (scrollRef.current) scrollRef.current?.container.current.scrollTo(isMobile ? 312.5 * 3 : 312.5 * 3 + 10 * 3, 0)
+    if (scrollRef.current) scrollRef.current?.container.current.scrollTo(312.5 * 3 + 10 * 3, 0)
   }, [isMobile, scrollRef])
 
   const makeScroll = (option) => {
@@ -104,6 +114,9 @@ const Roadmap = () => {
           </ButtonArrow>
         </ButtonsContainer>
       </StyledFlex>
+      <StyledScrollHint>
+        <ScrollHintIcon />
+      </StyledScrollHint>
       <StyledScrollContainer vertical={false} ref={scrollRef}>
         {roadmapConfig.map((item) => (
           <RoadmapItem item={item} key={item.period} />
