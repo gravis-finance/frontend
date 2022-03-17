@@ -5,6 +5,8 @@ import { useInView } from 'react-intersection-observer'
 import { RoadmapType } from '../../../../config/constants/roadmap'
 import DefaultText from '../../../../components/DefaultText'
 import { RoadmapCheckMarkIcon } from '../../../../components/Svg'
+import useMediaQuery from '../../../../hooks/useMediaQuery'
+import { breakpoints } from '../../../../contexts/ThemeContext'
 
 const Wrapper = styled(Box)<{ inView: boolean }>`
   background: radial-gradient(100% 174.41% at 0% 0%, #272a2f 0%, #202327 100%)
@@ -68,8 +70,10 @@ const CheckmarkBox = styled(Box)<{ color: string }>`
 
 const RoadmapItem: React.FC<{ item: RoadmapType }> = ({ item }) => {
   const { period, projects } = item
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.md})`)
   const { ref, inView } = useInView({
-    threshold: 1,
+    threshold: isMobile ? 0.5 : 1,
+    rootMargin: '4000px 0px 4000px 0px',
   })
   return (
     <Wrapper ref={ref} inView={inView}>
