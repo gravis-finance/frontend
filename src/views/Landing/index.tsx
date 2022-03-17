@@ -48,7 +48,6 @@ const Root = styled.div`
   color: white;
   letter-spacing: -0.02em;
   background-color: #090d11;
-  overflow: hidden;
 `
 
 const Container = styled(Box).attrs((props) => ({ position: 'relative', ...props }))`
