@@ -5,6 +5,7 @@ import DefaultText from '../../../../components/DefaultText'
 import TokensSwitcher from '../TokensSwitcher'
 import TokenomicInfo from '../TokenomicInfo'
 import { TokenomicsTokenType } from '../../../../config/constants/types'
+import TokenomicNetworksSwitcher from '../TokenomicNetworksSwitcher'
 
 const Container = styled.div`
   //margin: 7rem 8rem;
@@ -28,17 +29,23 @@ const TokenomicsInfoContainer = styled(Flex)<{ activeIndex: number }>`
 
 const Tokenomics = () => {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [activeNetworkIndex, setActiveNetworkIndex] = useState(0)
   return (
     <Container id="tokenomics">
-      <Flex justifyContent="center" alignItems="center" mb="8rem">
-        <DefaultText fontWeight={700} fontSize="4.4rem" mr="2.5rem">
-          Tokenomics
-        </DefaultText>
-        <TokensSwitcher activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
+      <Flex alignItems="center" justifyContent="center" flexDirection="column" mb="8rem">
+        <Flex justifyContent="center" alignItems="center">
+          <DefaultText fontWeight={700} fontSize="4.4rem" mr="2.5rem">
+            Tokenomics
+          </DefaultText>
+          <TokensSwitcher activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
+        </Flex>
+        <Flex mt="2rem">
+          <TokenomicNetworksSwitcher activeIndex={activeNetworkIndex} setActiveIndex={setActiveNetworkIndex} />
+        </Flex>
       </Flex>
       <TokenomicsInfoContainer activeIndex={activeIndex}>
         <TokenomicInfo />
-        <TokenomicInfo token={TokenomicsTokenType.GRVX} />
+        <TokenomicInfo token={TokenomicsTokenType.GRVX} network={activeNetworkIndex === 0 ? 'bsc' : 'polygon'} />
       </TokenomicsInfoContainer>
     </Container>
   )

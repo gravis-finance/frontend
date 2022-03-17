@@ -39,6 +39,7 @@ const TokenomicTable = styled(Flex)``
 
 type Props = {
   token?: TokenomicsTokenType
+  network?: string
 }
 
 const defaultOnDismiss = () => null
@@ -63,8 +64,9 @@ const LinksModal = ({ links, token, onDismiss = defaultOnDismiss }) => {
   )
 }
 
-const TokenomicInfo: React.FC<Props> = ({ token = TokenomicsTokenType.GRVS }) => {
-  const { tokenomicsConfig, cells, isLoading, links } = useTokenomicsConfig()
+const TokenomicInfo: React.FC<Props> = ({ token = TokenomicsTokenType.GRVS, network }) => {
+  // TODO: Add chain support
+  const { tokenomicsConfig, cells, isLoading, links } = useTokenomicsConfig(network)
 
   const [openLinksModal] = useModal(<LinksModal links={links[token].seeMore} token={token} />)
   return (
