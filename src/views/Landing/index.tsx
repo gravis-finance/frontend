@@ -423,31 +423,38 @@ const Landing = () => {
         </Container>
       </Box>
       <Box className="sticky-container" minHeight="calc(100vh + 500px)">
-        <Container maxHeight="90rem" className="sticky-content">
+        <Container {...styles.fullHeight} className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
             <Flex
               width="100%"
-              height="72rem"
               background="url(/landing/bg5.png) no-repeat"
+              backgroundPosition={{ _: 'right', md: 'left' }}
               backgroundSize="cover"
               borderRadius="2rem"
               alignItems="center"
               mb="2rem"
+              height="72rem"
+              maxHeight={styles.vh100minusHeader}
             >
-              <Box ml="75rem">
+              <Box ml={{ _: '1.5rem', sm: '75rem' }}>
                 <Flex alignItems="center" gridGap="1.287rem" fontSize="3.03rem" fontWeight={500} lineHeight="120%">
                   <GswapIcon />
                   <div>Gswap</div>
                 </Flex>
-                <Box fontSize="4.4rem" fontWeight={600} lineHeight="110%" mt="2.5rem">
+                <Box fontSize={{ _: '3.2rem', sm: '4.4rem' }} fontWeight={600} lineHeight="110%" mt="2.5rem">
                   Tools for successful
                   <br />
                   crypto trading
                 </Box>
-                <Box opacity={0.7} fontSize="1.6rem" maxWidth="40.6rem" mt="1rem" fontWeight={500} lineHeight="145%">
-                  We offer several features for decentralized trading.
-                  <br />
-                  Swapping, liquidity pool, migration and more.
+                <Box
+                  opacity={0.7}
+                  fontSize={{ _: '1.4rem', sm: '1.6rem' }}
+                  maxWidth="40.6rem"
+                  mt="1rem"
+                  fontWeight={500}
+                  lineHeight="145%"
+                >
+                  We offer several features for decentralized trading. Swapping, liquidity pool, migration and more.
                 </Box>
                 <Flex mt="4rem" gridGap="1.5rem">
                   <Button>Open Gswap</Button>
@@ -462,7 +469,7 @@ const Landing = () => {
         </Container>
       </Box>
       <Box className="sticky-container" minHeight="calc(100vh + 500px)" ref={videoLayerRef} id="mobilewallet">
-        <Container maxHeight="90rem" className="sticky-content">
+        <Container {...styles.fullHeight} className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
             <Box width="100%">
               <Flex
