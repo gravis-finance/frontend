@@ -48,7 +48,6 @@ const Root = styled.div`
   color: white;
   letter-spacing: -0.02em;
   background-color: #090d11;
-  overflow: hidden;
 `
 
 const Container = styled(Box).attrs((props) => ({
@@ -508,10 +507,10 @@ const Landing = () => {
           </Box>
         </Container>
       </Box>
-      <Container id="roadmap" height="fit-content !important">
+      <Container id="roadmap">
         <Roadmap />
       </Container>
-      <Container id="team" height="fit-content !important">
+      <Container id="team">
         <Team />
       </Container>
       <Container id="tokenomics">
