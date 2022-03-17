@@ -53,7 +53,7 @@ const Root = styled.div`
 const Container = styled(Box).attrs((props) => ({
   position: 'relative',
   pt: styles.headerHeight,
-  height: styles.mdFullHeight,
+  height: { md: styles.vh100 },
   ...props,
 }))`
   width: 100%;
@@ -142,8 +142,8 @@ const Landing = () => {
 
         if (anim2Ref.current && layer1Ref.current) {
           const htmlFontSize = Number(window.getComputedStyle(document.documentElement).fontSize.replace('px', ''))
-          const scale = isMobile ? 150 : window.innerWidth / htmlFontSize / 0.4114285714285714
-          const x = isMobile ? 33 : window.innerWidth / htmlFontSize / 1.44
+          const scale = window.innerWidth / htmlFontSize / (isMobile ? 0.25 : 0.4114285714285714)
+          const x = window.innerWidth / htmlFontSize / (isMobile ? 1.1363636363636365 : 1.44)
 
           gsap.from(anim2Ref.current, {
             keyframes: {
@@ -275,20 +275,21 @@ const Landing = () => {
         </Box>
       </span>
       <Box className="sticky-container" minHeight="calc(100vh + 500px)">
-        <Container zIndex={1} maxHeight="90rem" ref={layer4Ref} className="sticky-content">
+        <Container zIndex={1} {...styles.fullHeight} ref={layer4Ref} className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
             <Flex
               width="100%"
               height="72rem"
+              maxHeight={styles.vh100minusHeader}
               background="url(/landing/bg1.png) no-repeat"
               backgroundSize="cover"
               borderRadius="2rem"
               alignItems="center"
               mb="2rem"
             >
-              <Box ml="8rem">
+              <Box ml={{ _: '1.5rem', sm: '8rem' }} mr={{ _: '1.5rem', sm: 0 }}>
                 <EvervoidLogo width="14.5rem" height="2.65rem" />
-                <Box fontSize="4.4rem" fontWeight={600} lineHeight="120%" mt="2rem">
+                <Box fontSize={{ _: '3.2rem', md: '4.4rem' }} fontWeight={600} lineHeight="120%" mt="2rem">
                   Free-to-play
                   <br />
                   P2E NFT-based

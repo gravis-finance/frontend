@@ -11,8 +11,8 @@ type Props = {
 }
 
 const MenuItem = styled(MenuItemBase)<{ onClose?: any }>`
-  font-size: 2.4rem;
-  font-weight: ${(props) => (props.active ? 900 : 500)};
+  font-size: 2rem;
+  font-weight: ${(props) => (props.active ? 600 : 500)};
   color: white;
 
   &[data-active='true'] {
@@ -28,7 +28,7 @@ export const MobileMenu = styled(({ open, onClose, ...props }: Props) => {
   return (
     <Box {...props}>
       <Box {...styles.content}>
-        <MenuItems ItemComponent={MenuItem} onClick={onClose} />
+        <MenuItems ItemComponent={MenuItem} onClick={onClose} mt="2.5rem" />
       </Box>
     </Box>
   )
