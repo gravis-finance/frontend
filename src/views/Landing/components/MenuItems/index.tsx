@@ -45,6 +45,10 @@ export const ActiveLinkProvider = ({ children }: { children: React.ReactNode }) 
 
 export const useActiveLink = () => React.useContext(ActiveLinkContext)
 
+const prevIntersectionValue = {
+  current: 0,
+}
+
 export const MenuItemBase = ({
   onClick,
   href,
@@ -69,8 +73,13 @@ export const MenuItemBase = ({
     const view = href !== '#' ? document.querySelector(href) : null
     const intersectionObserver = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-          setActiveLink(href)
+        if (entry.isIntersecting) {
+          if (entry.intersectionRatio > prevIntersectionValue.current) {
+            setActiveLink(href)
+          }
+          prevIntersectionValue.current = entry.intersectionRatio
+        } else {
+          setActiveLink((prevValue) => (prevValue === href ? '' : prevValue))
         }
       },
       {

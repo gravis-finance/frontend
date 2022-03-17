@@ -16,8 +16,3 @@ export const content: Styles = {
   m: { md: 'auto' },
   position: 'relative',
 }
-
-export const stickyContainer: Styles = {
-  position: 'relative',
-  height: 'auto',
-}

@@ -267,3 +267,20 @@ export const GswapIcon = (props: React.ComponentProps<typeof Box>) => {
     </Box>
   )
 }
+
+export const CloseIcon = (props: React.ComponentProps<typeof Box>) => {
+  return (
+    <Box
+      as="svg"
+      width="1.5rem"
+      height="1.3rem"
+      viewBox="0 0 15 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path d="M1.99994 1L12.6065 11.6066" stroke="white" strokeWidth="1.5" />
+      <path d="M2 11.6064L12.6066 0.999843" stroke="white" strokeWidth="1.5" />
+    </Box>
+  )
+}
