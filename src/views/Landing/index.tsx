@@ -214,7 +214,7 @@ const Landing = () => {
         <Spinner size="6rem" />
       </Loader>
       <Header />
-      <Box {...styles.stickyContainer} minHeight="calc(300vh + 500px)" ref={layer1Ref} id="whyus">
+      <Box className="sticky-container" minHeight="calc(300vh + 500px)" ref={layer1Ref} id="whyus">
         <Layer1 className="sticky-content">
           <MainInfo />
           <Layer2 ref={layer2Ref}>
@@ -243,20 +243,27 @@ const Landing = () => {
           </Layer2>
         </Layer1>
       </Box>
-      <Box className="sticky-content" minHeight="calc(100vh + 500px)">
-        <Container maxHeight="90rem" className="sticky-content" id="products">
-          <Box {...styles.content} display="flex" justifyContent="center" alignItems="center" ref={anim3Ref}>
-            <Box width="100%" mb="10rem">
-              <Title textAlign="center">All your DeFi apps one place</Title>
-              <Box display="grid" mt="5rem" gridGap="2rem" gridTemplateColumns="repeat(auto-fill, minmax(40rem, 1fr))">
-                {AppsConfig.map((app) => (
-                  <AppItem app={app} key={app.title} width="auto" />
-                ))}
+      <span id="products">
+        <Box className="sticky-content" minHeight="calc(100vh + 500px)">
+          <Container maxHeight="90rem" className="sticky-content">
+            <Box {...styles.content} display="flex" justifyContent="center" alignItems="center" ref={anim3Ref}>
+              <Box width="100%" mb="10rem">
+                <Title textAlign="center">All your DeFi apps one place</Title>
+                <Box
+                  display="grid"
+                  mt="5rem"
+                  gridGap="2rem"
+                  gridTemplateColumns="repeat(auto-fill, minmax(40rem, 1fr))"
+                >
+                  {AppsConfig.map((app) => (
+                    <AppItem app={app} key={app.title} width="auto" />
+                  ))}
+                </Box>
               </Box>
             </Box>
-          </Box>
-        </Container>
-      </Box>
+          </Container>
+        </Box>
+      </span>
       <Box className="sticky-container" minHeight="calc(100vh + 500px)">
         <Container zIndex={1} maxHeight="90rem" ref={layer4Ref} className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
@@ -426,8 +433,8 @@ const Landing = () => {
           </Box>
         </Container>
       </Box>
-      <Box className="sticky-container" minHeight="calc(100vh + 1000px)" ref={videoLayerRef}>
-        <Container maxHeight="90rem" className="sticky-content" id="mobilewallet">
+      <Box className="sticky-container" minHeight="calc(100vh + 500px)" ref={videoLayerRef} id="mobilewallet">
+        <Container maxHeight="90rem" className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
             <Box width="100%">
               <Flex
