@@ -22,19 +22,15 @@ export const useResponsiveness = () => {
     }
 
     setVh()
-    if (isMobile) {
-      window.addEventListener('resize', setVh)
-      window.addEventListener('orientationchange', setVh)
-    }
+    window.addEventListener('resize', setVh)
+    window.addEventListener('orientationchange', setVh)
 
     return () => {
       window.clearTimeout(tId)
       document.documentElement.style.fontSize = ''
       document.documentElement.style.removeProperty('--vh')
-      if (isMobile) {
-        window.removeEventListener('resize', setVh)
-        window.removeEventListener('orientationchange', setVh)
-      }
+      window.removeEventListener('resize', setVh)
+      window.removeEventListener('orientationchange', setVh)
     }
   }, [isMobile])
 }
