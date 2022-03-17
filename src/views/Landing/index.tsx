@@ -26,6 +26,7 @@ import Team from './components/Team'
 import Tokenomics from './components/Tokenomics'
 import Partners from './components/Partners'
 import Footer from './components/Footer'
+import { Trailer } from './components/Trailer'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -283,8 +284,12 @@ const Landing = () => {
                 </Box>
                 <Flex mt="4rem" gridGap="1.5rem">
                   <Button>Play demo</Button>
-                  <Button variant="dark">Learn more</Button>
+                  <Button variant="dark">
+                    <ExternalIcon mr="1rem" />
+                    <div>Learn more</div>
+                  </Button>
                 </Flex>
+                <Trailer mt="1.5rem" width="28rem" />
               </Box>
             </Flex>
           </Box>
