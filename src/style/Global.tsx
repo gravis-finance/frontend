@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { breakpoints } from '../contexts/ThemeContext'
 
 const GlobalStyle = createGlobalStyle`
   html, body {
@@ -21,6 +22,18 @@ const GlobalStyle = createGlobalStyle`
   
   .pointer-events-none {
     pointer-events: none;
+  }
+  
+  .object-contain {
+    object-fit: contain;
+  }
+  
+  @media (min-width: ${breakpoints.md}) {
+    .md\\:sticky-content {
+      position: sticky !important;
+      top: 0;
+      will-change: transform;
+    }
   }
 `
 

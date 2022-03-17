@@ -99,12 +99,14 @@ export const MenuItemBase = ({
   return <ButtonBase as="a" data-active={activeLink === href} href={href} onClick={clickHandler} {...props} />
 }
 
-export const MenuItems = ({ ItemComponent = MenuItemBase }) => {
+export const MenuItems = ({ ItemComponent = MenuItemBase, ...props }) => {
   return (
     <ActiveLinkProvider>
       {links.map((link) => (
         <div key={link.href}>
-          <ItemComponent href={link.href}>{link.label}</ItemComponent>
+          <ItemComponent href={link.href} {...props}>
+            {link.label}
+          </ItemComponent>
         </div>
       ))}
     </ActiveLinkProvider>
