@@ -108,6 +108,7 @@ const Landing = () => {
   const layer1Ref = React.useRef<HTMLDivElement>(null)
   const layer2Ref = React.useRef<HTMLDivElement>(null)
   const layer3Ref = React.useRef<HTMLDivElement>(null)
+  const layer4Ref = React.useRef<HTMLDivElement>(null)
   const anim1Ref = React.useRef<HTMLDivElement>(null)
   const anim2Ref = React.useRef<HTMLDivElement>(null)
   const anim3Ref = React.useRef<HTMLDivElement>(null)
@@ -123,7 +124,7 @@ const Landing = () => {
             trigger: layer1Ref.current,
             scrub: 1,
             start: 'top top',
-            end: 'bottom bottom',
+            end: 'bottom-=500 bottom',
           },
         })
 
@@ -146,7 +147,7 @@ const Landing = () => {
               trigger: layer1Ref.current,
               scrub: 1,
               start: 'top top',
-              end: 'bottom bottom',
+              end: 'bottom-=500 bottom',
               onUpdate: (self) => {
                 if (layer2Ref.current) {
                   layer2Ref.current.style['pointer-events'] = self.progress > 0.5 ? 'all' : 'none'
@@ -162,9 +163,10 @@ const Landing = () => {
           opacity: 0,
           ease: 'none',
           scrollTrigger: {
-            trigger: anim3Ref.current,
+            trigger: layer4Ref.current,
             scrub: 1,
-            start: 'bottom bottom',
+            start: 'top bottom',
+            end: 'top top',
           },
         })
       }
@@ -193,7 +195,7 @@ const Landing = () => {
         <Spinner size="6rem" />
       </Loader>
       <Header />
-      <Box {...styles.stickyContainer} minHeight="300vh" ref={layer1Ref}>
+      <Box {...styles.stickyContainer} minHeight="calc(300vh + 500px)" ref={layer1Ref} id="whyus">
         <Layer1 className="sticky-content">
           <MainInfo />
           <Layer2 ref={layer2Ref}>
@@ -222,19 +224,21 @@ const Landing = () => {
           </Layer2>
         </Layer1>
       </Box>
-      <Container maxHeight="90rem" className="sticky-content">
-        <Box {...styles.content} display="flex" justifyContent="center" alignItems="center" ref={anim3Ref}>
-          <Box width="100%" mb="10rem">
-            <Title textAlign="center">All your DeFi apps one place</Title>
-            <Box display="grid" mt="5rem" gridGap="2rem" gridTemplateColumns="repeat(auto-fill, minmax(40rem, 1fr))">
-              {AppsConfig.map((app) => (
-                <AppItem app={app} key={app.title} width="auto" />
-              ))}
+      <Box className="sticky-content" minHeight="calc(100vh + 500px)">
+        <Container maxHeight="90rem" className="sticky-content" id="products">
+          <Box {...styles.content} display="flex" justifyContent="center" alignItems="center" ref={anim3Ref}>
+            <Box width="100%" mb="10rem">
+              <Title textAlign="center">All your DeFi apps one place</Title>
+              <Box display="grid" mt="5rem" gridGap="2rem" gridTemplateColumns="repeat(auto-fill, minmax(40rem, 1fr))">
+                {AppsConfig.map((app) => (
+                  <AppItem app={app} key={app.title} width="auto" />
+                ))}
+              </Box>
             </Box>
           </Box>
-        </Box>
-      </Container>
-      <Container zIndex={1} maxHeight="90rem">
+        </Container>
+      </Box>
+      <Container zIndex={1} maxHeight="90rem" ref={layer4Ref}>
         <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
           <Flex
             width="100%"
@@ -395,7 +399,7 @@ const Landing = () => {
           </Flex>
         </Box>
       </Container>
-      <Container maxHeight="90rem">
+      <Container maxHeight="90rem" id="mobilewallet">
         <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
           <Box width="100%">
             <Box
@@ -426,18 +430,18 @@ const Landing = () => {
           </Box>
         </Box>
       </Container>
-      <Container maxHeight="90rem">
+      <Container maxHeight="90rem" id="roadmap">
         <Roadmap />
       </Container>
-      <Container maxHeight="90rem">
+      <Container maxHeight="90rem" id="team">
         <Team />
       </Container>
-      <Container maxHeight="90rem">
+      <Container maxHeight="90rem" id="tokenomics">
         <Box {...styles.content} overflowX="hidden">
           <Tokenomics />
         </Box>
       </Container>
-      <Box position="relative">
+      <Box position="relative" id="partners">
         <Partners />
       </Box>
       <Box position="relative">

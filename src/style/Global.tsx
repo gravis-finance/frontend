@@ -14,6 +14,11 @@ const GlobalStyle = createGlobalStyle`
     will-change: transform;
   }
   
+  .sticky-container {
+    position: relative;
+    height: auto
+  }
+  
   .pointer-events-none {
     pointer-events: none;
   }

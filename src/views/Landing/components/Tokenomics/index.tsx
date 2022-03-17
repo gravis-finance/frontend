@@ -31,7 +31,7 @@ const Tokenomics = () => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [activeNetworkIndex, setActiveNetworkIndex] = useState(0)
   return (
-    <Container id="tokenomics">
+    <Container>
       <Flex alignItems="center" justifyContent="center" flexDirection="column" mb="8rem">
         <Flex justifyContent="center" alignItems="center">
           <DefaultText fontWeight={700} fontSize="4.4rem" mr="2.5rem">

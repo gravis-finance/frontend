@@ -15,7 +15,7 @@ const StyledFlex = styled(Flex)<{ isOpen: boolean }>`
   cursor: pointer;
   > svg {
     transition: transform 200ms ease-in-out;
-    ${({ isOpen }) => (isOpen ? 'transform: rotate(180deg);' : '')}
+    ${({ isOpen }) => (isOpen ? '' : 'transform: rotate(180deg);')}
     * {
       fill: black;
     }
@@ -42,7 +42,7 @@ const AppsContainer = styled(Flex)<{ isOpen: boolean }>`
   :before {
     content: '';
     position: absolute;
-    width: 2.2re;
+    width: 2.2rem;
     height: 2.2rem;
     z-index: 2;
     border: 1px solid #24272e;
