@@ -2,13 +2,16 @@ import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { ChevronLeftIcon, ChevronRightIcon, Flex } from '@gravis.finance/uikit'
 import ScrollContainer from 'react-indiana-drag-scroll'
+import { ReactComponent as ScrollHintIcon } from 'assets/svg/scroll-hint.svg'
 import DefaultText from '../../../../components/DefaultText'
 import RoadmapItem from '../RoadmapItem'
 import { roadmapConfig } from '../../../../config/constants/roadmap'
+import useMediaQuery from '../../../../hooks/useMediaQuery'
+import { breakpoints } from '../../../../contexts/ThemeContext'
 
 const Container = styled.div`
-  margin: 7.7rem 0;
-  height: calc(100vh - 17rem);
+  padding: 7.7rem 0;
+  height: fit-content;
 `
 
 const StyledScrollContainer = styled(ScrollContainer)`
@@ -20,7 +23,11 @@ const StyledScrollContainer = styled(ScrollContainer)`
   }
 `
 
-const ButtonsContainer = styled(Flex)``
+const ButtonsContainer = styled(Flex)`
+  @media screen and (max-width: 515px) {
+    display: none;
+  }
+`
 
 const ButtonArrow = styled(Flex)`
   justify-content: center;
@@ -38,12 +45,28 @@ const ButtonArrow = styled(Flex)`
   }
 `
 
+const StyledFlex = styled(Flex)`
+  @media screen and (max-width: 515px) {
+    justify-content: center;
+  }
+`
+
+const StyledScrollHint = styled.div`
+  display: none;
+  @media screen and (max-width: 515px) {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+`
+
 const Roadmap = () => {
   const scrollRef = useRef(null)
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.md})`)
 
   useEffect(() => {
     if (scrollRef.current) scrollRef.current?.container.current.scrollTo(312.5 * 3 + 10 * 3, 0)
-  }, [scrollRef])
+  }, [isMobile, scrollRef])
 
   const makeScroll = (option) => {
     const childNodes = scrollRef.current?.container?.current?.childNodes
@@ -78,7 +101,7 @@ const Roadmap = () => {
 
   return (
     <Container>
-      <Flex alignItems="center" justifyContent="space-between" m="0 8.1rem 4.2rem 8.1rem">
+      <StyledFlex alignItems="center" justifyContent="space-between" m="0 8.1rem 4.2rem 8.1rem">
         <DefaultText fontWeight={700} fontSize="4.4rem">
           Roadmap
         </DefaultText>
@@ -90,7 +113,10 @@ const Roadmap = () => {
             <ChevronRightIcon />
           </ButtonArrow>
         </ButtonsContainer>
-      </Flex>
+      </StyledFlex>
+      <StyledScrollHint>
+        <ScrollHintIcon />
+      </StyledScrollHint>
       <StyledScrollContainer vertical={false} ref={scrollRef}>
         {roadmapConfig.map((item) => (
           <RoadmapItem item={item} key={item.period} />

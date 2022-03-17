@@ -1,13 +1,35 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import styled from 'styled-components'
-import { Flex } from '@gravis.finance/uikit'
+import { Box, Flex } from '@gravis.finance/uikit'
 import DefaultText from '../../../../components/DefaultText'
 import { TeamCategory } from '../../../../config/constants/team'
+
+const Wrapper = styled(Box)``
 
 const Container = styled(Flex)`
   background: rgba(255, 255, 255, 0.05);
   border-radius: 4.5rem;
   position: relative;
+
+  @media screen and (max-width: 910px) {
+    margin-top: 2.4rem;
+  }
+
+  @media screen and (max-width: 650px) {
+    display: none;
+  }
+`
+
+const MobileContainer = styled(Box)`
+  display: none;
+  @media screen and (max-width: 650px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    > div:not(:last-child) {
+      margin-right: 0.8rem;
+    }
+  }
 `
 
 const FilterItem = styled(DefaultText)<{ active: boolean }>`
@@ -20,6 +42,10 @@ const FilterItem = styled(DefaultText)<{ active: boolean }>`
   z-index: 2;
   cursor: pointer;
   transition: color 200ms ease-in-out;
+
+  @media screen and (max-width: 650px) {
+    color: ${({ active }) => (active ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0.5)')};
+  }
 `
 
 const SliderItem = styled.div<{ width: number; left: number }>`
@@ -63,18 +89,31 @@ const TeamFilters = ({ activeIndex, setActiveIndex }) => {
   }, [allItemRef])
 
   return (
-    <Container ref={containerRef}>
-      <SliderItem width={sliderProps.width} left={sliderProps.left} />
-      <FilterItem onClick={(e) => onItemClick(e, 0)} active={activeIndex === 0} ref={allItemRef}>
-        All
-      </FilterItem>
-      {items.map((item, index) => (
-        // eslint-disable-next-line no-return-assign
-        <FilterItem key={item} onClick={(e) => onItemClick(e, index + 1)} active={activeIndex === index + 1}>
-          {item}
+    <Wrapper>
+      <Container ref={containerRef}>
+        <SliderItem width={sliderProps.width} left={sliderProps.left} />
+        <FilterItem onClick={(e) => onItemClick(e, 0)} active={activeIndex === 0} ref={allItemRef}>
+          All
         </FilterItem>
-      ))}
-    </Container>
+        {items.map((item, index) => (
+          // eslint-disable-next-line no-return-assign
+          <FilterItem key={item} onClick={(e) => onItemClick(e, index + 1)} active={activeIndex === index + 1}>
+            {item}
+          </FilterItem>
+        ))}
+      </Container>
+      <MobileContainer>
+        <FilterItem onClick={(e) => onItemClick(e, 0)} active={activeIndex === 0}>
+          All
+        </FilterItem>
+        {items.map((item, index) => (
+          // eslint-disable-next-line no-return-assign
+          <FilterItem key={item} onClick={(e) => onItemClick(e, index + 1)} active={activeIndex === index + 1}>
+            {item}
+          </FilterItem>
+        ))}
+      </MobileContainer>
+    </Wrapper>
   )
 }
 

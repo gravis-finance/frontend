@@ -1,12 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button, Flex, Text } from '@gravis.finance/uikit'
+import { Button, Flex, Text, Box } from '@gravis.finance/uikit'
 import { GravisBoldLogo, PublicRoundIcon } from '../../../../components/Svg'
-
-const Container = styled(Flex)`
-  height: 100%;
-  padding: 22.9rem 0 5.4rem 0;
-`
+import * as styles from '../../styles'
 
 const MainText = styled(Text)`
   font-family: 'Gotham Pro', serif;
@@ -17,10 +13,11 @@ const MainText = styled(Text)`
   letter-spacing: -0.02em;
 `
 
-const Description = styled(Text)`
+const Description = styled(Box).attrs(() => ({
+  fontSize: { _: '1.4rem', md: '1.6rem' },
+}))`
   text-align: center;
   font-weight: 500;
-  font-size: 1.6rem;
   color: rgba(255, 255, 255, 0.7);
   line-height: 145%;
   letter-spacing: 0;
@@ -29,6 +26,7 @@ const Description = styled(Text)`
 const ButtonsContainer = styled(Flex)``
 
 const PublicRoundContainer = styled(Flex)`
+  max-width: 100%;
   width: 43.2rem;
   height: 6.5rem;
   left: 50.4rem;
@@ -43,21 +41,24 @@ const PublicRoundContainer = styled(Flex)`
 
 const MainInfo = () => {
   return (
-    <Container justifyContent="space-between" alignItems="center" flexDirection="column">
-      <Flex justifyContent="center" alignItems="center" flexDirection="column">
-        <Flex alignItems="center">
+    <Flex
+      {...styles.content}
+      justifyContent="space-between"
+      alignItems="center"
+      flexDirection="column"
+      p={{ _: '2.5rem 0', md: '22.9rem 0 5.4rem 0' }}
+    >
+      <Flex justifyContent="center" alignItems="center" flexDirection="column" flex={{ _: 1, md: 'initial' }}>
+        <Box alignItems="center" display={{ _: 'none', md: 'flex' }}>
           <GravisBoldLogo />
           <MainText ml="0.8rem">Gravis Finance</MainText>
-        </Flex>
-        <Text fontSize="5.6rem" bold mt="1.2rem" style={{ letterSpacing: '-0.02em' }}>
+        </Box>
+        <Box fontSize={{ _: '3.2rem', md: '5.6rem' }} fontWeight="bold" mt="2.5rem" textAlign="center">
           Gamified DeFi Ecosystem
-        </Text>
-        <Description>
-          {'Gravis Finance is an ecosystem that unites DeFi platform, NFT marketplace\n for in-game assets, and Evervoid game. We provide all the necessary\n instruments for managing your crypto assets on any chain.'
-            .split('\n')
-            .map((str) => (
-              <p key={str}>{str}</p>
-            ))}
+        </Box>
+        <Description mt="1.3rem" maxWidth="59.1rem">
+          Gravis Finance is an ecosystem that unites DeFi platform, NFT marketplace for in-game assets, and Evervoid
+          game. We provide all the necessary instruments for managing your crypto assets on any chain.
         </Description>
         <ButtonsContainer mt={44}>
           <Button variant="blue" style={{ letterSpacing: '-0.02em' }}>
@@ -71,15 +72,19 @@ const MainInfo = () => {
       <PublicRoundContainer alignItems="center" justifyContent="space-between">
         <Flex alignItems="center">
           <PublicRoundIcon />
-          <Text fontSize="1.4rem" ml="0.8rem" style={{ letterSpacing: '0' }}>
+          <Text fontSize="1.4rem" ml={{ _: '1rem', md: '0.8rem' }} style={{ letterSpacing: '0' }}>
             Public Round Whitelist Access
           </Text>
         </Flex>
-        <Button variant="light" p="0 1.6rem" style={{ height: '3.5rem', fontSize: '1.2rem', letterSpacing: '-0.02em' }}>
+        <Button
+          variant="light"
+          p="0 1.6rem"
+          style={{ height: '3.5rem', fontSize: '1.2rem', letterSpacing: '-0.02em', whiteSpace: 'nowrap' }}
+        >
           Learn more
         </Button>
       </PublicRoundContainer>
-    </Container>
+    </Flex>
   )
 }
 

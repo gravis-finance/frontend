@@ -33,4 +33,6 @@ export const useResponsiveness = () => {
       window.removeEventListener('orientationchange', setVh)
     }
   }, [isMobile])
+
+  return isMobile
 }

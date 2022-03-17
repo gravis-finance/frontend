@@ -17,7 +17,6 @@ export const content: Styles = {
   position: 'relative',
 }
 
-export const stickyContainer: Styles = {
-  position: 'relative',
-  height: 'auto',
-}
+export const headerHeight = { _: '5.5rem', md: '7rem' }
+
+export const vh100minusHeader = `calc(${vh100} - ${headerHeight._})`
