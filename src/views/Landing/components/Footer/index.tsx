@@ -8,7 +8,33 @@ import { MediumIcon, TelegramIcon, TwitterIcon } from '../../../../components/Sv
 const Container = styled(Flex)`
   height: 18rem;
 
-  background: rgba(255, 255, 255, 0.03);
+  background: #111518;
+
+  padding: 6rem 8rem;
+
+  @media screen and (max-width: 900px) {
+    height: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 3rem 5rem;
+
+    > div:first-child {
+      margin-right: 4.8rem;
+    }
+    > div:nth-child(2) {
+      justify-content: center;
+      width: 100%;
+      order: -1;
+      margin-bottom: 3.2rem;
+    }
+  }
+
+  @media screen and (max-width: 656px) {
+    > div:first-child {
+      //margin-right: 0;
+      margin-bottom: 3.2rem;
+    }
+  }
 `
 
 const StyledWrapper = styled(Flex)`
@@ -65,7 +91,7 @@ const LinkedDefaultText = styled(DefaultText)`
 
 const Footer: React.FC = () => {
   return (
-    <Container p="6rem 8rem" alignItems="center" justifyContent="space-between">
+    <Container alignItems="center" justifyContent="space-between">
       <Flex alignItems="center">
         <LinkedDefaultText
           color="rgba(255,255,255,0.7)"

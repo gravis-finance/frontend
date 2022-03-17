@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { Flex } from '@gravis.finance/uikit'
 import GravisLogo from '../../../../components/Svg/Icons/GravisLogo'
-import TokenInfo from '../../../../components/TokenInfo'
-import { GRVSFilledLogo, GRVXFilledLogo } from '../../../../components/Svg'
+// import TokenInfo from '../../../../components/TokenInfo'
+// import { GRVSFilledLogo, GRVXFilledLogo } from '../../../../components/Svg'
 import Apps from '../Apps'
-import { useGetTokensData } from '../../../../hooks/useTokenomicsConfig'
+// import { useGetTokensData } from '../../../../hooks/useTokenomicsConfig'
 import { MenuItems, MenuItemBase } from '../MenuItems'
 
 const Container = styled(Flex)`
@@ -40,7 +40,7 @@ const MenuItem = styled(MenuItemBase)<{ active?: boolean }>`
   }
 `
 
-const TokensContainer = styled(Flex)`
+/* const TokensContainer = styled(Flex)`
   > div:not(:last-child) {
     margin-right: 2.2rem;
   }
@@ -55,16 +55,16 @@ const TokenText = styled(MenuItem)`
   :hover {
     color: rgba(255, 255, 255, 0.5);
   }
-`
+` */
 
 const Header = () => {
-  const { isLoading, data: tokensInfo } = useGetTokensData()
+  // const { isLoading, data: tokensInfo } = useGetTokensData()
 
-  const foundGRVXAmount =
-    (tokensInfo?.find((token) => token.symbol === 'GRVX' && token.chain === 'bsc').price +
-      tokensInfo?.find((token) => token.symbol === 'GRVX' && token.chain === 'polygon').price) /
-    2
-  // const foundGRVSAmount = (tokensInfo?.find((token) => token.symbol === 'GRVS' && token.chain === 'bsc') + tokensInfo?.find((token) => token.symbol === 'GRVS' && token.chain === 'polygon')) / 2
+  // const foundGRVXAmount =
+  //   (tokensInfo?.find((token) => token.symbol === 'GRVX' && token.chain === 'bsc').price +
+  //     tokensInfo?.find((token) => token.symbol === 'GRVX' && token.chain === 'polygon').price) /
+  //   2
+
   return (
     <Container alignItems="center">
       <StyledGravisLogo />
@@ -73,7 +73,7 @@ const Header = () => {
           <MenuItems ItemComponent={MenuItem} />
         </Flex>
         <Flex>
-          <TokensContainer mr="5.1rem">
+          {/* <TokensContainer mr="5.1rem">
             <TokenInfo
               logo={<GRVSFilledLogo />}
               title="GRVS"
@@ -96,7 +96,7 @@ const Header = () => {
                 </TokenText>
               }
             />
-          </TokensContainer>
+          </TokensContainer> */}
           <Apps />
         </Flex>
       </Flex>

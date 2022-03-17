@@ -6,7 +6,8 @@ import PartnersItem from '../PartnersItem'
 import PartnersConfig from '../../../../config/constants/partners'
 
 const Container = styled.div`
-  margin: 5.7rem 7.5rem 9rem 8rem;
+  padding: 5.7rem 7.5rem 9rem 8rem;
+  background-color: #090d11;
 `
 
 const PartnersContainer = styled(Flex)`

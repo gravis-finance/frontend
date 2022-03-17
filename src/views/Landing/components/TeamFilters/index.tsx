@@ -8,6 +8,14 @@ const Container = styled(Flex)`
   background: rgba(255, 255, 255, 0.05);
   border-radius: 4.5rem;
   position: relative;
+
+  @media screen and (max-width: 910px) {
+    margin-top: 2.4rem;
+  }
+
+  @media screen and (max-width: 650px) {
+    display: none;
+  }
 `
 
 const FilterItem = styled(DefaultText)<{ active: boolean }>`
