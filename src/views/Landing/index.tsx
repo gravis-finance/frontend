@@ -50,10 +50,9 @@ const Root = styled.div`
   background-color: #090d11;
 `
 
-const Container = styled(Box).attrs((props) => ({ position: 'relative', ...props }))`
+const Container = styled(Box).attrs((props) => ({ position: 'relative', pt: styles.headerHeight, ...props }))`
   width: 100%;
   color: white;
-  padding-top: 7rem;
   height: ${styles.vh100};
   background-color: #090d11;
 `
@@ -108,7 +107,7 @@ const Video = styled.video`
 `
 
 const Landing = () => {
-  useResponsiveness()
+  const isMobile = useResponsiveness()
   const [loading, setLoading] = React.useState(true)
   const layer1Ref = React.useRef<HTMLDivElement>(null)
   const layer2Ref = React.useRef<HTMLDivElement>(null)
@@ -122,6 +121,8 @@ const Landing = () => {
   const videoRef = React.useRef<HTMLVideoElement>(null)
 
   React.useEffect(() => {
+    ScrollTrigger.refresh()
+
     document.body.onload = () => {
       if (layer1Ref.current && anim1Ref.current) {
         gsap.from(anim1Ref.current, {
@@ -137,8 +138,8 @@ const Landing = () => {
 
         if (anim2Ref.current && layer1Ref.current) {
           const htmlFontSize = Number(window.getComputedStyle(document.documentElement).fontSize.replace('px', ''))
-          const scale = window.innerWidth / htmlFontSize / 0.4114285714285714
-          const x = window.innerWidth / htmlFontSize / 1.44
+          const scale = isMobile ? 150 : window.innerWidth / htmlFontSize / 0.4114285714285714
+          const x = isMobile ? 33 : window.innerWidth / htmlFontSize / 1.44
 
           gsap.from(anim2Ref.current, {
             keyframes: {
@@ -206,7 +207,7 @@ const Landing = () => {
 
       setLoading(false)
     }
-  }, [])
+  }, [isMobile])
 
   return (
     <Root>
@@ -238,7 +239,7 @@ const Landing = () => {
               alignItems="center"
               overflow="hidden"
             >
-              <WhyTextSvg ref={anim2Ref} />
+              <WhyTextSvg ref={anim2Ref} width={{ _: '31rem', md: '61rem' }} />
             </Flex>
           </Layer2>
         </Layer1>

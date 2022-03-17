@@ -16,3 +16,5 @@ export const content: Styles = {
   m: { md: 'auto' },
   position: 'relative',
 }
+
+export const headerHeight = { _: '5.5rem', md: '7rem' }
