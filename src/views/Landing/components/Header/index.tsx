@@ -1,23 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex } from '@gravis.finance/uikit'
+import { Flex, Box } from '@gravis.finance/uikit'
 import GravisLogo from '../../../../components/Svg/Icons/GravisLogo'
 // import TokenInfo from '../../../../components/TokenInfo'
 // import { GRVSFilledLogo, GRVXFilledLogo } from '../../../../components/Svg'
 import Apps from '../Apps'
 // import { useGetTokensData } from '../../../../hooks/useTokenomicsConfig'
 import { MenuItems, MenuItemBase } from '../MenuItems'
+import * as styles from '../../styles'
+import { MobileMenu } from '../MobileMenu'
+import { Button } from '../Button'
+import { CloseIcon } from '../Icons'
 
-const Container = styled(Flex)`
+const Root = styled(Box).attrs((props) => ({
+  zIndex: 3,
+  height: { _: '5.5rem', md: '7rem' },
+  ...props,
+}))`
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(500px);
   width: 100%;
-  height: 7rem;
-  padding: 1.8rem 8rem;
   position: fixed;
-  top: 0;
   left: 0;
-  z-index: 3 !important;
+  top: 0;
 `
 
 const StyledGravisLogo = styled(GravisLogo)`
@@ -57,6 +62,50 @@ const MenuItem = styled(MenuItemBase)<{ active?: boolean }>`
 //   }
 // `
 
+const IconButton = styled(Button)`
+  padding: 1rem;
+  background-color: #3e4346;
+  clip-path: polygon(0 0.5rem, 0.5rem 0, 100% 0, 100% calc(100% - 0.5rem), calc(100% - 0.5rem) 100%, 0 100%);
+  border-radius: 0;
+`
+
+const MenuIcon = (props: React.ComponentProps<typeof Box>) => {
+  return (
+    <Box
+      as="svg"
+      width="1.5rem"
+      height="1.2rem"
+      viewBox="0 0 15 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path d="M0 1H15" stroke="white" strokeWidth="1.5" />
+      <path d="M0 6H15" stroke="white" strokeWidth="1.5" />
+      <path d="M0 11H15" stroke="white" strokeWidth="1.5" />
+    </Box>
+  )
+}
+
+const MobileHeader = () => {
+  const [menuOpen, setMenuOpen] = React.useState(false)
+
+  return (
+    <>
+      <Root zIndex={3} display={{ _: 'block', md: 'none' }}>
+        <Flex {...styles.content} display="flex" alignItems="center" justifyContent="space-between">
+          <Flex alignItems="center">
+            <IconButton onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <CloseIcon /> : <MenuIcon />}</IconButton>
+            <GravisLogo width="9.1rem" height="3.184rem" ml="2rem" />
+          </Flex>
+          <Apps />
+        </Flex>
+      </Root>
+      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
+    </>
+  )
+}
+
 const Header = () => {
   // const { isLoading, data: tokensInfo } = useGetTokensData()
 
@@ -66,41 +115,46 @@ const Header = () => {
   //   2
   // const foundGRVSAmount = (tokensInfo?.find((token) => token.symbol === 'GRVS' && token.chain === 'bsc') + tokensInfo?.find((token) => token.symbol === 'GRVS' && token.chain === 'polygon')) / 2
   return (
-    <Container alignItems="center">
-      <StyledGravisLogo />
-      <Flex justifyContent="space-between" alignItems="center" width="calc(100% - 10.8rem)">
-        <Flex p="0 5.2rem" gridGap="2.55rem">
-          <MenuItems ItemComponent={MenuItem} />
+    <>
+      <Root display={{ _: 'none', md: 'block' }}>
+        <Flex {...styles.content} alignItems="center">
+          <StyledGravisLogo />
+          <Flex justifyContent="space-between" alignItems="center" width="calc(100% - 10.8rem)">
+            <Flex p="0 5.2rem" gridGap="2.55rem">
+              <MenuItems ItemComponent={MenuItem} />
+            </Flex>
+            <Flex>
+              {/*<TokensContainer mr="5.1rem">*/}
+              {/*  <TokenInfo*/}
+              {/*    logo={<GRVSFilledLogo />}*/}
+              {/*    title="GRVS"*/}
+              {/*    text={*/}
+              {/*      <TokenText as="a" href={process.env.REACT_APP_PUBLIC_ROUND_URL} target="_blank">*/}
+              {/*        Join Sale*/}
+              {/*      </TokenText>*/}
+              {/*    }*/}
+              {/*  />*/}
+              {/*  <TokenInfo*/}
+              {/*    logo={<GRVXFilledLogo />}*/}
+              {/*    title="GRVX"*/}
+              {/*    text={*/}
+              {/*      <TokenText*/}
+              {/*        as="a"*/}
+              {/*        href={`${process.env.REACT_APP_EXCHANGE_URL}/swap?network=56&inputCurrency=0xe9e7cea3dedca5984780bafc599bd69add087d56&outputCurrency=0xa349fD455A457467D31cA8Db59052dAEBBBcc108`}*/}
+              {/*        target="_blank"*/}
+              {/*      >*/}
+              {/*        {isLoading ? 'Loading...' : `$${foundGRVXAmount.toFixed(5)}`}*/}
+              {/*      </TokenText>*/}
+              {/*    }*/}
+              {/*  />*/}
+              {/*</TokensContainer>*/}
+              <Apps />
+            </Flex>
+          </Flex>
         </Flex>
-        <Flex>
-          {/*<TokensContainer mr="5.1rem">*/}
-          {/*  <TokenInfo*/}
-          {/*    logo={<GRVSFilledLogo />}*/}
-          {/*    title="GRVS"*/}
-          {/*    text={*/}
-          {/*      <TokenText as="a" href={process.env.REACT_APP_PUBLIC_ROUND_URL} target="_blank">*/}
-          {/*        Join Sale*/}
-          {/*      </TokenText>*/}
-          {/*    }*/}
-          {/*  />*/}
-          {/*  <TokenInfo*/}
-          {/*    logo={<GRVXFilledLogo />}*/}
-          {/*    title="GRVX"*/}
-          {/*    text={*/}
-          {/*      <TokenText*/}
-          {/*        as="a"*/}
-          {/*        href={`${process.env.REACT_APP_EXCHANGE_URL}/swap?network=56&inputCurrency=0xe9e7cea3dedca5984780bafc599bd69add087d56&outputCurrency=0xa349fD455A457467D31cA8Db59052dAEBBBcc108`}*/}
-          {/*        target="_blank"*/}
-          {/*      >*/}
-          {/*        {isLoading ? 'Loading...' : `$${foundGRVXAmount.toFixed(5)}`}*/}
-          {/*      </TokenText>*/}
-          {/*    }*/}
-          {/*  />*/}
-          {/*</TokensContainer>*/}
-          <Apps />
-        </Flex>
-      </Flex>
-    </Container>
+      </Root>
+      <MobileHeader />
+    </>
   )
 }
 
