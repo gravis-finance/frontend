@@ -50,10 +50,14 @@ const Root = styled.div`
   background-color: #090d11;
 `
 
-const Container = styled(Box).attrs((props) => ({ position: 'relative', pt: styles.headerHeight, ...props }))`
+const Container = styled(Box).attrs((props) => ({
+  position: 'relative',
+  pt: styles.headerHeight,
+  height: styles.mdFullHeight,
+  ...props,
+}))`
   width: 100%;
   color: white;
-  height: ${styles.vh100};
   background-color: #090d11;
 `
 
@@ -63,11 +67,11 @@ const Layer1 = styled(Container)`
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: center;
+  height: ${styles.vh100};
 `
 
-const Title = styled(Box)`
+const Title = styled(Box).attrs((props) => ({ fontSize: { _: '3.2rem', md: '4.4rem' }, ...props }))`
   font-weight: 600;
-  font-size: 4.4rem;
   letter-spacing: -0.02em;
   line-height: 4.84rem;
 `
@@ -245,16 +249,21 @@ const Landing = () => {
         </Layer1>
       </Box>
       <span id="products">
-        <Box className="sticky-content" minHeight="calc(100vh + 500px)">
-          <Container maxHeight="90rem" className="sticky-content">
+        <Box className="md:sticky-content" minHeight={{ md: 'calc(100vh + 500px)' }}>
+          <Container maxHeight={{ md: '90rem' }} className="md:sticky-content">
             <Box {...styles.content} display="flex" justifyContent="center" alignItems="center" ref={anim3Ref}>
               <Box width="100%" mb="10rem">
-                <Title textAlign="center">All your DeFi apps one place</Title>
+                <Title textAlign="center" p={{ _: '0 1rem', md: 0 }}>
+                  All your DeFi apps one place
+                </Title>
                 <Box
                   display="grid"
                   mt="5rem"
                   gridGap="2rem"
-                  gridTemplateColumns="repeat(auto-fill, minmax(40rem, 1fr))"
+                  gridTemplateColumns={{
+                    _: 'repeat(auto-fill, minmax(30rem, 1fr))',
+                    md: 'repeat(auto-fill, minmax(40rem, 1fr))',
+                  }}
                 >
                   {AppsConfig.map((app) => (
                     <AppItem app={app} key={app.title} width="auto" />

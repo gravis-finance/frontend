@@ -18,3 +18,5 @@ export const content: Styles = {
 }
 
 export const headerHeight = { _: '5.5rem', md: '7rem' }
+
+export const mdFullHeight = { height: { md: vh100 } }
