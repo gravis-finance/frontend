@@ -35,6 +35,9 @@ export const Button = styled(ButtonBase).attrs((props) => ({
         background: 'rgba(255, 255, 255, 0.1)',
         backdropFilter: 'blur(15px)',
         color: 'white',
+        '&:hover': {
+          color: 'white',
+        },
       },
     },
   })};
