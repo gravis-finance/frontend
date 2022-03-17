@@ -102,6 +102,10 @@ const ComingSoon = ({ variant }: { variant: 'apple' | 'android' }) => {
   )
 }
 
+const Video = styled.video`
+  object-fit: cover;
+`
+
 const Landing = () => {
   useResponsiveness()
   const [loading, setLoading] = React.useState(true)
@@ -113,6 +117,8 @@ const Landing = () => {
   const anim2Ref = React.useRef<HTMLDivElement>(null)
   const anim3Ref = React.useRef<HTMLDivElement>(null)
   const anim4Ref = React.useRef<HTMLDivElement>(null)
+  const videoLayerRef = React.useRef<HTMLDivElement>(null)
+  const videoRef = React.useRef<HTMLVideoElement>(null)
 
   React.useEffect(() => {
     document.body.onload = () => {
@@ -182,6 +188,18 @@ const Landing = () => {
               anim4Ref.current.scrollTop = (anim4Ref.current.scrollHeight - anim4Ref.current.offsetHeight) * progress
             }
           },
+        })
+      }
+
+      if (videoLayerRef.current) {
+        ScrollTrigger.create({
+          trigger: videoLayerRef.current,
+          start: 'top center',
+          end: 'bottom center',
+          onEnter: () => videoRef.current.play(),
+          onEnterBack: () => videoRef.current.play(),
+          onLeave: () => videoRef.current.pause(),
+          onLeaveBack: () => videoRef.current.pause(),
         })
       }
 
@@ -403,37 +421,52 @@ const Landing = () => {
           </Box>
         </Container>
       </Box>
-      <Container maxHeight="90rem" id="mobilewallet">
-        <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
-          <Box width="100%">
-            <Box
-              as="img"
-              src="/landing/mockup.png"
-              width="39.2rem"
-              height="70.3rem"
-              position="absolute"
-              bottom={0}
-              left="18rem"
-            />
-            <Box position="absolute" bottom="31rem" right="18rem">
-              <Box fontSize="6.2rem" fontWeight={600}>
-                Gravis Finance
-                <br />
-                mobile wallet
-              </Box>
-              <Box opacity={0.7} fontSize="1.6rem" mt="1.5rem" fontWeight={500} lineHeight="145%">
-                Secure innovative solution for storing, receiving, sending
-                <br />
-                and exchanging crypto assets using a smartphone
-              </Box>
-              <Flex mt="3.5rem" gridGap="1.5rem">
-                <ComingSoon variant="apple" />
-                <ComingSoon variant="android" />
+      <Box className="sticky-container" minHeight="calc(100vh + 1000px)" ref={videoLayerRef}>
+        <Container maxHeight="90rem" className="sticky-content" id="mobilewallet">
+          <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
+            <Box width="100%">
+              <Flex
+                width="39.2rem"
+                height="79.1rem"
+                position="absolute"
+                bottom={0}
+                left="18rem"
+                justifyContent="center"
+                alignItems="center"
+              >
+                <Box as={Video} muted loop playsInline width="35rem" height="74rem" ref={videoRef}>
+                  <source src="/landing/video.mp4" type="video/mp4" />
+                </Box>
+                <Box
+                  background="url(/landing/mockup.png) no-repeat"
+                  backgroundSize="contain"
+                  width="100%"
+                  height="100%"
+                  position="absolute"
+                  top={0}
+                  left={0}
+                />
               </Flex>
+              <Box position="absolute" bottom="31rem" right="18rem">
+                <Box fontSize="6.2rem" fontWeight={600}>
+                  Gravis Finance
+                  <br />
+                  mobile wallet
+                </Box>
+                <Box opacity={0.7} fontSize="1.6rem" mt="1.5rem" fontWeight={500} lineHeight="145%">
+                  Secure innovative solution for storing, receiving, sending
+                  <br />
+                  and exchanging crypto assets using a smartphone
+                </Box>
+                <Flex mt="3.5rem" gridGap="1.5rem">
+                  <ComingSoon variant="apple" />
+                  <ComingSoon variant="android" />
+                </Flex>
+              </Box>
             </Box>
           </Box>
-        </Box>
-      </Container>
+        </Container>
+      </Box>
       <Container maxHeight="90rem" id="roadmap">
         <Roadmap />
       </Container>
