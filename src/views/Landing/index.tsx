@@ -193,7 +193,7 @@ const Landing = () => {
         <Spinner size="6rem" />
       </Loader>
       <Header />
-      <Box {...styles.stickyContainer} minHeight="300vh" ref={layer1Ref}>
+      <Box {...styles.stickyContainer} minHeight="300vh" ref={layer1Ref} id="whyus">
         <Layer1 className="sticky-content">
           <MainInfo />
           <Layer2 ref={layer2Ref}>
@@ -222,7 +222,7 @@ const Landing = () => {
           </Layer2>
         </Layer1>
       </Box>
-      <Container maxHeight="90rem" className="sticky-content">
+      <Container maxHeight="90rem" className="sticky-content" id="products">
         <Box {...styles.content} display="flex" justifyContent="center" alignItems="center" ref={anim3Ref}>
           <Box width="100%" mb="10rem">
             <Title textAlign="center">All your DeFi apps one place</Title>
@@ -395,7 +395,7 @@ const Landing = () => {
           </Flex>
         </Box>
       </Container>
-      <Container maxHeight="90rem">
+      <Container maxHeight="90rem" id="mobilewallet">
         <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
           <Box width="100%">
             <Box
@@ -426,18 +426,18 @@ const Landing = () => {
           </Box>
         </Box>
       </Container>
-      <Container maxHeight="90rem">
+      <Container maxHeight="90rem" id="roadmap">
         <Roadmap />
       </Container>
-      <Container maxHeight="90rem">
+      <Container maxHeight="90rem" id="team">
         <Team />
       </Container>
-      <Container maxHeight="90rem">
+      <Container maxHeight="90rem" id="tokenomics">
         <Box {...styles.content} overflowX="hidden">
           <Tokenomics />
         </Box>
       </Container>
-      <Box position="relative">
+      <Box position="relative" id="partners">
         <Partners />
       </Box>
       <Box position="relative">

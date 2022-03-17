@@ -15,7 +15,7 @@ const PartnersContainer = styled(Flex)`
 
 const Partners = () => {
   return (
-    <Container id="partners">
+    <Container>
       <DefaultText fontWeight="700" fontSize="4.4rem" lineHeight="120%" textAlign="center">
         Partners
       </DefaultText>

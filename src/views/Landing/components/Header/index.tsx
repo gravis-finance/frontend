@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex, Text } from '@gravis.finance/uikit'
-import { useLocation } from 'react-router-dom'
+import { Flex } from '@gravis.finance/uikit'
 import GravisLogo from '../../../../components/Svg/Icons/GravisLogo'
 import TokenInfo from '../../../../components/TokenInfo'
 import { GRVSFilledLogo, GRVXFilledLogo } from '../../../../components/Svg'
 import Apps from '../Apps'
 import { useGetTokensData } from '../../../../hooks/useTokenomicsConfig'
+import { MenuItems, MenuItemBase } from '../MenuItems'
 
 const Container = styled(Flex)`
   background: rgba(255, 255, 255, 0.03);
@@ -24,13 +24,7 @@ const StyledGravisLogo = styled(GravisLogo)`
   width: 10.8rem;
 `
 
-const AnchorFlex = styled(Flex)`
-  > a:not(:last-child) {
-    margin-right: 2.55rem;
-  }
-`
-
-const AnchorText = styled(Text)<{ isActive?: boolean }>`
+const MenuItem = styled(MenuItemBase)<{ active?: boolean }>`
   font-family: 'Inter', serif;
   font-style: normal;
   font-weight: 500;
@@ -38,9 +32,10 @@ const AnchorText = styled(Text)<{ isActive?: boolean }>`
   line-height: 100%;
   letter-spacing: -0.02em;
   transition: color 100ms ease-in-out;
-  color: ${({ isActive }) => (isActive ? 'white' : 'rgba(255, 255, 255, 0.5)')};
+  color: rgba(255, 255, 255, 0.5);
 
-  :hover {
+  :hover,
+  &[data-active='true'] {
     color: white;
   }
 `
@@ -51,7 +46,7 @@ const TokensContainer = styled(Flex)`
   }
 `
 
-const TokenText = styled(AnchorText)`
+const TokenText = styled(MenuItem)`
   font-size: 1.2rem;
   line-height: 1.5rem;
   color: white;
@@ -62,39 +57,7 @@ const TokenText = styled(AnchorText)`
   }
 `
 
-const links = [
-  {
-    text: 'Why Us',
-    href: '#whyus',
-  },
-  {
-    text: 'Products',
-    href: '#products',
-  },
-  {
-    text: 'Mobile Wallet',
-    href: '#mobilewallet',
-  },
-  {
-    text: 'Roadmap',
-    href: '#roadmap',
-  },
-  {
-    text: 'Team',
-    href: '#team',
-  },
-  {
-    text: 'Tokenomics',
-    href: '#tokenomics',
-  },
-  {
-    text: 'Partners',
-    href: '#partners',
-  },
-]
-
 const Header = () => {
-  const location = useLocation()
   const { isLoading, data: tokensInfo } = useGetTokensData()
 
   const foundGRVXAmount =
@@ -106,13 +69,9 @@ const Header = () => {
     <Container alignItems="center">
       <StyledGravisLogo />
       <Flex justifyContent="space-between" alignItems="center" width="calc(100% - 10.8rem)">
-        <AnchorFlex p="0 5.2rem">
-          {links.map((link) => (
-            <AnchorText as="a" href={link.href} isActive={location.hash === link.href} key={link.href}>
-              {link.text}
-            </AnchorText>
-          ))}
-        </AnchorFlex>
+        <Flex p="0 5.2rem" gridGap="2.55rem">
+          <MenuItems ItemComponent={MenuItem} />
+        </Flex>
         <Flex>
           <TokensContainer mr="5.1rem">
             <TokenInfo

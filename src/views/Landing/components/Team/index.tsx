@@ -25,7 +25,7 @@ const Team = () => {
   }, [activeIndex])
 
   return (
-    <Container id="team">
+    <Container>
       <Flex alignItems="center" justifyContent="space-between" mb={60}>
         <DefaultText fontSize="4.4rem" fontWeight={700}>
           Our Team
