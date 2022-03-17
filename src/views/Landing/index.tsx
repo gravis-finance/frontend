@@ -175,8 +175,8 @@ const Landing = () => {
         ScrollTrigger.create({
           trigger: layer3Ref.current,
           scrub: 1,
-          start: 'top top',
-          end: 'bottom bottom',
+          start: 'top+=100vh top',
+          end: 'bottom-=100vh bottom',
           onUpdate: ({ progress }) => {
             if (progress >= 0 && progress <= 1) {
               anim4Ref.current.scrollTop = (anim4Ref.current.scrollHeight - anim4Ref.current.offsetHeight) * progress
@@ -238,39 +238,41 @@ const Landing = () => {
           </Box>
         </Container>
       </Box>
-      <Container zIndex={1} maxHeight="90rem" ref={layer4Ref}>
-        <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
-          <Flex
-            width="100%"
-            height="72rem"
-            background="url(/landing/bg1.png) no-repeat"
-            backgroundSize="cover"
-            borderRadius="2rem"
-            alignItems="center"
-            mb="2rem"
-          >
-            <Box ml="8rem">
-              <EvervoidLogo width="14.5rem" height="2.65rem" />
-              <Box fontSize="4.4rem" fontWeight={600} lineHeight="120%" mt="2rem">
-                Free-to-play
-                <br />
-                P2E NFT-based
-                <br />
-                MMO strategy
-                <br />
+      <Box className="sticky-container" minHeight="calc(100vh + 500px)">
+        <Container zIndex={1} maxHeight="90rem" ref={layer4Ref} className="sticky-content">
+          <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
+            <Flex
+              width="100%"
+              height="72rem"
+              background="url(/landing/bg1.png) no-repeat"
+              backgroundSize="cover"
+              borderRadius="2rem"
+              alignItems="center"
+              mb="2rem"
+            >
+              <Box ml="8rem">
+                <EvervoidLogo width="14.5rem" height="2.65rem" />
+                <Box fontSize="4.4rem" fontWeight={600} lineHeight="120%" mt="2rem">
+                  Free-to-play
+                  <br />
+                  P2E NFT-based
+                  <br />
+                  MMO strategy
+                  <br />
+                </Box>
+                <Box opacity={0.7} fontSize="1.6rem" maxWidth="33rem" mt="1rem" fontWeight={500} lineHeight="145%">
+                  Includes various missions, staking crafting, equipment upgrades, lands and more
+                </Box>
+                <Flex mt="4rem" gridGap="1.5rem">
+                  <Button>Play demo</Button>
+                  <Button variant="dark">Learn more</Button>
+                </Flex>
               </Box>
-              <Box opacity={0.7} fontSize="1.6rem" maxWidth="33rem" mt="1rem" fontWeight={500} lineHeight="145%">
-                Includes various missions, staking crafting, equipment upgrades, lands and more
-              </Box>
-              <Flex mt="4rem" gridGap="1.5rem">
-                <Button>Play demo</Button>
-                <Button variant="dark">Learn more</Button>
-              </Flex>
-            </Box>
-          </Flex>
-        </Box>
-      </Container>
-      <Box position="relative" height="auto" minHeight="min(180rem, 200vh)" ref={layer3Ref}>
+            </Flex>
+          </Box>
+        </Container>
+      </Box>
+      <Box position="relative" height="auto" minHeight="calc(min(180rem, 200vh) + 200vh)" ref={layer3Ref}>
         <Container maxHeight="90rem" className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
             <Box width="100%" height="72rem" mb="2rem" borderRadius="2rem" overflow="hidden" ref={anim4Ref}>
@@ -362,43 +364,45 @@ const Landing = () => {
           </Box>
         </Container>
       </Box>
-      <Container maxHeight="90rem">
-        <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
-          <Flex
-            width="100%"
-            height="72rem"
-            background="url(/landing/bg5.png) no-repeat"
-            backgroundSize="cover"
-            borderRadius="2rem"
-            alignItems="center"
-            mb="2rem"
-          >
-            <Box ml="75rem">
-              <Flex alignItems="center" gridGap="1.287rem" fontSize="3.03rem" fontWeight={500} lineHeight="120%">
-                <GswapIcon />
-                <div>Gswap</div>
-              </Flex>
-              <Box fontSize="4.4rem" fontWeight={600} lineHeight="110%" mt="2.5rem">
-                Tools for successful
-                <br />
-                crypto trading
+      <Box className="sticky-container" minHeight="calc(100vh + 500px)">
+        <Container maxHeight="90rem" className="sticky-content">
+          <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
+            <Flex
+              width="100%"
+              height="72rem"
+              background="url(/landing/bg5.png) no-repeat"
+              backgroundSize="cover"
+              borderRadius="2rem"
+              alignItems="center"
+              mb="2rem"
+            >
+              <Box ml="75rem">
+                <Flex alignItems="center" gridGap="1.287rem" fontSize="3.03rem" fontWeight={500} lineHeight="120%">
+                  <GswapIcon />
+                  <div>Gswap</div>
+                </Flex>
+                <Box fontSize="4.4rem" fontWeight={600} lineHeight="110%" mt="2.5rem">
+                  Tools for successful
+                  <br />
+                  crypto trading
+                </Box>
+                <Box opacity={0.7} fontSize="1.6rem" maxWidth="40.6rem" mt="1rem" fontWeight={500} lineHeight="145%">
+                  We offer several features for decentralized trading.
+                  <br />
+                  Swapping, liquidity pool, migration and more.
+                </Box>
+                <Flex mt="4rem" gridGap="1.5rem">
+                  <Button>Open Gswap</Button>
+                  <Button variant="dark">
+                    <ExternalIcon mr="1rem" />
+                    <div>Learn more</div>
+                  </Button>
+                </Flex>
               </Box>
-              <Box opacity={0.7} fontSize="1.6rem" maxWidth="40.6rem" mt="1rem" fontWeight={500} lineHeight="145%">
-                We offer several features for decentralized trading.
-                <br />
-                Swapping, liquidity pool, migration and more.
-              </Box>
-              <Flex mt="4rem" gridGap="1.5rem">
-                <Button>Open Gswap</Button>
-                <Button variant="dark">
-                  <ExternalIcon mr="1rem" />
-                  <div>Learn more</div>
-                </Button>
-              </Flex>
-            </Box>
-          </Flex>
-        </Box>
-      </Container>
+            </Flex>
+          </Box>
+        </Container>
+      </Box>
       <Container maxHeight="90rem" id="mobilewallet">
         <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
           <Box width="100%">
