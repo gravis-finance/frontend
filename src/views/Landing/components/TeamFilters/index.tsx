@@ -103,7 +103,7 @@ const TeamFilters = ({ activeIndex, setActiveIndex }) => {
         ))}
       </Container>
       <MobileContainer>
-        <FilterItem onClick={(e) => onItemClick(e, 0)} active={activeIndex === 0} ref={allItemRef}>
+        <FilterItem onClick={(e) => onItemClick(e, 0)} active={activeIndex === 0}>
           All
         </FilterItem>
         {items.map((item, index) => (
