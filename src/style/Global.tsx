@@ -24,6 +24,10 @@ const GlobalStyle = createGlobalStyle`
     pointer-events: none;
   }
   
+  .object-contain {
+    object-fit: contain;
+  }
+  
   @media (min-width: ${breakpoints.md}) {
     .md\\:sticky-content {
       position: sticky !important;

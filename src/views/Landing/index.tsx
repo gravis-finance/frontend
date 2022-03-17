@@ -170,7 +170,7 @@ const Landing = () => {
         }
       }
 
-      if (anim3Ref.current) {
+      if (!isMobile && anim3Ref.current) {
         gsap.to(anim3Ref.current, {
           opacity: 0,
           ease: 'none',
@@ -314,27 +314,35 @@ const Landing = () => {
         </Container>
       </Box>
       <Box position="relative" height="auto" minHeight="calc(min(180rem, 200vh) + 200vh)" ref={layer3Ref}>
-        <Container maxHeight="90rem" className="sticky-content">
+        <Container {...styles.fullHeight} className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
             <Box width="100%" height="72rem" mb="2rem" borderRadius="2rem" overflow="hidden" ref={anim4Ref}>
               <Flex
                 background="url(/landing/bg2.png) no-repeat"
+                backgroundPosition={{ _: 'right', md: 'left' }}
                 backgroundSize="cover"
                 alignItems="center"
                 height="100%"
               >
-                <Box ml="75rem">
+                <Box ml={{ _: '1.5rem', sm: '24rem', md: '75rem' }} mr={{ _: '1.5rem', sm: 0 }}>
                   <Flex alignItems="center" gridGap="1.287rem" fontSize="3.03rem" fontWeight={500} lineHeight="120%">
                     <GmartLogo />
                     <div>Gmart</div>
                   </Flex>
-                  <Box fontSize="4.4rem" fontWeight={600} lineHeight="110%" mt="2.5rem">
+                  <Box fontSize={{ _: '3.2rem', sm: '4.4rem' }} fontWeight={600} lineHeight="110%" mt="2.5rem">
                     Discover,
                     <br />
                     collect and sell <br />
                     extraordinary NFTs <br />
                   </Box>
-                  <Box opacity={0.7} fontSize="1.6rem" maxWidth="40.6rem" mt="1rem" fontWeight={500} lineHeight="145%">
+                  <Box
+                    opacity={0.7}
+                    fontSize={{ _: '1.4rem', sm: '1.6rem' }}
+                    maxWidth="40.6rem"
+                    mt="1rem"
+                    fontWeight={500}
+                    lineHeight="145%"
+                  >
                     The first NFT marketplace focused solely on in-game assets. Built-in smart analytics for NFT
                     portfolio.
                   </Box>
@@ -350,12 +358,13 @@ const Landing = () => {
               <Flex
                 height="100%"
                 background="url(/landing/bg3.png) no-repeat"
+                backgroundPosition={{ _: 'right', md: 'left' }}
                 backgroundSize="cover"
                 alignItems="center"
                 position="relative"
               >
-                <Box ml="8rem">
-                  <Box fontSize="6.2rem" fontWeight={600}>
+                <Box ml={{ _: '1.5rem', sm: '8rem' }}>
+                  <Box fontSize={{ _: '4.4rem', sm: '6.2rem' }} fontWeight={600}>
                     Gmart on
                     <br />
                     your mobile
@@ -363,7 +372,7 @@ const Landing = () => {
                   <Flex
                     flexDirection="column"
                     gridGap="1.5rem"
-                    fontSize="1.6rem"
+                    fontSize={{ _: '1.4rem', sm: '1.6rem' }}
                     fontWeight={500}
                     lineHeight="2.3rem"
                     mt="3rem"
@@ -389,7 +398,14 @@ const Landing = () => {
                       <div>Push notifications</div>
                     </Flex>
                   </Flex>
-                  <Box as="img" src="/landing/app_store_btns.png" mt="4.5rem" width="35.5rem" height="5rem" />
+                  <Box
+                    as="img"
+                    src="/landing/app_store_btns.png"
+                    mt="4.5rem"
+                    width={{ _: '30rem', sm: '35.5rem' } as any}
+                    height="5rem"
+                    className="object-contain"
+                  />
                 </Box>
                 <Box
                   as="img"
@@ -399,6 +415,7 @@ const Landing = () => {
                   position="absolute"
                   bottom={0}
                   right="18rem"
+                  display={{ _: 'none', md: 'block' }}
                 />
               </Flex>
             </Box>
