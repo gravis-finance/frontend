@@ -128,9 +128,9 @@ const Landing = () => {
         })
 
         if (anim2Ref.current && layer1Ref.current) {
-          // const rem = (10 * window.innerWidth) / 1440
-          const scale = 350
-          const x = 100
+          const htmlFontSize = Number(window.getComputedStyle(document.documentElement).fontSize.replace('px', ''))
+          const scale = window.innerWidth / htmlFontSize / 0.4114285714285714
+          const x = window.innerWidth / htmlFontSize / 1.44
 
           gsap.from(anim2Ref.current, {
             keyframes: {
@@ -215,6 +215,7 @@ const Landing = () => {
               left={0}
               justifyContent="center"
               alignItems="center"
+              overflow="hidden"
             >
               <WhyTextSvg ref={anim2Ref} />
             </Flex>
