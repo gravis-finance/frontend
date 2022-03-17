@@ -8,10 +8,23 @@ import PartnersConfig from '../../../../config/constants/partners'
 const Container = styled.div`
   padding: 5.7rem 7.5rem 9rem 8rem;
   background-color: #090d11;
+
+  @media screen and (max-width: 852px) {
+    padding: 5.7rem 3rem 9rem 3rem;
+  }
 `
 
 const PartnersContainer = styled(Flex)`
   margin: -0.5rem;
+  @media screen and (max-width: 425px) {
+    justify-content: center;
+  }
+`
+
+const StyledDefaultText = styled(DefaultText)`
+  @media screen and (max-width: 425px) {
+    text-align: center;
+  }
 `
 
 const Partners = () => {
@@ -20,7 +33,7 @@ const Partners = () => {
       <DefaultText fontWeight="700" fontSize="4.4rem" lineHeight="120%" textAlign="center">
         Partners
       </DefaultText>
-      <DefaultText
+      <StyledDefaultText
         textTransform="uppercase"
         fontWeight="600"
         fontSize="1.1rem"
@@ -30,13 +43,13 @@ const Partners = () => {
         ml="0.4rem"
       >
         Backed By
-      </DefaultText>
+      </StyledDefaultText>
       <PartnersContainer flexWrap="wrap">
         {PartnersConfig.backed.map((image) => (
           <PartnersItem image={image} key={image} />
         ))}
       </PartnersContainer>
-      <DefaultText
+      <StyledDefaultText
         textTransform="uppercase"
         fontWeight="600"
         fontSize="1.1rem"
@@ -46,13 +59,13 @@ const Partners = () => {
         ml="0.4rem"
       >
         Supported By
-      </DefaultText>
+      </StyledDefaultText>
       <PartnersContainer flexWrap="wrap">
         {PartnersConfig.supported.map((image) => (
           <PartnersItem image={image} key={image} />
         ))}
       </PartnersContainer>
-      <DefaultText
+      <StyledDefaultText
         textTransform="uppercase"
         fontWeight="600"
         fontSize="1.1rem"
@@ -62,7 +75,7 @@ const Partners = () => {
         ml="0.4rem"
       >
         Powered By
-      </DefaultText>
+      </StyledDefaultText>
       <PartnersContainer flexWrap="wrap">
         {PartnersConfig.powered.map((image) => (
           <PartnersItem image={image} key={image} />

@@ -22,6 +22,7 @@ const Container = styled(Flex)`
       margin-right: 4.8rem;
     }
     > div:nth-child(2) {
+      flex-wrap: wrap;
       justify-content: center;
       width: 100%;
       order: -1;
@@ -31,8 +32,12 @@ const Container = styled(Flex)`
 
   @media screen and (max-width: 656px) {
     > div:first-child {
-      //margin-right: 0;
+      margin-right: 0;
       margin-bottom: 3.2rem;
+    }
+
+    > div:last-child {
+      white-space: pre;
     }
   }
 `
