@@ -27,15 +27,48 @@ const Header = styled(Flex)<{ token?: TokenomicsTokenType }>`
     linear-gradient(0deg, #019ce2, #019ce2), rgba(255, 255, 255, 0.03);
     box-shadow: inset 0px 0px 75px rgba(255, 255, 255, 0.5);
   `}
+
+  @media screen and (max-width: 852px) {
+    //flex-direction: column;
+    height: 100%;
+  }
+`
+
+const StyledFlex = styled(Flex)`
+  @media screen and (max-width: 852px) {
+    flex-direction: column;
+    height: 100%;
+  }
 `
 
 const CellsContainer = styled(Flex)`
   > div:not(:last-child) {
     margin-right: 4.2rem;
   }
+  @media screen and (max-width: 852px) {
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+    > div:not(:last-child) {
+      margin-right: 0;
+      margin-bottom: 1.6rem;
+    }
+  }
 `
 
-const TokenomicTable = styled(Flex)``
+const TokenomicTable = styled(Flex)`
+  @media screen and (max-width: 852px) {
+    justify-content: center;
+  }
+`
+
+const ButtonFlex = styled(Flex)`
+  @media screen and (max-width: 852px) {
+    margin-top: 1.6rem;
+    place-self: center;
+  }
+`
 
 type Props = {
   token?: TokenomicsTokenType
@@ -72,7 +105,7 @@ const TokenomicInfo: React.FC<Props> = ({ token = TokenomicsTokenType.GRVS, netw
   return (
     <Container>
       <Header alignItems="center" p="4.4rem 4.5rem" token={token}>
-        <Flex justifyContent="space-between" width="100%">
+        <StyledFlex justifyContent="space-between" width="100%">
           <CellsContainer>
             {cells[token].map((cell, index) => (
               <Flex flexDirection="column" key={index}>
@@ -85,15 +118,15 @@ const TokenomicInfo: React.FC<Props> = ({ token = TokenomicsTokenType.GRVS, netw
               </Flex>
             ))}
           </CellsContainer>
-          <Flex>
+          <ButtonFlex>
             <Button variant="light" mr="1.5rem" onClick={links[token].seeMore.length > 0 ? openLinksModal : undefined}>
               {links[token].seeMore.length > 0 ? 'See more' : 'Coming soon'}
             </Button>
             <Button variant="darkened" as="a" href={links[token].buyToken} target="_blank">
               Buy token
             </Button>
-          </Flex>
-        </Flex>
+          </ButtonFlex>
+        </StyledFlex>
       </Header>
       <DefaultText fontWeight={600} fontSize="2.2rem" textAlign="center" mt={35} mb={15}>
         Token utility value in Evervoid

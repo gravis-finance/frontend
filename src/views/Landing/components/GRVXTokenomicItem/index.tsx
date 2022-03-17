@@ -16,6 +16,11 @@ const Container = styled(Flex)`
   height: 15.6rem;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 852px) {
+    flex-wrap: wrap;
+    text-align: center;
+  }
 `
 
 const ElementsContainer = styled(Flex)`
@@ -31,6 +36,10 @@ const ElementsContainer = styled(Flex)`
   > img:nth-child(4) {
     position: relative;
     left: -3.8rem;
+  }
+
+  @media screen and (max-width: 852px) {
+    margin-left: 3.2rem;
   }
 `
 

@@ -16,13 +16,13 @@ const Container = styled.div`
 
 const PartnersContainer = styled(Flex)`
   margin: -0.5rem;
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 852px) {
     justify-content: center;
   }
 `
 
 const StyledDefaultText = styled(DefaultText)`
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 852px) {
     text-align: center;
   }
 `

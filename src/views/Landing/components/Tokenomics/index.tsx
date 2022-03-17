@@ -10,20 +10,38 @@ import TokenomicNetworksSwitcher from '../TokenomicNetworksSwitcher'
 const Container = styled.div`
   //margin: 7rem 8rem;
   position: relative;
+  overflow: hidden;
 `
 
 const TokenomicsInfoContainer = styled(Flex)<{ activeIndex: number }>`
   height: 55.5rem;
+  display: block;
+  position: relative;
   > div:first-child {
-    position: absolute;
+    position: relative;
     left: ${({ activeIndex }) => (activeIndex ? 'calc(-100% - 8rem)' : 0)};
     transition: left 500ms ease-in-out;
   }
 
   > div:last-child {
+    top: 0;
     position: absolute;
     right: ${({ activeIndex }) => (activeIndex ? 0 : 'calc(-100% - 8rem)')};
     transition: right 500ms ease-in-out;
+  }
+
+  @media screen and (max-width: 852px) {
+    //height: ${({ activeIndex }) => (activeIndex ? '170.5rem' : '190.5rem')};
+    height: 100%;
+  }
+`
+
+const StyledDefaultText = styled(DefaultText)`
+  margin-right: 2.5rem;
+
+  @media screen and (max-width: 548px) {
+    margin-right: 0;
+    margin-bottom: 1.6rem;
   }
 `
 
@@ -33,10 +51,10 @@ const Tokenomics = () => {
   return (
     <Container>
       <Flex alignItems="center" justifyContent="center" flexDirection="column" mb="4rem">
-        <Flex justifyContent="center" alignItems="center">
-          <DefaultText fontWeight={700} fontSize="4.4rem" mr="2.5rem">
+        <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
+          <StyledDefaultText fontWeight={700} fontSize="4.4rem">
             Tokenomics
-          </DefaultText>
+          </StyledDefaultText>
           <TokensSwitcher activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
         </Flex>
         <Flex mt="2rem">
