@@ -7,7 +7,6 @@ import DefaultText from '../../../../components/DefaultText'
 import RoadmapItem from '../RoadmapItem'
 import { roadmapConfig } from '../../../../config/constants/roadmap'
 import useMediaQuery from '../../../../hooks/useMediaQuery'
-import { breakpoints } from '../../../../contexts/ThemeContext'
 
 const Container = styled.div`
   padding: 7.7rem 0;
@@ -62,10 +61,17 @@ const StyledScrollHint = styled.div`
 
 const Roadmap = () => {
   const scrollRef = useRef(null)
-  const isMobile = useMediaQuery(`(max-width: ${breakpoints.md})`)
+  const isMobile = useMediaQuery(`(max-width: 515px)`)
 
   useEffect(() => {
-    if (scrollRef.current) scrollRef.current?.container.current.scrollTo(312.5 * 3 + 10 * 3, 0)
+    if (scrollRef.current) {
+      if (isMobile) {
+        const childNodes = scrollRef.current?.container?.current?.childNodes
+        const difference = childNodes[1].getBoundingClientRect().left - childNodes[0].getBoundingClientRect().left
+        const center = (childNodes[5].getBoundingClientRect().left + difference) / 2
+        scrollRef.current?.container.current.scrollTo(center, 0)
+      } else scrollRef.current?.container.current.scrollTo(312.5 * 3 + 10 * 3, 0)
+    }
   }, [isMobile, scrollRef])
 
   const makeScroll = (option) => {
