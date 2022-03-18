@@ -473,7 +473,7 @@ const Landing = () => {
         </Container>
       </Box>
       <Box className="sticky-container" minHeight="calc(100vh + 500px)" ref={videoLayerRef} id="mobilewallet">
-        <Container {...styles.fullHeight} height={{ _: styles.vh100, md: 'auto' }} className="sticky-content">
+        <Container {...styles.fullHeight} height={styles.vh100} className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
             <Box width="100%" textAlign="center">
               <Box
