@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Flex, Box } from '@gravis.finance/uikit'
 import GravisLogo from '../../../../components/Svg/Icons/GravisLogo'
@@ -87,18 +87,41 @@ const MenuIcon = (props: React.ComponentProps<typeof Box>) => {
   )
 }
 
+const BlurredBackground = styled(Box)<{ showBlurred: boolean }>`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #0a0d12;
+  opacity: 0;
+  z-index: 3;
+  pointer-events: none;
+  transition: opacity 300ms ease-in-out;
+
+  ${({ showBlurred }) =>
+    showBlurred
+      ? `
+    opacity: 0.7;
+    pointer-events: all;
+  `
+      : ''}
+`
+
 const MobileHeader = () => {
   const [menuOpen, setMenuOpen] = React.useState(false)
+  const [showBlurred, setShowBlurred] = useState(false)
 
   return (
     <>
+      <BlurredBackground showBlurred={showBlurred} />
       <Root display={{ _: 'block', md: 'none' }}>
         <Flex {...styles.content} display="flex" alignItems="center" justifyContent="space-between">
           <Flex alignItems="center">
             <IconButton onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <CloseIcon /> : <MenuIcon />}</IconButton>
             <GravisLogo width="9.1rem" height="3.184rem" ml="2rem" />
           </Flex>
-          <Apps />
+          <Apps setShowBlurred={(state) => setShowBlurred(state)} />
         </Flex>
       </Root>
       <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} display={{ _: 'block', md: 'none' }} />
@@ -107,6 +130,7 @@ const MobileHeader = () => {
 }
 
 const Header = () => {
+  const [showBlurred, setShowBlurred] = useState(false)
   // const { isLoading, data: tokensInfo } = useGetTokensData()
 
   // const foundGRVXAmount =
@@ -116,6 +140,7 @@ const Header = () => {
   // const foundGRVSAmount = (tokensInfo?.find((token) => token.symbol === 'GRVS' && token.chain === 'bsc') + tokensInfo?.find((token) => token.symbol === 'GRVS' && token.chain === 'polygon')) / 2
   return (
     <>
+      <BlurredBackground showBlurred={showBlurred} />
       <Root display={{ _: 'none', md: 'block' }}>
         <Flex {...styles.content} alignItems="center">
           <StyledGravisLogo />
@@ -148,7 +173,7 @@ const Header = () => {
               {/*    }*/}
               {/*  />*/}
               {/*</TokensContainer>*/}
-              <Apps />
+              <Apps setShowBlurred={(state) => setShowBlurred(state)} />
             </Flex>
           </Flex>
         </Flex>
