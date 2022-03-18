@@ -49,6 +49,13 @@ const prevIntersectionValue = {
   current: 0,
 }
 
+export const goTo = (id: string) => {
+  const view = document.querySelector(id)
+  if (view) {
+    window.scrollTo({ top: view.getBoundingClientRect().top, behavior: 'smooth' })
+  }
+}
+
 export const MenuItemBase = ({
   onClick,
   href,
