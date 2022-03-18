@@ -25,14 +25,11 @@ const StyledFlex = styled(Flex)<{ isOpen: boolean }>`
 const AppsContainer = styled(Flex)<{ isOpen: boolean }>`
   position: absolute;
   width: 100%;
-  height: 40.7rem;
+  height: auto;
   right: 0;
-
   background: #24272e;
   backdrop-filter: blur(200px);
-
   border-radius: 20px;
-
   padding: 3rem;
 
   > div:not(:last-child) {
@@ -53,7 +50,6 @@ const AppsContainer = styled(Flex)<{ isOpen: boolean }>`
   }
 
   opacity: 0;
-  top: -100%;
   pointer-events: none;
   transition: opacity 400ms ease-in-out, top 400ms ease-in-out;
 
@@ -61,7 +57,6 @@ const AppsContainer = styled(Flex)<{ isOpen: boolean }>`
     isOpen
       ? `
     opacity: 1;
-    top: 10rem;
     pointer-events: all;
   `
       : ''}
@@ -89,7 +84,7 @@ const Apps = () => {
         </Text>
         <NumericalArrow ml="0.6rem" />
       </StyledFlex>
-      <AppsContainer isOpen={isOpen}>
+      <AppsContainer isOpen={isOpen} top={isOpen ? { _: '7rem', md: '10rem' } : '-100%'}>
         <Box
           width="100%"
           display="grid"

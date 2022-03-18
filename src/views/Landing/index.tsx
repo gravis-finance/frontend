@@ -140,14 +140,14 @@ const Landing = () => {
       })
 
       if (anim2Ref.current && layer1Ref.current) {
-        const htmlFontSize = Number(window.getComputedStyle(document.documentElement).fontSize.replace('px', ''))
-        const scale = window.innerWidth / htmlFontSize / (isMobile ? 0.25 : 0.4114285714285714)
-        const x = window.innerWidth / htmlFontSize / (isMobile ? 1.1363636363636365 : 1.44)
+        const htmlFontSize = () => Number(window.getComputedStyle(document.documentElement).fontSize.replace('px', ''))
+        const scale = () => window.innerWidth / htmlFontSize() / (isMobile ? 0.25 : 0.4114285714285714)
+        const x = () => window.innerWidth / htmlFontSize() / (isMobile ? 1.1363636363636365 : 1.44)
 
         gsap.from(anim2Ref.current, {
           keyframes: {
-            '0%': { scale: () => scale, x: () => `${x}rem` },
-            '30%': { scale: () => scale / 3, x: () => `${x / 3}rem` },
+            '0%': { scale: () => scale(), x: () => `${x()}rem` },
+            '30%': { scale: () => scale() / 3, x: () => `${x() / 3}rem` },
             '100%': {
               scale: 1,
               x: 0,
@@ -264,7 +264,7 @@ const Landing = () => {
                   }}
                 >
                   {AppsConfig.map((app) => (
-                    <AppItem app={app} key={app.title} width="auto" />
+                    <AppItem app={app} key={app.title} />
                   ))}
                 </Box>
               </Box>
@@ -440,7 +440,7 @@ const Landing = () => {
               height="72rem"
               maxHeight={styles.vh100minusHeader}
             >
-              <Box ml={{ _: '1.5rem', sm: '20rem', md: '75rem' }}>
+              <Box ml={{ _: 'auto', md: '75rem' }} mr={{ _: '10rem', md: 0 }}>
                 <Flex alignItems="center" gridGap="1.287rem" fontSize="3.03rem" fontWeight={500} lineHeight="120%">
                   <GswapIcon />
                   <div>Gswap</div>
