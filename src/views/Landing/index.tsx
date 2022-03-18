@@ -302,12 +302,7 @@ const Landing = () => {
                   <Button as="a" target="_blank" href={`${process.env.REACT_APP_ASTEROID_MINING_URL}/missions`}>
                     Play demo
                   </Button>
-                  <Button
-                    variant="dark"
-                    as="a"
-                    target="_blank"
-                    href={`${process.env.REACT_APP_ASTEROID_MINING_URL}/home`}
-                  >
+                  <Button variant="dark" as="a" target="_blank" href={process.env.REACT_APP_EVERVOID_DOCS_URL}>
                     <ExternalIcon mr="1rem" />
                     <div>Learn more</div>
                   </Button>
