@@ -39,6 +39,11 @@ export const useGetTokensData = () => {
   return useQuery('getTokens', fetchTokens)
 }
 
+const chainsTitles = {
+  bsc: 'Binance',
+  polygon: 'Polygon',
+}
+
 const useTokenomicsConfig = (chain = 'bsc') => {
   const { isLoading, data: tokensInfo } = useGetTokensData()
 
@@ -56,23 +61,24 @@ const useTokenomicsConfig = (chain = 'bsc') => {
         [TokenomicsTokenType.GRVX]: {
           seeMore: [
             {
-              text: 'DEX Guru (Binance Network)',
-              link: 'https://dex.guru/token/0xa349fd455a457467d31ca8db59052daebbbcc108-bsc',
+              text: `DEX Guru (${chainsTitles[chain]} Network)`,
+              link:
+                chain === 'bsc'
+                  ? 'https://dex.guru/token/0xa349fd455a457467d31ca8db59052daebbbcc108-bsc'
+                  : 'https://dex.guru/token/0xd322da59c420e0827e31c40f1886346fb19c6687-polygon',
             },
             {
-              text: 'DEX Guru (Polygon Network)',
-              link: 'https://dex.guru/token/0xd322da59c420e0827e31c40f1886346fb19c6687-polygon',
-            },
-            {
-              text: 'Token statistics on DEX analytics (Binance Network)',
-              link: 'https://info.gravis.finance/token/0xa349fd455a457467d31ca8db59052daebbbcc108?network=binance',
-            },
-            {
-              text: 'Token statistics on DEX analytics (Polygon Network)',
-              link: 'https://info.gravis.finance/token/0xd322da59c420e0827e31c40f1886346fb19c6687?network=polygon',
+              text: `Token statistics on DEX analytics (${chainsTitles[chain]} Network)`,
+              link:
+                chain === 'bsc'
+                  ? 'https://info.gravis.finance/token/0xa349fd455a457467d31ca8db59052daebbbcc108?network=binance'
+                  : 'https://info.gravis.finance/token/0xd322da59c420e0827e31c40f1886346fb19c6687?network=polygon',
             },
           ],
-          buyToken: `${process.env.REACT_APP_EXCHANGE_URL}/swap?network=56&inputCurrency=0xe9e7cea3dedca5984780bafc599bd69add087d56&outputCurrency=0xa349fD455A457467D31cA8Db59052dAEBBBcc108`,
+          buyToken:
+            chain === 'bsc'
+              ? `${process.env.REACT_APP_EXCHANGE_URL}/swap?network=56&inputCurrency=0xe9e7cea3dedca5984780bafc599bd69add087d56&outputCurrency=0xa349fD455A457467D31cA8Db59052dAEBBBcc108`
+              : `${process.env.REACT_APP_EXCHANGE_URL}/swap?network=137&inputCurrency=0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174&outputCurrency=0xd322da59c420e0827e31c40f1886346fb19c6687`,
         },
       },
       cells: {
@@ -82,8 +88,8 @@ const useTokenomicsConfig = (chain = 'bsc') => {
             text: foundGRVS?.price ? `$${foundGRVS?.price}` : 'Coming soon',
           },
           {
-            title: 'Chains',
-            text: 'BSC, Polygon',
+            title: 'Chain',
+            text: chainsTitles[chain],
           },
           {
             title: 'Max supply',
@@ -104,8 +110,8 @@ const useTokenomicsConfig = (chain = 'bsc') => {
             text: `Coming soon`,
           },
           {
-            title: 'Chains',
-            text: 'BSC, Polygon',
+            title: 'Chain',
+            text: chainsTitles[chain],
           },
           {
             title: 'Circulation supply',
@@ -187,7 +193,15 @@ loot boxes"
         ],
       },
     }
-  }, [foundGRVS?.burned, foundGRVS?.live_count, foundGRVS?.price, foundGRVX?.burned, foundGRVX?.live_count, isLoading])
+  }, [
+    chain,
+    foundGRVS?.burned,
+    foundGRVS?.live_count,
+    foundGRVS?.price,
+    foundGRVX?.burned,
+    foundGRVX?.live_count,
+    isLoading,
+  ])
 }
 
 export default useTokenomicsConfig
