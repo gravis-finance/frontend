@@ -2184,9 +2184,9 @@
     toformat "^2.0.0"
 
 "@gravis.finance/sdk@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@gravis.finance/sdk/-/sdk-1.0.6.tgz#f0219d8c238b9877fa0d93ee3e045832d5f554d6"
-  integrity sha512-NJx6gtGQ/5nuFQBm6OZXhtzSfQMVSThL2ta5MvIiMt588L1V556uEklOK4hs1pI91rhyVBsg9QXxYlMavCCjaQ==
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/@gravis.finance/sdk/-/sdk-1.0.16.tgz#6f28b6964e6a3b55820f2be6055bc4de1c9212b1"
+  integrity sha512-KeaB7B7D7qqpHZelLV55bc2jKu0qcPFNSnFsz2dX/RMVB6pVCJWgwpkEPVzNvBeeqQ66fb/kNbKi6zITJYEOvw==
   dependencies:
     "@pancakeswap-libs/pancake-swap-core" "^0.1.0"
     big.js "^5.2.2"
@@ -2196,10 +2196,10 @@
     tiny-warning "^1.0.3"
     toformat "^2.0.0"
 
-"@gravis.finance/uikit@^1.3.46":
-  version "1.3.46"
-  resolved "https://registry.yarnpkg.com/@gravis.finance/uikit/-/uikit-1.3.46.tgz#95237889816dcdffc688411414167c56cc31eae0"
-  integrity sha512-eyGijpDaEZ41D+dzmUoP7FW+hmZVNX2YcGNQm52J2XlEvuOuO7duGoQXr47lCvj23vUZ8OfDedO0UouaptOo+g==
+"@gravis.finance/uikit@^1.3.59":
+  version "1.3.59"
+  resolved "https://registry.yarnpkg.com/@gravis.finance/uikit/-/uikit-1.3.59.tgz#7e32ec415e99db10618ffb56212c03dd4a920990"
+  integrity sha512-dX/IcNMYlcClzu5c6T0qogL/faHM4fFCLFGO5as65BMVTsAHXy4EWjEfQ94yh4pKpR58NksCKxf2lSSNIZgECw==
   dependencies:
     "@gravis.finance/sdk" "^1.0.13"
     "@popperjs/core" "^2.9.2"
@@ -6358,6 +6358,11 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
+classnames@^2.2.6:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
+  integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
+
 clean-css@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-4.2.3.tgz#507b5de7d97b48ee53d84adb0160ff6216380f78"
@@ -7281,6 +7286,11 @@ date-fns@^2.17.0:
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.21.3.tgz#8f5f6889d7a96bbcc1f0ea50239b397a83357f9b"
   integrity sha512-HeYdzCaFflc1i4tGbj7JKMjM4cKGYoyxwcIIkHzNgCkX8xXDNJDZXgDDVchIWpN4eQc3lH37WarduXFZJOtxfw==
 
+debounce@^1.2.0:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/debounce/-/debounce-1.2.1.tgz#38881d8f4166a5c5848020c11827b834bcb3e0a5"
+  integrity sha512-XRRe6Glud4rd/ZGQfiV1ruXSfbvfJedlV9Y6zOlP+2K04vBYiJEte6stfFkCP03aMnY5tsipamumUjL14fofug==
+
 debug-fabulous@0.0.X:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/debug-fabulous/-/debug-fabulous-0.0.4.tgz#fa071c5d87484685424807421ca4b16b0b1a0763"
@@ -7835,6 +7845,11 @@ duplexify@^3.2.0, duplexify@^3.4.2, duplexify@^3.6.0:
     inherits "^2.0.1"
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
+
+easy-bem@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/easy-bem/-/easy-bem-1.1.1.tgz#1bfcc10425498090bcfddc0f9c000aba91399e03"
+  integrity sha512-GJRqdiy2h+EXy6a8E6R+ubmqUM08BK0FWNq41k24fup6045biQ8NXxoXimiwegMQvFFV3t1emADdGNL1TlS61A==
 
 ecc-jsbn@~0.1.1:
   version "0.1.2"
@@ -9836,6 +9851,11 @@ growly@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
   integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
+
+gsap@^3.9.1:
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.9.1.tgz#d4c7443540497afee9ddc0824fd0180224e33360"
+  integrity sha512-JSGVYoC6da4pIjdF/yxFU6Rz8OojOIDkbooveZlfNg0+JIoFoRruyfWAEi6R/gUeNcuOiTqUIb0gi1nCNrHf8w==
 
 gulp-sourcemaps@^1.5.2:
   version "1.12.1"
@@ -16079,6 +16099,20 @@ react-i18next@^10.7.0:
     "@babel/runtime" "^7.3.1"
     html-parse-stringify2 "2.0.1"
 
+react-indiana-drag-scroll@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-indiana-drag-scroll/-/react-indiana-drag-scroll-2.1.0.tgz#37654eae8caced01cdecc8bce55f0382871a021d"
+  integrity sha512-Tj94Dv9PkmoKqc9nxK/dzwhtE8pP7NTxmeHqkD8KN0zad1NNE+/JsvRcK4EdqE6CdA2nMESzqPMvv1AzRXdBew==
+  dependencies:
+    classnames "^2.2.6"
+    debounce "^1.2.0"
+    easy-bem "^1.1.1"
+
+react-intersection-observer@^8.33.1:
+  version "8.33.1"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-8.33.1.tgz#8e6442cac7052ed63056e191b7539e423e7d5c64"
+  integrity sha512-3v+qaJvp3D1MlGHyM+KISVg/CMhPiOlO6FgPHcluqHkx4YFCLuyXNlQ/LE6UkbODXlQcLOppfX6UMxCEkUhDLw==
+
 react-is@^16.13.1, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -16116,6 +16150,15 @@ react-query@^3.34.15:
   version "3.34.15"
   resolved "https://registry.yarnpkg.com/react-query/-/react-query-3.34.15.tgz#9e143b7d0aa39c515102a35120d5518ad91b10f6"
   integrity sha512-dOhGLB5RT3p+wWj0rVdAompSg+R9t6oMRk+JhU8DP0tpJM2UyIv3r4Kk0zUkHSxT+QG34hFdrgdqxVWxgeNq4g==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    broadcast-channel "^3.4.1"
+    match-sorter "^6.0.2"
+
+react-query@^3.34.16:
+  version "3.34.16"
+  resolved "https://registry.yarnpkg.com/react-query/-/react-query-3.34.16.tgz#279ea180bcaeaec49c7864b29d1711ee9f152594"
+  integrity sha512-7FvBvjgEM4YQ8nPfmAr+lJfbW95uyW/TVjFoi2GwCkF33/S8ajx45tuPHPFGWs4qYwPy1mzwxD4IQfpUDrefNQ==
   dependencies:
     "@babel/runtime" "^7.5.5"
     broadcast-channel "^3.4.1"
@@ -17703,18 +17746,10 @@ spdx-correct@^3.0.0:
     spdx-expression-parse "^3.0.0"
     spdx-license-ids "^3.0.0"
 
-spdx-exceptions@^2.1.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/spdx-exceptions/-/spdx-exceptions-2.3.0.tgz#3f28ce1a77a00372683eade4a433183527a2163d"
-  integrity sha512-/tTrYOC7PPI1nUAgx34hUpqXuyJG+DTHJTnIULG4rDygi4xu/tfgmq1e1cIRwRzwZgo4NLySi+ricLkZkw4i5A==
-
 spdx-expression-parse@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/spdx-expression-parse/-/spdx-expression-parse-3.0.1.tgz#cf70f50482eefdc98e3ce0a6833e4a53ceeba679"
   integrity sha512-cbqHunsQWnJNE6KhVSMsMeH5H/L9EpymbzqTQ3uLwNCLZ1Q481oWaofqH7nO6V07xlXwY6PhQdQ2IedWx/ZK4Q==
-  dependencies:
-    spdx-exceptions "^2.1.0"
-    spdx-license-ids "^3.0.0"
 
 spdx-license-ids@^3.0.0:
   version "3.0.9"

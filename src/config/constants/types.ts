@@ -104,3 +104,8 @@ export type Campaign = {
   description?: TranslatableText
   badge?: string
 }
+
+export enum TokenomicsTokenType {
+  GRVX = 'GRVX',
+  GRVS = 'GRVS',
+}
