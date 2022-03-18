@@ -101,7 +101,7 @@ const useTokenomicsConfig = (chain = 'bsc') => {
         [TokenomicsTokenType.GRVX]: [
           {
             title: 'Price',
-            text: `$${foundGRVX?.price}`,
+            text: `Coming soon`,
           },
           {
             title: 'Chains',
@@ -187,15 +187,7 @@ loot boxes"
         ],
       },
     }
-  }, [
-    foundGRVS?.burned,
-    foundGRVS?.live_count,
-    foundGRVS?.price,
-    foundGRVX?.burned,
-    foundGRVX?.live_count,
-    foundGRVX?.price,
-    isLoading,
-  ])
+  }, [foundGRVS?.burned, foundGRVS?.live_count, foundGRVS?.price, foundGRVX?.burned, foundGRVX?.live_count, isLoading])
 }
 
 export default useTokenomicsConfig
