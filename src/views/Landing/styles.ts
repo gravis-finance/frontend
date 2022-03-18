@@ -3,7 +3,7 @@ import { Box } from '@gravis.finance/uikit'
 
 type Styles = React.ComponentProps<typeof Box>
 
-export const vh100 = 'calc(var(--vh, 1vh) * 100)'
+export const vh100 = 'calc(var(--vh, 1vh) * 100)' as any
 
 export const fullHeight = {
   minHeight: `min(90rem, ${vh100})`,
