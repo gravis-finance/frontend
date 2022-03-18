@@ -119,9 +119,7 @@ const useTokenomicsConfig = (chain = 'bsc') => {
           },
           {
             title: 'Burned',
-            text: numberWithSpaces(
-              parseInt((Number(foundGRVX?.burned) + Number(foundGRVX?.dead) / 10 ** 18).toString()),
-            ),
+            text: numberWithSpaces(parseInt((Number(foundGRVX?.burned) + Number(foundGRVX?.dead)).toString())),
           },
         ],
       },
