@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Button, Flex, Text, Box } from '@gravis.finance/uikit'
 import { GravisBoldLogo, PublicRoundIcon } from '../../../../components/Svg'
 import * as styles from '../../styles'
+import { goTo } from '../MenuItems'
 
 const MainText = styled(Text)`
   font-family: 'Gotham Pro', serif;
@@ -61,10 +62,17 @@ const MainInfo = () => {
           game. We provide all the necessary instruments for managing your crypto assets on any chain.
         </Description>
         <ButtonsContainer mt={44}>
-          <Button variant="blue" style={{ letterSpacing: '-0.02em' }}>
+          <Button variant="blue" style={{ letterSpacing: '-0.02em' }} onClick={() => goTo('#products')}>
             Show Apps
           </Button>
-          <Button variant="darkened" ml={16} style={{ letterSpacing: '-0.02em' }}>
+          <Button
+            variant="darkened"
+            ml={16}
+            style={{ letterSpacing: '-0.02em' }}
+            as="a"
+            href={process.env.REACT_APP_PITCH_DECK_URL}
+            target="_blank"
+          >
             Read Pitch Deck
           </Button>
         </ButtonsContainer>
@@ -80,6 +88,9 @@ const MainInfo = () => {
           variant="light"
           p="0 1.6rem"
           style={{ height: '3.5rem', fontSize: '1.2rem', letterSpacing: '-0.02em', whiteSpace: 'nowrap' }}
+          as="a"
+          href={process.env.REACT_APP_PITCH_DECK_URL}
+          target="_blank"
         >
           Learn more
         </Button>
