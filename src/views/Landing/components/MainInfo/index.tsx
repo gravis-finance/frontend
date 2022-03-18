@@ -4,6 +4,7 @@ import { Button, Flex, Text, Box } from '@gravis.finance/uikit'
 import { GravisBoldLogo, PublicRoundIcon } from '../../../../components/Svg'
 import * as styles from '../../styles'
 import { goTo } from '../MenuItems'
+import { MouseIcon } from '../Icons'
 
 const MainText = styled(Text)`
   font-family: 'Gotham Pro', serif;
@@ -77,6 +78,7 @@ const MainInfo = () => {
           </Button>
         </ButtonsContainer>
       </Flex>
+      <MouseIcon zIndex={2} />
       <PublicRoundContainer alignItems="center" justifyContent="space-between">
         <Flex alignItems="center">
           <PublicRoundIcon />

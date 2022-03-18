@@ -468,7 +468,7 @@ const Landing = () => {
                   <Button as="a" target="_blank" href={process.env.REACT_APP_EXCHANGE_URL}>
                     Open Gswap
                   </Button>
-                  <Button variant="dark">
+                  <Button variant="dark" as="a" target="_blank" href={process.env.REACT_APP_GSWAP_DOCS_URL}>
                     <ExternalIcon mr="1rem" />
                     <div>Learn more</div>
                   </Button>
