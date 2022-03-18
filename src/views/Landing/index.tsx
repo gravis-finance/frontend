@@ -475,7 +475,7 @@ const Landing = () => {
       <Box className="sticky-container" minHeight="calc(100vh + 500px)" ref={videoLayerRef} id="mobilewallet">
         <Container {...styles.fullHeight} height={styles.vh100} className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
-            <Box width="100%" textAlign="center">
+            <Box width="100%" textAlign={{ _: 'center', md: 'left' }}>
               <Box
                 display="inline-flex"
                 fontSize={{ _: '0.6vh', md: '1rem' }}

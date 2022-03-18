@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Flex, NumericalArrow, Text } from '@gravis.finance/uikit'
+import { Box, Flex, NumericalArrow, Text } from '@gravis.finance/uikit'
 import AppItem from '../AppItem'
 import { AppsConfig } from '../../../../config/constants/apps'
 
@@ -90,9 +90,19 @@ const Apps = () => {
         <NumericalArrow ml="0.6rem" />
       </StyledFlex>
       <AppsContainer isOpen={isOpen}>
-        {AppsConfig.map((app) => (
-          <AppItem app={app} key={app.title} />
-        ))}
+        <Box
+          width="100%"
+          display="grid"
+          gridGap="2rem"
+          gridTemplateColumns={{
+            _: 'repeat(auto-fill, minmax(30rem, 1fr))',
+            md: 'repeat(auto-fill, minmax(40rem, 1fr))',
+          }}
+        >
+          {AppsConfig.map((app) => (
+            <AppItem app={app} key={app.title} />
+          ))}
+        </Box>
       </AppsContainer>
     </Container>
   )
