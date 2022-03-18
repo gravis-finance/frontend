@@ -4,6 +4,7 @@ import { Button, Flex, Text, Box } from '@gravis.finance/uikit'
 import { GravisBoldLogo, PublicRoundIcon } from '../../../../components/Svg'
 import * as styles from '../../styles'
 import { goTo } from '../MenuItems'
+import { MouseIcon } from '../Icons'
 
 const MainText = styled(Text)`
   font-family: 'Gotham Pro', serif;
@@ -49,7 +50,13 @@ const MainInfo = () => {
       flexDirection="column"
       p={{ _: '2.5rem 0', md: '22.9rem 0 5.4rem 0' }}
     >
-      <Flex justifyContent="center" alignItems="center" flexDirection="column" flex={{ _: 1, md: 'initial' }}>
+      <Flex
+        justifyContent="center"
+        alignItems="center"
+        flexDirection="column"
+        flex={{ _: 1, md: 'initial' }}
+        mb="-3rem"
+      >
         <Box alignItems="center" display={{ _: 'none', md: 'flex' }}>
           <GravisBoldLogo />
           <MainText ml="0.8rem">Gravis Finance</MainText>
@@ -77,6 +84,7 @@ const MainInfo = () => {
           </Button>
         </ButtonsContainer>
       </Flex>
+      <MouseIcon zIndex={2} mb="3rem" />
       <PublicRoundContainer alignItems="center" justifyContent="space-between">
         <Flex alignItems="center">
           <PublicRoundIcon />
@@ -89,10 +97,10 @@ const MainInfo = () => {
           p="0 1.6rem"
           style={{ height: '3.5rem', fontSize: '1.2rem', letterSpacing: '-0.02em', whiteSpace: 'nowrap' }}
           as="a"
-          href={process.env.REACT_APP_PITCH_DECK_URL}
+          href="https://public.gravis.finance"
           target="_blank"
         >
-          Learn more
+          Join IDO
         </Button>
       </PublicRoundContainer>
     </Flex>

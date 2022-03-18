@@ -15,6 +15,11 @@ const Container = styled(Flex)`
   border-radius: 1rem;
   margin: 0.5rem;
 
+  @media screen and (max-width: 608px) {
+    width: 12.5rem;
+    height: 9rem;
+  }
+
   //transition: transform 200ms ease-in-out;
   //
   //:hover {
@@ -27,7 +32,12 @@ const Image = styled.img<SpaceProps>`
   max-width: 8rem;
   width: auto;
   object-fit: contain;
-  ${space}//filter: grayscale(1);
+  ${space} //filter: grayscale(1);
+
+  @media screen and (max-width: 608px) {
+    max-height: 5rem;
+    max-width: 7rem;
+  }
 `
 
 type Props = {

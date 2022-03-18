@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { Flex } from '@gravis.finance/uikit'
 import DefaultText from '../../../../components/DefaultText'
@@ -13,8 +13,8 @@ const Container = styled.div`
   overflow: hidden;
 `
 
-const TokenomicsInfoContainer = styled(Flex)<{ activeIndex: number }>`
-  height: 55.5rem;
+const TokenomicsInfoContainer = styled(Flex)<{ activeIndex: number; containerHeight?: number }>`
+  //height: 55.5rem;
   display: block;
   position: relative;
   > div:first-child {
@@ -32,7 +32,8 @@ const TokenomicsInfoContainer = styled(Flex)<{ activeIndex: number }>`
 
   @media screen and (max-width: 852px) {
     //height: ${({ activeIndex }) => (activeIndex ? '170.5rem' : '190.5rem')};
-    height: 100%;
+    //height: 100%;
+    height: ${({ containerHeight }) => `${containerHeight}px` || '100%'};
   }
 `
 
@@ -48,6 +49,14 @@ const StyledDefaultText = styled(DefaultText)`
 const Tokenomics = () => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [activeNetworkIndex, setActiveNetworkIndex] = useState(0)
+
+  const containerRef = useRef(null)
+  const [containerHeight, setContainerHeight] = useState(null)
+
+  useEffect(() => {
+    setContainerHeight(containerRef?.current?.childNodes[activeIndex].offsetHeight)
+  }, [activeIndex, containerRef])
+
   return (
     <Container>
       <Flex alignItems="center" justifyContent="center" flexDirection="column" mb="4rem">
@@ -61,8 +70,8 @@ const Tokenomics = () => {
           <TokenomicNetworksSwitcher activeIndex={activeNetworkIndex} setActiveIndex={setActiveNetworkIndex} />
         </Flex>
       </Flex>
-      <TokenomicsInfoContainer activeIndex={activeIndex}>
-        <TokenomicInfo />
+      <TokenomicsInfoContainer activeIndex={activeIndex} ref={containerRef} containerHeight={containerHeight}>
+        <TokenomicInfo network={activeNetworkIndex === 0 ? 'bsc' : 'polygon'} />
         <TokenomicInfo token={TokenomicsTokenType.GRVX} network={activeNetworkIndex === 0 ? 'bsc' : 'polygon'} />
       </TokenomicsInfoContainer>
     </Container>

@@ -61,7 +61,7 @@ export const MenuItemBase = ({
   href,
   ...props
 }: React.ComponentProps<typeof ButtonBase> & React.HTMLAttributes<HTMLAnchorElement>) => {
-  const { activeLink, setActiveLink } = useActiveLink()
+  const { setActiveLink } = useActiveLink()
 
   const clickHandler = (event: any) => {
     event.preventDefault()
@@ -103,7 +103,7 @@ export const MenuItemBase = ({
     }
   }, [href, setActiveLink])
 
-  return <ButtonBase as="a" data-active={activeLink === href} href={href} onClick={clickHandler} {...props} />
+  return <ButtonBase as="a" href={href} onClick={clickHandler} {...props} />
 }
 
 export const MenuItems = ({ ItemComponent = MenuItemBase, ...props }) => {

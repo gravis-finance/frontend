@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { Box, Flex, NumericalArrow, Text } from '@gravis.finance/uikit'
 import AppItem from '../AppItem'
 import { AppsConfig } from '../../../../config/constants/apps'
+import useMediaQuery from '../../../../hooks/useMediaQuery'
+import { breakpoints } from '../../../../contexts/ThemeContext'
 
 const Container = styled(Flex)`
   width: 7.4rem;
@@ -13,6 +15,7 @@ const Container = styled(Flex)`
 
 const StyledFlex = styled(Flex)<{ isOpen: boolean }>`
   cursor: pointer;
+  user-select: none;
   > svg {
     transition: transform 200ms ease-in-out;
     ${({ isOpen }) => (isOpen ? '' : 'transform: rotate(180deg);')}
@@ -22,7 +25,7 @@ const StyledFlex = styled(Flex)<{ isOpen: boolean }>`
   }
 `
 
-const AppsContainer = styled(Flex)<{ isOpen: boolean }>`
+const AppsContainer = styled(Flex)<{ isOpen: boolean; isMobile?: boolean }>`
   position: absolute;
   width: 100%;
   height: auto;
@@ -60,31 +63,72 @@ const AppsContainer = styled(Flex)<{ isOpen: boolean }>`
     pointer-events: all;
   `
       : ''}
+
+  ${({ isMobile }) =>
+    isMobile
+      ? `
+    overflow: auto;
+    height: calc(100vh - 7rem);
+  `
+      : ''}
 `
 
-const Apps = () => {
-  const [isOpen, setOpen] = useState(false)
+const BlurredBackground = styled(Box)``
 
-  const onClick = (event) => {
-    if (!event.target.closest(Container)) setOpen(false)
-  }
+type Props = {
+  setShowBlurred?: (state: boolean) => void
+}
+
+const Apps: React.FC<Props> = ({ setShowBlurred }) => {
+  const [isOpen, setOpen] = useState(false)
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.md})`)
+  const appContainerRef = useRef(null)
+
+  const setOpenState = useCallback(
+    (state) => {
+      setOpen(state)
+      setShowBlurred(state)
+    },
+    [setShowBlurred],
+  )
+
+  const onClick = useCallback(
+    (event) => {
+      if (isMobile && !event.target.closest(StyledFlex)) setOpenState(false)
+      else if (!event.target.closest(Container)) setOpenState(false)
+    },
+    [isMobile, setOpenState],
+  )
 
   useEffect(() => {
     document.addEventListener('click', onClick)
     return () => {
       document.removeEventListener('click', onClick)
     }
-  }, [isOpen])
+  }, [isOpen, onClick])
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflowY = 'hidden'
+      if (isMobile) appContainerRef?.current?.scrollTo(0, 0)
+    } else document.body.style.overflowY = 'auto'
+  }, [isMobile, isOpen])
 
   return (
     <Container justifyContent="center" alignItems="center">
-      <StyledFlex onClick={() => setOpen(!isOpen)} justifyContent="center" alignItems="center" isOpen={isOpen}>
+      <BlurredBackground />
+      <StyledFlex onClick={() => setOpenState(!isOpen)} justifyContent="center" alignItems="center" isOpen={isOpen}>
         <Text color="black" fontSize="1.2rem" style={{ fontWeight: 500 }}>
           Apps
         </Text>
         <NumericalArrow ml="0.6rem" />
       </StyledFlex>
-      <AppsContainer isOpen={isOpen} top={isOpen ? { _: '7rem', md: '10rem' } : '-100%'}>
+      <AppsContainer
+        isOpen={isOpen}
+        top={isOpen ? { _: '7rem', md: '10rem' } : '-100%'}
+        isMobile={isMobile}
+        ref={appContainerRef}
+      >
         <Box
           width="100%"
           display="grid"

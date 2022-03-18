@@ -22,18 +22,13 @@ const menuLinks: MenuEntry[] = [
         external: true,
       },
       {
-        label: 'mainMenu.hangar',
-        href: `${process.env.REACT_APP_ASTEROID_MINING_URL}/hangar`,
+        label: 'mainMenu.missions',
+        href: `${process.env.REACT_APP_ASTEROID_MINING_URL}/missions`,
         external: true,
       },
       {
         label: 'mainMenu.buyLootBoxes',
         href: `${process.env.REACT_APP_ASTEROID_MINING_URL}/lootboxes`,
-        external: true,
-      },
-      {
-        label: 'mainMenu.firstMates',
-        href: `${process.env.REACT_APP_ASTEROID_MINING_URL}/first-mate-search`,
         external: true,
       },
       {
@@ -145,12 +140,12 @@ const menuLinks: MenuEntry[] = [
     items: [
       {
         label: 'mainMenu.pitchDeck',
-        href: 'https://drive.google.com/file/d/13HIl141DzXV-YHemaoG5jvK2c95cWW7L/view?usp=sharing',
+        href: 'https://drive.google.com/file/d/1IDezUTH4W1YY2NqAEo2amxUAk7u3BLhE/view',
         external: true,
       },
       {
         label: 'mainMenu.tokenomics',
-        href: 'https://docs.google.com/spreadsheets/d/1JfHN1J_inbAbANSCuspO8CIWuyiCDLB36pcuHItW0eM/edit#gid=1509806282',
+        href: 'https://docs.google.com/spreadsheets/d/1avYbOzMg7vDt5Gmw16V8WomZG8RfHtaFGEUeZHOZ8vw',
         external: true,
       },
       {
