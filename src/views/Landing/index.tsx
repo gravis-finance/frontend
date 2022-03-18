@@ -140,14 +140,14 @@ const Landing = () => {
       })
 
       if (anim2Ref.current && layer1Ref.current) {
-        const htmlFontSize = Number(window.getComputedStyle(document.documentElement).fontSize.replace('px', ''))
-        const scale = window.innerWidth / htmlFontSize / (isMobile ? 0.25 : 0.4114285714285714)
-        const x = window.innerWidth / htmlFontSize / (isMobile ? 1.1363636363636365 : 1.44)
+        const htmlFontSize = () => Number(window.getComputedStyle(document.documentElement).fontSize.replace('px', ''))
+        const scale = () => window.innerWidth / htmlFontSize() / (isMobile ? 0.25 : 0.4114285714285714)
+        const x = () => window.innerWidth / htmlFontSize() / (isMobile ? 1.1363636363636365 : 1.44)
 
         gsap.from(anim2Ref.current, {
           keyframes: {
-            '0%': { scale: () => scale, x: () => `${x}rem` },
-            '30%': { scale: () => scale / 3, x: () => `${x / 3}rem` },
+            '0%': { scale: () => scale(), x: () => `${x()}rem` },
+            '30%': { scale: () => scale() / 3, x: () => `${x() / 3}rem` },
             '100%': {
               scale: 1,
               x: 0,
@@ -264,7 +264,7 @@ const Landing = () => {
                   }}
                 >
                   {AppsConfig.map((app) => (
-                    <AppItem app={app} key={app.title} width="auto" />
+                    <AppItem app={app} key={app.title} />
                   ))}
                 </Box>
               </Box>

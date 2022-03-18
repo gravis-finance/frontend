@@ -32,14 +32,14 @@ export const MobileMenu = styled(({ open, onClose, ...props }: Props) => {
       </Box>
     </Box>
   )
-})`
+})<React.ComponentProps<typeof Box>>`
   position: fixed;
   top: 0;
   left: 0;
   background-color: #16181a;
   transform: translateX(${(props) => (props.open ? '0' : '-100%')});
   padding-top: 5.5rem;
-  z-index: 2;
+  z-index: 3;
   width: 100%;
   height: 100%;
   transition: transform 0.3s ease-out;

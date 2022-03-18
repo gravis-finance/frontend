@@ -13,7 +13,7 @@ import { Button } from '../Button'
 import { CloseIcon } from '../Icons'
 
 const Root = styled(Box).attrs((props) => ({
-  zIndex: 3,
+  zIndex: 4,
   height: { _: '5.5rem', md: '7rem' },
   ...props,
 }))`
@@ -92,7 +92,7 @@ const MobileHeader = () => {
 
   return (
     <>
-      <Root zIndex={3} display={{ _: 'block', md: 'none' }}>
+      <Root display={{ _: 'block', md: 'none' }}>
         <Flex {...styles.content} display="flex" alignItems="center" justifyContent="space-between">
           <Flex alignItems="center">
             <IconButton onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <CloseIcon /> : <MenuIcon />}</IconButton>
@@ -101,7 +101,7 @@ const MobileHeader = () => {
           <Apps />
         </Flex>
       </Root>
-      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
+      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} display={{ _: 'block', md: 'none' }} />
     </>
   )
 }
