@@ -9,7 +9,7 @@ export const useResponsiveness = () => {
   React.useLayoutEffect(() => {
     let tId = 0
     document.documentElement.style.fontSize = isMobile
-      ? 'min(10px, calc(10 * 1vw * 100 / 375)'
+      ? 'min(10px, min(calc(10 * 1vw * 100 / 375), calc(10 * 1vh * 100 / 675)))'
       : 'min(calc(10 * 1vw * 100 / 1440), calc(10 * 1vh * 100 / 900))'
 
     const setVh = () => {

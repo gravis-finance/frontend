@@ -440,7 +440,7 @@ const Landing = () => {
               height="72rem"
               maxHeight={styles.vh100minusHeader}
             >
-              <Box ml={{ _: '1.5rem', sm: '20rem', md: '75rem' }}>
+              <Box ml={{ _: 'auto', md: '75rem' }} mr={{ _: '10rem', md: 0 }}>
                 <Flex alignItems="center" gridGap="1.287rem" fontSize="3.03rem" fontWeight={500} lineHeight="120%">
                   <GswapIcon />
                   <div>Gswap</div>
