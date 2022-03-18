@@ -60,7 +60,7 @@ const Team = () => {
         ))}
       </MembersContainer>
       <Flex justifyContent="center" mt="2.4rem">
-        {!showAll && (
+        {!showAll && isMobile && (
           <Button variant="light" onClick={() => setShowAll(!showAll)}>
             Show all
           </Button>

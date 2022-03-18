@@ -73,17 +73,31 @@ const AppsContainer = styled(Flex)<{ isOpen: boolean; isMobile?: boolean }>`
       : ''}
 `
 
-const Apps = () => {
+const BlurredBackground = styled(Box)``
+
+type Props = {
+  setShowBlurred?: (state: boolean) => void
+}
+
+const Apps: React.FC<Props> = ({ setShowBlurred }) => {
   const [isOpen, setOpen] = useState(false)
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.md})`)
   const appContainerRef = useRef(null)
 
+  const setOpenState = useCallback(
+    (state) => {
+      setOpen(state)
+      setShowBlurred(state)
+    },
+    [setShowBlurred],
+  )
+
   const onClick = useCallback(
     (event) => {
-      if (isMobile && !event.target.closest(StyledFlex)) setOpen(false)
-      else if (!event.target.closest(Container)) setOpen(false)
+      if (isMobile && !event.target.closest(StyledFlex)) setOpenState(false)
+      else if (!event.target.closest(Container)) setOpenState(false)
     },
-    [isMobile],
+    [isMobile, setOpenState],
   )
 
   useEffect(() => {
@@ -94,15 +108,16 @@ const Apps = () => {
   }, [isOpen, onClick])
 
   useEffect(() => {
-    if (isMobile && isOpen) {
+    if (isOpen) {
       document.body.style.overflowY = 'hidden'
-      appContainerRef?.current?.scrollTo(0, 0)
+      if (isMobile) appContainerRef?.current?.scrollTo(0, 0)
     } else document.body.style.overflowY = 'auto'
   }, [isMobile, isOpen])
 
   return (
     <Container justifyContent="center" alignItems="center">
-      <StyledFlex onClick={() => setOpen(!isOpen)} justifyContent="center" alignItems="center" isOpen={isOpen}>
+      <BlurredBackground />
+      <StyledFlex onClick={() => setOpenState(!isOpen)} justifyContent="center" alignItems="center" isOpen={isOpen}>
         <Text color="black" fontSize="1.2rem" style={{ fontWeight: 500 }}>
           Apps
         </Text>

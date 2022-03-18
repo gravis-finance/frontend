@@ -71,7 +71,7 @@ const Tokenomics = () => {
         </Flex>
       </Flex>
       <TokenomicsInfoContainer activeIndex={activeIndex} ref={containerRef} containerHeight={containerHeight}>
-        <TokenomicInfo />
+        <TokenomicInfo network={activeNetworkIndex === 0 ? 'bsc' : 'polygon'} />
         <TokenomicInfo token={TokenomicsTokenType.GRVX} network={activeNetworkIndex === 0 ? 'bsc' : 'polygon'} />
       </TokenomicsInfoContainer>
     </Container>

@@ -98,7 +98,6 @@ const LinksModal = ({ links, token, onDismiss = defaultOnDismiss }) => {
 }
 
 const TokenomicInfo: React.FC<Props> = ({ token = TokenomicsTokenType.GRVS, network }) => {
-  // TODO: Add chain support
   const { tokenomicsConfig, cells, isLoading, links } = useTokenomicsConfig(network)
 
   const [openLinksModal] = useModal(<LinksModal links={links[token].seeMore} token={token} />)
