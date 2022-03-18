@@ -6,11 +6,11 @@ import PartnersItem from '../PartnersItem'
 import PartnersConfig from '../../../../config/constants/partners'
 
 const Container = styled.div`
-  padding: 5.7rem 7.5rem 9rem 8rem;
+  padding: 10.7rem 7.5rem 9rem 8rem;
   background-color: #090d11;
 
   @media screen and (max-width: 852px) {
-    padding: 5.7rem 3rem 9rem 3rem;
+    padding: 10.7rem 3rem 9rem 3rem;
   }
 `
 

@@ -545,10 +545,10 @@ const Landing = () => {
       <Container id="roadmap">
         <Roadmap />
       </Container>
-      <Container id="team">
+      <Container id="team" style={{ height: 'auto' }}>
         <Team />
       </Container>
-      <Container id="tokenomics">
+      <Container id="tokenomics" style={{ height: 'auto' }}>
         <Box {...styles.content} overflowX="hidden">
           <Tokenomics />
         </Box>
