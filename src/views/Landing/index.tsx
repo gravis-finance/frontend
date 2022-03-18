@@ -299,8 +299,15 @@ const Landing = () => {
                   Includes various missions, staking crafting, equipment upgrades, lands and more
                 </Box>
                 <Flex mt="4rem" gridGap="1.5rem">
-                  <Button>Play demo</Button>
-                  <Button variant="dark">
+                  <Button as="a" target="_blank" href={`${process.env.REACT_APP_ASTEROID_MINING_URL}/missions`}>
+                    Play demo
+                  </Button>
+                  <Button
+                    variant="dark"
+                    as="a"
+                    target="_blank"
+                    href={`${process.env.REACT_APP_ASTEROID_MINING_URL}/home`}
+                  >
                     <ExternalIcon mr="1rem" />
                     <div>Learn more</div>
                   </Button>
@@ -322,7 +329,7 @@ const Landing = () => {
                 alignItems="center"
                 height="100%"
               >
-                <Box ml={{ _: '1.5rem', sm: '24rem', md: '75rem' }} mr={{ _: '1.5rem', sm: 0 }}>
+                <Box ml={{ _: '1.5rem', sm: 'auto', md: '75rem' }} mr={{ _: '1.5rem', sm: '10rem', md: 0 }}>
                   <Flex alignItems="center" gridGap="1.287rem" fontSize="3.03rem" fontWeight={500} lineHeight="120%">
                     <GmartLogo />
                     <div>Gmart</div>
@@ -345,7 +352,9 @@ const Landing = () => {
                     portfolio.
                   </Box>
                   <Flex mt="4rem" gridGap="1.5rem">
-                    <Button>Explore</Button>
+                    <Button as="a" target="_blank" href={process.env.REACT_APP_GMART_URL}>
+                      Explore
+                    </Button>
                     <Button variant="dark">
                       <ExternalIcon mr="1rem" />
                       <div>Learn more</div>
@@ -402,7 +411,7 @@ const Landing = () => {
                     mt="4.5rem"
                     width={{ _: '30rem', sm: '35.5rem' } as any}
                     height="5rem"
-                    className="object-contain"
+                    className="object-contain pointer-events-none"
                   />
                 </Box>
                 <Box
@@ -414,6 +423,7 @@ const Landing = () => {
                   bottom={0}
                   right="18rem"
                   display={{ _: 'none', md: 'block' }}
+                  className="pointer-events-none"
                 />
               </Flex>
             </Box>
@@ -434,7 +444,7 @@ const Landing = () => {
               height="72rem"
               maxHeight={styles.vh100minusHeader}
             >
-              <Box ml={{ _: 'auto', md: '75rem' }} mr={{ _: '10rem', md: 0 }}>
+              <Box ml={{ _: '1.5rem', sm: 'auto', md: '75rem' }} mr={{ _: '1rem', sm: '10rem', md: 0 }}>
                 <Flex alignItems="center" gridGap="1.287rem" fontSize="3.03rem" fontWeight={500} lineHeight="120%">
                   <GswapIcon />
                   <div>Gswap</div>
@@ -455,7 +465,9 @@ const Landing = () => {
                   We offer several features for decentralized trading. Swapping, liquidity pool, migration and more.
                 </Box>
                 <Flex mt="4rem" gridGap="1.5rem">
-                  <Button>Open Gswap</Button>
+                  <Button as="a" target="_blank" href={process.env.REACT_APP_EXCHANGE_URL}>
+                    Open Gswap
+                  </Button>
                   <Button variant="dark">
                     <ExternalIcon mr="1rem" />
                     <div>Learn more</div>
