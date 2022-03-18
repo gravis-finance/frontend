@@ -127,90 +127,88 @@ const Landing = () => {
   React.useEffect(() => {
     ScrollTrigger.refresh()
 
-    document.body.onload = () => {
-      if (layer1Ref.current && anim1Ref.current) {
-        gsap.from(anim1Ref.current, {
-          opacity: 0,
+    if (layer1Ref.current && anim1Ref.current) {
+      gsap.to(anim1Ref.current, {
+        opacity: 1,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: layer1Ref.current,
+          scrub: 1,
+          start: 'top top',
+          end: 'bottom-=500 bottom',
+        },
+      })
+
+      if (anim2Ref.current && layer1Ref.current) {
+        const htmlFontSize = Number(window.getComputedStyle(document.documentElement).fontSize.replace('px', ''))
+        const scale = window.innerWidth / htmlFontSize / (isMobile ? 0.25 : 0.4114285714285714)
+        const x = window.innerWidth / htmlFontSize / (isMobile ? 1.1363636363636365 : 1.44)
+
+        gsap.from(anim2Ref.current, {
+          keyframes: {
+            '0%': { scale: () => scale, x: () => `${x}rem` },
+            '30%': { scale: () => scale / 3, x: () => `${x / 3}rem` },
+            '100%': {
+              scale: 1,
+              x: 0,
+            },
+          },
           ease: 'none',
           scrollTrigger: {
             trigger: layer1Ref.current,
             scrub: 1,
             start: 'top top',
             end: 'bottom-=500 bottom',
-          },
-        })
-
-        if (anim2Ref.current && layer1Ref.current) {
-          const htmlFontSize = Number(window.getComputedStyle(document.documentElement).fontSize.replace('px', ''))
-          const scale = window.innerWidth / htmlFontSize / (isMobile ? 0.25 : 0.4114285714285714)
-          const x = window.innerWidth / htmlFontSize / (isMobile ? 1.1363636363636365 : 1.44)
-
-          gsap.from(anim2Ref.current, {
-            keyframes: {
-              '0%': { scale: () => scale, x: () => `${x}rem` },
-              '30%': { scale: () => scale / 3, x: () => `${x / 3}rem` },
-              '100%': {
-                scale: 1,
-                x: 0,
-              },
+            onUpdate: (self) => {
+              if (layer2Ref.current) {
+                layer2Ref.current.style['pointer-events'] = self.progress > 0.5 ? 'all' : 'none'
+              }
             },
-            ease: 'none',
-            scrollTrigger: {
-              trigger: layer1Ref.current,
-              scrub: 1,
-              start: 'top top',
-              end: 'bottom-=500 bottom',
-              onUpdate: (self) => {
-                if (layer2Ref.current) {
-                  layer2Ref.current.style['pointer-events'] = self.progress > 0.5 ? 'all' : 'none'
-                }
-              },
-            },
-          })
-        }
-      }
-
-      if (!isMobile && anim3Ref.current) {
-        gsap.to(anim3Ref.current, {
-          opacity: 0,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: layer4Ref.current,
-            scrub: 1,
-            start: 'top bottom',
-            end: 'top top',
           },
         })
       }
-
-      if (anim4Ref.current) {
-        ScrollTrigger.create({
-          trigger: layer3Ref.current,
-          scrub: 1,
-          start: 'top+=100vh top',
-          end: 'bottom-=100vh bottom',
-          onUpdate: ({ progress }) => {
-            if (progress >= 0 && progress <= 1) {
-              anim4Ref.current.scrollTop = (anim4Ref.current.scrollHeight - anim4Ref.current.offsetHeight) * progress
-            }
-          },
-        })
-      }
-
-      if (videoLayerRef.current) {
-        ScrollTrigger.create({
-          trigger: videoLayerRef.current,
-          start: 'top center',
-          end: 'bottom center',
-          onEnter: () => videoRef.current.play(),
-          onEnterBack: () => videoRef.current.play(),
-          onLeave: () => videoRef.current.pause(),
-          onLeaveBack: () => videoRef.current.pause(),
-        })
-      }
-
-      setLoading(false)
     }
+
+    if (!isMobile && anim3Ref.current) {
+      gsap.to(anim3Ref.current, {
+        opacity: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: layer4Ref.current,
+          scrub: 1,
+          start: 'top bottom',
+          end: 'top top',
+        },
+      })
+    }
+
+    if (anim4Ref.current) {
+      ScrollTrigger.create({
+        trigger: layer3Ref.current,
+        scrub: 1,
+        start: 'top+=100vh top',
+        end: 'bottom-=100vh bottom',
+        onUpdate: ({ progress }) => {
+          if (progress >= 0 && progress <= 1) {
+            anim4Ref.current.scrollTop = (anim4Ref.current.scrollHeight - anim4Ref.current.offsetHeight) * progress
+          }
+        },
+      })
+    }
+
+    if (videoLayerRef.current) {
+      ScrollTrigger.create({
+        trigger: videoLayerRef.current,
+        start: 'top center',
+        end: 'bottom center',
+        onEnter: () => videoRef.current.play(),
+        onEnterBack: () => videoRef.current.play(),
+        onLeave: () => videoRef.current.pause(),
+        onLeaveBack: () => videoRef.current.pause(),
+      })
+    }
+
+    setLoading(false)
   }, [isMobile])
 
   return (
@@ -231,7 +229,7 @@ const Landing = () => {
               ref={anim1Ref}
               width="100%"
               height="100%"
-              opacity={1}
+              opacity={0}
             />
             <Flex
               position="absolute"
@@ -275,7 +273,13 @@ const Landing = () => {
         </Box>
       </span>
       <Box className="sticky-container" minHeight="calc(100vh + 500px)">
-        <Container zIndex={1} {...styles.fullHeight} ref={layer4Ref} className="sticky-content">
+        <Container
+          zIndex={1}
+          {...styles.fullHeight}
+          height={{ _: styles.vh100, md: 'auto' }}
+          ref={layer4Ref}
+          className="sticky-content"
+        >
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
             <Flex
               width="100%"
@@ -314,7 +318,7 @@ const Landing = () => {
         </Container>
       </Box>
       <Box position="relative" height="auto" minHeight="calc(min(180rem, 200vh) + 200vh)" ref={layer3Ref}>
-        <Container {...styles.fullHeight} className="sticky-content">
+        <Container {...styles.fullHeight} height={{ _: styles.vh100, md: 'auto' }} className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
             <Box width="100%" height="72rem" mb="2rem" borderRadius="2rem" overflow="hidden" ref={anim4Ref}>
               <Flex
@@ -423,7 +427,7 @@ const Landing = () => {
         </Container>
       </Box>
       <Box className="sticky-container" minHeight="calc(100vh + 500px)">
-        <Container {...styles.fullHeight} className="sticky-content">
+        <Container {...styles.fullHeight} height={{ _: styles.vh100, md: 'auto' }} className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
             <Flex
               width="100%"
@@ -436,7 +440,7 @@ const Landing = () => {
               height="72rem"
               maxHeight={styles.vh100minusHeader}
             >
-              <Box ml={{ _: '1.5rem', sm: '75rem' }}>
+              <Box ml={{ _: '1.5rem', sm: '20rem', md: '75rem' }}>
                 <Flex alignItems="center" gridGap="1.287rem" fontSize="3.03rem" fontWeight={500} lineHeight="120%">
                   <GswapIcon />
                   <div>Gswap</div>
@@ -469,7 +473,7 @@ const Landing = () => {
         </Container>
       </Box>
       <Box className="sticky-container" minHeight="calc(100vh + 500px)" ref={videoLayerRef} id="mobilewallet">
-        <Container {...styles.fullHeight} className="sticky-content">
+        <Container {...styles.fullHeight} height={{ _: styles.vh100, md: 'auto' }} className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
             <Box width="100%" textAlign="center">
               <Box
@@ -518,10 +522,15 @@ const Landing = () => {
                   <Box as="br" display={{ _: 'none', sm: 'block' }} />
                   and exchanging crypto assets using a smartphone
                 </Box>
-                <Flex mt={{ _: '1rem', md: '3.5rem' }} gridGap="1.5rem" flexDirection={{ _: 'column', sm: 'row' }}>
+                <Box
+                  display="inline-flex"
+                  mt={{ _: '1rem', md: '3.5rem' }}
+                  gridGap="1.5rem"
+                  flexDirection={{ _: 'column', sm: 'row' }}
+                >
                   <ComingSoon variant="apple" />
                   <ComingSoon variant="android" />
-                </Flex>
+                </Box>
               </Box>
             </Box>
           </Box>
