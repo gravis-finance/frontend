@@ -273,13 +273,7 @@ const Landing = () => {
         </Box>
       </span>
       <Box className="sticky-container" minHeight="calc(100vh + 500px)">
-        <Container
-          zIndex={1}
-          {...styles.fullHeight}
-          height={{ _: styles.vh100, md: 'auto' }}
-          ref={layer4Ref}
-          className="sticky-content"
-        >
+        <Container zIndex={1} {...styles.fullHeight} height={styles.vh100} ref={layer4Ref} className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
             <Flex
               width="100%"
@@ -427,7 +421,7 @@ const Landing = () => {
         </Container>
       </Box>
       <Box className="sticky-container" minHeight="calc(100vh + 500px)">
-        <Container {...styles.fullHeight} height={{ _: styles.vh100, md: 'auto' }} className="sticky-content">
+        <Container {...styles.fullHeight} height={styles.vh100} className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
             <Flex
               width="100%"
