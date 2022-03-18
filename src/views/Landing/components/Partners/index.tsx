@@ -12,6 +12,9 @@ const Container = styled.div`
   @media screen and (max-width: 852px) {
     padding: 10.7rem 3rem 9rem 3rem;
   }
+  @media screen and (max-width: 608px) {
+    padding: 10.7rem 0.8rem 9rem 0.8rem;
+  }
 `
 
 const PartnersContainer = styled(Flex)`
