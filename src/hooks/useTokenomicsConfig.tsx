@@ -93,7 +93,7 @@ const useTokenomicsConfig = (chain = 'bsc') => {
           },
           {
             title: 'Max supply',
-            text: '1 000 000',
+            text: '150 000 000',
           },
           {
             title: 'Circulation supply',
