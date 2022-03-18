@@ -50,7 +50,13 @@ const MainInfo = () => {
       flexDirection="column"
       p={{ _: '2.5rem 0', md: '22.9rem 0 5.4rem 0' }}
     >
-      <Flex justifyContent="center" alignItems="center" flexDirection="column" flex={{ _: 1, md: 'initial' }}>
+      <Flex
+        justifyContent="center"
+        alignItems="center"
+        flexDirection="column"
+        flex={{ _: 1, md: 'initial' }}
+        mb="-3rem"
+      >
         <Box alignItems="center" display={{ _: 'none', md: 'flex' }}>
           <GravisBoldLogo />
           <MainText ml="0.8rem">Gravis Finance</MainText>
@@ -78,7 +84,7 @@ const MainInfo = () => {
           </Button>
         </ButtonsContainer>
       </Flex>
-      <MouseIcon zIndex={2} />
+      <MouseIcon zIndex={2} mb="3rem" />
       <PublicRoundContainer alignItems="center" justifyContent="space-between">
         <Flex alignItems="center">
           <PublicRoundIcon />
