@@ -318,7 +318,7 @@ const Landing = () => {
         </Container>
       </Box>
       <Box position="relative" height="auto" minHeight="calc(min(180rem, 200vh) + 200vh)" ref={layer3Ref}>
-        <Container {...styles.fullHeight} height={{ _: styles.vh100, md: 'auto' }} className="sticky-content">
+        <Container {...styles.fullHeight} height={styles.vh100} className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
             <Box width="100%" height="72rem" mb="2rem" borderRadius="2rem" overflow="hidden" ref={anim4Ref}>
               <Flex
