@@ -10,16 +10,23 @@ const Container = styled(Flex)`
   height: 34.7rem;
 `
 
+const IconWrapper = styled(Flex)<{ backgroundColor: string }>`
+  background: ${({ backgroundColor }) => backgroundColor};
+  border-radius: 100%;
+`
+
 type Props = React.ComponentProps<typeof Flex> & {
   app: AppItemType
 }
 
 const AppItem: React.FC<Props> = ({ app, ...props }) => {
-  const { title, description, icon: Icon, href } = app
+  const { title, description, icon: Icon, href, backgroundColor } = app
   return (
     <Container alignItems="center" flexDirection="column" p="3rem" justifyContent="space-between" {...props}>
       <Flex alignItems="center" flexDirection="column">
-        <Icon />
+        <IconWrapper justifyContent="center" backgroundColor={backgroundColor}>
+          <Icon />
+        </IconWrapper>
         <Text fontSize="2.4rem" style={{ fontWeight: 800, letterSpacing: '-0.02em' }} mt={20}>
           {title}
         </Text>
