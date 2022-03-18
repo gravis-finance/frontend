@@ -3,7 +3,7 @@ import { SvgProps } from '@gravis.finance/uikit'
 
 const Icon: React.FC<SvgProps> = (props) => {
   return (
-    <svg width="81" height="80" viewBox="0 0 81 80" fill="none" {...props}>
+    <svg width="8.1rem" height="8rem" viewBox="0 0 81 80" fill="none" {...props}>
       <rect x="0.666992" width="80" height="80" rx="40" fill="url(#paint0_radial_11805_1409)" />
       <path
         opacity="0.4"
