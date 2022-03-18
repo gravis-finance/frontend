@@ -107,7 +107,7 @@ const useTokenomicsConfig = (chain = 'bsc') => {
         [TokenomicsTokenType.GRVX]: [
           {
             title: 'Price',
-            text: `Coming soon`,
+            text: foundGRVX?.price ? `$${foundGRVX?.price}` : 'Coming soon',
           },
           {
             title: 'Chain',
@@ -200,6 +200,7 @@ loot boxes"
     foundGRVS?.price,
     foundGRVX?.burned,
     foundGRVX?.live_count,
+    foundGRVX?.price,
     isLoading,
   ])
 }

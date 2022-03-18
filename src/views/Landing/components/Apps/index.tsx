@@ -73,6 +73,8 @@ const AppsContainer = styled(Flex)<{ isOpen: boolean; isMobile?: boolean }>`
       : ''}
 `
 
+const BlurredBackground = styled(Box)``
+
 const Apps = () => {
   const [isOpen, setOpen] = useState(false)
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.md})`)
@@ -102,6 +104,7 @@ const Apps = () => {
 
   return (
     <Container justifyContent="center" alignItems="center">
+      <BlurredBackground />
       <StyledFlex onClick={() => setOpen(!isOpen)} justifyContent="center" alignItems="center" isOpen={isOpen}>
         <Text color="black" fontSize="1.2rem" style={{ fontWeight: 500 }}>
           Apps
