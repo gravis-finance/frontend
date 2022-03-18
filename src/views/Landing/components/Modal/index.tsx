@@ -15,7 +15,7 @@ const appear = keyframes`
 `
 
 const Overlay = styled(ModalOverlay)`
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   cursor: ${(props) => (props.onClick ? 'pointer' : 'default')};
 `
 

@@ -302,12 +302,7 @@ const Landing = () => {
                   <Button as="a" target="_blank" href={`${process.env.REACT_APP_ASTEROID_MINING_URL}/missions`}>
                     Play demo
                   </Button>
-                  <Button
-                    variant="dark"
-                    as="a"
-                    target="_blank"
-                    href={`${process.env.REACT_APP_ASTEROID_MINING_URL}/home`}
-                  >
+                  <Button variant="dark" as="a" target="_blank" href={process.env.REACT_APP_EVERVOID_DOCS_URL}>
                     <ExternalIcon mr="1rem" />
                     <div>Learn more</div>
                   </Button>
@@ -355,7 +350,7 @@ const Landing = () => {
                     <Button as="a" target="_blank" href={process.env.REACT_APP_GMART_URL}>
                       Explore
                     </Button>
-                    <Button variant="dark">
+                    <Button variant="dark" as="a" target="_blank" href={process.env.REACT_APP_GMART_DOCS_URL}>
                       <ExternalIcon mr="1rem" />
                       <div>Learn more</div>
                     </Button>
@@ -468,7 +463,7 @@ const Landing = () => {
                   <Button as="a" target="_blank" href={process.env.REACT_APP_EXCHANGE_URL}>
                     Open Gswap
                   </Button>
-                  <Button variant="dark">
+                  <Button variant="dark" as="a" target="_blank" href={process.env.REACT_APP_GSWAP_DOCS_URL}>
                     <ExternalIcon mr="1rem" />
                     <div>Learn more</div>
                   </Button>
