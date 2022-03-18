@@ -2,8 +2,11 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Flex, Box } from '@gravis.finance/uikit'
 import GravisLogo from '../../../../components/Svg/Icons/GravisLogo'
-// import TokenInfo from '../../../../components/TokenInfo'
-// import { GRVSFilledLogo, GRVXFilledLogo } from '../../../../components/Svg'
+import TokenInfo from '../../../../components/TokenInfo'
+import {
+  GRVSFilledLogo,
+  // , GRVXFilledLogo
+} from '../../../../components/Svg'
 import Apps from '../Apps'
 // import { useGetTokensData } from '../../../../hooks/useTokenomicsConfig'
 import { MenuItems, MenuItemBase } from '../MenuItems'
@@ -45,22 +48,22 @@ const MenuItem = styled(MenuItemBase)<{ active?: boolean }>`
   }
 `
 
-// const TokensContainer = styled(Flex)`
-//   > div:not(:last-child) {
-//     margin-right: 2.2rem;
-//   }
-// `
-//
-// const TokenText = styled(MenuItem)`
-//   font-size: 1.2rem;
-//   line-height: 1.5rem;
-//   color: white;
-//   cursor: pointer;
-//
-//   :hover {
-//     color: rgba(255, 255, 255, 0.5);
-//   }
-// `
+const TokensContainer = styled(Flex)`
+  > div:not(:last-child) {
+    margin-right: 2.2rem;
+  }
+`
+
+const TokenText = styled(MenuItem)`
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  color: white;
+  cursor: pointer;
+
+  :hover {
+    color: rgba(255, 255, 255, 0.5);
+  }
+`
 
 const IconButton = styled(Button)`
   padding: 1rem;
@@ -149,30 +152,30 @@ const Header = () => {
               <MenuItems ItemComponent={MenuItem} />
             </Flex>
             <Flex>
-              {/*<TokensContainer mr="5.1rem">*/}
-              {/*  <TokenInfo*/}
-              {/*    logo={<GRVSFilledLogo />}*/}
-              {/*    title="GRVS"*/}
-              {/*    text={*/}
-              {/*      <TokenText as="a" href={process.env.REACT_APP_PUBLIC_ROUND_URL} target="_blank">*/}
-              {/*        Join Sale*/}
-              {/*      </TokenText>*/}
-              {/*    }*/}
-              {/*  />*/}
-              {/*  <TokenInfo*/}
-              {/*    logo={<GRVXFilledLogo />}*/}
-              {/*    title="GRVX"*/}
-              {/*    text={*/}
-              {/*      <TokenText*/}
-              {/*        as="a"*/}
-              {/*        href={`${process.env.REACT_APP_EXCHANGE_URL}/swap?network=56&inputCurrency=0xe9e7cea3dedca5984780bafc599bd69add087d56&outputCurrency=0xa349fD455A457467D31cA8Db59052dAEBBBcc108`}*/}
-              {/*        target="_blank"*/}
-              {/*      >*/}
-              {/*        {isLoading ? 'Loading...' : `$${foundGRVXAmount.toFixed(5)}`}*/}
-              {/*      </TokenText>*/}
-              {/*    }*/}
-              {/*  />*/}
-              {/*</TokensContainer>*/}
+              <TokensContainer mr="5.1rem">
+                <TokenInfo
+                  logo={<GRVSFilledLogo />}
+                  title="GRVS"
+                  text={
+                    <TokenText as="a" href={process.env.REACT_APP_PUBLIC_ROUND_URL} target="_blank">
+                      Join Sale
+                    </TokenText>
+                  }
+                />
+                {/*  <TokenInfo*/}
+                {/*    logo={<GRVXFilledLogo />}*/}
+                {/*    title="GRVX"*/}
+                {/*    text={*/}
+                {/*      <TokenText*/}
+                {/*        as="a"*/}
+                {/*        href={`${process.env.REACT_APP_EXCHANGE_URL}/swap?network=56&inputCurrency=0xe9e7cea3dedca5984780bafc599bd69add087d56&outputCurrency=0xa349fD455A457467D31cA8Db59052dAEBBBcc108`}*/}
+                {/*        target="_blank"*/}
+                {/*      >*/}
+                {/*        {isLoading ? 'Loading...' : `$${foundGRVXAmount.toFixed(5)}`}*/}
+                {/*      </TokenText>*/}
+                {/*    }*/}
+                {/*  />*/}
+              </TokensContainer>
               <Apps setShowBlurred={(state) => setShowBlurred(state)} />
             </Flex>
           </Flex>
