@@ -97,7 +97,7 @@ const MainInfo = () => {
           p="0 1.6rem"
           style={{ height: '3.5rem', fontSize: '1.2rem', letterSpacing: '-0.02em', whiteSpace: 'nowrap' }}
           as="a"
-          href={process.env.REACT_APP_PUBLIC_ROUND_URL}
+          href="https://public.gravis.finance"
           target="_blank"
         >
           Join IDO
