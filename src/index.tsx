@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import 'assets/fonts/stylesheet.css'
 import App from './App'
 import Providers from './Providers'
 import './i18n'
