@@ -10,7 +10,7 @@ export const Trailer = (props: React.ComponentProps<typeof Button>) => {
 
   return (
     <>
-      <Button {...props} onClick={() => setOpen(true)}>
+      <Button variant="dark" {...props} onClick={() => setOpen(true)}>
         Watch Trailer
       </Button>
       <Modal onOverlayClick={() => setOpen(false)} open={open}>

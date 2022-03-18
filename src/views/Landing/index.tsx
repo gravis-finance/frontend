@@ -471,17 +471,19 @@ const Landing = () => {
       <Box className="sticky-container" minHeight="calc(100vh + 500px)" ref={videoLayerRef} id="mobilewallet">
         <Container {...styles.fullHeight} className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
-            <Box width="100%">
-              <Flex
-                width="39.2rem"
-                height="79.1rem"
-                position="absolute"
-                bottom={0}
-                left="18rem"
+            <Box width="100%" textAlign="center">
+              <Box
+                display="inline-flex"
+                fontSize={{ _: '0.6vh', md: '1rem' }}
+                width="39.2em"
+                height="79.1em"
+                position={{ _: 'relative', md: 'absolute' }}
+                bottom={{ md: 0 }}
+                left={{ md: '18rem' }}
                 justifyContent="center"
                 alignItems="center"
               >
-                <Box as={Video} muted loop playsInline width="35rem" height="74rem" ref={videoRef}>
+                <Box as={Video} muted loop playsInline width="35em" height="74em" ref={videoRef}>
                   <source src="/landing/video.mp4" type="video/mp4" />
                 </Box>
                 <Box
@@ -493,19 +495,30 @@ const Landing = () => {
                   top={0}
                   left={0}
                 />
-              </Flex>
-              <Box position="absolute" bottom="31rem" right="18rem">
-                <Box fontSize="6.2rem" fontWeight={600}>
+              </Box>
+              <Box
+                position={{ md: 'absolute' }}
+                bottom={{ md: '31rem' }}
+                right={{ md: '18rem' }}
+                mt={{ _: '1rem', md: 0 }}
+              >
+                <Box fontSize={{ _: '3.2rem', sm: '6.2rem' }} fontWeight={600}>
                   Gravis Finance
                   <br />
                   mobile wallet
                 </Box>
-                <Box opacity={0.7} fontSize="1.6rem" mt="1.5rem" fontWeight={500} lineHeight="145%">
+                <Box
+                  opacity={0.7}
+                  fontSize={{ _: '1.4rem', sm: '1.6rem' }}
+                  mt={{ _: '1rem', md: '1.5rem' }}
+                  fontWeight={500}
+                  lineHeight="145%"
+                >
                   Secure innovative solution for storing, receiving, sending
-                  <br />
+                  <Box as="br" display={{ _: 'none', sm: 'block' }} />
                   and exchanging crypto assets using a smartphone
                 </Box>
-                <Flex mt="3.5rem" gridGap="1.5rem">
+                <Flex mt={{ _: '1rem', md: '3.5rem' }} gridGap="1.5rem" flexDirection={{ _: 'column', sm: 'row' }}>
                   <ComingSoon variant="apple" />
                   <ComingSoon variant="android" />
                 </Flex>
