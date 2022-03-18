@@ -284,3 +284,25 @@ export const CloseIcon = (props: React.ComponentProps<typeof Box>) => {
     </Box>
   )
 }
+
+export const MouseIcon = (props: React.ComponentProps<typeof Box>) => {
+  return (
+    <Box
+      as="svg"
+      width="1.9rem"
+      height="4.4rem"
+      viewBox="0 0 19 44"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M6.01251 1.79028H18V17.2903C18 21.9847 14.1944 25.7903 9.5 25.7903C4.80558 25.7903 1 21.9847 1 17.2903V7.32577L6.01251 1.79028Z"
+        stroke="white"
+        strokeWidth="2"
+      />
+      <path d="M10 7.79028L10 11.7903" stroke="white" strokeWidth="2" />
+      <path d="M14.5605 36.8508L9.5 41.9114L4.43945 36.8508" stroke="white" strokeWidth="2" />
+    </Box>
+  )
+}
