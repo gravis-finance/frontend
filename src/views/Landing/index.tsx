@@ -355,7 +355,7 @@ const Landing = () => {
                     <Button as="a" target="_blank" href={process.env.REACT_APP_GMART_URL}>
                       Explore
                     </Button>
-                    <Button variant="dark">
+                    <Button variant="dark" as="a" target="_blank" href={process.env.REACT_APP_GMART_DOCS_URL}>
                       <ExternalIcon mr="1rem" />
                       <div>Learn more</div>
                     </Button>
