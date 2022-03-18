@@ -24,9 +24,9 @@ const StyledFlex = styled(Flex)<{ isOpen: boolean }>`
 
 const AppsContainer = styled(Flex)<{ isOpen: boolean }>`
   position: absolute;
-  width: 128rem;
+  width: 100%;
   height: 40.7rem;
-  right: 8rem;
+  right: 0;
 
   background: #24272e;
   backdrop-filter: blur(200px);
@@ -49,7 +49,7 @@ const AppsContainer = styled(Flex)<{ isOpen: boolean }>`
     transform: rotate(45deg);
     background: #24272e;
     top: -1rem;
-    right: 3.4rem;
+    right: 4.4rem;
   }
 
   opacity: 0;
@@ -93,8 +93,6 @@ const Apps = () => {
         {AppsConfig.map((app) => (
           <AppItem app={app} key={app.title} />
         ))}
-        {/* <AppItem />
-        <AppItem /> */}
       </AppsContainer>
     </Container>
   )
