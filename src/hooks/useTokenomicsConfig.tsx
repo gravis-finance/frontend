@@ -107,7 +107,7 @@ const useTokenomicsConfig = (chain = 'bsc') => {
         [TokenomicsTokenType.GRVX]: [
           {
             title: 'Price',
-            text: `Coming soon`,
+            text: foundGRVX?.price ? `$${foundGRVX?.price}` : 'Coming soon',
           },
           {
             title: 'Chain',
@@ -119,7 +119,9 @@ const useTokenomicsConfig = (chain = 'bsc') => {
           },
           {
             title: 'Burned',
-            text: numberWithSpaces(parseInt(foundGRVX?.burned)),
+            text: numberWithSpaces(
+              parseInt((Number(foundGRVX?.burned) + Number(foundGRVX?.dead) / 10 ** 18).toString()),
+            ),
           },
         ],
       },
@@ -199,7 +201,9 @@ loot boxes"
     foundGRVS?.live_count,
     foundGRVS?.price,
     foundGRVX?.burned,
+    foundGRVX?.dead,
     foundGRVX?.live_count,
+    foundGRVX?.price,
     isLoading,
   ])
 }
