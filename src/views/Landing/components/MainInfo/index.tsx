@@ -100,7 +100,7 @@ const MainInfo = () => {
           href={process.env.REACT_APP_PUBLIC_ROUND_URL}
           target="_blank"
         >
-          Learn more
+          Join IDO
         </Button>
       </PublicRoundContainer>
     </Flex>
