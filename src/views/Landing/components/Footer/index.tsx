@@ -60,7 +60,7 @@ const LinkItem = styled.a`
   }
 `
 
-const FooterNetworks = () => {
+export const FooterNetworks = () => {
   return (
     <StyledWrapper alignItems="center">
       <LinkItem href="https://github.com/gravis-finance" target="_blank" rel="noopener  noreferrer">
