@@ -70,10 +70,13 @@ const Layer1 = styled(Container)`
   height: ${styles.vh100};
 `
 
-const Title = styled(Box).attrs((props) => ({ fontSize: { _: '3.2rem', md: '4.4rem' }, ...props }))`
+const Title = styled(Box).attrs((props) => ({
+  fontSize: { _: '3.2rem', md: '4.4rem' },
+  lineHeight: { _: '110%', md: '4.84rem' },
+  ...props,
+}))`
   font-weight: 600;
   letter-spacing: -0.02em;
-  line-height: 4.84rem;
 `
 
 const Layer2 = styled.div`
@@ -108,6 +111,17 @@ const ComingSoon = ({ variant }: { variant: 'apple' | 'android' }) => {
 
 const Video = styled.video`
   object-fit: cover;
+`
+
+const MobileBG = styled(Box)`
+  background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  mix-blend-mode: normal;
+  transform: rotate(-90deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 `
 
 const Landing = () => {
@@ -250,14 +264,14 @@ const Landing = () => {
         <Box className="md:sticky-content" minHeight={{ md: 'calc(100vh + 500px)' }}>
           <Container maxHeight={{ md: '90rem' }} className="md:sticky-content">
             <Box {...styles.content} display="flex" justifyContent="center" alignItems="center" ref={anim3Ref}>
-              <Box width="100%" mb="10rem">
+              <Box width="100%" mb={{ _: 0, sm: '10rem' }}>
                 <Title textAlign="center" p={{ _: '0 1rem', md: 0 }}>
                   All your DeFi apps one place
                 </Title>
                 <Box
                   display="grid"
-                  mt="5rem"
-                  gridGap="2rem"
+                  mt={{ _: '2.5rem', md: '5rem' }}
+                  gridGap={{ _: '1rem', sm: '2rem' }}
                   gridTemplateColumns={{
                     _: 'repeat(auto-fill, minmax(30rem, 1fr))',
                     md: 'repeat(auto-fill, minmax(40rem, 1fr))',
@@ -274,20 +288,23 @@ const Landing = () => {
       </span>
       <Box className="sticky-container" minHeight="calc(100vh + 500px)">
         <Container zIndex={1} {...styles.fullHeight} height={styles.vh100} ref={layer4Ref} className="sticky-content">
-          <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
+          <Box {...styles.content} p={{ _: '2rem', sm: 0 }} display="flex" justifyContent="center" alignItems="center">
             <Flex
               width="100%"
-              height="72rem"
+              height={{ _: '100%', sm: '72rem' }}
               maxHeight={styles.vh100minusHeader}
               background="url(/landing/bg1.png) no-repeat"
               backgroundSize="cover"
+              backgroundPosition="top"
               borderRadius="2rem"
-              alignItems="center"
-              mb="2rem"
+              alignItems={{ _: 'flex-end', sm: 'center' }}
+              mb={{ _: 0, sm: '2rem' }}
+              pb={{ _: '4rem', sm: 0 }}
             >
-              <Box ml={{ _: '1.5rem', sm: '8rem' }} mr={{ _: '1.5rem', sm: 0 }}>
-                <EvervoidLogo width="14.5rem" height="2.65rem" />
-                <Box fontSize={{ _: '3.2rem', md: '4.4rem' }} fontWeight={600} lineHeight="120%" mt="2rem">
+              <MobileBG display={{ _: 'block', sm: 'none' }} />
+              <Box ml={{ _: '1.5rem', sm: '8rem' }} mr={{ _: '1.5rem', sm: 0 }} zIndex={1}>
+                <EvervoidLogo width={{ _: '12.7rem', sm: '14.5rem' }} height={{ _: '2.3rem', sm: '2.65rem' }} />
+                <Box fontSize={{ _: '2.8rem', md: '4.4rem' }} fontWeight={600} lineHeight="120%" mt="2rem">
                   Free-to-play
                   <br />
                   P2E NFT-based
@@ -295,10 +312,17 @@ const Landing = () => {
                   MMO strategy
                   <br />
                 </Box>
-                <Box opacity={0.7} fontSize="1.6rem" maxWidth="33rem" mt="1rem" fontWeight={500} lineHeight="145%">
+                <Box
+                  opacity={0.7}
+                  fontSize={{ _: '1.4rem', sm: '1.6rem' }}
+                  maxWidth={{ sm: '33rem' }}
+                  mt="1rem"
+                  fontWeight={500}
+                  lineHeight="145%"
+                >
                   Includes various missions, staking crafting, equipment upgrades, lands and more
                 </Box>
-                <Flex mt="4rem" gridGap="1.5rem">
+                <Flex mt={{ _: '2.5rem', sm: '4rem' }} gridGap="1.5rem">
                   <Button as="a" target="_blank" href={`${process.env.REACT_APP_ASTEROID_MINING_URL}/missions`}>
                     Play demo
                   </Button>

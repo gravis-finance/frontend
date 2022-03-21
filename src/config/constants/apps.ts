@@ -1,9 +1,8 @@
-import React from 'react'
 import { EvervoidFilledLogo, GmartFilledLogo, GswapFilledLogo } from '../../components/Svg'
 
 export type AppItemType = {
   title: string
-  icon: React.FC
+  icon: any
   description: string
   href: string
   backgroundColor: string
