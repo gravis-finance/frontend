@@ -5,6 +5,7 @@ import { GravisBoldLogo, PublicRoundIcon } from '../../../../components/Svg'
 import * as styles from '../../styles'
 import { goTo } from '../MenuItems'
 import { MouseIcon } from '../Icons'
+import { FooterNetworks } from '../Footer'
 
 const MainText = styled(Text)`
   font-family: 'Gotham Pro', serif;
@@ -41,6 +42,13 @@ const PublicRoundContainer = styled(Flex)`
   padding: 3.2rem 1.6rem 3.2rem 2.4rem;
 `
 
+const StyledMouseIcon = styled(MouseIcon)`
+  margin-top: 5.6rem;
+  @media screen and (max-width: 852px) {
+    margin-top: 0;
+  }
+`
+
 const MainInfo = () => {
   return (
     <Flex
@@ -68,6 +76,9 @@ const MainInfo = () => {
           Gravis Finance is an ecosystem that unites DeFi platform, NFT marketplace for in-game assets, and Evervoid
           game. We provide all the necessary instruments for managing your crypto assets on any chain.
         </Description>
+        <Box mt="3.2rem">
+          <FooterNetworks />
+        </Box>
         <ButtonsContainer mt={44}>
           <Button variant="blue" style={{ letterSpacing: '-0.02em' }} onClick={() => goTo('#products')}>
             Show Apps
@@ -84,7 +95,7 @@ const MainInfo = () => {
           </Button>
         </ButtonsContainer>
       </Flex>
-      <MouseIcon zIndex={2} mb="3rem" />
+      <StyledMouseIcon zIndex={2} mb="3rem" />
       <PublicRoundContainer alignItems="center" justifyContent="space-between">
         <Flex alignItems="center">
           <PublicRoundIcon />
