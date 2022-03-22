@@ -8,7 +8,6 @@ import Header from './components/Header'
 import MainInfo from './components/MainInfo'
 import { useResponsiveness } from './useResponsiveness'
 import * as styles from './styles'
-import { WhyTextSvg } from './components/WhyTextSvg'
 import { AppsConfig } from '../../config/constants/apps'
 import AppItem from './components/AppItem'
 import {
@@ -113,6 +112,12 @@ const Video = styled.video`
   object-fit: cover;
 `
 
+const Canvas = styled.canvas`
+  position: absolute;
+  top: 0;
+  left: 0;
+`
+
 const MobileBG = styled(Box)`
   background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
   position: absolute;
@@ -125,12 +130,12 @@ const MobileBG = styled(Box)`
 const Landing = () => {
   const isMobile = useResponsiveness()
   const [loading, setLoading] = React.useState(true)
+  const canvasRef = React.useRef<HTMLCanvasElement>(null)
   const layer1Ref = React.useRef<HTMLDivElement>(null)
   const layer2Ref = React.useRef<HTMLDivElement>(null)
   const layer3Ref = React.useRef<HTMLDivElement>(null)
   const layer4Ref = React.useRef<HTMLDivElement>(null)
   const anim1Ref = React.useRef<HTMLDivElement>(null)
-  const anim2Ref = React.useRef<HTMLDivElement>(null)
   const anim3Ref = React.useRef<HTMLDivElement>(null)
   const anim4Ref = React.useRef<HTMLDivElement>(null)
   const videoLayerRef = React.useRef<HTMLDivElement>(null)
@@ -150,35 +155,6 @@ const Landing = () => {
           end: 'bottom-=500 bottom',
         },
       })
-
-      if (anim2Ref.current && layer1Ref.current) {
-        const htmlFontSize = () => Number(window.getComputedStyle(document.documentElement).fontSize.replace('px', ''))
-        const scale = () => window.innerWidth / htmlFontSize() / (isMobile ? 0.25 : 0.4114285714285714)
-        const x = () => window.innerWidth / htmlFontSize() / (isMobile ? 1.1363636363636365 : 1.44)
-
-        gsap.from(anim2Ref.current, {
-          keyframes: {
-            '0%': { scale: () => scale(), x: () => `${x()}rem` },
-            '30%': { scale: () => scale() / 3, x: () => `${x() / 3}rem` },
-            '100%': {
-              scale: 1,
-              x: 0,
-            },
-          },
-          ease: 'none',
-          scrollTrigger: {
-            trigger: layer1Ref.current,
-            scrub: 1,
-            start: 'top top',
-            end: 'bottom-=500 bottom',
-            onUpdate: (self) => {
-              if (layer2Ref.current) {
-                layer2Ref.current.style['pointer-events'] = self.progress > 0.5 ? 'all' : 'none'
-              }
-            },
-          },
-        })
-      }
     }
 
     if (!isMobile && anim3Ref.current) {
@@ -227,6 +203,51 @@ const Landing = () => {
     setLoading(false)
   }, [isMobile])
 
+  React.useLayoutEffect(() => {
+    if (canvasRef.current) {
+      const canvas = canvasRef.current
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
+      const ctx = canvasRef.current.getContext('2d')
+      const img = new Image()
+      img.src = '/landing/why.svg'
+      img.onload = () => {
+        const values = { width: 0, height: 0, x: 0, y: 0 }
+        gsap.fromTo(
+          values,
+          {
+            y: 1920,
+            x: 1440,
+            width: 222411.765625,
+            height: 24846,
+          },
+          {
+            y: 0,
+            x: 0,
+            width: 614,
+            height: 68,
+            scrollTrigger: {
+              trigger: layer1Ref.current,
+              scrub: 0,
+              start: 'top top',
+              end: 'bottom-=500 bottom',
+              onUpdate: () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height)
+                ctx.drawImage(
+                  img,
+                  canvas.width / 2 - values.width / 2 + values.x,
+                  canvas.height / 2 - values.height / 2 + values.y,
+                  values.width,
+                  values.height,
+                )
+              },
+            },
+          },
+        )
+      }
+    }
+  }, [])
+
   return (
     <Root>
       <Loader opacity={loading ? 1 : 0} zIndex={loading ? 999 : -1}>
@@ -247,18 +268,7 @@ const Landing = () => {
               height="100%"
               opacity={0}
             />
-            <Flex
-              position="absolute"
-              width="100%"
-              height="100%"
-              top={0}
-              left={0}
-              justifyContent="center"
-              alignItems="center"
-              overflow="hidden"
-            >
-              <WhyTextSvg ref={anim2Ref} width={{ _: '31rem', md: '61rem' }} />
-            </Flex>
+            <Canvas ref={canvasRef} />
           </Layer2>
         </Layer1>
       </Box>
