@@ -37,7 +37,7 @@ const Team = () => {
 
   return (
     <Container>
-      <StyledFlex alignItems="center" justifyContent="space-between">
+      <StyledFlex alignItems="center" justifyContent="space-between" gridGap="2rem">
         <DefaultText fontSize={{ _: '3.2rem', sm: '4.4rem' }} fontWeight={700} width={{ _: '100%', sm: 'auto' }}>
           Our Team
         </DefaultText>

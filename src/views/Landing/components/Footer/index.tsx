@@ -26,7 +26,7 @@ const LinkItem = styled.a`
     background-color: rgba(255, 255, 255, 0.1);
   }
 
-  @media (min-width: ${breakpoints.sm}) {
+  @media (min-width: ${breakpoints.md}) {
     width: 6rem;
     height: 6rem;
   }
@@ -63,16 +63,16 @@ const LinkedDefaultText = styled(DefaultText)`
 
 const Footer: React.FC = () => {
   return (
-    <Container pb={{ _: '2rem', sm: 0 }} height={{ _: '21rem', sm: '18rem' }}>
+    <Container pb={{ _: '2rem', md: 0 }} height={{ _: '21rem', md: '18rem' }}>
       <Flex {...styles.content}>
         <Flex
           alignItems="center"
-          justifyContent={{ _: 'center', sm: 'space-between' }}
-          gridGap={{ _: '3rem', sm: 0 }}
+          justifyContent={{ _: 'center', md: 'space-between' }}
+          gridGap={{ _: '3rem', md: 0 }}
           width="100%"
-          flexDirection={{ _: 'column', sm: 'row' }}
+          flexDirection={{ _: 'column', md: 'row' }}
         >
-          <FooterNetworks display={{ _: 'flex', sm: 'none' }} />
+          <FooterNetworks display={{ _: 'flex', md: 'none' }} />
           <Flex alignItems="center">
             <LinkedDefaultText
               color="rgba(255,255,255,0.7)"
@@ -100,7 +100,7 @@ const Footer: React.FC = () => {
               Terms of Use
             </LinkedDefaultText>
           </Flex>
-          <FooterNetworks display={{ _: 'none', sm: 'flex' }} />
+          <FooterNetworks display={{ _: 'none', md: 'flex' }} />
           <Flex>
             <DefaultText color="rgba(255,255,255,0.7)" fontSize="1.4rem" fontWeight={500}>
               All rights reserved. © 2022 Gravis Finance

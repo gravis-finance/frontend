@@ -75,7 +75,7 @@ const TeamFilters = ({ activeIndex, setActiveIndex }) => {
   }, [allItemRef])
 
   return (
-    <Wrapper width={{ _: '100%', sm: 'auto' }} overflow="auto" mt={{ _: '2rem', sm: '0' }}>
+    <Wrapper width={{ _: '100%', sm: 'auto' }} overflow="auto">
       <Container ref={containerRef}>
         <SliderItem width={sliderProps.width} left={sliderProps.left} />
         <FilterItem onClick={(e) => onItemClick(e, 0)} active={activeIndex === 0} ref={allItemRef}>
