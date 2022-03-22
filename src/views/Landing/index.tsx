@@ -114,9 +114,7 @@ const Video = styled.video`
 `
 
 const MobileBG = styled(Box)`
-  background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
-  mix-blend-mode: normal;
-  transform: rotate(-90deg);
+  background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
   position: absolute;
   top: 0;
   left: 0;

@@ -1,11 +1,8 @@
 import styled from 'styled-components'
-import { Text } from '@gravis.finance/uikit'
-import { TypographyProps, typography, position, PositionProps } from 'styled-system'
+import { Box } from '@gravis.finance/uikit'
 
-const DefaultText = styled(Text)<TypographyProps & PositionProps>`
+const DefaultText = styled(Box)`
   letter-spacing: -0.02em;
-  ${typography}
-  ${position}
 `
 
 export default DefaultText
