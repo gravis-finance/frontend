@@ -195,17 +195,22 @@ const Landing = () => {
     }
 
     if (anim4Ref.current) {
-      ScrollTrigger.create({
-        trigger: layer3Ref.current,
-        scrub: 1,
-        start: 'top+=100vh top',
-        end: 'bottom-=100vh bottom',
-        onUpdate: ({ progress }) => {
-          if (progress >= 0 && progress <= 1) {
-            anim4Ref.current.scrollTop = (anim4Ref.current.scrollHeight - anim4Ref.current.offsetHeight) * progress
-          }
+      gsap.fromTo(
+        anim4Ref.current,
+        {
+          yPercent: 0,
         },
-      })
+        {
+          yPercent: -50,
+          scrollTrigger: {
+            trigger: layer3Ref.current,
+            scrub: 0.2,
+            start: 'top+=100vh top',
+            end: 'bottom-=100vh bottom',
+            markers: true,
+          },
+        },
+      )
     }
 
     if (videoLayerRef.current) {
@@ -338,111 +343,113 @@ const Landing = () => {
       <Box position="relative" height="auto" minHeight="calc(min(180rem, 200vh) + 200vh)" ref={layer3Ref}>
         <Container {...styles.fullHeight} height={styles.vh100} className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
-            <Box width="100%" height="72rem" mb="2rem" borderRadius="2rem" overflow="hidden" ref={anim4Ref}>
-              <Flex
-                background="url(/landing/bg2.png) no-repeat"
-                backgroundPosition={{ _: 'right', md: 'left' }}
-                backgroundSize="cover"
-                alignItems="center"
-                height="100%"
-              >
-                <Box ml={{ _: '1.5rem', sm: 'auto', md: '75rem' }} mr={{ _: '1.5rem', sm: '10rem', md: 0 }}>
-                  <Flex alignItems="center" gridGap="1.287rem" fontSize="3.03rem" fontWeight={500} lineHeight="120%">
-                    <GmartLogo />
-                    <div>Gmart</div>
-                  </Flex>
-                  <Box fontSize={{ _: '3.2rem', sm: '4.4rem' }} fontWeight={600} lineHeight="110%" mt="2.5rem">
-                    Discover,
-                    <br />
-                    collect and sell <br />
-                    extraordinary NFTs <br />
+            <Box width="100%" height="72rem" mb="2rem" borderRadius="2rem" overflow="hidden">
+              <Box ref={anim4Ref} className="will-change">
+                <Flex
+                  background="url(/landing/bg2.png) no-repeat"
+                  backgroundPosition={{ _: 'right', md: 'left' }}
+                  backgroundSize="cover"
+                  alignItems="center"
+                  height="72rem"
+                >
+                  <Box ml={{ _: '1.5rem', sm: 'auto', md: '75rem' }} mr={{ _: '1.5rem', sm: '10rem', md: 0 }}>
+                    <Flex alignItems="center" gridGap="1.287rem" fontSize="3.03rem" fontWeight={500} lineHeight="120%">
+                      <GmartLogo />
+                      <div>Gmart</div>
+                    </Flex>
+                    <Box fontSize={{ _: '3.2rem', sm: '4.4rem' }} fontWeight={600} lineHeight="110%" mt="2.5rem">
+                      Discover,
+                      <br />
+                      collect and sell <br />
+                      extraordinary NFTs <br />
+                    </Box>
+                    <Box
+                      opacity={0.7}
+                      fontSize={{ _: '1.4rem', sm: '1.6rem' }}
+                      maxWidth="40.6rem"
+                      mt="1rem"
+                      fontWeight={500}
+                      lineHeight="145%"
+                    >
+                      The first NFT marketplace focused solely on in-game assets. Built-in smart analytics for NFT
+                      portfolio.
+                    </Box>
+                    <Flex mt="4rem" gridGap="1.5rem">
+                      <Button as="a" target="_blank" href={process.env.REACT_APP_GMART_URL}>
+                        Explore
+                      </Button>
+                      <Button variant="dark" as="a" target="_blank" href={process.env.REACT_APP_GMART_DOCS_URL}>
+                        <ExternalIcon mr="1rem" />
+                        <div>Learn more</div>
+                      </Button>
+                    </Flex>
                   </Box>
-                  <Box
-                    opacity={0.7}
-                    fontSize={{ _: '1.4rem', sm: '1.6rem' }}
-                    maxWidth="40.6rem"
-                    mt="1rem"
-                    fontWeight={500}
-                    lineHeight="145%"
-                  >
-                    The first NFT marketplace focused solely on in-game assets. Built-in smart analytics for NFT
-                    portfolio.
+                </Flex>
+                <Flex
+                  height="72rem"
+                  background="url(/landing/bg3.png) no-repeat"
+                  backgroundPosition={{ _: 'right', md: 'left' }}
+                  backgroundSize="cover"
+                  alignItems="center"
+                  position="relative"
+                >
+                  <Box ml={{ _: '1.5rem', sm: '8rem' }}>
+                    <Box fontSize={{ _: '4.4rem', sm: '6.2rem' }} fontWeight={600}>
+                      Gmart on
+                      <br />
+                      your mobile
+                    </Box>
+                    <Flex
+                      flexDirection="column"
+                      gridGap="1.5rem"
+                      fontSize={{ _: '1.4rem', sm: '1.6rem' }}
+                      fontWeight={500}
+                      lineHeight="2.3rem"
+                      mt="3rem"
+                    >
+                      <Flex alignItems="center" gridGap="1rem">
+                        <CheckMarkIcon />
+                        <div>All GamiFi NFTs in one app</div>
+                      </Flex>
+                      <Flex alignItems="center" gridGap="1rem">
+                        <CheckMarkIcon />
+                        <div>Quick purchase</div>
+                      </Flex>
+                      <Flex alignItems="center" gridGap="1rem">
+                        <CheckMarkIcon />
+                        <div>Portfolio tracking</div>
+                      </Flex>
+                      <Flex alignItems="center" gridGap="1rem">
+                        <CheckMarkIcon />
+                        <div>Smart recommendations</div>
+                      </Flex>
+                      <Flex alignItems="center" gridGap="1rem">
+                        <CheckMarkIcon />
+                        <div>Push notifications</div>
+                      </Flex>
+                    </Flex>
+                    <Box
+                      as="img"
+                      src="/landing/app_store_btns.png"
+                      mt="4.5rem"
+                      width={{ _: '30rem', sm: '35.5rem' } as any}
+                      height="5rem"
+                      className="object-contain pointer-events-none"
+                    />
                   </Box>
-                  <Flex mt="4rem" gridGap="1.5rem">
-                    <Button as="a" target="_blank" href={process.env.REACT_APP_GMART_URL}>
-                      Explore
-                    </Button>
-                    <Button variant="dark" as="a" target="_blank" href={process.env.REACT_APP_GMART_DOCS_URL}>
-                      <ExternalIcon mr="1rem" />
-                      <div>Learn more</div>
-                    </Button>
-                  </Flex>
-                </Box>
-              </Flex>
-              <Flex
-                height="100%"
-                background="url(/landing/bg3.png) no-repeat"
-                backgroundPosition={{ _: 'right', md: 'left' }}
-                backgroundSize="cover"
-                alignItems="center"
-                position="relative"
-              >
-                <Box ml={{ _: '1.5rem', sm: '8rem' }}>
-                  <Box fontSize={{ _: '4.4rem', sm: '6.2rem' }} fontWeight={600}>
-                    Gmart on
-                    <br />
-                    your mobile
-                  </Box>
-                  <Flex
-                    flexDirection="column"
-                    gridGap="1.5rem"
-                    fontSize={{ _: '1.4rem', sm: '1.6rem' }}
-                    fontWeight={500}
-                    lineHeight="2.3rem"
-                    mt="3rem"
-                  >
-                    <Flex alignItems="center" gridGap="1rem">
-                      <CheckMarkIcon />
-                      <div>All GamiFi NFTs in one app</div>
-                    </Flex>
-                    <Flex alignItems="center" gridGap="1rem">
-                      <CheckMarkIcon />
-                      <div>Quick purchase</div>
-                    </Flex>
-                    <Flex alignItems="center" gridGap="1rem">
-                      <CheckMarkIcon />
-                      <div>Portfolio tracking</div>
-                    </Flex>
-                    <Flex alignItems="center" gridGap="1rem">
-                      <CheckMarkIcon />
-                      <div>Smart recommendations</div>
-                    </Flex>
-                    <Flex alignItems="center" gridGap="1rem">
-                      <CheckMarkIcon />
-                      <div>Push notifications</div>
-                    </Flex>
-                  </Flex>
                   <Box
                     as="img"
-                    src="/landing/app_store_btns.png"
-                    mt="4.5rem"
-                    width={{ _: '30rem', sm: '35.5rem' } as any}
-                    height="5rem"
-                    className="object-contain pointer-events-none"
+                    src="/landing/iphone.png"
+                    width="39.2rem"
+                    height="63.4rem"
+                    position="absolute"
+                    bottom={0}
+                    right="18rem"
+                    display={{ _: 'none', md: 'block' }}
+                    className="pointer-events-none"
                   />
-                </Box>
-                <Box
-                  as="img"
-                  src="/landing/iphone.png"
-                  width="39.2rem"
-                  height="63.4rem"
-                  position="absolute"
-                  bottom={0}
-                  right="18rem"
-                  display={{ _: 'none', md: 'block' }}
-                  className="pointer-events-none"
-                />
-              </Flex>
+                </Flex>
+              </Box>
             </Box>
           </Box>
         </Container>
