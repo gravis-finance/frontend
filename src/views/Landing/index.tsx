@@ -207,7 +207,6 @@ const Landing = () => {
             scrub: 0.2,
             start: 'top top',
             end: 'bottom top',
-            markers: true,
           },
         },
       )
