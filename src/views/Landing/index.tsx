@@ -85,6 +85,7 @@ const Layer2 = styled.div`
   width: 100%;
   height: 100%;
   pointer-events: none;
+  overflow: hidden;
 `
 
 const ComingSoon = ({ variant }: { variant: 'apple' | 'android' }) => {
@@ -150,9 +151,9 @@ const Landing = () => {
         ease: 'none',
         scrollTrigger: {
           trigger: layer1Ref.current,
-          scrub: 1,
+          scrub: 0.5,
           start: 'top top',
-          end: 'bottom-=500 bottom',
+          end: 'bottom-=1000 bottom',
         },
       })
     }
@@ -204,33 +205,47 @@ const Landing = () => {
   }, [isMobile])
 
   React.useLayoutEffect(() => {
-    if (canvasRef.current) {
-      const canvas = canvasRef.current
+    const canvas = canvasRef.current
+    const resize = () => {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
+    }
+    if (canvas) {
+      resize()
+      window.addEventListener('resize', resize, false)
+
       const ctx = canvasRef.current.getContext('2d')
       const img = new Image()
       img.src = '/landing/why.svg'
       img.onload = () => {
+        const baseWidth = () => (222411.77 / 1440) * window.innerWidth
+        const endWidth = () => {
+          const fontSize = parseFloat(window.getComputedStyle(document.documentElement).fontSize)
+          return (614 / 10) * fontSize
+        }
         const values = { width: 0, height: 0, x: 0, y: 0 }
         gsap.fromTo(
           values,
           {
-            y: 1920,
-            x: 1440,
-            width: 222411.765625,
-            height: 24846,
+            y: () => (1920 / 222411.77) * baseWidth(),
+            x: () => (1440 / 222411.77) * baseWidth(),
+            width: () => baseWidth(),
+            height: () => baseWidth() / (222411.77 / 24846),
+            scrollTrigger: {
+              invalidateOnRefresh: true,
+            },
           },
           {
             y: 0,
             x: 0,
-            width: 614,
-            height: 68,
+            width: () => endWidth(),
+            height: () => endWidth() / (614 / 68),
             scrollTrigger: {
+              invalidateOnRefresh: true,
               trigger: layer1Ref.current,
               scrub: 0,
               start: 'top top',
-              end: 'bottom-=500 bottom',
+              end: 'bottom-=1000 bottom',
               onUpdate: () => {
                 ctx.clearRect(0, 0, canvas.width, canvas.height)
                 ctx.drawImage(
@@ -246,6 +261,12 @@ const Landing = () => {
         )
       }
     }
+
+    return () => {
+      if (canvas) {
+        window.removeEventListener('resize', resize, false)
+      }
+    }
   }, [])
 
   return (
@@ -254,7 +275,7 @@ const Landing = () => {
         <Spinner size="6rem" />
       </Loader>
       <Header />
-      <Box className="sticky-container" minHeight="calc(300vh + 500px)" ref={layer1Ref} id="whyus">
+      <Box className="sticky-container" minHeight="calc(300vh + 1000px)" ref={layer1Ref} id="whyus">
         <Layer1 className="sticky-content">
           <MainInfo />
           <Layer2 ref={layer2Ref}>
