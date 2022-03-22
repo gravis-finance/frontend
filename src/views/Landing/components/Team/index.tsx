@@ -8,14 +8,13 @@ import TeamFilters from '../TeamFilters'
 import { breakpoints } from '../../../../contexts/ThemeContext'
 
 const Container = styled.div`
-  padding: 2.5rem 1.6rem 2rem 1.6rem;
   display: flex;
   flex-direction: column;
   height: 100%;
+  padding-top: 2.5rem;
 
   @media (min-width: ${breakpoints.sm}) {
     display: block;
-    padding: 3.4rem 8rem;
     height: fit-content;
   }
 `

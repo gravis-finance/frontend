@@ -6,6 +6,7 @@ import DefaultText from '../../../../components/DefaultText'
 import RoadmapItem from '../RoadmapItem'
 import { roadmapConfig } from '../../../../config/constants/roadmap'
 import useMediaQuery from '../../../../hooks/useMediaQuery'
+import * as styles from '../../styles'
 
 const Container = styled(Box).attrs(() => ({
   p: { _: '2rem 0', sm: '7.7rem 0' },
@@ -86,7 +87,7 @@ const Roadmap = () => {
 
   return (
     <Container>
-      <Flex alignItems="center" justifyContent="space-between" m={{ _: '0 2rem', sm: '0 8.1rem 4.2rem 8.1rem' }}>
+      <Flex {...styles.content} alignItems="center" justifyContent="space-between" mb={{ sm: '4.2rem' }}>
         <DefaultText fontWeight={700} fontSize={{ _: '3.2rem', sm: '4.4rem' }}>
           Roadmap
         </DefaultText>
@@ -99,7 +100,7 @@ const Roadmap = () => {
           </ButtonArrow>
         </Flex>
       </Flex>
-      <Box mt={{ _: '1.5rem', sm: 0 }}>
+      <Box mt={{ _: '1.5rem', sm: '4.2rem' }}>
         <StyledScrollContainer vertical={false} ref={scrollRef}>
           {roadmapConfig.map((item) => (
             <RoadmapItem item={item} key={item.period} />

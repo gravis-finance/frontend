@@ -563,16 +563,20 @@ const Landing = () => {
         <Roadmap />
       </Container>
       <Container id="team" height={{ _: styles.vh100, sm: 'auto' }}>
-        <Team />
+        <Box {...styles.content}>
+          <Team />
+        </Box>
       </Container>
-      <Container id="tokenomics" style={{ height: 'auto' }}>
+      <Container id="tokenomics" height="auto">
         <Box {...styles.content} overflowX="hidden">
           <Tokenomics />
         </Box>
       </Container>
-      <Box position="relative" id="partners">
-        <Partners />
-      </Box>
+      <Container id="partners" height="auto">
+        <Box {...styles.content}>
+          <Partners />
+        </Box>
+      </Container>
       <Box position="relative">
         <Footer />
       </Box>
