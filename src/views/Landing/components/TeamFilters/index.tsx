@@ -4,36 +4,26 @@ import { Box, Flex } from '@gravis.finance/uikit'
 import DefaultText from '../../../../components/DefaultText'
 import { TeamCategory } from '../../../../config/constants/team'
 
-const Wrapper = styled(Box)``
+const Wrapper = styled(Box)`
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`
 
 const Container = styled(Flex)`
   background: rgba(255, 255, 255, 0.05);
   border-radius: 4.5rem;
   position: relative;
-
-  @media screen and (max-width: 910px) {
-    margin-top: 2.4rem;
-  }
-
-  @media screen and (max-width: 650px) {
-    display: none;
-  }
+  width: max-content;
 `
 
-const MobileContainer = styled(Box)`
-  display: none;
-  @media screen and (max-width: 650px) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    > div:not(:last-child) {
-      margin-right: 0.8rem;
-    }
-  }
-`
-
-const FilterItem = styled(DefaultText)<{ active: boolean }>`
-  padding: 1.45rem 2.5rem;
+const FilterItem = styled(DefaultText).attrs((props) => ({
+  p: { _: '1.45rem 2rem', sm: '1.45rem 2.5rem' },
+  ...props,
+}))<{ active: boolean }>`
   font-size: 1.4rem;
   font-weight: 600;
   color: ${({ active }) => (active ? '#000' : 'rgba(255, 255, 255, 0.7)')};
@@ -42,10 +32,6 @@ const FilterItem = styled(DefaultText)<{ active: boolean }>`
   z-index: 2;
   cursor: pointer;
   transition: color 200ms ease-in-out;
-
-  @media screen and (max-width: 650px) {
-    color: ${({ active }) => (active ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0.5)')};
-  }
 `
 
 const SliderItem = styled.div<{ width: number; left: number }>`
@@ -89,7 +75,7 @@ const TeamFilters = ({ activeIndex, setActiveIndex }) => {
   }, [allItemRef])
 
   return (
-    <Wrapper>
+    <Wrapper width={{ _: '100%', sm: 'auto' }} overflow="auto" mt={{ _: '2rem', sm: '0' }}>
       <Container ref={containerRef}>
         <SliderItem width={sliderProps.width} left={sliderProps.left} />
         <FilterItem onClick={(e) => onItemClick(e, 0)} active={activeIndex === 0} ref={allItemRef}>
@@ -102,17 +88,6 @@ const TeamFilters = ({ activeIndex, setActiveIndex }) => {
           </FilterItem>
         ))}
       </Container>
-      <MobileContainer>
-        <FilterItem onClick={(e) => onItemClick(e, 0)} active={activeIndex === 0}>
-          All
-        </FilterItem>
-        {items.map((item, index) => (
-          // eslint-disable-next-line no-return-assign
-          <FilterItem key={item} onClick={(e) => onItemClick(e, index + 1)} active={activeIndex === index + 1}>
-            {item}
-          </FilterItem>
-        ))}
-      </MobileContainer>
     </Wrapper>
   )
 }

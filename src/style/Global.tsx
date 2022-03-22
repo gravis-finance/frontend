@@ -35,6 +35,17 @@ const GlobalStyle = createGlobalStyle`
       will-change: transform;
     }
   }
+
+  @media (max-width: ${breakpoints.sm}) {
+    .no-scroll-bar {
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* Internet Explorer 10+ */
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
 `
 
 export default GlobalStyle

@@ -53,7 +53,7 @@ const Root = styled.div`
 const Container = styled(Box).attrs((props) => ({
   position: 'relative',
   pt: styles.headerHeight,
-  height: { md: styles.vh100 },
+  height: { md: styles.vh100 } as any,
   ...props,
 }))`
   width: 100%;
@@ -562,7 +562,7 @@ const Landing = () => {
       <Container id="roadmap">
         <Roadmap />
       </Container>
-      <Container id="team" style={{ height: 'auto' }}>
+      <Container id="team" height={{ _: styles.vh100, sm: 'auto' }}>
         <Team />
       </Container>
       <Container id="tokenomics" style={{ height: 'auto' }}>
