@@ -79,14 +79,18 @@ const MainInfo = () => {
         <Box mt="3.2rem">
           <FooterNetworks />
         </Box>
-        <ButtonsContainer mt={44}>
-          <Button variant="blue" style={{ letterSpacing: '-0.02em' }} onClick={() => goTo('#products')}>
+        <ButtonsContainer mt="4.4rem">
+          <Button
+            variant="blue"
+            style={{ letterSpacing: '-0.02em', fontSize: '1.4rem', height: '4.8rem', padding: '0 2.4rem' }}
+            onClick={() => goTo('#products')}
+          >
             Show Apps
           </Button>
           <Button
             variant="darkened"
-            ml={16}
-            style={{ letterSpacing: '-0.02em' }}
+            ml="1.6rem"
+            style={{ letterSpacing: '-0.02em', fontSize: '1.4rem', height: '4.8rem', padding: '0 2.4rem' }}
             as="a"
             href={process.env.REACT_APP_PITCH_DECK_URL}
             target="_blank"

@@ -1,15 +1,16 @@
 import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import { ChevronLeftIcon, ChevronRightIcon, Flex } from '@gravis.finance/uikit'
+import { ChevronLeftIcon, ChevronRightIcon, Flex, Box } from '@gravis.finance/uikit'
 import ScrollContainer from 'react-indiana-drag-scroll'
-import { ReactComponent as ScrollHintIcon } from 'assets/svg/scroll-hint.svg'
 import DefaultText from '../../../../components/DefaultText'
 import RoadmapItem from '../RoadmapItem'
 import { roadmapConfig } from '../../../../config/constants/roadmap'
 import useMediaQuery from '../../../../hooks/useMediaQuery'
+import * as styles from '../../styles'
 
-const Container = styled.div`
-  padding: 7.7rem 0;
+const Container = styled(Box).attrs(() => ({
+  p: { _: '2rem 0', sm: '7.7rem 0' },
+}))`
   height: fit-content;
 `
 
@@ -19,12 +20,6 @@ const StyledScrollContainer = styled(ScrollContainer)`
   scroll-behavior: smooth;
   > div:not(:last-child) {
     margin-right: 1rem;
-  }
-`
-
-const ButtonsContainer = styled(Flex)`
-  @media screen and (max-width: 515px) {
-    display: none;
   }
 `
 
@@ -41,21 +36,6 @@ const ButtonArrow = styled(Flex)`
 
   :hover {
     background-color: rgba(255, 255, 255, 0.1);
-  }
-`
-
-const StyledFlex = styled(Flex)`
-  @media screen and (max-width: 515px) {
-    justify-content: center;
-  }
-`
-
-const StyledScrollHint = styled.div`
-  display: none;
-  @media screen and (max-width: 515px) {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
   }
 `
 
@@ -107,27 +87,26 @@ const Roadmap = () => {
 
   return (
     <Container>
-      <StyledFlex alignItems="center" justifyContent="space-between" m="0 8.1rem 4.2rem 8.1rem">
-        <DefaultText fontWeight={700} fontSize="4.4rem">
+      <Flex {...styles.content} alignItems="center" justifyContent="space-between" mb={{ sm: '4.2rem' }}>
+        <DefaultText fontWeight={700} fontSize={{ _: '3.2rem', sm: '4.4rem' }}>
           Roadmap
         </DefaultText>
-        <ButtonsContainer>
+        <Flex>
           <ButtonArrow mr="1rem" onClick={() => makeScroll('prev')}>
             <ChevronLeftIcon />
           </ButtonArrow>
           <ButtonArrow onClick={() => makeScroll('next')}>
             <ChevronRightIcon />
           </ButtonArrow>
-        </ButtonsContainer>
-      </StyledFlex>
-      <StyledScrollHint>
-        <ScrollHintIcon />
-      </StyledScrollHint>
-      <StyledScrollContainer vertical={false} ref={scrollRef}>
-        {roadmapConfig.map((item) => (
-          <RoadmapItem item={item} key={item.period} />
-        ))}
-      </StyledScrollContainer>
+        </Flex>
+      </Flex>
+      <Box mt={{ _: '1.5rem', sm: '4.2rem' }}>
+        <StyledScrollContainer vertical={false} ref={scrollRef}>
+          {roadmapConfig.map((item) => (
+            <RoadmapItem item={item} key={item.period} />
+          ))}
+        </StyledScrollContainer>
+      </Box>
     </Container>
   )
 }

@@ -6,17 +6,23 @@ import TokensSwitcher from '../TokensSwitcher'
 import TokenomicInfo from '../TokenomicInfo'
 import { TokenomicsTokenType } from '../../../../config/constants/types'
 import TokenomicNetworksSwitcher from '../TokenomicNetworksSwitcher'
+import { breakpoints } from '../../../../contexts/ThemeContext'
 
 const Container = styled.div`
-  //margin: 7rem 8rem;
   position: relative;
   overflow: hidden;
+  padding-top: 2.7rem;
+
+  @media (min-width: ${breakpoints.sm}) {
+    padding-top: 0;
+  }
 `
 
 const TokenomicsInfoContainer = styled(Flex)<{ activeIndex: number; containerHeight?: number }>`
   //height: 55.5rem;
   display: block;
   position: relative;
+
   > div:first-child {
     position: relative;
     left: ${({ activeIndex }) => (activeIndex ? 'calc(-100% - 8rem)' : 0)};
@@ -61,7 +67,7 @@ const Tokenomics = () => {
     <Container>
       <Flex alignItems="center" justifyContent="center" flexDirection="column" mb="4rem">
         <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-          <StyledDefaultText fontWeight={700} fontSize="4.4rem">
+          <StyledDefaultText fontWeight={700} fontSize={{ _: '3.2rem', sm: '4.4rem' }}>
             Tokenomics
           </StyledDefaultText>
           <TokensSwitcher activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
