@@ -205,8 +205,8 @@ const Landing = () => {
           scrollTrigger: {
             trigger: layer3Ref.current,
             scrub: 0.2,
-            start: 'top+=100vh top',
-            end: 'bottom-=100vh bottom',
+            start: 'top top',
+            end: 'bottom top',
             markers: true,
           },
         },
@@ -340,10 +340,10 @@ const Landing = () => {
           </Box>
         </Container>
       </Box>
-      <Box position="relative" height="auto" minHeight="calc(min(180rem, 200vh) + 200vh)" ref={layer3Ref}>
+      <Box position="relative" height="auto" minHeight="calc(min(180rem, 200vh) + 200vh)">
         <Container {...styles.fullHeight} height={styles.vh100} className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
-            <Box width="100%" height="72rem" mb="2rem" borderRadius="2rem" overflow="hidden">
+            <Box width="100%" height="72rem" mb="2rem" borderRadius="2rem" overflow="hidden" ref={layer3Ref}>
               <Box ref={anim4Ref} className="will-change">
                 <Flex
                   background="url(/landing/bg2.png) no-repeat"
