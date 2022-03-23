@@ -179,8 +179,9 @@ const Landing = () => {
           yPercent: 0,
         },
         {
-          yPercent: -50,
+          yPercent: () => (isMobile ? -100 : -50),
           scrollTrigger: {
+            invalidateOnRefresh: true,
             trigger: layer3Ref.current,
             scrub: 0.2,
             start: 'top top',
@@ -343,7 +344,7 @@ const Landing = () => {
       </span>
       <Box className="sticky-container" minHeight="calc(100vh + 500px)">
         <Container zIndex={1} {...styles.fullHeight} height={styles.vh100} ref={layer4Ref} className="sticky-content">
-          <Box {...styles.content} p={{ _: '2rem', sm: 0 }} display="flex" justifyContent="center" alignItems="center">
+          <Box {...styles.content} py={{ _: '2rem', sm: 0 }} display="flex" justifyContent="center" alignItems="center">
             <Flex
               width="100%"
               height={{ _: '100%', sm: '72rem' }}
@@ -355,6 +356,7 @@ const Landing = () => {
               alignItems={{ _: 'flex-end', sm: 'center' }}
               mb={{ _: 0, sm: '2rem' }}
               pb={{ _: '4rem', sm: 0 }}
+              position="relative"
             >
               <MobileBG display={{ _: 'block', sm: 'none' }} />
               <Box ml={{ _: '1.5rem', sm: '8rem' }} mr={{ _: '1.5rem', sm: 0 }} zIndex={1}>
@@ -395,14 +397,21 @@ const Landing = () => {
       <Box position="relative" height="auto" minHeight="calc(min(180rem, 200vh) + 100vh)">
         <Container {...styles.fullHeight} height={styles.vh100} className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
-            <Box width="100%" height="72rem" mb="2rem" borderRadius="2rem" overflow="hidden" ref={layer3Ref}>
-              <Box ref={anim4Ref} className="will-change">
+            <Box
+              width="100%"
+              height={{ _: '100%', sm: '72rem' }}
+              mb="2rem"
+              borderRadius="2rem"
+              overflow="hidden"
+              ref={layer3Ref}
+            >
+              <Box ref={anim4Ref} className="will-change" height={{ _: '100%', sm: 'initial' }}>
                 <Flex
                   background="url(/landing/bg2.png) no-repeat"
                   backgroundPosition={{ _: 'right', md: 'left' }}
                   backgroundSize="cover"
                   alignItems="center"
-                  height="72rem"
+                  height={{ _: '100%', sm: '72rem' }}
                 >
                   <Box ml={{ _: '1.5rem', sm: 'auto', md: '75rem' }} mr={{ _: '1.5rem', sm: '10rem', md: 0 }}>
                     <Flex alignItems="center" gridGap="1.287rem" fontSize="3.03rem" fontWeight={500} lineHeight="120%">
@@ -438,7 +447,7 @@ const Landing = () => {
                   </Box>
                 </Flex>
                 <Flex
-                  height="72rem"
+                  height={{ _: '100%', sm: '72rem' }}
                   background="url(/landing/bg3.png) no-repeat"
                   backgroundPosition={{ _: 'right', md: 'left' }}
                   backgroundSize="cover"
