@@ -26,6 +26,7 @@ import Tokenomics from './components/Tokenomics'
 import Partners from './components/Partners'
 import Footer from './components/Footer'
 import { Trailer } from './components/Trailer'
+import { breakpoints } from '../../contexts/ThemeContext'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -213,17 +214,28 @@ const Landing = () => {
     if (canvas) {
       resize()
       window.addEventListener('resize', resize, false)
-
-      const config = {
-        src: '/landing/why.svg',
-        widthFrom: 222411.77,
-        heightFrom: 24846,
-        windowWidthFrom: 1440,
-        yFrom: 1920,
-        xFrom: 1440,
-        widthTo: 614,
-        heightTo: 68,
-      }
+      const mobile = window.innerHeight > window.innerWidth && window.innerWidth < parseFloat(breakpoints.sm)
+      const config = mobile
+        ? {
+            src: '/landing/why_m.svg',
+            widthFrom: 8684,
+            heightFrom: 6075,
+            windowWidthFrom: 375,
+            yFrom: 800,
+            xFrom: 0,
+            widthTo: 236,
+            heightTo: 165,
+          }
+        : {
+            src: '/landing/why.svg',
+            widthFrom: 222411.77,
+            heightFrom: 24846,
+            windowWidthFrom: 1440,
+            yFrom: 1920,
+            xFrom: 1440,
+            widthTo: 614,
+            heightTo: 68,
+          }
       const ctx = canvasRef.current.getContext('2d')
       const img = new Image()
       img.src = config.src
