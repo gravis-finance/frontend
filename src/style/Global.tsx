@@ -50,6 +50,10 @@ const GlobalStyle = createGlobalStyle`
   .will-change {
     will-change: transform;
   }
+  
+  .rotate-180 {
+    transform: rotate(180deg);
+  }
 `
 
 export default GlobalStyle

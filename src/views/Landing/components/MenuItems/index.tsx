@@ -68,9 +68,9 @@ export const MenuItemBase = ({
 
     const view = href !== links[0].href ? document.querySelector(href) : null
     if (view) {
-      window.scrollTo({ top: view.offsetTop, behavior: 'smooth' })
+      window.scrollTo({ top: view.offsetTop })
     } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      window.scrollTo({ top: 0 })
     }
 
     if (onClick) onClick(event)
