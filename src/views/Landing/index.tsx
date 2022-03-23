@@ -214,23 +214,33 @@ const Landing = () => {
       resize()
       window.addEventListener('resize', resize, false)
 
+      const config = {
+        src: '/landing/why.svg',
+        widthFrom: 222411.77,
+        heightFrom: 24846,
+        windowWidthFrom: 1440,
+        yFrom: 1920,
+        xFrom: 1440,
+        widthTo: 614,
+        heightTo: 68,
+      }
       const ctx = canvasRef.current.getContext('2d')
       const img = new Image()
-      img.src = '/landing/why.svg'
+      img.src = config.src
       img.onload = () => {
-        const baseWidth = () => (222411.77 / 1440) * window.innerWidth
+        const baseWidth = () => (config.widthFrom / config.windowWidthFrom) * window.innerWidth
         const endWidth = () => {
           const fontSize = parseFloat(window.getComputedStyle(document.documentElement).fontSize)
-          return (614 / 10) * fontSize
+          return (config.widthTo / 10) * fontSize
         }
         const values = { width: 0, height: 0, x: 0, y: 0 }
         gsap.fromTo(
           values,
           {
-            y: () => (1920 / 222411.77) * baseWidth(),
-            x: () => (1440 / 222411.77) * baseWidth(),
+            y: () => (config.yFrom / config.widthFrom) * baseWidth(),
+            x: () => (config.xFrom / config.widthFrom) * baseWidth(),
             width: () => baseWidth(),
-            height: () => baseWidth() / (222411.77 / 24846),
+            height: () => baseWidth() / (config.widthFrom / config.heightFrom),
             scrollTrigger: {
               invalidateOnRefresh: true,
             },
@@ -239,7 +249,7 @@ const Landing = () => {
             y: 0,
             x: 0,
             width: () => endWidth(),
-            height: () => endWidth() / (614 / 68),
+            height: () => endWidth() / (config.widthTo / config.heightTo),
             scrollTrigger: {
               invalidateOnRefresh: true,
               trigger: layer1Ref.current,
@@ -370,7 +380,7 @@ const Landing = () => {
           </Box>
         </Container>
       </Box>
-      <Box position="relative" height="auto" minHeight="calc(min(180rem, 200vh) + 200vh)">
+      <Box position="relative" height="auto" minHeight="calc(min(180rem, 200vh) + 100vh)">
         <Container {...styles.fullHeight} height={styles.vh100} className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
             <Box width="100%" height="72rem" mb="2rem" borderRadius="2rem" overflow="hidden" ref={layer3Ref}>
