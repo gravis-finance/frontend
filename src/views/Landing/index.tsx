@@ -26,7 +26,6 @@ import Tokenomics from './components/Tokenomics'
 import Partners from './components/Partners'
 import Footer from './components/Footer'
 import { Trailer } from './components/Trailer'
-import { breakpoints } from '../../contexts/ThemeContext'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -215,13 +214,14 @@ const Landing = () => {
     if (canvas) {
       resize()
       window.addEventListener('resize', resize, false)
-      const mobile = window.innerHeight > window.innerWidth && window.innerWidth < parseFloat(breakpoints.sm)
-      const config = mobile
+      const vertical = window.innerHeight > window.innerWidth
+      const config = vertical
         ? {
             src: '/landing/why_m.svg',
             widthFrom: 8684,
             heightFrom: 6075,
             windowWidthFrom: 375,
+            windowHeightFrom: 667,
             yFrom: 800,
             xFrom: 0,
             widthTo: 236,
@@ -232,6 +232,7 @@ const Landing = () => {
             widthFrom: 222411.77,
             heightFrom: 24846,
             windowWidthFrom: 1440,
+            windowHeightFrom: 900,
             yFrom: 1920,
             xFrom: 1440,
             widthTo: 614,
@@ -242,7 +243,9 @@ const Landing = () => {
       img.src = config.src
       img.onload = () => {
         const baseWidth = () => (config.widthFrom / config.windowWidthFrom) * window.innerWidth
-        const endWidth = () => {
+        const baseHeight = () => (config.heightFrom / config.windowHeightFrom) * window.innerHeight
+        const widthFrom = () => (vertical ? (baseHeight() * config.widthFrom) / config.heightFrom : baseWidth())
+        const widthEnd = () => {
           const fontSize = parseFloat(window.getComputedStyle(document.documentElement).fontSize)
           return (config.widthTo / 10) * fontSize
         }
@@ -250,10 +253,10 @@ const Landing = () => {
         gsap.fromTo(
           values,
           {
-            y: () => (config.yFrom / config.widthFrom) * baseWidth(),
-            x: () => (config.xFrom / config.widthFrom) * baseWidth(),
-            width: () => baseWidth(),
-            height: () => baseWidth() / (config.widthFrom / config.heightFrom),
+            y: () => (config.yFrom / config.widthFrom) * widthFrom(),
+            x: () => (config.xFrom / config.widthFrom) * widthFrom(),
+            width: () => widthFrom(),
+            height: () => widthFrom() / (config.widthFrom / config.heightFrom),
             scrollTrigger: {
               invalidateOnRefresh: true,
             },
@@ -261,8 +264,8 @@ const Landing = () => {
           {
             y: 0,
             x: 0,
-            width: () => endWidth(),
-            height: () => endWidth() / (config.widthTo / config.heightTo),
+            width: () => widthEnd(),
+            height: () => widthEnd() / (config.widthTo / config.heightTo),
             scrollTrigger: {
               invalidateOnRefresh: true,
               trigger: layer1Ref.current,
