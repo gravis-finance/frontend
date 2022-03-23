@@ -67,9 +67,10 @@ const TokenText = styled(MenuItem)`
 
 const IconButton = styled(Button)`
   padding: 1rem;
+  width: 3.5rem;
+  height: 3.5rem;
   background-color: #3e4346;
-  clip-path: polygon(0 0.5rem, 0.5rem 0, 100% 0, 100% calc(100% - 0.5rem), calc(100% - 0.5rem) 100%, 0 100%);
-  border-radius: 0;
+  border-radius: 41px;
 `
 
 const MenuIcon = (props: React.ComponentProps<typeof Box>) => {
