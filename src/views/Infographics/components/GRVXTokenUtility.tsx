@@ -8,6 +8,7 @@ import grvxHeader from '../../../assets/infographics/GRVXHeader.png'
 const StyledFlex = styled(Flex)`
   margin: -10px;
   justify-content: center;
+  flex-wrap: wrap;
   > img {
     margin: 10px;
   }
@@ -19,12 +20,12 @@ const GRVXTokenUtility = () => {
   return (
     <>
       <Flex justifyContent="center">
-        <Image src={grvxHeader} width="766.15px" height="102.83px" />
+        <Image src={grvxHeader} style={{ maxWidth: '600px' }} />
       </Flex>
       <Box mt="48px">
         <StyledFlex>
-          <Image src={evervoid} width="772px" height="534px" />
-          <Image src={gswap} width="428px" height="534px" />
+          <Image src={evervoid} />
+          <Image src={gswap} />
         </StyledFlex>
       </Box>
     </>
