@@ -26,6 +26,7 @@ import Tokenomics from './components/Tokenomics'
 import Partners from './components/Partners'
 import Footer from './components/Footer'
 import { Trailer } from './components/Trailer'
+import { breakpoints } from '../../contexts/ThemeContext'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -178,8 +179,9 @@ const Landing = () => {
           yPercent: 0,
         },
         {
-          yPercent: -50,
+          yPercent: () => (isMobile ? -100 : -50),
           scrollTrigger: {
+            invalidateOnRefresh: true,
             trigger: layer3Ref.current,
             scrub: 0.2,
             start: 'top top',
@@ -213,24 +215,45 @@ const Landing = () => {
     if (canvas) {
       resize()
       window.addEventListener('resize', resize, false)
-
+      const mobile = window.innerHeight > window.innerWidth && window.innerWidth < parseFloat(breakpoints.sm)
+      const config = mobile
+        ? {
+            src: '/landing/why_m.svg',
+            widthFrom: 8684,
+            heightFrom: 6075,
+            windowWidthFrom: 375,
+            yFrom: 800,
+            xFrom: 0,
+            widthTo: 236,
+            heightTo: 165,
+          }
+        : {
+            src: '/landing/why.svg',
+            widthFrom: 222411.77,
+            heightFrom: 24846,
+            windowWidthFrom: 1440,
+            yFrom: 1920,
+            xFrom: 1440,
+            widthTo: 614,
+            heightTo: 68,
+          }
       const ctx = canvasRef.current.getContext('2d')
       const img = new Image()
-      img.src = '/landing/why.svg'
+      img.src = config.src
       img.onload = () => {
-        const baseWidth = () => (222411.77 / 1440) * window.innerWidth
+        const baseWidth = () => (config.widthFrom / config.windowWidthFrom) * window.innerWidth
         const endWidth = () => {
           const fontSize = parseFloat(window.getComputedStyle(document.documentElement).fontSize)
-          return (614 / 10) * fontSize
+          return (config.widthTo / 10) * fontSize
         }
         const values = { width: 0, height: 0, x: 0, y: 0 }
         gsap.fromTo(
           values,
           {
-            y: () => (1920 / 222411.77) * baseWidth(),
-            x: () => (1440 / 222411.77) * baseWidth(),
+            y: () => (config.yFrom / config.widthFrom) * baseWidth(),
+            x: () => (config.xFrom / config.widthFrom) * baseWidth(),
             width: () => baseWidth(),
-            height: () => baseWidth() / (222411.77 / 24846),
+            height: () => baseWidth() / (config.widthFrom / config.heightFrom),
             scrollTrigger: {
               invalidateOnRefresh: true,
             },
@@ -239,7 +262,7 @@ const Landing = () => {
             y: 0,
             x: 0,
             width: () => endWidth(),
-            height: () => endWidth() / (614 / 68),
+            height: () => endWidth() / (config.widthTo / config.heightTo),
             scrollTrigger: {
               invalidateOnRefresh: true,
               trigger: layer1Ref.current,
@@ -321,7 +344,7 @@ const Landing = () => {
       </span>
       <Box className="sticky-container" minHeight="calc(100vh + 500px)">
         <Container zIndex={1} {...styles.fullHeight} height={styles.vh100} ref={layer4Ref} className="sticky-content">
-          <Box {...styles.content} p={{ _: '2rem', sm: 0 }} display="flex" justifyContent="center" alignItems="center">
+          <Box {...styles.content} py={{ _: '2rem', sm: 0 }} display="flex" justifyContent="center" alignItems="center">
             <Flex
               width="100%"
               height={{ _: '100%', sm: '72rem' }}
@@ -333,6 +356,7 @@ const Landing = () => {
               alignItems={{ _: 'flex-end', sm: 'center' }}
               mb={{ _: 0, sm: '2rem' }}
               pb={{ _: '4rem', sm: 0 }}
+              position="relative"
             >
               <MobileBG display={{ _: 'block', sm: 'none' }} />
               <Box ml={{ _: '1.5rem', sm: '8rem' }} mr={{ _: '1.5rem', sm: 0 }} zIndex={1}>
@@ -370,17 +394,24 @@ const Landing = () => {
           </Box>
         </Container>
       </Box>
-      <Box position="relative" height="auto" minHeight="calc(min(180rem, 200vh) + 200vh)">
+      <Box position="relative" height="auto" minHeight="calc(min(180rem, 200vh) + 100vh)">
         <Container {...styles.fullHeight} height={styles.vh100} className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
-            <Box width="100%" height="72rem" mb="2rem" borderRadius="2rem" overflow="hidden" ref={layer3Ref}>
-              <Box ref={anim4Ref} className="will-change">
+            <Box
+              width="100%"
+              height={{ _: '100%', sm: '72rem' }}
+              mb="2rem"
+              borderRadius="2rem"
+              overflow="hidden"
+              ref={layer3Ref}
+            >
+              <Box ref={anim4Ref} className="will-change" height={{ _: '100%', sm: 'initial' }}>
                 <Flex
                   background="url(/landing/bg2.png) no-repeat"
                   backgroundPosition={{ _: 'right', md: 'left' }}
                   backgroundSize="cover"
                   alignItems="center"
-                  height="72rem"
+                  height={{ _: '100%', sm: '72rem' }}
                 >
                   <Box ml={{ _: '1.5rem', sm: 'auto', md: '75rem' }} mr={{ _: '1.5rem', sm: '10rem', md: 0 }}>
                     <Flex alignItems="center" gridGap="1.287rem" fontSize="3.03rem" fontWeight={500} lineHeight="120%">
@@ -416,7 +447,7 @@ const Landing = () => {
                   </Box>
                 </Flex>
                 <Flex
-                  height="72rem"
+                  height={{ _: '100%', sm: '72rem' }}
                   background="url(/landing/bg3.png) no-repeat"
                   backgroundPosition={{ _: 'right', md: 'left' }}
                   backgroundSize="cover"
