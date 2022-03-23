@@ -1,9 +1,9 @@
 import React from 'react'
-import { SvgProps } from '@gravis.finance/uikit'
+import { Box } from '@gravis.finance/uikit'
 
-const Icon: React.FC<SvgProps> = (props) => {
+const Icon: React.FC<React.ComponentProps<typeof Box>> = (props) => {
   return (
-    <svg width="8.1rem" height="8rem" viewBox="0 0 81 80" fill="none" {...props}>
+    <Box as="svg" width="8.1rem" height="8rem" viewBox="0 0 81 80" fill="none" {...props}>
       <rect x="0.333496" width="80" height="80" rx="40" fill="url(#paint0_radial_11805_1376)" />
       <path
         fillRule="evenodd"
@@ -24,7 +24,7 @@ const Icon: React.FC<SvgProps> = (props) => {
           <stop offset="1" stopColor="#0FBD00" />
         </radialGradient>
       </defs>
-    </svg>
+    </Box>
   )
 }
 

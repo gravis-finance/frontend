@@ -8,7 +8,6 @@ import Header from './components/Header'
 import MainInfo from './components/MainInfo'
 import { useResponsiveness } from './useResponsiveness'
 import * as styles from './styles'
-import { WhyTextSvg } from './components/WhyTextSvg'
 import { AppsConfig } from '../../config/constants/apps'
 import AppItem from './components/AppItem'
 import {
@@ -53,7 +52,7 @@ const Root = styled.div`
 const Container = styled(Box).attrs((props) => ({
   position: 'relative',
   pt: styles.headerHeight,
-  height: { md: styles.vh100 },
+  height: { md: styles.vh100 } as any,
   ...props,
 }))`
   width: 100%;
@@ -70,10 +69,13 @@ const Layer1 = styled(Container)`
   height: ${styles.vh100};
 `
 
-const Title = styled(Box).attrs((props) => ({ fontSize: { _: '3.2rem', md: '4.4rem' }, ...props }))`
+const Title = styled(Box).attrs((props) => ({
+  fontSize: { _: '3.2rem', md: '4.4rem' },
+  lineHeight: { _: '110%', md: '4.84rem' },
+  ...props,
+}))`
   font-weight: 600;
   letter-spacing: -0.02em;
-  line-height: 4.84rem;
 `
 
 const Layer2 = styled.div`
@@ -83,6 +85,7 @@ const Layer2 = styled.div`
   width: 100%;
   height: 100%;
   pointer-events: none;
+  overflow: hidden;
 `
 
 const ComingSoon = ({ variant }: { variant: 'apple' | 'android' }) => {
@@ -110,15 +113,30 @@ const Video = styled.video`
   object-fit: cover;
 `
 
+const Canvas = styled.canvas`
+  position: absolute;
+  top: 0;
+  left: 0;
+`
+
+const MobileBG = styled(Box)`
+  background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`
+
 const Landing = () => {
   const isMobile = useResponsiveness()
   const [loading, setLoading] = React.useState(true)
+  const canvasRef = React.useRef<HTMLCanvasElement>(null)
   const layer1Ref = React.useRef<HTMLDivElement>(null)
   const layer2Ref = React.useRef<HTMLDivElement>(null)
   const layer3Ref = React.useRef<HTMLDivElement>(null)
   const layer4Ref = React.useRef<HTMLDivElement>(null)
   const anim1Ref = React.useRef<HTMLDivElement>(null)
-  const anim2Ref = React.useRef<HTMLDivElement>(null)
   const anim3Ref = React.useRef<HTMLDivElement>(null)
   const anim4Ref = React.useRef<HTMLDivElement>(null)
   const videoLayerRef = React.useRef<HTMLDivElement>(null)
@@ -133,40 +151,11 @@ const Landing = () => {
         ease: 'none',
         scrollTrigger: {
           trigger: layer1Ref.current,
-          scrub: 1,
+          scrub: 0.5,
           start: 'top top',
-          end: 'bottom-=500 bottom',
+          end: 'bottom-=1000 bottom',
         },
       })
-
-      if (anim2Ref.current && layer1Ref.current) {
-        const htmlFontSize = () => Number(window.getComputedStyle(document.documentElement).fontSize.replace('px', ''))
-        const scale = () => window.innerWidth / htmlFontSize() / (isMobile ? 0.25 : 0.4114285714285714)
-        const x = () => window.innerWidth / htmlFontSize() / (isMobile ? 1.1363636363636365 : 1.44)
-
-        gsap.from(anim2Ref.current, {
-          keyframes: {
-            '0%': { scale: () => scale(), x: () => `${x()}rem` },
-            '30%': { scale: () => scale() / 3, x: () => `${x() / 3}rem` },
-            '100%': {
-              scale: 1,
-              x: 0,
-            },
-          },
-          ease: 'none',
-          scrollTrigger: {
-            trigger: layer1Ref.current,
-            scrub: 1,
-            start: 'top top',
-            end: 'bottom-=500 bottom',
-            onUpdate: (self) => {
-              if (layer2Ref.current) {
-                layer2Ref.current.style['pointer-events'] = self.progress > 0.5 ? 'all' : 'none'
-              }
-            },
-          },
-        })
-      }
     }
 
     if (!isMobile && anim3Ref.current) {
@@ -183,17 +172,22 @@ const Landing = () => {
     }
 
     if (anim4Ref.current) {
-      ScrollTrigger.create({
-        trigger: layer3Ref.current,
-        scrub: 1,
-        start: 'top+=100vh top',
-        end: 'bottom-=100vh bottom',
-        onUpdate: ({ progress }) => {
-          if (progress >= 0 && progress <= 1) {
-            anim4Ref.current.scrollTop = (anim4Ref.current.scrollHeight - anim4Ref.current.offsetHeight) * progress
-          }
+      gsap.fromTo(
+        anim4Ref.current,
+        {
+          yPercent: 0,
         },
-      })
+        {
+          yPercent: () => (isMobile ? -100 : -50),
+          scrollTrigger: {
+            invalidateOnRefresh: true,
+            trigger: layer3Ref.current,
+            scrub: 0.2,
+            start: 'top top',
+            end: 'bottom top',
+          },
+        },
+      )
     }
 
     if (videoLayerRef.current) {
@@ -211,13 +205,103 @@ const Landing = () => {
     setLoading(false)
   }, [isMobile])
 
+  React.useLayoutEffect(() => {
+    const canvas = canvasRef.current
+    const resize = () => {
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
+    }
+    if (canvas) {
+      resize()
+      window.addEventListener('resize', resize, false)
+      const vertical = window.innerHeight > window.innerWidth
+      const config = vertical
+        ? {
+            src: '/landing/why_m.svg',
+            widthFrom: 8684,
+            heightFrom: 6075,
+            windowWidthFrom: 375,
+            windowHeightFrom: 667,
+            yFrom: 800,
+            xFrom: 0,
+            widthTo: 236,
+            heightTo: 165,
+          }
+        : {
+            src: '/landing/why.svg',
+            widthFrom: 222411.77,
+            heightFrom: 24846,
+            windowWidthFrom: 1440,
+            windowHeightFrom: 900,
+            yFrom: 1920,
+            xFrom: 1440,
+            widthTo: 614,
+            heightTo: 68,
+          }
+      const ctx = canvasRef.current.getContext('2d')
+      const img = new Image()
+      img.src = config.src
+      img.onload = () => {
+        const baseWidth = () => (config.widthFrom / config.windowWidthFrom) * window.innerWidth
+        const baseHeight = () => (config.heightFrom / config.windowHeightFrom) * window.innerHeight
+        const widthFrom = () => (vertical ? (baseHeight() * config.widthFrom) / config.heightFrom : baseWidth())
+        const widthEnd = () => {
+          const fontSize = parseFloat(window.getComputedStyle(document.documentElement).fontSize)
+          return (config.widthTo / 10) * fontSize
+        }
+        const values = { width: 0, height: 0, x: 0, y: 0 }
+        gsap.fromTo(
+          values,
+          {
+            y: () => (config.yFrom / config.widthFrom) * widthFrom(),
+            x: () => (config.xFrom / config.widthFrom) * widthFrom(),
+            width: () => widthFrom(),
+            height: () => widthFrom() / (config.widthFrom / config.heightFrom),
+            scrollTrigger: {
+              invalidateOnRefresh: true,
+            },
+          },
+          {
+            y: 0,
+            x: 0,
+            width: () => widthEnd(),
+            height: () => widthEnd() / (config.widthTo / config.heightTo),
+            scrollTrigger: {
+              invalidateOnRefresh: true,
+              trigger: layer1Ref.current,
+              scrub: 0,
+              start: 'top top',
+              end: 'bottom-=1000 bottom',
+              onUpdate: () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height)
+                ctx.drawImage(
+                  img,
+                  canvas.width / 2 - values.width / 2 + values.x,
+                  canvas.height / 2 - values.height / 2 + values.y,
+                  values.width,
+                  values.height,
+                )
+              },
+            },
+          },
+        )
+      }
+    }
+
+    return () => {
+      if (canvas) {
+        window.removeEventListener('resize', resize, false)
+      }
+    }
+  }, [])
+
   return (
     <Root>
       <Loader opacity={loading ? 1 : 0} zIndex={loading ? 999 : -1}>
         <Spinner size="6rem" />
       </Loader>
       <Header />
-      <Box className="sticky-container" minHeight="calc(300vh + 500px)" ref={layer1Ref} id="whyus">
+      <Box className="sticky-container" minHeight="calc(300vh + 1000px)" ref={layer1Ref} id="whyus">
         <Layer1 className="sticky-content">
           <MainInfo />
           <Layer2 ref={layer2Ref}>
@@ -231,18 +315,7 @@ const Landing = () => {
               height="100%"
               opacity={0}
             />
-            <Flex
-              position="absolute"
-              width="100%"
-              height="100%"
-              top={0}
-              left={0}
-              justifyContent="center"
-              alignItems="center"
-              overflow="hidden"
-            >
-              <WhyTextSvg ref={anim2Ref} width={{ _: '31rem', md: '61rem' }} />
-            </Flex>
+            <Canvas ref={canvasRef} />
           </Layer2>
         </Layer1>
       </Box>
@@ -250,14 +323,14 @@ const Landing = () => {
         <Box className="md:sticky-content" minHeight={{ md: 'calc(100vh + 500px)' }}>
           <Container maxHeight={{ md: '90rem' }} className="md:sticky-content">
             <Box {...styles.content} display="flex" justifyContent="center" alignItems="center" ref={anim3Ref}>
-              <Box width="100%" mb="10rem">
+              <Box width="100%" mb={{ _: 0, sm: '10rem' }}>
                 <Title textAlign="center" p={{ _: '0 1rem', md: 0 }}>
                   All your DeFi apps one place
                 </Title>
                 <Box
                   display="grid"
-                  mt="5rem"
-                  gridGap="2rem"
+                  mt={{ _: '2.5rem', md: '5rem' }}
+                  gridGap={{ _: '1rem', sm: '2rem' }}
                   gridTemplateColumns={{
                     _: 'repeat(auto-fill, minmax(30rem, 1fr))',
                     md: 'repeat(auto-fill, minmax(40rem, 1fr))',
@@ -274,20 +347,24 @@ const Landing = () => {
       </span>
       <Box className="sticky-container" minHeight="calc(100vh + 500px)">
         <Container zIndex={1} {...styles.fullHeight} height={styles.vh100} ref={layer4Ref} className="sticky-content">
-          <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
+          <Box {...styles.content} py={{ _: '2rem', sm: 0 }} display="flex" justifyContent="center" alignItems="center">
             <Flex
               width="100%"
-              height="72rem"
+              height={{ _: '100%', sm: '72rem' }}
               maxHeight={styles.vh100minusHeader}
               background="url(/landing/bg1.png) no-repeat"
               backgroundSize="cover"
+              backgroundPosition="top"
               borderRadius="2rem"
-              alignItems="center"
-              mb="2rem"
+              alignItems={{ _: 'flex-end', sm: 'center' }}
+              mb={{ _: 0, sm: '2rem' }}
+              pb={{ _: '4rem', sm: 0 }}
+              position="relative"
             >
-              <Box ml={{ _: '1.5rem', sm: '8rem' }} mr={{ _: '1.5rem', sm: 0 }}>
-                <EvervoidLogo width="14.5rem" height="2.65rem" />
-                <Box fontSize={{ _: '3.2rem', md: '4.4rem' }} fontWeight={600} lineHeight="120%" mt="2rem">
+              <MobileBG display={{ _: 'block', sm: 'none' }} />
+              <Box ml={{ _: '1.5rem', sm: '8rem' }} mr={{ _: '1.5rem', sm: 0 }} zIndex={1}>
+                <EvervoidLogo width={{ _: '12.7rem', sm: '14.5rem' }} height={{ _: '2.3rem', sm: '2.65rem' }} />
+                <Box fontSize={{ _: '2.8rem', md: '4.4rem' }} fontWeight={600} lineHeight="120%" mt="2rem">
                   Free-to-play
                   <br />
                   P2E NFT-based
@@ -295,10 +372,17 @@ const Landing = () => {
                   MMO strategy
                   <br />
                 </Box>
-                <Box opacity={0.7} fontSize="1.6rem" maxWidth="33rem" mt="1rem" fontWeight={500} lineHeight="145%">
+                <Box
+                  opacity={0.7}
+                  fontSize={{ _: '1.4rem', sm: '1.6rem' }}
+                  maxWidth={{ sm: '33rem' }}
+                  mt="1rem"
+                  fontWeight={500}
+                  lineHeight="145%"
+                >
                   Includes various missions, staking crafting, equipment upgrades, lands and more
                 </Box>
-                <Flex mt="4rem" gridGap="1.5rem">
+                <Flex mt={{ _: '2.5rem', sm: '4rem' }} gridGap="1.5rem">
                   <Button as="a" target="_blank" href={`${process.env.REACT_APP_ASTEROID_MINING_URL}/missions`}>
                     Play demo
                   </Button>
@@ -313,114 +397,123 @@ const Landing = () => {
           </Box>
         </Container>
       </Box>
-      <Box position="relative" height="auto" minHeight="calc(min(180rem, 200vh) + 200vh)" ref={layer3Ref}>
+      <Box position="relative" height="auto" minHeight="calc(min(180rem, 200vh) + 100vh)">
         <Container {...styles.fullHeight} height={styles.vh100} className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
-            <Box width="100%" height="72rem" mb="2rem" borderRadius="2rem" overflow="hidden" ref={anim4Ref}>
-              <Flex
-                background="url(/landing/bg2.png) no-repeat"
-                backgroundPosition={{ _: 'right', md: 'left' }}
-                backgroundSize="cover"
-                alignItems="center"
-                height="100%"
-              >
-                <Box ml={{ _: '1.5rem', sm: 'auto', md: '75rem' }} mr={{ _: '1.5rem', sm: '10rem', md: 0 }}>
-                  <Flex alignItems="center" gridGap="1.287rem" fontSize="3.03rem" fontWeight={500} lineHeight="120%">
-                    <GmartLogo />
-                    <div>Gmart</div>
-                  </Flex>
-                  <Box fontSize={{ _: '3.2rem', sm: '4.4rem' }} fontWeight={600} lineHeight="110%" mt="2.5rem">
-                    Discover,
-                    <br />
-                    collect and sell <br />
-                    extraordinary NFTs <br />
+            <Box
+              width="100%"
+              height={{ _: '100%', sm: '72rem' }}
+              mb="2rem"
+              borderRadius="2rem"
+              overflow="hidden"
+              ref={layer3Ref}
+            >
+              <Box ref={anim4Ref} className="will-change" height={{ _: '100%', sm: 'initial' }}>
+                <Flex
+                  background="url(/landing/bg2.png) no-repeat"
+                  backgroundPosition={{ _: 'right', md: 'left' }}
+                  backgroundSize="cover"
+                  alignItems="center"
+                  height={{ _: '100%', sm: '72rem' }}
+                >
+                  <Box ml={{ _: '1.5rem', sm: 'auto', md: '75rem' }} mr={{ _: '1.5rem', sm: '10rem', md: 0 }}>
+                    <Flex alignItems="center" gridGap="1.287rem" fontSize="3.03rem" fontWeight={500} lineHeight="120%">
+                      <GmartLogo />
+                      <div>Gmart</div>
+                    </Flex>
+                    <Box fontSize={{ _: '3.2rem', sm: '4.4rem' }} fontWeight={600} lineHeight="110%" mt="2.5rem">
+                      Discover,
+                      <br />
+                      collect and sell <br />
+                      extraordinary NFTs <br />
+                    </Box>
+                    <Box
+                      opacity={0.7}
+                      fontSize={{ _: '1.4rem', sm: '1.6rem' }}
+                      maxWidth="40.6rem"
+                      mt="1rem"
+                      fontWeight={500}
+                      lineHeight="145%"
+                    >
+                      The first NFT marketplace focused solely on in-game assets. Built-in smart analytics for NFT
+                      portfolio.
+                    </Box>
+                    <Flex mt="4rem" gridGap="1.5rem">
+                      <Button as="a" target="_blank" href={process.env.REACT_APP_GMART_URL}>
+                        Explore
+                      </Button>
+                      <Button variant="dark" as="a" target="_blank" href={process.env.REACT_APP_GMART_DOCS_URL}>
+                        <ExternalIcon mr="1rem" />
+                        <div>Learn more</div>
+                      </Button>
+                    </Flex>
                   </Box>
-                  <Box
-                    opacity={0.7}
-                    fontSize={{ _: '1.4rem', sm: '1.6rem' }}
-                    maxWidth="40.6rem"
-                    mt="1rem"
-                    fontWeight={500}
-                    lineHeight="145%"
-                  >
-                    The first NFT marketplace focused solely on in-game assets. Built-in smart analytics for NFT
-                    portfolio.
+                </Flex>
+                <Flex
+                  height={{ _: '100%', sm: '72rem' }}
+                  background="url(/landing/bg3.png) no-repeat"
+                  backgroundPosition={{ _: 'right', md: 'left' }}
+                  backgroundSize="cover"
+                  alignItems="center"
+                  position="relative"
+                >
+                  <Box ml={{ _: '1.5rem', sm: '8rem' }}>
+                    <Box fontSize={{ _: '4.4rem', sm: '6.2rem' }} fontWeight={600}>
+                      Gmart on
+                      <br />
+                      your mobile
+                    </Box>
+                    <Flex
+                      flexDirection="column"
+                      gridGap="1.5rem"
+                      fontSize={{ _: '1.4rem', sm: '1.6rem' }}
+                      fontWeight={500}
+                      lineHeight="2.3rem"
+                      mt="3rem"
+                    >
+                      <Flex alignItems="center" gridGap="1rem">
+                        <CheckMarkIcon />
+                        <div>All GamiFi NFTs in one app</div>
+                      </Flex>
+                      <Flex alignItems="center" gridGap="1rem">
+                        <CheckMarkIcon />
+                        <div>Quick purchase</div>
+                      </Flex>
+                      <Flex alignItems="center" gridGap="1rem">
+                        <CheckMarkIcon />
+                        <div>Portfolio tracking</div>
+                      </Flex>
+                      <Flex alignItems="center" gridGap="1rem">
+                        <CheckMarkIcon />
+                        <div>Smart recommendations</div>
+                      </Flex>
+                      <Flex alignItems="center" gridGap="1rem">
+                        <CheckMarkIcon />
+                        <div>Push notifications</div>
+                      </Flex>
+                    </Flex>
+                    <Box
+                      as="img"
+                      src="/landing/app_store_btns.png"
+                      mt="4.5rem"
+                      width={{ _: '30rem', sm: '35.5rem' } as any}
+                      height="5rem"
+                      className="object-contain pointer-events-none"
+                    />
                   </Box>
-                  <Flex mt="4rem" gridGap="1.5rem">
-                    <Button as="a" target="_blank" href={process.env.REACT_APP_GMART_URL}>
-                      Explore
-                    </Button>
-                    <Button variant="dark" as="a" target="_blank" href={process.env.REACT_APP_GMART_DOCS_URL}>
-                      <ExternalIcon mr="1rem" />
-                      <div>Learn more</div>
-                    </Button>
-                  </Flex>
-                </Box>
-              </Flex>
-              <Flex
-                height="100%"
-                background="url(/landing/bg3.png) no-repeat"
-                backgroundPosition={{ _: 'right', md: 'left' }}
-                backgroundSize="cover"
-                alignItems="center"
-                position="relative"
-              >
-                <Box ml={{ _: '1.5rem', sm: '8rem' }}>
-                  <Box fontSize={{ _: '4.4rem', sm: '6.2rem' }} fontWeight={600}>
-                    Gmart on
-                    <br />
-                    your mobile
-                  </Box>
-                  <Flex
-                    flexDirection="column"
-                    gridGap="1.5rem"
-                    fontSize={{ _: '1.4rem', sm: '1.6rem' }}
-                    fontWeight={500}
-                    lineHeight="2.3rem"
-                    mt="3rem"
-                  >
-                    <Flex alignItems="center" gridGap="1rem">
-                      <CheckMarkIcon />
-                      <div>All GamiFi NFTs in one app</div>
-                    </Flex>
-                    <Flex alignItems="center" gridGap="1rem">
-                      <CheckMarkIcon />
-                      <div>Quick purchase</div>
-                    </Flex>
-                    <Flex alignItems="center" gridGap="1rem">
-                      <CheckMarkIcon />
-                      <div>Portfolio tracking</div>
-                    </Flex>
-                    <Flex alignItems="center" gridGap="1rem">
-                      <CheckMarkIcon />
-                      <div>Smart recommendations</div>
-                    </Flex>
-                    <Flex alignItems="center" gridGap="1rem">
-                      <CheckMarkIcon />
-                      <div>Push notifications</div>
-                    </Flex>
-                  </Flex>
                   <Box
                     as="img"
-                    src="/landing/app_store_btns.png"
-                    mt="4.5rem"
-                    width={{ _: '30rem', sm: '35.5rem' } as any}
-                    height="5rem"
-                    className="object-contain pointer-events-none"
+                    src="/landing/iphone.png"
+                    width="39.2rem"
+                    height="63.4rem"
+                    position="absolute"
+                    bottom={0}
+                    right="18rem"
+                    display={{ _: 'none', md: 'block' }}
+                    className="pointer-events-none"
                   />
-                </Box>
-                <Box
-                  as="img"
-                  src="/landing/iphone.png"
-                  width="39.2rem"
-                  height="63.4rem"
-                  position="absolute"
-                  bottom={0}
-                  right="18rem"
-                  display={{ _: 'none', md: 'block' }}
-                  className="pointer-events-none"
-                />
-              </Flex>
+                </Flex>
+              </Box>
             </Box>
           </Box>
         </Container>
@@ -540,17 +633,21 @@ const Landing = () => {
       <Container id="roadmap">
         <Roadmap />
       </Container>
-      <Container id="team" style={{ height: 'auto' }}>
-        <Team />
+      <Container id="team" height={{ _: styles.vh100, sm: 'auto' }}>
+        <Box {...styles.content}>
+          <Team />
+        </Box>
       </Container>
-      <Container id="tokenomics" style={{ height: 'auto' }}>
+      <Container id="tokenomics" height="auto">
         <Box {...styles.content} overflowX="hidden">
           <Tokenomics />
         </Box>
       </Container>
-      <Box position="relative" id="partners">
-        <Partners />
-      </Box>
+      <Container id="partners" height="auto">
+        <Box {...styles.content}>
+          <Partners />
+        </Box>
+      </Container>
       <Box position="relative">
         <Footer />
       </Box>

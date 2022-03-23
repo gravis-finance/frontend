@@ -1,68 +1,40 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex, privacyAndPoliceLink, termsOfUseLink } from '@gravis.finance/uikit'
+import { Flex, privacyAndPoliceLink, termsOfUseLink, Box } from '@gravis.finance/uikit'
 import { DiscordIcon, GithubIcon } from '@gravis.finance/uikit/dist/cjs/components/SocialNetworks/social-icons'
 import DefaultText from '../../../../components/DefaultText'
 import { MediumIcon, TelegramIcon, TwitterIcon } from '../../../../components/Svg'
+import * as styles from '../../styles'
+import { breakpoints } from '../../../../contexts/ThemeContext'
 
-const Container = styled(Flex)`
-  height: 18rem;
-
+const Container = styled(Box)`
   background: #111518;
-
-  padding: 6rem 8rem;
-
-  @media screen and (max-width: 900px) {
-    height: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 3rem 5rem;
-
-    > div:first-child {
-      margin-right: 4.8rem;
-    }
-    > div:nth-child(2) {
-      flex-wrap: wrap;
-      justify-content: center;
-      width: 100%;
-      order: -1;
-      margin-bottom: 3.2rem;
-    }
-  }
-
-  @media screen and (max-width: 656px) {
-    > div:first-child {
-      margin-right: 0;
-      margin-bottom: 3.2rem;
-    }
-
-    > div:last-child {
-      white-space: pre;
-    }
-  }
-`
-
-const StyledWrapper = styled(Flex)`
-  > *:not(:last-child) {
-    margin-right: 1rem;
-  }
 `
 
 const LinkItem = styled.a`
   cursor: pointer;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 49px;
-  padding: 2.2rem 2.2rem 1.8rem 2.2rem;
   transition: background-color 200ms ease-in-out;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   :hover {
     background-color: rgba(255, 255, 255, 0.1);
   }
+
+  @media (min-width: ${breakpoints.md}) {
+    width: 6rem;
+    height: 6rem;
+  }
 `
 
-export const FooterNetworks = () => {
+export const FooterNetworks = (props: any) => {
   return (
-    <StyledWrapper alignItems="center">
+    <Box alignItems="center" gridGap="1rem" display="flex" {...props}>
       <LinkItem href="https://github.com/gravis-finance" target="_blank" rel="noopener  noreferrer">
         <GithubIcon />
       </LinkItem>
@@ -75,15 +47,10 @@ export const FooterNetworks = () => {
       <LinkItem href="https://gravis-finance.medium.com/" target="_blank" rel="noopener  noreferrer">
         <MediumIcon />
       </LinkItem>
-      <LinkItem
-        href="https://discord.gg/GravisFinance"
-        target="_blank"
-        rel="noopener  noreferrer"
-        style={{ padding: '2.2rem 1.95rem 1.9rem 1.95rem' }}
-      >
+      <LinkItem href="https://discord.gg/GravisFinance" target="_blank" rel="noopener  noreferrer">
         <DiscordIcon />
       </LinkItem>
-    </StyledWrapper>
+    </Box>
   )
 }
 
@@ -96,39 +63,50 @@ const LinkedDefaultText = styled(DefaultText)`
 
 const Footer: React.FC = () => {
   return (
-    <Container alignItems="center" justifyContent="space-between">
-      <Flex alignItems="center">
-        <LinkedDefaultText
-          color="rgba(255,255,255,0.7)"
-          fontSize="1.4rem"
-          fontWeight={500}
-          as="a"
-          href={privacyAndPoliceLink}
-          target="_blank"
-          rel="noopener  noreferrer"
+    <Container pb={{ _: '2rem', md: 0 }} height={{ _: '21rem', md: '18rem' }}>
+      <Flex {...styles.content}>
+        <Flex
+          alignItems="center"
+          justifyContent={{ _: 'center', md: 'space-between' }}
+          gridGap={{ _: '3rem', md: 0 }}
+          width="100%"
+          flexDirection={{ _: 'column', md: 'row' }}
         >
-          Privacy & Policy
-        </LinkedDefaultText>
-        <DefaultText color="rgba(255,255,255,0.1)" fontSize="1.4rem" m="0 2rem" fontWeight={500}>
-          |
-        </DefaultText>
-        <LinkedDefaultText
-          color="rgba(255,255,255,0.7)"
-          fontSize="1.4rem"
-          fontWeight={500}
-          as="a"
-          href={termsOfUseLink}
-          target="_blank"
-          rel="noopener  noreferrer"
-        >
-          Terms of Use
-        </LinkedDefaultText>
-      </Flex>
-      <FooterNetworks />
-      <Flex>
-        <DefaultText color="rgba(255,255,255,0.7)" fontSize="1.4rem" fontWeight={500}>
-          All rights reserved. © 2022 Gravis Finance
-        </DefaultText>
+          <FooterNetworks display={{ _: 'flex', md: 'none' }} />
+          <Flex alignItems="center">
+            <LinkedDefaultText
+              color="rgba(255,255,255,0.7)"
+              fontSize="1.4rem"
+              fontWeight={500}
+              as="a"
+              href={privacyAndPoliceLink}
+              target="_blank"
+              rel="noopener  noreferrer"
+            >
+              Privacy & Policy
+            </LinkedDefaultText>
+            <DefaultText color="rgba(255,255,255,0.1)" fontSize="1.4rem" m="0 2rem" fontWeight={500}>
+              |
+            </DefaultText>
+            <LinkedDefaultText
+              color="rgba(255,255,255,0.7)"
+              fontSize="1.4rem"
+              fontWeight={500}
+              as="a"
+              href={termsOfUseLink}
+              target="_blank"
+              rel="noopener  noreferrer"
+            >
+              Terms of Use
+            </LinkedDefaultText>
+          </Flex>
+          <FooterNetworks display={{ _: 'none', md: 'flex' }} />
+          <Flex>
+            <DefaultText color="rgba(255,255,255,0.7)" fontSize="1.4rem" fontWeight={500}>
+              All rights reserved. © 2022 Gravis Finance
+            </DefaultText>
+          </Flex>
+        </Flex>
       </Flex>
     </Container>
   )

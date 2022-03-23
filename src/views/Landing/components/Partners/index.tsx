@@ -1,27 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex } from '@gravis.finance/uikit'
+import { Box } from '@gravis.finance/uikit'
 import DefaultText from '../../../../components/DefaultText'
 import PartnersItem from '../PartnersItem'
 import PartnersConfig from '../../../../config/constants/partners'
+import { breakpoints } from '../../../../contexts/ThemeContext'
 
 const Container = styled.div`
-  padding: 10.7rem 7.5rem 9rem 8rem;
   background-color: #090d11;
+  padding-bottom: 2.4rem;
 
-  @media screen and (max-width: 852px) {
-    padding: 10.7rem 3rem 9rem 3rem;
-  }
-  @media screen and (max-width: 608px) {
-    padding: 10.7rem 0.8rem 9rem 0.8rem;
+  @media (min-width: ${breakpoints.sm}) {
+    padding-bottom: 9rem;
   }
 `
 
-const PartnersContainer = styled(Flex)`
-  margin: -0.5rem;
-  @media screen and (max-width: 852px) {
-    justify-content: center;
-  }
+const PartnersContainer = styled(Box).attrs(() => ({
+  mt: { _: '1rem', md: '1.5rem' },
+  gridTemplateColumns: {
+    _: 'repeat(auto-fill, minmax(10.8rem, 1fr))',
+    md: 'repeat(auto-fill, minmax(17.4rem, 1fr))',
+  },
+  gridGap: { _: '0.5rem', sm: '1rem' },
+}))`
+  display: grid;
 `
 
 const StyledDefaultText = styled(DefaultText)`
@@ -33,7 +35,7 @@ const StyledDefaultText = styled(DefaultText)`
 const Partners = () => {
   return (
     <Container>
-      <DefaultText fontWeight="700" fontSize="4.4rem" lineHeight="120%" textAlign="center">
+      <DefaultText fontWeight="700" fontSize={{ _: '3.2rem', sm: '4.4rem' }} lineHeight="120%" textAlign="center">
         Partners
       </DefaultText>
       <StyledDefaultText
