@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Box, Spinner, Flex } from '@gravis.finance/uikit'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import bg from 'assets/BG.png'
 import Header from './components/Header'
 import MainInfo from './components/MainInfo'
 import { useResponsiveness } from './useResponsiveness'
@@ -26,7 +25,6 @@ import Tokenomics from './components/Tokenomics'
 import Partners from './components/Partners'
 import Footer from './components/Footer'
 import { Trailer } from './components/Trailer'
-import { breakpoints } from '../../contexts/ThemeContext'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -62,11 +60,6 @@ const Container = styled(Box).attrs((props) => ({
 `
 
 const Layer1 = styled(Container)`
-  background-image: url(${bg});
-  background-color: #090d11;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position-x: center;
   height: ${styles.vh100};
 `
 
@@ -127,6 +120,13 @@ const MobileBG = styled(Box)`
   left: 0;
   width: 100%;
   height: 100%;
+  border-radius: inherit;
+`
+
+const VideoBg = styled.video`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `
 
 const Landing = () => {
@@ -144,7 +144,7 @@ const Landing = () => {
   const videoRef = React.useRef<HTMLVideoElement>(null)
 
   React.useEffect(() => {
-    ScrollTrigger.refresh()
+    window.scrollTo(0, 0)
 
     if (layer1Ref.current && anim1Ref.current) {
       gsap.to(anim1Ref.current, {
@@ -154,7 +154,7 @@ const Landing = () => {
           trigger: layer1Ref.current,
           scrub: 0.5,
           start: 'top top',
-          end: 'bottom-=1000 bottom',
+          end: 'bottom-=800 bottom',
         },
       })
     }
@@ -215,13 +215,14 @@ const Landing = () => {
     if (canvas) {
       resize()
       window.addEventListener('resize', resize, false)
-      const mobile = window.innerHeight > window.innerWidth && window.innerWidth < parseFloat(breakpoints.sm)
-      const config = mobile
+      const vertical = window.innerHeight > window.innerWidth
+      const config = vertical
         ? {
             src: '/landing/why_m.svg',
             widthFrom: 8684,
             heightFrom: 6075,
             windowWidthFrom: 375,
+            windowHeightFrom: 667,
             yFrom: 800,
             xFrom: 0,
             widthTo: 236,
@@ -232,6 +233,7 @@ const Landing = () => {
             widthFrom: 222411.77,
             heightFrom: 24846,
             windowWidthFrom: 1440,
+            windowHeightFrom: 900,
             yFrom: 1920,
             xFrom: 1440,
             widthTo: 614,
@@ -242,7 +244,9 @@ const Landing = () => {
       img.src = config.src
       img.onload = () => {
         const baseWidth = () => (config.widthFrom / config.windowWidthFrom) * window.innerWidth
-        const endWidth = () => {
+        const baseHeight = () => (config.heightFrom / config.windowHeightFrom) * window.innerHeight
+        const widthFrom = () => (vertical ? (baseHeight() * config.widthFrom) / config.heightFrom : baseWidth())
+        const widthEnd = () => {
           const fontSize = parseFloat(window.getComputedStyle(document.documentElement).fontSize)
           return (config.widthTo / 10) * fontSize
         }
@@ -250,10 +254,10 @@ const Landing = () => {
         gsap.fromTo(
           values,
           {
-            y: () => (config.yFrom / config.widthFrom) * baseWidth(),
-            x: () => (config.xFrom / config.widthFrom) * baseWidth(),
-            width: () => baseWidth(),
-            height: () => baseWidth() / (config.widthFrom / config.heightFrom),
+            y: () => (config.yFrom / config.widthFrom) * widthFrom(),
+            x: () => (config.xFrom / config.widthFrom) * widthFrom(),
+            width: () => widthFrom(),
+            height: () => widthFrom() / (config.widthFrom / config.heightFrom),
             scrollTrigger: {
               invalidateOnRefresh: true,
             },
@@ -261,14 +265,14 @@ const Landing = () => {
           {
             y: 0,
             x: 0,
-            width: () => endWidth(),
-            height: () => endWidth() / (config.widthTo / config.heightTo),
+            width: () => widthEnd(),
+            height: () => widthEnd() / (config.widthTo / config.heightTo),
             scrollTrigger: {
               invalidateOnRefresh: true,
               trigger: layer1Ref.current,
               scrub: 0,
               start: 'top top',
-              end: 'bottom-=1000 bottom',
+              end: 'bottom-=800 bottom',
               onUpdate: () => {
                 ctx.clearRect(0, 0, canvas.width, canvas.height)
                 ctx.drawImage(
@@ -298,8 +302,14 @@ const Landing = () => {
         <Spinner size="6rem" />
       </Loader>
       <Header />
-      <Box className="sticky-container" minHeight="calc(300vh + 1000px)" ref={layer1Ref} id="whyus">
+      <Box className="sticky-container" minHeight="calc(300vh + 800px)" ref={layer1Ref} id="whyus">
         <Layer1 className="sticky-content">
+          <Box position="absolute" top={0} left={0} width="100%" height="100%" overflow="hidden">
+            <Box as="img" src="/landing/bg.jpg" className="object-cover absolute-fill" />
+            <VideoBg autoPlay muted loop playsInline className="rotate-180">
+              <source src="/landing/video_bg.m4v" type="video/mp4" />
+            </VideoBg>
+          </Box>
           <MainInfo />
           <Layer2 ref={layer2Ref}>
             <Box
@@ -357,7 +367,21 @@ const Landing = () => {
               mb={{ _: 0, sm: '2rem' }}
               pb={{ _: '4rem', sm: 0 }}
               position="relative"
+              overflow="hidden"
             >
+              <Box
+                position="absolute"
+                top={0}
+                left={0}
+                width="100%"
+                height="100%"
+                overflow="hidden"
+                borderRadius="inherit"
+              >
+                <VideoBg autoPlay muted loop playsInline>
+                  <source src="/landing/video_evervoid.m4v" type="video/mp4" />
+                </VideoBg>
+              </Box>
               <MobileBG display={{ _: 'block', sm: 'none' }} />
               <Box ml={{ _: '1.5rem', sm: '8rem' }} mr={{ _: '1.5rem', sm: 0 }} zIndex={1}>
                 <EvervoidLogo width={{ _: '12.7rem', sm: '14.5rem' }} height={{ _: '2.3rem', sm: '2.65rem' }} />
@@ -499,16 +523,40 @@ const Landing = () => {
                     />
                   </Box>
                   <Box
-                    as="img"
-                    src="/landing/iphone.png"
-                    width="39.2rem"
-                    height="63.4rem"
-                    position="absolute"
-                    bottom={0}
+                    fontSize="1rem"
+                    width="39.2em"
+                    height="63.4em"
+                    position={{ _: 'relative', md: 'absolute' }}
+                    bottom="0"
                     right="18rem"
-                    display={{ _: 'none', md: 'block' }}
-                    className="pointer-events-none"
-                  />
+                    justifyContent="center"
+                    display={{ _: 'none', md: 'inline-flex' }}
+                    overflow="hidden"
+                  >
+                    <Box
+                      as={Video}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      width="35em"
+                      height="74em"
+                      ref={videoRef}
+                      borderRadius={40}
+                      m="2rem auto"
+                    >
+                      <source src="/landing/video_gmart.mp4" type="video/mp4" />
+                    </Box>
+                    <Box
+                      background="url(/landing/mockup.png) no-repeat"
+                      backgroundSize="contain"
+                      width="39.2em"
+                      height="79.1em"
+                      position="absolute"
+                      top={0}
+                      left={0}
+                    />
+                  </Box>
                 </Flex>
               </Box>
             </Box>
@@ -579,7 +627,7 @@ const Landing = () => {
                 alignItems="center"
               >
                 <Box as={Video} muted loop playsInline width="35em" height="74em" ref={videoRef}>
-                  <source src="/landing/video.mp4" type="video/mp4" />
+                  <source src="/landing/video_wallet.mp4" type="video/mp4" />
                 </Box>
                 <Box
                   background="url(/landing/mockup.png) no-repeat"
