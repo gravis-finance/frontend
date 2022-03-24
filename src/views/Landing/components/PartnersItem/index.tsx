@@ -14,6 +14,7 @@ const Container = styled(Box)`
   height: 7.4rem;
   position: relative;
   padding: 2rem;
+  border-radius: 10px;
 
   img {
     width: 100%;

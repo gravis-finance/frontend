@@ -31,7 +31,7 @@ const Team = () => {
 
   const filteredTeamMembers = useMemo(() => {
     if (activeIndex !== 0)
-      return teamMembers.sort((member1) => (member1.category === Object.values(TeamCategory)[activeIndex - 1] ? -1 : 1))
+      return teamMembers.filter((member1) => member1.category === Object.values(TeamCategory)[activeIndex - 1])
     return teamMembers.sort((m1, m2) => (m1.id > m2.id ? 1 : -1))
   }, [activeIndex])
 
