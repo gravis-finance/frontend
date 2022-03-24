@@ -120,7 +120,12 @@ const TokenomicInfo: React.FC<Props> = ({ token = TokenomicsTokenType.GRVS, netw
             ))}
           </CellsContainer>
           <ButtonFlex>
-            <Button variant="light" mr="1.5rem" onClick={links[token].seeMore.length > 0 ? openLinksModal : undefined}>
+            <Button
+              variant="light"
+              mr="1.5rem"
+              onClick={links[token].seeMore.length > 0 ? openLinksModal : undefined}
+              className={!links[token].seeMore.length ? 'pointer-events-none' : undefined}
+            >
               {links[token].seeMore.length > 0 ? 'See more' : 'Coming soon'}
             </Button>
             <Button variant="darkened" as="a" href={links[token].buyToken} target="_blank">

@@ -121,7 +121,7 @@ const Apps: React.FC<Props> = ({ setShowBlurred }) => {
         <Text color="black" fontSize="1.2rem" style={{ fontWeight: 500 }}>
           Apps
         </Text>
-        <NumericalArrow ml="0.6rem" width="0.9rem" />
+        <NumericalArrow ml="0.6rem" width="0.9rem" height="0.4rem" />
       </StyledFlex>
       <AppsContainer
         isOpen={isOpen}
