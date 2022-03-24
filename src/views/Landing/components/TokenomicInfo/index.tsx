@@ -10,7 +10,7 @@ const Container = styled(Box)`
   width: 100%;
   border-radius: 20px;
 
-  @media (min-width: ${breakpoints.sm}) {
+  @media (min-width: ${breakpoints.md}) {
     background: rgba(255, 255, 255, 0.05);
   }
 `
@@ -105,7 +105,7 @@ const TokenomicInfo: React.FC<Props> = ({ token = TokenomicsTokenType.GRVS, netw
   const [openLinksModal] = useModal(<LinksModal links={links[token].seeMore} token={token} />)
   return (
     <Container>
-      <Header alignItems="center" p="4.4rem 4.5rem" token={token} borderRadius={{ _: '15px', sm: '20px 20px 0 0' }}>
+      <Header alignItems="center" p="4.4rem 4.5rem" token={token} borderRadius={{ _: '15px', md: '20px 20px 0 0' }}>
         <StyledFlex justifyContent="space-between" width="100%">
           <CellsContainer>
             {cells[token].map((cell, index) => (
@@ -129,7 +129,7 @@ const TokenomicInfo: React.FC<Props> = ({ token = TokenomicsTokenType.GRVS, netw
           </ButtonFlex>
         </StyledFlex>
       </Header>
-      <DefaultText fontWeight={600} fontSize={{ _: '1.6rem', sm: '2.2rem' }} textAlign="center" mt={35} mb={15}>
+      <DefaultText fontWeight={600} fontSize={{ _: '1.6rem', md: '2.2rem' }} textAlign="center" mt="3.5rem" mb="1.5rem">
         Token utility value in Evervoid
       </DefaultText>
       <TokenomicTable flexWrap="wrap" m="-0.5rem" p="0 2.5rem 2rem 2.5rem">
