@@ -2,6 +2,7 @@ import React from 'react'
 import { Box, Flex } from '@gravis.finance/uikit'
 import styled from 'styled-components'
 import t02 from 'assets/infographics/t02.png'
+import ecosystem from 'assets/infographics/ecosystem.png'
 import Page from '../../components/layout/Page'
 import GRVSTokenUtility from './components/GRVSTokenUtility'
 import GRVXTokenUtility from './components/GRVXTokenUtility'
@@ -35,6 +36,9 @@ const Infographics = () => {
         <PlayText fontSize="48px" mb="24px">
           Ecosystem
         </PlayText>
+        <Flex justifyContent="center" mb="64px">
+          <Image src={ecosystem} style={{ maxWidth: '80%' }} />
+        </Flex>
         <GRVSTokenUtility />
         <Box mt="64px">
           <GRVXTokenUtility />
