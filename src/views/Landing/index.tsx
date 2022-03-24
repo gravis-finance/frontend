@@ -312,8 +312,8 @@ const Landing = () => {
                   mt={{ _: '2.5rem', md: '5rem' }}
                   gridGap={{ _: '1rem', sm: '2rem' }}
                   gridTemplateColumns={{
-                    _: 'repeat(auto-fill, minmax(30rem, 1fr))',
-                    md: 'repeat(auto-fill, minmax(40rem, 1fr))',
+                    _: 'repeat(auto-fit, minmax(30rem, 1fr))',
+                    md: 'repeat(auto-fit, minmax(40rem, 1fr))',
                   }}
                 >
                   {AppsConfig.map((app) => (

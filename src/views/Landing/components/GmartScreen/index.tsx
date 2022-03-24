@@ -5,14 +5,15 @@ import * as styles from '../../styles'
 import { CheckMarkIcon, ExternalIcon, GmartLogo } from '../Icons'
 import { Button } from '../Button'
 import { ComingSoon } from '../ComingSoon'
-import { useIsMobile } from '../../useResponsiveness'
+import useMediaQuery from '../../../../hooks/useMediaQuery'
+import { breakpoints } from '../../../../contexts/ThemeContext'
 
 const { Container } = styles
 
 export const GmartScreen = () => {
   const layerRef = React.useRef<HTMLDivElement>(null)
   const animRef = React.useRef<HTMLDivElement>(null)
-  const isMobile = useIsMobile()
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.sm})`)
 
   React.useEffect(() => {
     if (!isMobile && animRef.current) {
@@ -36,44 +37,45 @@ export const GmartScreen = () => {
   }, [isMobile])
 
   return (
-    <Box position="relative" height="auto" minHeight={{ md: 'calc(min(180rem, 200vh) + 100vh)' }}>
-      <Container {...styles.fullHeight} height={{ md: styles.vh100 }} className="md:sticky-content">
+    <Box position="relative" height="auto" minHeight={{ sm: 'calc(min(180rem, 200vh) + 100vh)' }}>
+      <Container {...styles.fullHeight} height={{ sm: styles.vh100 }} className="sm:sticky-content">
         <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
           <Box
             width="100%"
-            height={{ _: '100%', md: '72rem' }}
-            background={{ _: 'url(/landing/bg7.png) no-repeat', md: 'initial' }}
+            height={{ _: '100%', sm: '72rem' }}
+            background={{ _: 'url(/landing/bg7.png) no-repeat', sm: 'initial' }}
             backgroundSize="cover"
             mb="2rem"
             borderRadius="2rem"
             overflow="hidden"
             ref={layerRef}
           >
-            <Box ref={animRef} className="will-change" height={{ _: '100%', md: 'initial' }}>
+            <Box ref={animRef} className="will-change" height={{ _: '100%', sm: 'initial' }}>
               <Flex
-                background={{ md: 'url(/landing/bg2.png) no-repeat' }}
-                backgroundPosition={{ _: 'right', md: 'left top' }}
+                backgroundImage={{ sm: 'url(/landing/bg2.png)' }}
+                backgroundRepeat="no-repeat"
+                backgroundPosition={{ _: 'right', sm: 'left top' }}
                 backgroundSize="cover"
                 alignItems="center"
-                height={{ _: '100%', md: '72rem' }}
-                mt={{ _: '23.1rem', md: 0 }}
+                height={{ _: '100%', sm: '72rem' }}
+                mt={{ _: '23.1rem', sm: 0 }}
               >
-                <Box ml={{ _: '1.5rem', md: '75rem' }} mr={{ _: '1.5rem', md: 0 }}>
+                <Box ml={{ _: '1.5rem', sm: '75rem' }} mr={{ _: '1.5rem', sm: 0 }}>
                   <Flex
                     alignItems="center"
                     gridGap="1.287rem"
-                    fontSize={{ _: '2.22rem', md: '3.03rem' }}
+                    fontSize={{ _: '2.22rem', sm: '3.03rem' }}
                     fontWeight={500}
                     lineHeight="120%"
                   >
-                    <GmartLogo size={{ _: '2.6rem', md: '3.6rem' }} />
+                    <GmartLogo size={{ _: '2.6rem', sm: '3.6rem' }} />
                     <div>Gmart</div>
                   </Flex>
                   <Box
-                    fontSize={{ _: '2.8rem', md: '4.4rem' }}
+                    fontSize={{ _: '2.8rem', sm: '4.4rem' }}
                     fontWeight={600}
                     lineHeight="110%"
-                    mt={{ _: '2rem', md: '2.5rem' }}
+                    mt={{ _: '2rem', sm: '2.5rem' }}
                   >
                     Discover,
                     <br />
@@ -82,7 +84,7 @@ export const GmartScreen = () => {
                   </Box>
                   <Box
                     opacity={0.7}
-                    fontSize={{ _: '1.4rem', md: '1.6rem' }}
+                    fontSize={{ _: '1.4rem', sm: '1.6rem' }}
                     maxWidth="40.6rem"
                     mt="1rem"
                     fontWeight={500}
@@ -91,7 +93,7 @@ export const GmartScreen = () => {
                     The first NFT marketplace focused solely on in-game assets. Built-in smart analytics for NFT
                     portfolio.
                   </Box>
-                  <Flex mt={{ _: '2.5rem', md: '4rem' }} gridGap="1.5rem">
+                  <Flex mt={{ _: '2.5rem', sm: '4rem' }} gridGap="1.5rem">
                     <Button as="a" target="_blank" href={process.env.REACT_APP_GMART_URL}>
                       Explore
                     </Button>
@@ -103,17 +105,18 @@ export const GmartScreen = () => {
                 </Box>
               </Flex>
               <Flex
-                height={{ _: '100%', md: '72rem' }}
-                background={{ md: 'url(/landing/bg3.png) no-repeat' }}
-                backgroundPosition={{ _: 'right', md: 'left top' }}
+                height={{ _: '100%', sm: '72rem' }}
+                backgroundImage={{ sm: 'url(/landing/bg3.png)' }}
+                backgroundRepeat="no-repeat"
+                backgroundPosition={{ _: 'right', sm: 'left top' }}
                 backgroundSize="cover"
-                alignItems={{ md: 'center' }}
+                alignItems={{ sm: 'center' }}
                 position="relative"
-                mt={{ _: '9.5rem', md: 0 }}
-                flexDirection={{ _: 'column', md: 'row' }}
+                mt={{ _: '9.5rem', sm: 0 }}
+                flexDirection={{ _: 'column', sm: 'row' }}
               >
-                <Box ml={{ _: '1.5rem', md: '8rem' }}>
-                  <Box fontSize={{ _: '2.8rem', md: '6.2rem' }} fontWeight={600}>
+                <Box ml={{ _: '1.5rem', sm: '8rem' }}>
+                  <Box fontSize={{ _: '2.8rem', sm: '6.2rem' }} fontWeight={600}>
                     Gmart on
                     <br />
                     your mobile
@@ -121,10 +124,10 @@ export const GmartScreen = () => {
                   <Flex
                     flexDirection="column"
                     gridGap="1.5rem"
-                    fontSize={{ _: '1.4rem', md: '1.6rem' }}
+                    fontSize={{ _: '1.4rem', sm: '1.6rem' }}
                     fontWeight={500}
                     lineHeight="2.3rem"
-                    mt={{ _: '1.5rem', md: '3rem' }}
+                    mt={{ _: '1.5rem', sm: '3rem' }}
                   >
                     <Flex alignItems="center" gridGap="1rem">
                       <CheckMarkIcon />
@@ -147,25 +150,25 @@ export const GmartScreen = () => {
                       <div>Push notifications</div>
                     </Flex>
                   </Flex>
-                  <Box display={{ md: 'none' }} fontWeight="bold" fontSize="1.6rem" mt="3.5rem">
+                  <Box display={{ sm: 'none' }} fontWeight="bold" fontSize="1.6rem" mt="3.5rem">
                     Coming soon on
                   </Box>
-                  <Box display="inline-flex" mt={{ _: '1.5rem', md: '3.5rem' }} gridGap="1.5rem">
+                  <Box display="inline-flex" mt={{ _: '1.5rem', sm: '3.5rem' }} gridGap="1.5rem">
                     <ComingSoon variant="apple" />
                     <ComingSoon variant="android" />
                   </Box>
                 </Box>
                 <Box
                   fontSize="1rem"
-                  width={{ _: '28.5rem', md: '39.2em' }}
-                  height={{ _: '44.5rem', md: '63.4em' }}
-                  position={{ _: 'relative', md: 'absolute' }}
-                  bottom={{ md: '0' }}
-                  right={{ md: '18rem' }}
+                  width={{ _: '28.5rem', sm: '39.2em' }}
+                  height={{ _: '44.5rem', sm: '63.4em' }}
+                  position={{ _: 'relative', sm: 'absolute' }}
+                  bottom={{ sm: '0' }}
+                  right={{ sm: '18rem' }}
                   justifyContent="center"
                   display="inline-flex"
                   overflow="hidden"
-                  m={{ _: '3.8rem auto 0', md: 0 }}
+                  m={{ _: '3.8rem auto 0', sm: 0 }}
                 >
                   <Box
                     as="video"
@@ -174,18 +177,18 @@ export const GmartScreen = () => {
                     muted
                     loop
                     playsInline
-                    width={{ _: '26rem', md: '35em' } as any}
-                    height={{ _: '56rem', md: '74em' } as any}
+                    width={{ _: '26rem', sm: '35em' } as any}
+                    height={{ _: '56rem', sm: '74em' } as any}
                     borderRadius={40}
-                    m={{ _: '1rem auto', md: '2rem auto' }}
+                    m={{ _: '1rem auto', sm: '2rem auto' }}
                   >
                     <source src="/landing/video_gmart.mp4" type="video/mp4" />
                   </Box>
                   <Box
                     background="url(/landing/mockup.png) no-repeat"
                     backgroundSize="contain"
-                    width={{ _: '28.5rem', md: '39.2em' }}
-                    height={{ _: '57.5rem', md: '79.1em' }}
+                    width={{ _: '28.5rem', sm: '39.2em' }}
+                    height={{ _: '57.5rem', sm: '79.1em' }}
                     position="absolute"
                     top={0}
                     left={0}
