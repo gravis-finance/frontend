@@ -9,15 +9,7 @@ import { useResponsiveness } from './useResponsiveness'
 import * as styles from './styles'
 import { AppsConfig } from '../../config/constants/apps'
 import AppItem from './components/AppItem'
-import {
-  EvervoidLogo,
-  GmartLogo,
-  ExternalIcon,
-  CheckMarkIcon,
-  AppleIcon,
-  AndroidIcon,
-  GswapIcon,
-} from './components/Icons'
+import { EvervoidLogo, ExternalIcon, GswapIcon } from './components/Icons'
 import { Button } from './components/Button'
 import Roadmap from './components/Roadmap'
 import Team from './components/Team'
@@ -25,6 +17,8 @@ import Tokenomics from './components/Tokenomics'
 import Partners from './components/Partners'
 import Footer from './components/Footer'
 import { Trailer } from './components/Trailer'
+import { GmartScreen } from './components/GmartScreen'
+import { ComingSoon } from './components/ComingSoon'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -81,27 +75,6 @@ const Layer2 = styled.div`
   pointer-events: none;
   overflow: hidden;
 `
-
-const ComingSoon = ({ variant }: { variant: 'apple' | 'android' }) => {
-  const isApple = variant === 'apple'
-  const label = isApple ? 'App Store' : 'Goolge Play'
-
-  return (
-    <Button variant="dark" className="pointer-events-none" height="5rem">
-      <Flex alignItems="center" gridGap="1.5rem">
-        {isApple ? <AppleIcon /> : <AndroidIcon />}
-        <Box lineHeight="1" textAlign="left">
-          <Box opacity="0.5" fontSize="1.1rem" fontWeight={500}>
-            Coming soon on
-          </Box>
-          <Box mt="0.5rem" fontWeight={600} fontSize="1.4rem">
-            {label}
-          </Box>
-        </Box>
-      </Flex>
-    </Button>
-  )
-}
 
 const Video = styled.video`
   object-fit: cover;
@@ -418,150 +391,7 @@ const Landing = () => {
           </Box>
         </Container>
       </Box>
-      <Box position="relative" height="auto" minHeight="calc(min(180rem, 200vh) + 100vh)">
-        <Container {...styles.fullHeight} height={styles.vh100} className="sticky-content">
-          <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
-            <Box
-              width="100%"
-              height={{ _: '100%', sm: '72rem' }}
-              mb="2rem"
-              borderRadius="2rem"
-              overflow="hidden"
-              ref={layer3Ref}
-            >
-              <Box ref={anim4Ref} className="will-change" height={{ _: '100%', sm: 'initial' }}>
-                <Flex
-                  background="url(/landing/bg2.png) no-repeat"
-                  backgroundPosition={{ _: 'right', md: 'left' }}
-                  backgroundSize="cover"
-                  alignItems="center"
-                  height={{ _: '100%', sm: '72rem' }}
-                >
-                  <Box ml={{ _: '1.5rem', sm: 'auto', md: '75rem' }} mr={{ _: '1.5rem', sm: '10rem', md: 0 }}>
-                    <Flex alignItems="center" gridGap="1.287rem" fontSize="3.03rem" fontWeight={500} lineHeight="120%">
-                      <GmartLogo />
-                      <div>Gmart</div>
-                    </Flex>
-                    <Box fontSize={{ _: '3.2rem', sm: '4.4rem' }} fontWeight={600} lineHeight="110%" mt="2.5rem">
-                      Discover,
-                      <br />
-                      collect and sell <br />
-                      extraordinary NFTs <br />
-                    </Box>
-                    <Box
-                      opacity={0.7}
-                      fontSize={{ _: '1.4rem', sm: '1.6rem' }}
-                      maxWidth="40.6rem"
-                      mt="1rem"
-                      fontWeight={500}
-                      lineHeight="145%"
-                    >
-                      The first NFT marketplace focused solely on in-game assets. Built-in smart analytics for NFT
-                      portfolio.
-                    </Box>
-                    <Flex mt="4rem" gridGap="1.5rem">
-                      <Button as="a" target="_blank" href={process.env.REACT_APP_GMART_URL}>
-                        Explore
-                      </Button>
-                      <Button variant="dark" as="a" target="_blank" href={process.env.REACT_APP_GMART_DOCS_URL}>
-                        <ExternalIcon mr="1rem" />
-                        <div>Learn more</div>
-                      </Button>
-                    </Flex>
-                  </Box>
-                </Flex>
-                <Flex
-                  height={{ _: '100%', sm: '72rem' }}
-                  background="url(/landing/bg3.png) no-repeat"
-                  backgroundPosition={{ _: 'right', md: 'left' }}
-                  backgroundSize="cover"
-                  alignItems="center"
-                  position="relative"
-                >
-                  <Box ml={{ _: '1.5rem', sm: '8rem' }}>
-                    <Box fontSize={{ _: '4.4rem', sm: '6.2rem' }} fontWeight={600}>
-                      Gmart on
-                      <br />
-                      your mobile
-                    </Box>
-                    <Flex
-                      flexDirection="column"
-                      gridGap="1.5rem"
-                      fontSize={{ _: '1.4rem', sm: '1.6rem' }}
-                      fontWeight={500}
-                      lineHeight="2.3rem"
-                      mt="3rem"
-                    >
-                      <Flex alignItems="center" gridGap="1rem">
-                        <CheckMarkIcon />
-                        <div>All GamiFi NFTs in one app</div>
-                      </Flex>
-                      <Flex alignItems="center" gridGap="1rem">
-                        <CheckMarkIcon />
-                        <div>Quick purchase</div>
-                      </Flex>
-                      <Flex alignItems="center" gridGap="1rem">
-                        <CheckMarkIcon />
-                        <div>Portfolio tracking</div>
-                      </Flex>
-                      <Flex alignItems="center" gridGap="1rem">
-                        <CheckMarkIcon />
-                        <div>Smart recommendations</div>
-                      </Flex>
-                      <Flex alignItems="center" gridGap="1rem">
-                        <CheckMarkIcon />
-                        <div>Push notifications</div>
-                      </Flex>
-                    </Flex>
-                    <Box
-                      as="img"
-                      src="/landing/app_store_btns.png"
-                      mt="4.5rem"
-                      width={{ _: '30rem', sm: '35.5rem' } as any}
-                      height="5rem"
-                      className="object-contain pointer-events-none"
-                    />
-                  </Box>
-                  <Box
-                    fontSize="1rem"
-                    width="39.2em"
-                    height="63.4em"
-                    position={{ _: 'relative', md: 'absolute' }}
-                    bottom="0"
-                    right="18rem"
-                    justifyContent="center"
-                    display={{ _: 'none', md: 'inline-flex' }}
-                    overflow="hidden"
-                  >
-                    <Box
-                      as={Video}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      width="35em"
-                      height="74em"
-                      borderRadius={40}
-                      m="2rem auto"
-                    >
-                      <source src="/landing/video_gmart.mp4" type="video/mp4" />
-                    </Box>
-                    <Box
-                      background="url(/landing/mockup.png) no-repeat"
-                      backgroundSize="contain"
-                      width="39.2em"
-                      height="79.1em"
-                      position="absolute"
-                      top={0}
-                      left={0}
-                    />
-                  </Box>
-                </Flex>
-              </Box>
-            </Box>
-          </Box>
-        </Container>
-      </Box>
+      <GmartScreen />
       <Box className="sticky-container" minHeight="calc(100vh + 500px)">
         <Container {...styles.fullHeight} height={styles.vh100} className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">

@@ -3,8 +3,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import useMediaQuery from '../../hooks/useMediaQuery'
 import { breakpoints } from '../../contexts/ThemeContext'
 
+export const useIsMobile = () => {
+  return useMediaQuery(`(max-width: ${breakpoints.md})`)
+}
+
 export const useResponsiveness = () => {
-  const isMobile = useMediaQuery(`(max-width: ${breakpoints.md})`)
+  const isMobile = useIsMobile()
 
   React.useLayoutEffect(() => {
     let tId = 0
