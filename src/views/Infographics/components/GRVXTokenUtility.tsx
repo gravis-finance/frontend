@@ -20,7 +20,7 @@ const GRVXTokenUtility = () => {
   return (
     <>
       <Flex justifyContent="center">
-        <Image src={grvxHeader} style={{ maxWidth: '600px' }} />
+        <Image src={grvxHeader} style={{ maxWidth: '50%' }} />
       </Flex>
       <Box mt="48px">
         <StyledFlex>

@@ -9,10 +9,12 @@ import GRVXTokenUtility from './components/GRVXTokenUtility'
 import EvervoidGameAssetCycle from './components/EvervoidGameAssetCycle'
 import { PlayText } from '../../components/PlayText'
 import Roadmap from '../Landing/components/Roadmap'
+import useMediaQuery from '../../hooks/useMediaQuery'
+import { breakpoints } from '../../contexts/ThemeContext'
 
 const Image = styled.img`
   width: fit-content;
-  max-width: 600px;
+  max-width: 40%;
 `
 
 const Container = styled(Box).attrs((props) => ({
@@ -36,11 +38,14 @@ const Container = styled(Box).attrs((props) => ({
 `
 
 const Infographics = () => {
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.md})`)
   useEffect(() => {
-    document.documentElement.style.fontSize = 'min(0.694444vw, 1.11111vh)'
-  }, [])
+    if (isMobile)
+      document.documentElement.style.fontSize = 'min(calc(10 * 1vw * 100 / 375), calc(10 * var(--vh, 1vh) * 100 / 675))'
+    else document.documentElement.style.fontSize = 'min(0.694444vw, 1.11111vh)'
+  }, [isMobile])
   return (
-    <Page>
+    <Page style={{ overflowX: 'hidden' }}>
       <Box>
         <PlayText fontSize="64px" mb="48px">
           Gravis Finance Infographics

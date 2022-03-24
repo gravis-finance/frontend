@@ -28,7 +28,7 @@ const GRVSTokenUtility = () => {
   return (
     <>
       <Flex justifyContent="center">
-        <Image src={grvsHeader} style={{ maxWidth: '600px' }} />
+        <Image src={grvsHeader} style={{ maxWidth: '50%' }} />
       </Flex>
       <Box mt="48px">
         <StyledFlex>
