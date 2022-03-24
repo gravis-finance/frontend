@@ -57,6 +57,10 @@ const GlobalStyle = createGlobalStyle`
         display: none;
       }
     }
+    
+    .background-fixed {
+      background-attachment: fixed;
+    }
   }
   
   .will-change {

@@ -19,8 +19,14 @@ import Footer from './components/Footer'
 import { Trailer } from './components/Trailer'
 import { GmartScreen } from './components/GmartScreen'
 import { GswapWalletScreen } from './components/GswapWalletScreen'
+import { breakpoints } from '../../contexts/ThemeContext'
 
 gsap.registerPlugin(ScrollTrigger)
+
+const RootWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`
 
 const Loader = styled(Box)`
   position: fixed;
@@ -40,6 +46,10 @@ const Root = styled.div`
   color: white;
   letter-spacing: -0.02em;
   background-color: #090d11;
+
+  @media (max-width: ${breakpoints.md}) and (orientation: landscape) {
+    max-width: 375px;
+  }
 `
 
 const Container = styled(Box).attrs((props) => ({
@@ -231,151 +241,159 @@ const Landing = () => {
   }, [])
 
   return (
-    <Root>
-      <Loader opacity={loading ? 1 : 0} zIndex={loading ? 999 : -1}>
-        <Spinner size="6rem" />
-      </Loader>
-      <Header />
-      <Box className="sticky-container" minHeight="calc(300vh + 800px)" ref={layer1Ref} id="whyus">
-        <Layer1 className="sticky-content">
-          <Box position="absolute" top={0} left={0} width="100%" height="100%" overflow="hidden">
-            <Box as="img" src="/landing/bg.jpg" className="object-cover absolute-fill" />
-            <VideoBg autoPlay muted loop playsInline className="rotate-180">
-              <source src="/landing/video_bg.m4v" type="video/mp4" />
-            </VideoBg>
-          </Box>
-          <MainInfo />
-          <Layer2 ref={layer2Ref}>
-            <Box
-              position="absolute"
-              backgroundColor="#090d11"
-              top={0}
-              left={0}
-              ref={anim1Ref}
-              width="100%"
-              height="100%"
-              opacity={0}
-            />
-            <Canvas ref={canvasRef} />
-          </Layer2>
-        </Layer1>
-      </Box>
-      <span id="products">
-        <Box className="md:sticky-content" minHeight={{ md: 'calc(100vh + 500px)' }}>
-          <Container maxHeight={{ md: '90rem' }} className="md:sticky-content">
-            <Box {...styles.content} display="flex" justifyContent="center" alignItems="center" ref={anim3Ref}>
-              <Box width="100%" mb={{ _: 0, sm: '10rem' }}>
-                <Title textAlign="center" p={{ _: '0 1rem', md: 0 }}>
-                  All your DeFi apps one place
-                </Title>
-                <Box
-                  display="grid"
-                  mt={{ _: '2.5rem', md: '5rem' }}
-                  gridGap={{ _: '1rem', sm: '2rem' }}
-                  gridTemplateColumns={{
-                    _: 'repeat(auto-fit, minmax(30rem, 1fr))',
-                    md: 'repeat(auto-fit, minmax(40rem, 1fr))',
-                  }}
-                >
-                  {AppsConfig.map((app) => (
-                    <AppItem app={app} key={app.title} />
-                  ))}
+    <RootWrapper>
+      <Root>
+        <Loader opacity={loading ? 1 : 0} zIndex={loading ? 999 : -1}>
+          <Spinner size="6rem" />
+        </Loader>
+        <Header />
+        <Box className="sticky-container" minHeight="calc(300vh + 800px)" ref={layer1Ref} id="whyus">
+          <Layer1 className="sticky-content">
+            <Box position="absolute" top={0} left={0} width="100%" height="100%" overflow="hidden">
+              <Box as="img" src="/landing/bg.jpg" className="object-cover absolute-fill" />
+              <VideoBg autoPlay muted loop playsInline className="rotate-180">
+                <source src="/landing/video_bg.m4v" type="video/mp4" />
+              </VideoBg>
+            </Box>
+            <MainInfo />
+            <Layer2 ref={layer2Ref}>
+              <Box
+                position="absolute"
+                backgroundColor="#090d11"
+                top={0}
+                left={0}
+                ref={anim1Ref}
+                width="100%"
+                height="100%"
+                opacity={0}
+              />
+              <Canvas ref={canvasRef} />
+            </Layer2>
+          </Layer1>
+        </Box>
+        <span id="products">
+          <Box className="md:sticky-content" minHeight={{ md: 'calc(100vh + 500px)' }}>
+            <Container maxHeight={{ md: '90rem' }} className="md:sticky-content">
+              <Box {...styles.content} display="flex" justifyContent="center" alignItems="center" ref={anim3Ref}>
+                <Box width="100%" mb={{ _: 0, md: '10rem' }}>
+                  <Title textAlign="center" p={{ _: '0 1rem', md: 0 }}>
+                    All your DeFi apps one place
+                  </Title>
+                  <Box
+                    display="grid"
+                    mt={{ _: '2.5rem', md: '5rem' }}
+                    gridGap={{ _: '1rem', md: '2rem' }}
+                    gridTemplateColumns={{
+                      _: 'repeat(auto-fit, minmax(30rem, 1fr))',
+                      md: 'repeat(auto-fit, minmax(40rem, 1fr))',
+                    }}
+                  >
+                    {AppsConfig.map((app) => (
+                      <AppItem app={app} key={app.title} />
+                    ))}
+                  </Box>
                 </Box>
               </Box>
+            </Container>
+          </Box>
+        </span>
+        <Box className="sticky-container" minHeight="calc(100vh + 500px)">
+          <Container zIndex={1} {...styles.fullHeight} height={styles.vh100} ref={layer4Ref} className="sticky-content">
+            <Box
+              {...styles.content}
+              py={{ _: '2rem', md: 0 }}
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Flex
+                width="100%"
+                height={{ _: '100%', md: '72rem' }}
+                maxHeight={styles.vh100minusHeader}
+                background="url(/landing/bg1.png) no-repeat"
+                backgroundSize="cover"
+                backgroundPosition="top"
+                borderRadius="2rem"
+                alignItems={{ _: 'flex-end', md: 'center' }}
+                mb={{ _: 0, md: '2rem' }}
+                pb={{ _: '4rem', md: 0 }}
+                position="relative"
+                overflow="hidden"
+              >
+                <Box
+                  position="absolute"
+                  top={0}
+                  left={0}
+                  width="100%"
+                  height="100%"
+                  overflow="hidden"
+                  borderRadius="inherit"
+                >
+                  <VideoBg autoPlay muted loop playsInline>
+                    <source src="/landing/video_evervoid.m4v" type="video/mp4" />
+                  </VideoBg>
+                </Box>
+                <MobileBG display={{ _: 'block', md: 'none' }} />
+                <Box ml={{ _: '1.5rem', md: '8rem' }} mr={{ _: '1.5rem', md: 0 }} zIndex={1}>
+                  <EvervoidLogo width={{ _: '12.7rem', md: '14.5rem' }} height={{ _: '2.3rem', md: '2.65rem' }} />
+                  <Box fontSize={{ _: '2.8rem', md: '4.4rem' }} fontWeight={600} lineHeight="120%" mt="2rem">
+                    Free-to-play
+                    <br />
+                    P2E NFT-based
+                    <br />
+                    MMO strategy
+                    <br />
+                  </Box>
+                  <Box
+                    opacity={0.7}
+                    fontSize={{ _: '1.4rem', md: '1.6rem' }}
+                    maxWidth={{ md: '33rem' }}
+                    mt="1rem"
+                    fontWeight={500}
+                    lineHeight="145%"
+                  >
+                    Includes various missions, staking crafting, equipment upgrades, lands and more
+                  </Box>
+                  <Flex mt={{ _: '2.5rem', md: '4rem' }} gridGap="1.5rem">
+                    <Button as="a" target="_blank" href={`${process.env.REACT_APP_ASTEROID_MINING_URL}/missions`}>
+                      Play demo
+                    </Button>
+                    <Button variant="dark" as="a" target="_blank" href={process.env.REACT_APP_EVERVOID_DOCS_URL}>
+                      <ExternalIcon mr="1rem" />
+                      <div>Learn more</div>
+                    </Button>
+                  </Flex>
+                  <Trailer mt="1.5rem" width="28rem" />
+                </Box>
+              </Flex>
             </Box>
           </Container>
         </Box>
-      </span>
-      <Box className="sticky-container" minHeight="calc(100vh + 500px)">
-        <Container zIndex={1} {...styles.fullHeight} height={styles.vh100} ref={layer4Ref} className="sticky-content">
-          <Box {...styles.content} py={{ _: '2rem', sm: 0 }} display="flex" justifyContent="center" alignItems="center">
-            <Flex
-              width="100%"
-              height={{ _: '100%', sm: '72rem' }}
-              maxHeight={styles.vh100minusHeader}
-              background="url(/landing/bg1.png) no-repeat"
-              backgroundSize="cover"
-              backgroundPosition="top"
-              borderRadius="2rem"
-              alignItems={{ _: 'flex-end', sm: 'center' }}
-              mb={{ _: 0, sm: '2rem' }}
-              pb={{ _: '4rem', sm: 0 }}
-              position="relative"
-              overflow="hidden"
-            >
-              <Box
-                position="absolute"
-                top={0}
-                left={0}
-                width="100%"
-                height="100%"
-                overflow="hidden"
-                borderRadius="inherit"
-              >
-                <VideoBg autoPlay muted loop playsInline>
-                  <source src="/landing/video_evervoid.m4v" type="video/mp4" />
-                </VideoBg>
-              </Box>
-              <MobileBG display={{ _: 'block', sm: 'none' }} />
-              <Box ml={{ _: '1.5rem', sm: '8rem' }} mr={{ _: '1.5rem', sm: 0 }} zIndex={1}>
-                <EvervoidLogo width={{ _: '12.7rem', sm: '14.5rem' }} height={{ _: '2.3rem', sm: '2.65rem' }} />
-                <Box fontSize={{ _: '2.8rem', md: '4.4rem' }} fontWeight={600} lineHeight="120%" mt="2rem">
-                  Free-to-play
-                  <br />
-                  P2E NFT-based
-                  <br />
-                  MMO strategy
-                  <br />
-                </Box>
-                <Box
-                  opacity={0.7}
-                  fontSize={{ _: '1.4rem', sm: '1.6rem' }}
-                  maxWidth={{ sm: '33rem' }}
-                  mt="1rem"
-                  fontWeight={500}
-                  lineHeight="145%"
-                >
-                  Includes various missions, staking crafting, equipment upgrades, lands and more
-                </Box>
-                <Flex mt={{ _: '2.5rem', sm: '4rem' }} gridGap="1.5rem">
-                  <Button as="a" target="_blank" href={`${process.env.REACT_APP_ASTEROID_MINING_URL}/missions`}>
-                    Play demo
-                  </Button>
-                  <Button variant="dark" as="a" target="_blank" href={process.env.REACT_APP_EVERVOID_DOCS_URL}>
-                    <ExternalIcon mr="1rem" />
-                    <div>Learn more</div>
-                  </Button>
-                </Flex>
-                <Trailer mt="1.5rem" width="28rem" />
-              </Box>
-            </Flex>
+        <GmartScreen />
+        <GswapWalletScreen />
+        <Container id="roadmap">
+          <Roadmap />
+        </Container>
+        <Container id="team" height={{ _: styles.vh100, md: 'auto' }}>
+          <Box {...styles.content}>
+            <Team />
           </Box>
         </Container>
-      </Box>
-      <GmartScreen />
-      <GswapWalletScreen />
-      <Container id="roadmap">
-        <Roadmap />
-      </Container>
-      <Container id="team" height={{ _: styles.vh100, sm: 'auto' }}>
-        <Box {...styles.content}>
-          <Team />
+        <Container id="tokenomics" height="auto">
+          <Box {...styles.content} overflowX="hidden">
+            <Tokenomics />
+          </Box>
+        </Container>
+        <Container id="partners" height="auto">
+          <Box {...styles.content}>
+            <Partners />
+          </Box>
+        </Container>
+        <Box position="relative">
+          <Footer />
         </Box>
-      </Container>
-      <Container id="tokenomics" height="auto">
-        <Box {...styles.content} overflowX="hidden">
-          <Tokenomics />
-        </Box>
-      </Container>
-      <Container id="partners" height="auto">
-        <Box {...styles.content}>
-          <Partners />
-        </Box>
-      </Container>
-      <Box position="relative">
-        <Footer />
-      </Box>
-    </Root>
+      </Root>
+    </RootWrapper>
   )
 }
 

@@ -61,7 +61,7 @@ export const MobileMenu = styled(({ open, onClose, ...props }: Props) => {
 
   return (
     <Box {...props}>
-      <Box {...styles.content}>
+      <Box {...styles.content} overflow="auto" pb="2rem">
         <MenuItems ItemComponent={MenuItem} onClick={onClose} mt="2.5rem" />
         <StyledBox mt="3.2rem">
           <TokenInfo
