@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Box, Spinner, Flex } from '@gravis.finance/uikit'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import bg from 'assets/BG.png'
 import Header from './components/Header'
 import MainInfo from './components/MainInfo'
 import { useResponsiveness } from './useResponsiveness'
@@ -61,11 +60,6 @@ const Container = styled(Box).attrs((props) => ({
 `
 
 const Layer1 = styled(Container)`
-  background-image: url(${bg});
-  background-color: #090d11;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position-x: center;
   height: ${styles.vh100};
 `
 
@@ -311,6 +305,7 @@ const Landing = () => {
       <Box className="sticky-container" minHeight="calc(300vh + 800px)" ref={layer1Ref} id="whyus">
         <Layer1 className="sticky-content">
           <Box position="absolute" top={0} left={0} width="100%" height="100%" overflow="hidden">
+            <Box as="img" src="/landing/bg.jpg" className="object-cover absolute-fill" />
             <VideoBg autoPlay muted loop playsInline className="rotate-180">
               <source src="/landing/video_bg.m4v" type="video/mp4" />
             </VideoBg>

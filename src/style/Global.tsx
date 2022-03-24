@@ -27,6 +27,10 @@ const GlobalStyle = createGlobalStyle`
   .object-contain {
     object-fit: contain;
   }
+
+  .object-cover {
+    object-fit: cover;
+  }
   
   @media (min-width: ${breakpoints.md}) {
     .md\\:sticky-content {
@@ -53,6 +57,14 @@ const GlobalStyle = createGlobalStyle`
   
   .rotate-180 {
     transform: rotate(180deg);
+  }
+  
+  .absolute-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 `
 
