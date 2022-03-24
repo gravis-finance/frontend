@@ -541,7 +541,6 @@ const Landing = () => {
                       playsInline
                       width="35em"
                       height="74em"
-                      ref={videoRef}
                       borderRadius={40}
                       m="2rem auto"
                     >
@@ -611,40 +610,22 @@ const Landing = () => {
           </Box>
         </Container>
       </Box>
-      <Box className="sticky-container" minHeight="calc(100vh + 500px)" ref={videoLayerRef} id="mobilewallet">
+      <Box className="sticky-container" minHeight="calc(100vh + 500px)" id="mobilewallet">
         <Container {...styles.fullHeight} height={styles.vh100} className="sticky-content">
           <Box {...styles.content} display="flex" justifyContent="center" alignItems="center">
-            <Box width="100%" textAlign={{ _: 'center', md: 'left' }}>
-              <Box
-                display="inline-flex"
-                fontSize={{ _: '0.6vh', md: '1rem' }}
-                width="39.2em"
-                height="79.1em"
-                position={{ _: 'relative', md: 'absolute' }}
-                bottom={{ md: 0 }}
-                left={{ md: '18rem' }}
-                justifyContent="center"
-                alignItems="center"
-              >
-                <Box as={Video} muted loop playsInline width="35em" height="74em" ref={videoRef}>
-                  <source src="/landing/video_wallet.mp4" type="video/mp4" />
-                </Box>
-                <Box
-                  background="url(/landing/mockup.png) no-repeat"
-                  backgroundSize="contain"
-                  width="100%"
-                  height="100%"
-                  position="absolute"
-                  top={0}
-                  left={0}
-                />
-              </Box>
-              <Box
-                position={{ md: 'absolute' }}
-                bottom={{ md: '31rem' }}
-                right={{ md: '18rem' }}
-                mt={{ _: '1rem', md: 0 }}
-              >
+            <Flex
+              width="100%"
+              background="url(/landing/bg6.png) no-repeat"
+              backgroundPosition={{ _: 'right', md: 'left' }}
+              backgroundSize="cover"
+              borderRadius="2rem"
+              alignItems="center"
+              mb="2rem"
+              height="72rem"
+              maxHeight={styles.vh100minusHeader}
+              position="relative"
+            >
+              <Box ml={{ _: '1.5rem', sm: 'auto', md: '8rem' }} mr={{ _: '1rem', sm: '10rem', md: 0 }}>
                 <Box fontSize={{ _: '3.2rem', sm: '6.2rem' }} fontWeight={600}>
                   Gravis Finance
                   <br />
@@ -670,8 +651,43 @@ const Landing = () => {
                   <ComingSoon variant="apple" />
                   <ComingSoon variant="android" />
                 </Box>
+                <Box
+                  fontSize="1rem"
+                  width="39.2em"
+                  height="63.4em"
+                  position={{ _: 'relative', md: 'absolute' }}
+                  bottom="0"
+                  right="18rem"
+                  justifyContent="center"
+                  display={{ _: 'none', md: 'inline-flex' }}
+                  overflow="hidden"
+                >
+                  <Box
+                    as={Video}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    width="35em"
+                    height="74em"
+                    borderRadius={40}
+                    m="2rem auto"
+                    ref={videoRef}
+                  >
+                    <source src="/landing/video_wallet.mp4" type="video/mp4" />
+                  </Box>
+                  <Box
+                    background="url(/landing/mockup.png) no-repeat"
+                    backgroundSize="contain"
+                    width="39.2em"
+                    height="79.1em"
+                    position="absolute"
+                    top={0}
+                    left={0}
+                  />
+                </Box>
               </Box>
-            </Box>
+            </Flex>
           </Box>
         </Container>
       </Box>

@@ -14,7 +14,7 @@ const Container = styled.div`
   padding-top: 2.7rem;
 
   @media (min-width: ${breakpoints.sm}) {
-    padding-top: 0;
+    padding-top: 4rem;
   }
 `
 
