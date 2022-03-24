@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Box, Flex } from '@gravis.finance/uikit'
 import styled from 'styled-components'
 import t02 from 'assets/infographics/t02.png'
@@ -8,25 +8,37 @@ import GRVSTokenUtility from './components/GRVSTokenUtility'
 import GRVXTokenUtility from './components/GRVXTokenUtility'
 import EvervoidGameAssetCycle from './components/EvervoidGameAssetCycle'
 import { PlayText } from '../../components/PlayText'
-// import * as styles from '../Landing/styles'
+import Roadmap from '../Landing/components/Roadmap'
 
 const Image = styled.img`
   width: fit-content;
   max-width: 600px;
 `
 
-// const Container = styled(Box).attrs((props) => ({
-//   position: 'relative',
-//   pt: styles.headerHeight,
-//   height: { md: styles.vh100 } as any,
-//   ...props,
-// }))`
-//   width: 100%;
-//   color: white;
-//   background-color: #1c1c1c;
-// `
+const Container = styled(Box).attrs((props) => ({
+  position: 'relative',
+  ...props,
+}))`
+  width: 100%;
+  color: white;
+  background-color: #1c1c1c;
+
+  > div {
+    padding: 0;
+    > div:last-child {
+      > div {
+        > div {
+          background: #282828;
+        }
+      }
+    }
+  }
+`
 
 const Infographics = () => {
+  useEffect(() => {
+    document.documentElement.style.fontSize = 'min(0.694444vw, 1.11111vh)'
+  }, [])
   return (
     <Page>
       <Box>
@@ -43,9 +55,9 @@ const Infographics = () => {
         <Box mt="64px">
           <GRVXTokenUtility />
         </Box>
-        {/* <Container mt="64px">
+        <Container mt="64px">
           <Roadmap />
-        </Container> */}
+        </Container>
         <PlayText fontSize="48px" mt="64px" mb="16px">
           Evervoid
         </PlayText>
