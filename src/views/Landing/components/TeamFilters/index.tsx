@@ -47,10 +47,37 @@ const SliderItem = styled.div<{ width: number; left: number }>`
   transition: width 200ms ease-in-out, left 200ms ease-in-out;
 `
 
+const ShadowRight = styled.div`
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  width: 40%;
+  height: 100%;
+  top: 0;
+  background: linear-gradient(270deg, rgb(9 13 17), transparent);
+  opacity: 1;
+  pointer-events: none;
+`
+
+const ShadowLeft = styled.div`
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  width: 40%;
+  height: 100%;
+  top: 0;
+  background: linear-gradient(90deg, rgb(9 13 17), transparent);
+  opacity: 0;
+  pointer-events: none;
+`
+
 const TeamFilters = ({ activeIndex, setActiveIndex }) => {
   const items = useMemo(() => Object.values(TeamCategory), [])
   const containerRef = useRef()
   const allItemRef = useRef(null)
+  const shadowRightRef = React.useRef<HTMLDivElement>(null)
+  const shadowLeftRef = React.useRef<HTMLDivElement>(null)
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null)
 
   const [sliderProps, setSliderProps] = useState({
     width: 0,
@@ -74,21 +101,36 @@ const TeamFilters = ({ activeIndex, setActiveIndex }) => {
     })
   }, [allItemRef])
 
+  const onScroll = () => {
+    const scrollContainer = scrollContainerRef.current
+    if (scrollContainer) {
+      const currentScroll = scrollContainer.scrollLeft / (scrollContainer.scrollWidth - scrollContainer.offsetWidth)
+      if (shadowRightRef.current && shadowLeftRef.current) {
+        shadowLeftRef.current.style.opacity = currentScroll.toString()
+        shadowRightRef.current.style.opacity = (1 - currentScroll).toString()
+      }
+    }
+  }
+
   return (
-    <Wrapper width={{ _: '100%', md: 'auto' }} overflow="auto">
-      <Container ref={containerRef}>
-        <SliderItem width={sliderProps.width} left={sliderProps.left} />
-        <FilterItem onClick={(e) => onItemClick(e, 0)} active={activeIndex === 0} ref={allItemRef}>
-          All
-        </FilterItem>
-        {items.map((item, index) => (
-          // eslint-disable-next-line no-return-assign
-          <FilterItem key={item} onClick={(e) => onItemClick(e, index + 1)} active={activeIndex === index + 1}>
-            {item}
+    <Box position="relative" width={{ _: '100%', md: 'auto' }}>
+      <ShadowLeft ref={shadowLeftRef} className="md:display-none" />
+      <Wrapper width={{ _: '100%', md: 'auto' }} overflow="auto" ref={scrollContainerRef} onScroll={onScroll}>
+        <Container ref={containerRef}>
+          <SliderItem width={sliderProps.width} left={sliderProps.left} />
+          <FilterItem onClick={(e) => onItemClick(e, 0)} active={activeIndex === 0} ref={allItemRef}>
+            All
           </FilterItem>
-        ))}
-      </Container>
-    </Wrapper>
+          {items.map((item, index) => (
+            // eslint-disable-next-line no-return-assign
+            <FilterItem key={item} onClick={(e) => onItemClick(e, index + 1)} active={activeIndex === index + 1}>
+              {item}
+            </FilterItem>
+          ))}
+        </Container>
+      </Wrapper>
+      <ShadowRight ref={shadowRightRef} className="md:display-none" />
+    </Box>
   )
 }
 

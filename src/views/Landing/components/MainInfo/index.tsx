@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button, Flex, Text, Box } from '@gravis.finance/uikit'
+import { Flex, Text, Box } from '@gravis.finance/uikit'
 import { GravisBoldLogo, PublicRoundIcon } from '../../../../components/Svg'
 import * as styles from '../../styles'
 import { goTo } from '../MenuItems'
 import { MouseIcon } from '../Icons'
 import { FooterNetworks } from '../Footer'
 import { breakpoints } from '../../../../contexts/ThemeContext'
+import { Button } from '../Button'
 
 const MainText = styled(Text)`
   font-family: 'Gotham Pro', serif;
@@ -27,11 +28,8 @@ const Description = styled(Box).attrs(() => ({
   letter-spacing: 0;
 `
 
-const ButtonsContainer = styled(Flex)``
-
 const PublicRoundContainer = styled(Flex)`
   max-width: 100%;
-  width: 43.2rem;
   height: 6.5rem;
   left: 50.4rem;
   top: 78.2rem;
@@ -72,7 +70,7 @@ const MainInfo = () => {
           <GravisBoldLogo />
           <MainText ml="0.8rem">Gravis Finance</MainText>
         </Box>
-        <Box fontSize={{ _: '3.2rem', md: '5.6rem' }} fontWeight="bold" mt="2.5rem" textAlign="center">
+        <Box fontSize={{ _: '4rem', md: '5.6rem' }} fontWeight="bold" mt="2.5rem" textAlign="center">
           Gamified DeFi Ecosystem
         </Box>
         <Description mt="1.3rem" maxWidth="59.1rem">
@@ -82,8 +80,15 @@ const MainInfo = () => {
         <Box mt="3.2rem">
           <FooterNetworks />
         </Box>
-        <ButtonsContainer mt="4.4rem">
+        <Box
+          display={{ _: 'grid', md: 'flex' }}
+          mt="4.4rem"
+          gridTemplateColumns="1fr 1fr"
+          width={{ _: '33.5rem', md: 'initial' }}
+          gridGap="1.6rem"
+        >
           <Button
+            width={{ _: '100%', md: 'max-content' }}
             variant="blue"
             style={{ letterSpacing: '-0.02em', fontSize: '1.4rem', height: '4.8rem', padding: '0 2.4rem' }}
             onClick={() => goTo('#whyus')}
@@ -91,8 +96,8 @@ const MainInfo = () => {
             Show Apps
           </Button>
           <Button
-            variant="darkened"
-            ml="1.6rem"
+            variant="dark"
+            width={{ _: '100%', md: 'max-content' }}
             style={{ letterSpacing: '-0.02em', fontSize: '1.4rem', height: '4.8rem', padding: '0 2.4rem' }}
             as="a"
             href={process.env.REACT_APP_PITCH_DECK_URL}
@@ -100,10 +105,10 @@ const MainInfo = () => {
           >
             Read Pitch Deck
           </Button>
-        </ButtonsContainer>
+        </Box>
       </Flex>
-      <StyledMouseIcon zIndex={2} mb="3rem" />
-      <PublicRoundContainer alignItems="center" justifyContent="space-between">
+      <StyledMouseIcon mb="3rem" />
+      <PublicRoundContainer alignItems="center" justifyContent="space-between" width={{ _: '33.5rem', md: '43.2rem' }}>
         <Flex alignItems="center">
           <PublicRoundIcon style={{ minWidth: '2rem' }} />
           <Text
@@ -116,7 +121,6 @@ const MainInfo = () => {
           </Text>
         </Flex>
         <Button
-          variant="light"
           p="0 1.6rem"
           style={{ height: '3.5rem', fontSize: '1.2rem', letterSpacing: '-0.02em', whiteSpace: 'nowrap' }}
           as="a"
