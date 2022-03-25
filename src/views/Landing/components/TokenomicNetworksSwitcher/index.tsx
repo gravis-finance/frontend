@@ -27,8 +27,12 @@ type TokenItemProps = {
 const NetworkItem: React.FC<TokenItemProps & SpaceProps> = ({ isPolygon, isActive, onClick, ...props }) => {
   return (
     <TokenItemContainer alignItems="center" onClick={onClick} isActive={isActive} {...props}>
-      {isPolygon ? <PolygonNetworkIcon width={20} height={20} /> : <BinanceNetworkIcon width={24} height={24} />}
-      <DefaultText color={isActive ? 'rgb(0,0,0)' : 'rgb(255, 255, 255)'} ml={10} fontWeight={600} fontSize="1.4rem">
+      {isPolygon ? (
+        <PolygonNetworkIcon width="2rem" height="2rem" />
+      ) : (
+        <BinanceNetworkIcon width="2.4rem" height="2.4rem" />
+      )}
+      <DefaultText color={isActive ? 'rgb(0,0,0)' : 'rgb(255, 255, 255)'} ml="1rem" fontWeight={600} fontSize="1.4rem">
         {isPolygon ? 'Polygon' : 'Binance'}
       </DefaultText>
     </TokenItemContainer>

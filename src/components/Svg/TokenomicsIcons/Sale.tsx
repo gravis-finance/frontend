@@ -4,7 +4,7 @@ import { SvgProps } from '@gravis.finance/uikit'
 
 const Icon: React.FC<SvgProps> = (props) => {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" {...props}>
+    <svg width="2.4rem" height="2.4rem" viewBox="0 0 24 24" fill="none" {...props}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"

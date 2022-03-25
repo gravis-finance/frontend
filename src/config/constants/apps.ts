@@ -19,15 +19,14 @@ export const AppsConfig: AppItemType[] = [
   {
     title: 'Gmart',
     icon: GmartFilledLogo,
-    description: `The first NFT marketplace focused solely\n on in-game assets. Built-in smart analytics\n for NFT portfolio.`,
+    description: `The first NFT marketplace focused solely on in-game assets. Built-in smart analytics for NFT portfolio.`,
     href: process.env.REACT_APP_GMART_URL,
     backgroundColor: 'radial-gradient(100% 100% at 50% 0%, #1CFFF1 0%, #1549FF 100%)',
   },
   {
     title: 'Gswap',
     icon: GswapFilledLogo,
-    description:
-      'Multi-chain AMM DEX with cross-chain ERC20\n and NFT bridge, and high-yield farming\nand auto-farming.',
+    description: 'Multi-chain AMM DEX with cross-chain ERC20 and NFT bridge, and high-yield farming and auto-farming.',
     href: process.env.REACT_APP_EXCHANGE_URL,
     backgroundColor: 'radial-gradient(100% 100% at 50% 0%, #FFF615 0%, #FF371C 100%)',
   },

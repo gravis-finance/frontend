@@ -10,7 +10,7 @@ const Container = styled.div`
   background-color: #090d11;
   padding-bottom: 2.4rem;
 
-  @media (min-width: ${breakpoints.sm}) {
+  @media (min-width: ${breakpoints.md}) {
     padding-bottom: 9rem;
   }
 `
@@ -21,7 +21,7 @@ const PartnersContainer = styled(Box).attrs(() => ({
     _: 'repeat(auto-fill, minmax(10.8rem, 1fr))',
     md: 'repeat(auto-fill, minmax(17.4rem, 1fr))',
   },
-  gridGap: { _: '0.5rem', sm: '1rem' },
+  gridGap: { _: '0.5rem', md: '1rem' },
 }))`
   display: grid;
 `
@@ -35,7 +35,7 @@ const StyledDefaultText = styled(DefaultText)`
 const Partners = () => {
   return (
     <Container>
-      <DefaultText fontWeight="700" fontSize={{ _: '3.2rem', sm: '4.4rem' }} lineHeight="120%" textAlign="center">
+      <DefaultText fontWeight="700" fontSize={{ _: '3.2rem', md: '4.4rem' }} lineHeight="120%" textAlign="center">
         Partners
       </DefaultText>
       <StyledDefaultText
