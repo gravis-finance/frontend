@@ -50,6 +50,7 @@ const AppsContainer = styled(Flex)<{ isOpen: boolean; isMobile?: boolean }>`
     background: #24272e;
     top: -1rem;
     right: 4.4rem;
+    border-radius: 5px;
   }
 
   opacity: 0;

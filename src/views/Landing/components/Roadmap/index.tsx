@@ -37,20 +37,41 @@ const ButtonArrow = styled(Flex)`
   :hover {
     background-color: rgba(255, 255, 255, 0.1);
   }
+
+  &[data-disabled='true'] {
+    opacity: 0.8;
+    pointer-events: none;
+  }
 `
 
 const Roadmap = () => {
   const scrollRef = useRef(null)
   const isMobile = useMediaQuery(`(max-width: 515px)`)
+  const [canScroll, setCanScroll] = React.useState({ left: true, right: true })
 
   useEffect(() => {
-    if (scrollRef.current) {
+    const scrollContainer = scrollRef.current?.container?.current
+    const onScroll = () => {
+      setCanScroll({
+        left: scrollContainer.scrollLeft > 0,
+        right: scrollContainer.scrollLeft + scrollContainer.offsetWidth < scrollContainer.scrollWidth,
+      })
+    }
+    if (scrollContainer) {
+      onScroll()
+      scrollContainer.addEventListener('scroll', onScroll, true)
       if (isMobile) {
         const childNodes = scrollRef.current?.container?.current?.childNodes
         const difference = childNodes[1].getBoundingClientRect().left - childNodes[0].getBoundingClientRect().left
         const center = (childNodes[5].getBoundingClientRect().left + difference) / 2
         scrollRef.current?.container.current.scrollTo(center, 0)
       } else scrollRef.current?.container.current.scrollTo(312.5 * 3 + 10 * 3, 0)
+    }
+
+    return () => {
+      if (scrollContainer) {
+        scrollContainer.removeEventListener('scroll', onScroll, true)
+      }
     }
   }, [isMobile, scrollRef])
 
@@ -92,10 +113,10 @@ const Roadmap = () => {
           Roadmap
         </DefaultText>
         <Flex>
-          <ButtonArrow mr="1rem" onClick={() => makeScroll('prev')}>
+          <ButtonArrow mr="1rem" onClick={() => makeScroll('prev')} data-disabled={!canScroll.left}>
             <ChevronLeftIcon />
           </ButtonArrow>
-          <ButtonArrow onClick={() => makeScroll('next')}>
+          <ButtonArrow onClick={() => makeScroll('next')} data-disabled={!canScroll.right}>
             <ChevronRightIcon />
           </ButtonArrow>
         </Flex>
