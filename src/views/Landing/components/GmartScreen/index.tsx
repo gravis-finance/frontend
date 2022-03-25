@@ -20,7 +20,10 @@ export const GmartScreen = () => {
       gsap.fromTo(
         animRef.current,
         {
-          y: 0,
+          y: () => 0,
+          scrollTrigger: {
+            invalidateOnRefresh: true,
+          },
         },
         {
           y: () => (layerRef.current.scrollHeight - layerRef.current.offsetHeight) * -1,

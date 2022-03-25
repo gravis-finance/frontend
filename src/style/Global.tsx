@@ -38,6 +38,10 @@ const GlobalStyle = createGlobalStyle`
       top: 0;
       will-change: transform;
     }
+    
+    .md\\:display-none {
+      display: none;
+    }
   }
   
   @media (min-width: ${breakpoints.sm}) {
@@ -78,6 +82,12 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     height: 100%;
   }
+  
+  .text-nowrap {
+    white-space: nowrap;
+  }
+  
+  
 `
 
 export default GlobalStyle

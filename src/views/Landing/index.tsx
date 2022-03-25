@@ -95,10 +95,10 @@ const Canvas = styled.canvas`
 const MobileBG = styled(Box)`
   background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 50%;
   border-radius: inherit;
 `
 
@@ -339,7 +339,12 @@ const Landing = () => {
                   </VideoBg>
                 </Box>
                 <MobileBG display={{ _: 'block', md: 'none' }} />
-                <Box ml={{ _: '1.5rem', md: '8rem' }} mr={{ _: '1.5rem', md: 0 }} zIndex={1}>
+                <Box
+                  ml={{ _: '1.5rem', md: '8rem' }}
+                  mr={{ _: '1.5rem', md: 0 }}
+                  zIndex={1}
+                  maxWidth={{ _: '30.5rem', md: 'initial' }}
+                >
                   <EvervoidLogo width={{ _: '12.7rem', md: '14.5rem' }} height={{ _: '2.3rem', md: '2.65rem' }} />
                   <Box fontSize={{ _: '2.8rem', md: '4.4rem' }} fontWeight={600} lineHeight="120%" mt="2rem">
                     Free-to-play
@@ -359,16 +364,27 @@ const Landing = () => {
                   >
                     Includes various missions, staking crafting, equipment upgrades, lands and more
                   </Box>
-                  <Flex mt={{ _: '2.5rem', md: '4rem' }} gridGap="1.5rem">
+                  <Box
+                    display={{ _: 'grid', md: 'flex' }}
+                    gridTemplateColumns="1fr 1fr"
+                    mt={{ _: '2.5rem', md: '4rem' }}
+                    gridGap="1.5rem"
+                  >
                     <Button as="a" target="_blank" href={`${process.env.REACT_APP_ASTEROID_MINING_URL}/missions`}>
                       Play demo
                     </Button>
-                    <Button variant="dark" as="a" target="_blank" href={process.env.REACT_APP_EVERVOID_DOCS_URL}>
+                    <Button
+                      variant="dark"
+                      as="a"
+                      target="_blank"
+                      href={process.env.REACT_APP_EVERVOID_DOCS_URL}
+                      className="text-nowrap"
+                    >
                       <ExternalIcon mr="1rem" />
                       <div>Learn more</div>
                     </Button>
-                  </Flex>
-                  <Trailer mt="1.5rem" width="28rem" />
+                  </Box>
+                  <Trailer mt="1.5rem" width={{ _: '100%', md: '28rem' }} />
                 </Box>
               </Flex>
             </Box>

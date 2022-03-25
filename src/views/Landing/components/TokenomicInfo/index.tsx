@@ -113,7 +113,7 @@ const TokenomicInfo: React.FC<Props> = ({ token = TokenomicsTokenType.GRVS, netw
                 <DefaultText fontWeight={500} fontSize="1.3rem" color="rgba(255, 255, 255, 0.7)">
                   {cell.title}
                 </DefaultText>
-                <DefaultText fontWeight={700} fontSize="2rem" color="rgb(255, 255, 255)">
+                <DefaultText fontWeight={700} fontSize="2rem" color="rgb(255, 255, 255)" mt="0.5rem">
                   {isLoading ? 'Loading...' : cell.text}
                 </DefaultText>
               </Flex>
