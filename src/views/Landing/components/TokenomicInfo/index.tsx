@@ -191,14 +191,18 @@ const TokenomicInfo: React.FC<Props> = ({ token = TokenomicsTokenType.GRVS, netw
       </DefaultText>
       <Box position="relative" width="100%">
         <ShadowLeft ref={shadowLeftRef} className="md:display-none" />
-        <Box width="100%" overflow={{ _: 'auto', md: 'initial' }} className="no-scroll-bar">
+        <Box
+          width="100%"
+          overflow={{ _: 'auto', md: 'initial' }}
+          className="no-scroll-bar"
+          onScroll={onScroll}
+          ref={scrollContainerRef}
+        >
           <TokenomicTable
             flexWrap={{ md: 'wrap' }}
             m={{ md: '-0.5rem' }}
             p={{ _: '0 0 2rem 0', md: '0 2.5rem 2rem 2.5rem' }}
             width={{ _: 'fit-content', md: 'auto' }}
-            onScroll={onScroll}
-            ref={scrollContainerRef}
           >
             {tokenomicsConfig[token].map((item, index) => ({ ...item, key: index }))}
           </TokenomicTable>
