@@ -26,7 +26,7 @@ const Image = styled.img`
 
 const GRVSTokenUtility = () => {
   return (
-    <>
+    <Box p="0 24px">
       <Flex justifyContent="center">
         <Image src={grvsHeader} style={{ maxWidth: '50%' }} />
       </Flex>
@@ -46,7 +46,7 @@ const GRVSTokenUtility = () => {
           <Image src={grvsEmission} />
         </Flex>
       </Box>
-    </>
+    </Box>
   )
 }
 
