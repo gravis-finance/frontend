@@ -18,9 +18,9 @@ const Image = styled.img``
 
 const GRVXTokenUtility = () => {
   return (
-    <>
+    <Box p="0 24px">
       <Flex justifyContent="center">
-        <Image src={grvxHeader} style={{ maxWidth: '600px' }} />
+        <Image src={grvxHeader} style={{ maxWidth: '50%' }} />
       </Flex>
       <Box mt="48px">
         <StyledFlex>
@@ -28,7 +28,7 @@ const GRVXTokenUtility = () => {
           <Image src={gswap} />
         </StyledFlex>
       </Box>
-    </>
+    </Box>
   )
 }
 
