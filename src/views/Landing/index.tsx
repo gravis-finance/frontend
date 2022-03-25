@@ -252,7 +252,7 @@ const Landing = () => {
           <Spinner size="6rem" />
         </Loader>
         <Header />
-        <Box className="sticky-container" minHeight="calc(300vh + 800px)" ref={layer1Ref} id="whyus">
+        <Box className="sticky-container" minHeight="calc(300vh + 800px)" ref={layer1Ref}>
           <Layer1 className="sticky-content">
             <Box position="absolute" top={0} left={0} width="100%" height="100%" overflow="hidden">
               <Box as="img" src="/landing/bg.jpg" className="object-cover absolute-fill" />
@@ -276,7 +276,7 @@ const Landing = () => {
             </Layer2>
           </Layer1>
         </Box>
-        <span id="products">
+        <span id="whyus">
           <Box className="md:sticky-content" minHeight={{ md: 'calc(100vh + 500px)' }}>
             <Container maxHeight={{ md: '90rem' }} className="md:sticky-content">
               <Box {...styles.content} display="flex" justifyContent="center" alignItems="center" ref={anim3Ref}>
@@ -302,7 +302,7 @@ const Landing = () => {
             </Container>
           </Box>
         </span>
-        <Box className="sticky-container" minHeight="calc(100vh + 500px)">
+        <Box className="sticky-container" minHeight="calc(100vh + 500px)" id="products">
           <Container zIndex={1} {...styles.fullHeight} height={styles.vh100} ref={layer4Ref} className="sticky-content">
             <Box
               {...styles.content}
