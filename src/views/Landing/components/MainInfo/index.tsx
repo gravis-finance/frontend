@@ -86,7 +86,7 @@ const MainInfo = () => {
           <Button
             variant="blue"
             style={{ letterSpacing: '-0.02em', fontSize: '1.4rem', height: '4.8rem', padding: '0 2.4rem' }}
-            onClick={() => goTo('#products')}
+            onClick={() => goTo('#whyus')}
           >
             Show Apps
           </Button>
