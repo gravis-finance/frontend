@@ -48,13 +48,15 @@ const CellsContainer = styled(Flex)`
     margin-right: 4.2rem;
   }
   @media screen and (max-width: 852px) {
-    flex-direction: column;
+    flex-direction: row;
     height: 100%;
     justify-content: center;
     text-align: center;
+    flex-wrap: wrap;
+    grid-gap: 2.5rem 3rem;
+
     > div:not(:last-child) {
       margin-right: 0;
-      margin-bottom: 1.6rem;
     }
   }
 `
@@ -67,7 +69,7 @@ const TokenomicTable = styled(Flex)`
 
 const ButtonFlex = styled(Flex)`
   @media screen and (max-width: 852px) {
-    margin-top: 1.6rem;
+    margin-top: 3rem;
     place-self: center;
   }
 `
@@ -105,7 +107,12 @@ const TokenomicInfo: React.FC<Props> = ({ token = TokenomicsTokenType.GRVS, netw
   const [openLinksModal] = useModal(<LinksModal links={links[token].seeMore} token={token} />)
   return (
     <Container>
-      <Header alignItems="center" p="4.4rem 4.5rem" token={token} borderRadius={{ _: '15px', md: '20px 20px 0 0' }}>
+      <Header
+        alignItems="center"
+        p={{ _: '2.5rem', md: '4.4rem 4.5rem' }}
+        token={token}
+        borderRadius={{ _: '15px', md: '20px 20px 0 0' }}
+      >
         <StyledFlex justifyContent="space-between" width="100%">
           <CellsContainer>
             {cells[token].map((cell, index) => (

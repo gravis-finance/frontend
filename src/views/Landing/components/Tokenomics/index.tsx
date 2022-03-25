@@ -19,7 +19,6 @@ const Container = styled.div`
 `
 
 const TokenomicsInfoContainer = styled(Flex)<{ activeIndex: number; containerHeight?: number }>`
-  //height: 55.5rem;
   display: block;
   position: relative;
 
