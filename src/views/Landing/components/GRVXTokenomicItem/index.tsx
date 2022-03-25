@@ -12,19 +12,15 @@ import DefaultText from '../../../../components/DefaultText'
 const Container = styled(Flex)`
   background: rgba(255, 255, 255, 0.05);
   border-radius: 2rem;
-  width: 61rem;
-  height: 15.6rem;
   justify-content: center;
   align-items: center;
 
   @media screen and (max-width: 852px) {
     flex-wrap: wrap;
-    text-align: center;
   }
 `
 
 const ElementsContainer = styled(Flex)`
-  //width: 211px;
   > img:nth-child(2) {
     position: relative;
     left: -1.2rem;
@@ -36,10 +32,6 @@ const ElementsContainer = styled(Flex)`
   > img:nth-child(4) {
     position: relative;
     left: -3.8rem;
-  }
-
-  @media screen and (max-width: 852px) {
-    margin-left: 3.2rem;
   }
 `
 
@@ -54,13 +46,19 @@ const Elements = [metalImage, fuelImage, sbpImage, matrixImage]
 
 const GRVXTokenomicItem: React.FC = () => {
   return (
-    <Container m="0.5rem">
+    <Container
+      m="0.5rem"
+      width={{ _: '28rem', md: '61rem' }}
+      height={{ _: '13.6rem', md: '15.6rem' }}
+      px={{ _: '2.5rem', md: 'initial' }}
+      alignItems={{ _: 'flex-start', md: 'center' }}
+    >
       <ElementsContainer>
         {Elements.map((element) => (
           <ElementImage src={element} alt="" key={element} />
         ))}
       </ElementsContainer>
-      <DefaultText fontSize="1.4rem" fontWeight={500} ml="-2rem">
+      <DefaultText fontSize="1.4rem" fontWeight={500} ml="-2rem" lineHeight="2.1rem">
         {'Stake GRVX token\nto get useful valuable resources '.split('\n').map((str, index) => (
           <p key={index}>{str}</p>
         ))}
