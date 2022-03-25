@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { Box, Flex } from '@gravis.finance/uikit'
+import React, { useEffect, useState } from 'react'
+import { ArrowBackIcon, Box, Flex, Link } from '@gravis.finance/uikit'
 import styled from 'styled-components'
 import t02 from 'assets/infographics/t02.png'
 import ecosystem from 'assets/infographics/ecosystem.png'
@@ -9,10 +9,12 @@ import GRVXTokenUtility from './components/GRVXTokenUtility'
 import EvervoidGameAssetCycle from './components/EvervoidGameAssetCycle'
 import { PlayText } from '../../components/PlayText'
 import Roadmap from '../Landing/components/Roadmap'
+import useMediaQuery from '../../hooks/useMediaQuery'
+import { breakpoints } from '../../contexts/ThemeContext'
 
 const Image = styled.img`
   width: fit-content;
-  max-width: 600px;
+  max-width: 40%;
 `
 
 const Container = styled(Box).attrs((props) => ({
@@ -35,16 +37,42 @@ const Container = styled(Box).attrs((props) => ({
   }
 `
 
+const StyledLink = styled(Link)`
+  font-size: 18px;
+  align-self: flex-start;
+  margin-left: 24px;
+  > svg {
+    * {
+      stroke: white;
+    }
+  }
+`
+
 const Infographics = () => {
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.md})`)
   useEffect(() => {
-    document.documentElement.style.fontSize = 'min(0.694444vw, 1.11111vh)'
+    if (isMobile)
+      document.documentElement.style.fontSize = 'min(calc(10 * 1vw * 100 / 375), calc(10 * var(--vh, 1vh) * 100 / 675))'
+    else document.documentElement.style.fontSize = 'min(0.694444vw, 1.11111vh)'
+  }, [isMobile])
+  const [redirectUrl, setRedirectUrl] = useState(null)
+
+  useEffect(() => {
+    const url = new URL(window.location.href)
+    if (url.searchParams.get('redirectUrl')) setRedirectUrl(url.searchParams.get('redirectUrl'))
   }, [])
   return (
-    <Page>
+    <Page style={{ overflowX: 'hidden' }}>
       <Box>
-        <PlayText fontSize="64px" mb="48px">
-          Gravis Finance Infographics
-        </PlayText>
+        {redirectUrl && (
+          <Flex alignItems="center" justifyContent="center" mb="48px" flexDirection="column">
+            <StyledLink href={redirectUrl} mr="16px">
+              <ArrowBackIcon width={24} height={24} /> Back
+            </StyledLink>
+            <PlayText fontSize="64px">Gravis Finance Infographics</PlayText>
+            <Box ml="16px" />
+          </Flex>
+        )}
         <PlayText fontSize="48px" mb="24px">
           Ecosystem
         </PlayText>
