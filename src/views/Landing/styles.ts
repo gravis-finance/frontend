@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box } from '@gravis.finance/uikit'
+import styled from 'styled-components'
 
 type Styles = React.ComponentProps<typeof Box>
 
@@ -20,3 +21,14 @@ export const content: Styles = {
 export const headerHeight = { _: '5.5rem', md: '7rem' }
 
 export const vh100minusHeader = `calc(${vh100} - ${headerHeight._})`
+
+export const Container = styled(Box).attrs((props) => ({
+  position: 'relative',
+  pt: headerHeight,
+  height: { md: vh100 } as any,
+  ...props,
+}))`
+  width: 100%;
+  color: white;
+  background-color: #090d11;
+`

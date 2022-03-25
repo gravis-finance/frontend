@@ -9,7 +9,7 @@ import useMediaQuery from '../../../../hooks/useMediaQuery'
 import * as styles from '../../styles'
 
 const Container = styled(Box).attrs(() => ({
-  p: { _: '2rem 0', sm: '7.7rem 0' },
+  p: { _: '2rem 0', md: '7.7rem 0' },
 }))`
   height: fit-content;
 `
@@ -37,20 +37,41 @@ const ButtonArrow = styled(Flex)`
   :hover {
     background-color: rgba(255, 255, 255, 0.1);
   }
+
+  &[data-disabled='true'] {
+    opacity: 0.8;
+    pointer-events: none;
+  }
 `
 
 const Roadmap = () => {
   const scrollRef = useRef(null)
   const isMobile = useMediaQuery(`(max-width: 515px)`)
+  const [canScroll, setCanScroll] = React.useState({ left: true, right: true })
 
   useEffect(() => {
-    if (scrollRef.current) {
+    const scrollContainer = scrollRef.current?.container?.current
+    const onScroll = () => {
+      setCanScroll({
+        left: scrollContainer.scrollLeft > 0,
+        right: scrollContainer.scrollLeft + scrollContainer.offsetWidth < scrollContainer.scrollWidth,
+      })
+    }
+    if (scrollContainer) {
+      onScroll()
+      scrollContainer.addEventListener('scroll', onScroll, true)
       if (isMobile) {
         const childNodes = scrollRef.current?.container?.current?.childNodes
         const difference = childNodes[1].getBoundingClientRect().left - childNodes[0].getBoundingClientRect().left
         const center = (childNodes[5].getBoundingClientRect().left + difference) / 2
         scrollRef.current?.container.current.scrollTo(center, 0)
       } else scrollRef.current?.container.current.scrollTo(312.5 * 3 + 10 * 3, 0)
+    }
+
+    return () => {
+      if (scrollContainer) {
+        scrollContainer.removeEventListener('scroll', onScroll, true)
+      }
     }
   }, [isMobile, scrollRef])
 
@@ -87,20 +108,20 @@ const Roadmap = () => {
 
   return (
     <Container>
-      <Flex {...styles.content} alignItems="center" justifyContent="space-between" mb={{ sm: '4.2rem' }}>
-        <DefaultText fontWeight={700} fontSize={{ _: '3.2rem', sm: '4.4rem' }}>
+      <Flex {...styles.content} alignItems="center" justifyContent="space-between" mb={{ md: '4.2rem' }}>
+        <DefaultText fontWeight={700} fontSize={{ _: '3.2rem', md: '4.4rem' }}>
           Roadmap
         </DefaultText>
         <Flex>
-          <ButtonArrow mr="1rem" onClick={() => makeScroll('prev')}>
+          <ButtonArrow mr="1rem" onClick={() => makeScroll('prev')} data-disabled={!canScroll.left}>
             <ChevronLeftIcon />
           </ButtonArrow>
-          <ButtonArrow onClick={() => makeScroll('next')}>
+          <ButtonArrow onClick={() => makeScroll('next')} data-disabled={!canScroll.right}>
             <ChevronRightIcon />
           </ButtonArrow>
         </Flex>
       </Flex>
-      <Box mt={{ _: '1.5rem', sm: '4.2rem' }}>
+      <Box mt={{ _: '1.5rem', md: '4.2rem' }}>
         <StyledScrollContainer vertical={false} ref={scrollRef}>
           {roadmapConfig.map((item) => (
             <RoadmapItem item={item} key={item.period} />

@@ -21,7 +21,7 @@ const Container = styled(Flex)`
 `
 
 const FilterItem = styled(DefaultText).attrs((props) => ({
-  p: { _: '1.45rem 2rem', sm: '1.45rem 2.5rem' },
+  p: { _: '1.45rem 2rem', md: '1.45rem 2.5rem' },
   ...props,
 }))<{ active: boolean }>`
   font-size: 1.4rem;
@@ -75,7 +75,7 @@ const TeamFilters = ({ activeIndex, setActiveIndex }) => {
   }, [allItemRef])
 
   return (
-    <Wrapper width={{ _: '100%', sm: 'auto' }} overflow="auto">
+    <Wrapper width={{ _: '100%', md: 'auto' }} overflow="auto">
       <Container ref={containerRef}>
         <SliderItem width={sliderProps.width} left={sliderProps.left} />
         <FilterItem onClick={(e) => onItemClick(e, 0)} active={activeIndex === 0} ref={allItemRef}>

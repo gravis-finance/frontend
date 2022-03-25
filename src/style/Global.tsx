@@ -39,8 +39,16 @@ const GlobalStyle = createGlobalStyle`
       will-change: transform;
     }
   }
+  
+  @media (min-width: ${breakpoints.sm}) {
+    .sm\\:sticky-content {
+      position: sticky !important;
+      top: 0;
+      will-change: transform;
+    }
+  }
 
-  @media (max-width: ${breakpoints.sm}) {
+  @media (max-width: ${breakpoints.md}) {
     .no-scroll-bar {
       scrollbar-width: none; /* Firefox */
       -ms-overflow-style: none; /* Internet Explorer 10+ */
@@ -48,6 +56,10 @@ const GlobalStyle = createGlobalStyle`
       &::-webkit-scrollbar {
         display: none;
       }
+    }
+    
+    .background-fixed {
+      background-attachment: fixed;
     }
   }
   

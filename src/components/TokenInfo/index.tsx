@@ -6,8 +6,8 @@ const GrvxText = styled(Text)`
   font-family: 'Inter', serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 10px;
-  line-height: 12px;
+  font-size: 1rem;
+  line-height: 1.2rem;
 `
 
 const TokenInfo = ({ logo, title, text }) => {
