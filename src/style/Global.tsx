@@ -48,7 +48,7 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  @media (max-width: ${breakpoints.sm}) {
+  @media (max-width: ${breakpoints.md}) {
     .no-scroll-bar {
       scrollbar-width: none; /* Firefox */
       -ms-overflow-style: none; /* Internet Explorer 10+ */

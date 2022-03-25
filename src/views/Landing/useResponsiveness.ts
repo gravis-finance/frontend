@@ -9,28 +9,22 @@ export const useIsMobile = () => {
 
 export const useResponsiveness = () => {
   const isMobile = useIsMobile()
+  const [activated, setActivated] = React.useState(false)
 
   React.useLayoutEffect(() => {
     let tId = 0
-    const defaultFontSize = isMobile
-      ? // ? 'min(10px, min(calc(10 * 1vw * 100 / 375), calc(10 * var(--vh, 1vh) * 100 / 675)))'
-        'min(calc(10 * 1vw * 100 / 375), calc(10 * var(--vh, 1vh) * 100 / 675))'
+    document.documentElement.style.fontSize = isMobile
+      ? // ? 'min(10px, min(calc(10 * 1vw * 100 / 375), calc(10 * var(--vh, 1vh) * 100 / 667)))'
+        'min(calc(10 * 1vw * 100 / 375), calc(10 * var(--vh, 1vh) * 100 / 667))'
       : 'min(calc(10 * 1vw * 100 / 1440), calc(10 * 1vh * 100 / 900))'
-    document.documentElement.style.fontSize = defaultFontSize
 
     const setVh = () => {
       tId = window.setTimeout(() => {
         if (isMobile) {
-          if (window.innerWidth > window.innerHeight) {
-            document.documentElement.style.fontSize = '10px'
-          } else {
-            document.documentElement.style.fontSize = defaultFontSize
-          }
           document.documentElement.style.setProperty('--vh', `${window.innerHeight / 100}px`)
-        } else {
-          document.documentElement.style.fontSize = defaultFontSize
         }
         ScrollTrigger.refresh()
+        setActivated(true)
       }, 300)
     }
 
@@ -47,5 +41,5 @@ export const useResponsiveness = () => {
     }
   }, [isMobile])
 
-  return isMobile
+  return { isMobile, activated }
 }

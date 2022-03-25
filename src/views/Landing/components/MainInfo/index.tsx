@@ -6,6 +6,7 @@ import * as styles from '../../styles'
 import { goTo } from '../MenuItems'
 import { MouseIcon } from '../Icons'
 import { FooterNetworks } from '../Footer'
+import { breakpoints } from '../../../../contexts/ThemeContext'
 
 const MainText = styled(Text)`
   font-family: 'Gotham Pro', serif;
@@ -43,9 +44,11 @@ const PublicRoundContainer = styled(Flex)`
 `
 
 const StyledMouseIcon = styled(MouseIcon)`
-  margin-top: 5.6rem;
-  @media screen and (max-width: 852px) {
-    margin-top: 0;
+  display: none;
+
+  @media (min-width: ${breakpoints.md}) {
+    display: block;
+    margin-top: 5.6rem;
   }
 `
 
@@ -102,8 +105,13 @@ const MainInfo = () => {
       <StyledMouseIcon zIndex={2} mb="3rem" />
       <PublicRoundContainer alignItems="center" justifyContent="space-between">
         <Flex alignItems="center">
-          <PublicRoundIcon />
-          <Text fontSize="1.4rem" ml={{ _: '1rem', md: '0.8rem' }} style={{ letterSpacing: '0' }}>
+          <PublicRoundIcon style={{ minWidth: '2rem' }} />
+          <Text
+            fontSize="1.4rem"
+            ml={{ _: '1rem', md: '0.8rem' }}
+            mr={{ _: '4rem', md: 0 }}
+            style={{ letterSpacing: '0' }}
+          >
             Public Round Whitelist Access
           </Text>
         </Flex>
