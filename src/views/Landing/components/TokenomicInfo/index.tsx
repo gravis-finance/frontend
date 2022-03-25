@@ -125,10 +125,17 @@ const TokenomicInfo: React.FC<Props> = ({ token = TokenomicsTokenType.GRVS, netw
               mr="1.5rem"
               onClick={links[token].seeMore.length > 0 ? openLinksModal : undefined}
               className={!links[token].seeMore.length ? 'pointer-events-none' : undefined}
+              style={{ letterSpacing: '-0.02em', fontSize: '1.4rem', height: '4.8rem', padding: '0 2.4rem' }}
             >
               {links[token].seeMore.length > 0 ? 'See more' : 'Coming soon'}
             </Button>
-            <Button variant="darkened" as="a" href={links[token].buyToken} target="_blank">
+            <Button
+              variant="darkened"
+              as="a"
+              href={links[token].buyToken}
+              target="_blank"
+              style={{ letterSpacing: '-0.02em', fontSize: '1.4rem', height: '4.8rem', padding: '0 2.4rem' }}
+            >
               Buy token
             </Button>
           </ButtonFlex>

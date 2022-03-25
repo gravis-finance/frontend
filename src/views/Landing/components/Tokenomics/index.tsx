@@ -35,19 +35,12 @@ const TokenomicsInfoContainer = styled(Flex)<{ activeIndex: number; containerHei
     right: ${({ activeIndex }) => (activeIndex ? 0 : 'calc(-100% - 8rem)')};
     transition: right 500ms ease-in-out;
   }
-
-  @media screen and (max-width: 852px) {
-    //height: ${({ activeIndex }) => (activeIndex ? '170.5rem' : '190.5rem')};
-    //height: 100%;
-    height: ${({ containerHeight }) => `${containerHeight}px` || '100%'};
-  }
 `
 
 const StyledDefaultText = styled(DefaultText)`
   margin-right: 2.5rem;
 
   @media (max-width: ${breakpoints.md}) {
-    margin-right: 0;
     margin-bottom: 1.6rem;
   }
 `

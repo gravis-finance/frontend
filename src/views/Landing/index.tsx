@@ -109,7 +109,7 @@ const VideoBg = styled.video`
 `
 
 const Landing = () => {
-  const isMobile = useResponsiveness()
+  const { isMobile, activated } = useResponsiveness()
   const [loading, setLoading] = React.useState(true)
   const canvasRef = React.useRef<HTMLCanvasElement>(null)
   const layer1Ref = React.useRef<HTMLDivElement>(null)
@@ -119,36 +119,38 @@ const Landing = () => {
   const anim3Ref = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {
-    window.scrollTo(0, 0)
+    if (activated) {
+      window.scrollTo(0, 0)
 
-    if (layer1Ref.current && anim1Ref.current) {
-      gsap.to(anim1Ref.current, {
-        opacity: 1,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: layer1Ref.current,
-          scrub: 0.5,
-          start: 'top top',
-          end: 'bottom-=800 bottom',
-        },
-      })
+      if (layer1Ref.current && anim1Ref.current) {
+        gsap.to(anim1Ref.current, {
+          opacity: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: layer1Ref.current,
+            scrub: 0.5,
+            start: 'top top',
+            end: 'bottom-=800 bottom',
+          },
+        })
+      }
+
+      if (!isMobile && anim3Ref.current) {
+        gsap.to(anim3Ref.current, {
+          opacity: 0,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: layer4Ref.current,
+            scrub: 1,
+            start: 'top bottom',
+            end: 'top top',
+          },
+        })
+      }
+
+      setLoading(false)
     }
-
-    if (!isMobile && anim3Ref.current) {
-      gsap.to(anim3Ref.current, {
-        opacity: 0,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: layer4Ref.current,
-          scrub: 1,
-          start: 'top bottom',
-          end: 'top top',
-        },
-      })
-    }
-
-    setLoading(false)
-  }, [isMobile])
+  }, [isMobile, activated])
 
   React.useLayoutEffect(() => {
     const canvas = canvasRef.current
@@ -156,7 +158,7 @@ const Landing = () => {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
     }
-    if (canvas) {
+    if (activated && canvas) {
       resize()
       window.addEventListener('resize', resize, false)
       const vertical = window.innerHeight > window.innerWidth
@@ -234,11 +236,11 @@ const Landing = () => {
     }
 
     return () => {
-      if (canvas) {
+      if (activated && canvas) {
         window.removeEventListener('resize', resize, false)
       }
     }
-  }, [])
+  }, [activated])
 
   return (
     <RootWrapper>
