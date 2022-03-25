@@ -13,8 +13,8 @@ const Container = styled.div`
   overflow: hidden;
   padding-top: 2.7rem;
 
-  @media (min-width: ${breakpoints.sm}) {
-    padding-top: 0;
+  @media (min-width: ${breakpoints.md}) {
+    padding-top: 4rem;
   }
 `
 
@@ -35,18 +35,12 @@ const TokenomicsInfoContainer = styled(Flex)<{ activeIndex: number; containerHei
     right: ${({ activeIndex }) => (activeIndex ? 0 : 'calc(-100% - 8rem)')};
     transition: right 500ms ease-in-out;
   }
-
-  @media screen and (max-width: 852px) {
-    //height: ${({ activeIndex }) => (activeIndex ? '170.5rem' : '190.5rem')};
-    //height: 100%;
-    height: ${({ containerHeight }) => `${containerHeight}px` || '100%'};
-  }
 `
 
 const StyledDefaultText = styled(DefaultText)`
   margin-right: 2.5rem;
 
-  @media screen and (max-width: 548px) {
+  @media (max-width: ${breakpoints.md}) {
     margin-right: 0;
     margin-bottom: 1.6rem;
   }
@@ -66,8 +60,8 @@ const Tokenomics = () => {
   return (
     <Container>
       <Flex alignItems="center" justifyContent="center" flexDirection="column" mb="4rem">
-        <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-          <StyledDefaultText fontWeight={700} fontSize={{ _: '3.2rem', sm: '4.4rem' }}>
+        <Flex justifyContent="center" alignItems="center" flexWrap="wrap" flexDirection={{ _: 'column', md: 'row' }}>
+          <StyledDefaultText fontWeight={700} fontSize={{ _: '3.2rem', md: '4.4rem' }}>
             Tokenomics
           </StyledDefaultText>
           <TokensSwitcher activeIndex={activeIndex} setActiveIndex={setActiveIndex} />

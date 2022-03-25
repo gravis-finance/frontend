@@ -22,7 +22,7 @@ const Container = styled(Box)`
     object-fit: contain;
   }
 
-  @media (min-width: ${breakpoints.sm}) {
+  @media (min-width: ${breakpoints.md}) {
     height: 11rem;
     padding: 3rem;
   }
@@ -41,7 +41,7 @@ const PartnersItem: React.FC<Props> = ({ image }) => {
           letterSpacing="0"
           color="rgba(255, 255, 255, 0.5)"
           textTransform="uppercase"
-          fontSize={{ _: '0.8rem', sm: '0.9rem' }}
+          fontSize={{ _: '0.8rem', md: '0.9rem' }}
           position="absolute"
           bottom="1.2rem"
         >

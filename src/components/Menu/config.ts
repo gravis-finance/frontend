@@ -159,6 +159,10 @@ const menuLinks: MenuEntry[] = [
         external: true,
       },
       {
+        label: 'Infographics',
+        href: '/info',
+      },
+      {
         label: 'Terms of Use',
         href: termsOfUseLink,
         external: true,

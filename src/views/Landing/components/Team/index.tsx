@@ -13,7 +13,7 @@ const Container = styled.div`
   height: 100%;
   padding-top: 2.5rem;
 
-  @media (min-width: ${breakpoints.sm}) {
+  @media (min-width: ${breakpoints.md}) {
     display: block;
     height: fit-content;
   }
@@ -38,19 +38,19 @@ const Team = () => {
   return (
     <Container>
       <StyledFlex alignItems="center" justifyContent="space-between" gridGap="2rem">
-        <DefaultText fontSize={{ _: '3.2rem', sm: '4.4rem' }} fontWeight={700} width={{ _: '100%', sm: 'auto' }}>
+        <DefaultText fontSize={{ _: '3.2rem', md: '4.4rem' }} fontWeight={700} width={{ _: '100%', md: 'auto' }}>
           Our Team
         </DefaultText>
         <TeamFilters activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
       </StyledFlex>
       <Flex
         flexWrap="wrap"
-        justifyContent={{ sm: 'center' }}
-        flexDirection={{ _: 'column', sm: 'row' }}
-        mt={{ _: '4.5rem', sm: '6rem' }}
+        justifyContent={{ md: 'center' }}
+        flexDirection={{ _: 'column', md: 'row' }}
+        mt={{ _: '4.5rem', md: '6rem' }}
         flex={1}
-        overflow={{ _: 'auto', sm: 'initial' }}
-        gridGap={{ _: '1.5rem 3rem', sm: '5rem 1.5rem' }}
+        overflow={{ _: 'auto', md: 'initial' }}
+        gridGap={{ _: '1.5rem 3rem', md: '5rem 1.5rem' }}
         className="no-scroll-bar"
       >
         {filteredTeamMembers.map((member) => (

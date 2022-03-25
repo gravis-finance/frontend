@@ -7,6 +7,7 @@ export const Button = styled(ButtonBase).attrs((props) => ({
   ...props,
 }))<{
   variant?: 'dark'
+  p?: any
 }>`
   background-color: white;
   font-weight: 600;
