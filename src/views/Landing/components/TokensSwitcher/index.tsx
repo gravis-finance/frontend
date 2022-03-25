@@ -31,8 +31,8 @@ type TokenItemProps = {
 const TokenItem: React.FC<TokenItemProps & SpaceProps> = ({ isGrvx, isActive, onClick, ...props }) => {
   return (
     <TokenItemContainer alignItems="center" onClick={onClick} isActive={isActive} {...props}>
-      {isGrvx ? <GRVXFilledLogo width={30} height={30} /> : <GRVSFilledLogo width={30} height={30} />}
-      <DefaultText color={isActive ? 'rgb(0,0,0)' : 'rgb(255, 255, 255)'} ml={10} fontWeight={600} fontSize="1.8rem">
+      {isGrvx ? <GRVXFilledLogo width="3rem" height="3rem" /> : <GRVSFilledLogo width="3rem" height="3rem" />}
+      <DefaultText color={isActive ? 'rgb(0,0,0)' : 'rgb(255, 255, 255)'} ml="1rem" fontWeight={600} fontSize="1.8rem">
         {isGrvx ? 'GRVX' : 'GRVS'}
       </DefaultText>
     </TokenItemContainer>

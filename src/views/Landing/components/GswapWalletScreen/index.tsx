@@ -152,10 +152,9 @@ export const GswapWalletScreen = () => {
           <Box {...styles.content} py={{ _: '2rem', md: 0 }} display="flex" justifyContent="center" alignItems="center">
             <Flex
               width="100%"
-              className="background-fixed"
               backgroundImage={{ _: 'url(/landing/bg8.png)', md: 'url(/landing/bg6.png)' }}
               backgroundRepeat="no-repeat"
-              backgroundPosition={{ _: 'right', md: 'left' }}
+              backgroundPosition={{ _: 'bottom', md: 'left' }}
               backgroundSize="cover"
               borderRadius="2rem"
               alignItems="center"

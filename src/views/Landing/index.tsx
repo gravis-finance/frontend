@@ -113,6 +113,7 @@ const Landing = () => {
   const [loading, setLoading] = React.useState(true)
   const canvasRef = React.useRef<HTMLCanvasElement>(null)
   const layer1Ref = React.useRef<HTMLDivElement>(null)
+  const rootRef = React.useRef<HTMLDivElement>(null)
   const layer2Ref = React.useRef<HTMLDivElement>(null)
   const layer4Ref = React.useRef<HTMLDivElement>(null)
   const anim1Ref = React.useRef<HTMLDivElement>(null)
@@ -154,14 +155,16 @@ const Landing = () => {
 
   React.useLayoutEffect(() => {
     const canvas = canvasRef.current
+    const containerWidth = () => rootRef.current.offsetWidth
+    const containerHeight = () => window.innerHeight
     const resize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+      canvas.width = containerWidth()
+      canvas.height = containerHeight()
     }
     if (activated && canvas) {
       resize()
       window.addEventListener('resize', resize, false)
-      const vertical = window.innerHeight > window.innerWidth
+      const vertical = containerHeight() > containerWidth()
       const config = vertical
         ? {
             src: '/landing/why_m.svg',
@@ -189,8 +192,8 @@ const Landing = () => {
       const img = new Image()
       img.src = config.src
       img.onload = () => {
-        const baseWidth = () => (config.widthFrom / config.windowWidthFrom) * window.innerWidth
-        const baseHeight = () => (config.heightFrom / config.windowHeightFrom) * window.innerHeight
+        const baseWidth = () => (config.widthFrom / config.windowWidthFrom) * containerWidth()
+        const baseHeight = () => (config.heightFrom / config.windowHeightFrom) * containerHeight()
         const widthFrom = () => (vertical ? (baseHeight() * config.widthFrom) / config.heightFrom : baseWidth())
         const widthEnd = () => {
           const fontSize = parseFloat(window.getComputedStyle(document.documentElement).fontSize)
@@ -244,7 +247,7 @@ const Landing = () => {
 
   return (
     <RootWrapper>
-      <Root>
+      <Root ref={rootRef}>
         <Loader opacity={loading ? 1 : 0} zIndex={loading ? 999 : -1}>
           <Spinner size="6rem" />
         </Loader>
