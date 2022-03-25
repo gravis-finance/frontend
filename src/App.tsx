@@ -5,6 +5,7 @@ import { Maintenance, NotFound, ResetCSS } from '@gravis.finance/uikit'
 import GlobalStyle from './style/Global'
 import { MenuWrappedRoute } from './components/Menu'
 import PageLoader from './components/PageLoader'
+import Infographics from './views/Infographics'
 
 // Route-based code splitting
 // const Home = lazy(() => import('./views/Home'))
@@ -73,6 +74,9 @@ const App: React.FC = () => {
             <Route path="/" exact>
               <Landing />
             </Route>
+            <MenuWrappedRoute loginBlockVisible={loginBlockHidden} exact path="/info">
+              <Infographics />
+            </MenuWrappedRoute>
             <MenuWrappedRoute loginBlockVisible={loginBlockHidden} exact path="/audits">
               <AuditsPage />
             </MenuWrappedRoute>

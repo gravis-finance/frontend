@@ -50,6 +50,7 @@ const AppsContainer = styled(Flex)<{ isOpen: boolean; isMobile?: boolean }>`
     background: #24272e;
     top: -1rem;
     right: 4.4rem;
+    border-radius: 5px;
   }
 
   opacity: 0;
@@ -121,7 +122,7 @@ const Apps: React.FC<Props> = ({ setShowBlurred }) => {
         <Text color="black" fontSize="1.2rem" style={{ fontWeight: 500 }}>
           Apps
         </Text>
-        <NumericalArrow ml="0.6rem" />
+        <NumericalArrow ml="0.6rem" width="0.9rem" height="0.4rem" />
       </StyledFlex>
       <AppsContainer
         isOpen={isOpen}

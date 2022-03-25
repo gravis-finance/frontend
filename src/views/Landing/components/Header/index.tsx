@@ -20,12 +20,18 @@ const Root = styled(Box).attrs((props) => ({
   height: { _: '5.5rem', md: '7rem' },
   ...props,
 }))`
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(17, 21, 24, 0.9);
   backdrop-filter: blur(500px);
   width: 100%;
   position: fixed;
   left: 0;
   top: 0;
+
+  /* if backdrop support: very transparent and blurred */
+  @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(500px);
+  }
 `
 
 const StyledGravisLogo = styled(GravisLogo)`
