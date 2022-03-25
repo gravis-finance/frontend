@@ -101,8 +101,46 @@ const LinksModal = ({ links, token, onDismiss = defaultOnDismiss }) => {
   )
 }
 
+const ShadowRight = styled.div`
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  width: 40%;
+  height: 100%;
+  top: 0;
+  background: linear-gradient(270deg, rgb(9 13 17), transparent);
+  opacity: 1;
+  pointer-events: none;
+`
+
+const ShadowLeft = styled.div`
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  width: 40%;
+  height: 100%;
+  top: 0;
+  background: linear-gradient(90deg, rgb(9 13 17), transparent);
+  opacity: 0;
+  pointer-events: none;
+`
+
 const TokenomicInfo: React.FC<Props> = ({ token = TokenomicsTokenType.GRVS, network }) => {
   const { tokenomicsConfig, cells, isLoading, links } = useTokenomicsConfig(network)
+  const shadowRightRef = React.useRef<HTMLDivElement>(null)
+  const shadowLeftRef = React.useRef<HTMLDivElement>(null)
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null)
+
+  const onScroll = () => {
+    const scrollContainer = scrollContainerRef.current
+    if (scrollContainer) {
+      const currentScroll = scrollContainer.scrollLeft / (scrollContainer.scrollWidth - scrollContainer.offsetWidth)
+      if (shadowRightRef.current && shadowLeftRef.current) {
+        shadowLeftRef.current.style.opacity = currentScroll.toString()
+        shadowRightRef.current.style.opacity = (1 - currentScroll).toString()
+      }
+    }
+  }
 
   const [openLinksModal] = useModal(<LinksModal links={links[token].seeMore} token={token} />)
   return (
@@ -151,9 +189,22 @@ const TokenomicInfo: React.FC<Props> = ({ token = TokenomicsTokenType.GRVS, netw
       <DefaultText fontWeight={600} fontSize={{ _: '1.6rem', md: '2.2rem' }} textAlign="center" mt="3.5rem" mb="1.5rem">
         Token utility value in Evervoid
       </DefaultText>
-      <TokenomicTable flexWrap="wrap" m="-0.5rem" p="0 2.5rem 2rem 2.5rem">
-        {tokenomicsConfig[token].map((item, index) => ({ ...item, key: index }))}
-      </TokenomicTable>
+      <Box position="relative" width="100%">
+        <ShadowLeft ref={shadowLeftRef} className="md:display-none" />
+        <Box width="100%" overflow={{ _: 'auto', md: 'initial' }} className="no-scroll-bar">
+          <TokenomicTable
+            flexWrap={{ md: 'wrap' }}
+            m={{ md: '-0.5rem' }}
+            p={{ _: '0 0 2rem 0', md: '0 2.5rem 2rem 2.5rem' }}
+            width={{ _: 'fit-content', md: 'auto' }}
+            onScroll={onScroll}
+            ref={scrollContainerRef}
+          >
+            {tokenomicsConfig[token].map((item, index) => ({ ...item, key: index }))}
+          </TokenomicTable>
+        </Box>
+        <ShadowRight ref={shadowRightRef} className="md:display-none" />
+      </Box>
     </Container>
   )
 }
