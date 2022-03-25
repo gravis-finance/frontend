@@ -41,6 +41,7 @@ const StyledDefaultText = styled(DefaultText)`
   margin-right: 2.5rem;
 
   @media (max-width: ${breakpoints.md}) {
+    margin-right: 0;
     margin-bottom: 1.6rem;
   }
 `
@@ -59,7 +60,7 @@ const Tokenomics = () => {
   return (
     <Container>
       <Flex alignItems="center" justifyContent="center" flexDirection="column" mb="4rem">
-        <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
+        <Flex justifyContent="center" alignItems="center" flexWrap="wrap" flexDirection={{ _: 'column', md: 'row' }}>
           <StyledDefaultText fontWeight={700} fontSize={{ _: '3.2rem', md: '4.4rem' }}>
             Tokenomics
           </StyledDefaultText>
