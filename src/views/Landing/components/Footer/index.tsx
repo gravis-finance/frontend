@@ -49,6 +49,19 @@ export const DiscordIcon = () => (
   </svg>
 )
 
+const MailIcon = () => {
+  return (
+    <svg width="2rem" height="1.7rem" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19.1032 1.804C19.8785 1.23053 19.4729 0 18.5085 0H1.53445C0.570047 0 0.164438 1.23053 0.939814 1.80399L9.42685 8.08102C9.7802 8.34236 10.2628 8.34236 10.6161 8.08102L19.1032 1.804ZM19.1032 3.80401C19.2416 3.70158 19.3425 3.57819 19.4091 3.44459C19.4682 3.63334 19.5 3.83412 19.5 4.04233V14.0423C19.5 15.1469 18.6046 16.0423 17.5 16.0423H2.5C1.39543 16.0423 0.5 15.1469 0.5 14.0423V4.04233C0.5 3.81397 0.538271 3.59455 0.608749 3.39014C0.674059 3.5446 0.782688 3.6878 0.939814 3.80401L9.42685 10.081C9.7802 10.3424 10.2628 10.3424 10.6161 10.081L19.1032 3.80401Z"
+        fill="white"
+      />
+    </svg>
+  )
+}
+
 export const FooterNetworks = (props: any) => {
   return (
     <Box alignItems="center" gridGap="1rem" display="flex" {...props}>
@@ -66,6 +79,9 @@ export const FooterNetworks = (props: any) => {
       </LinkItem>
       <LinkItem href="https://discord.gg/GravisFinance" target="_blank" rel="noopener  noreferrer">
         <DiscordIcon />
+      </LinkItem>
+      <LinkItem href="mailto:info@gravis.finance" target="_blank" rel="noopener  noreferrer">
+        <MailIcon />
       </LinkItem>
     </Box>
   )
