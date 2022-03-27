@@ -29,7 +29,7 @@ export const useResponsiveness = () => {
     }
 
     setVh()
-    window.addEventListener('resize', setVh)
+    // window.addEventListener('resize', setVh)
     window.addEventListener('orientationchange', setVh)
 
     return () => {

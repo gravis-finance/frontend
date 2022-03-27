@@ -50,8 +50,8 @@ const Partners = () => {
         Backed By
       </StyledDefaultText>
       <PartnersContainer flexWrap="wrap">
-        {PartnersConfig.backed.map((image) => (
-          <PartnersItem image={image} key={image} />
+        {PartnersConfig.backed.map((image, index) => (
+          <PartnersItem image={image} key={index} />
         ))}
       </PartnersContainer>
       <StyledDefaultText
@@ -66,8 +66,8 @@ const Partners = () => {
         Supported By
       </StyledDefaultText>
       <PartnersContainer flexWrap="wrap">
-        {PartnersConfig.supported.map((image) => (
-          <PartnersItem image={image} key={image} />
+        {PartnersConfig.supported.map((image, index) => (
+          <PartnersItem image={image} key={index} />
         ))}
       </PartnersContainer>
       <StyledDefaultText
@@ -82,8 +82,8 @@ const Partners = () => {
         Powered By
       </StyledDefaultText>
       <PartnersContainer flexWrap="wrap">
-        {PartnersConfig.powered.map((image) => (
-          <PartnersItem image={image} key={image} />
+        {PartnersConfig.powered.map((image, index) => (
+          <PartnersItem image={image} key={index} />
         ))}
       </PartnersContainer>
     </Container>
