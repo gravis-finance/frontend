@@ -30,29 +30,43 @@ import poweredBy6 from 'assets/supporters/powered6.png'
 import poweredBy7 from 'assets/supporters/powered7.png'
 
 type PartnersType = {
-  backed: string[]
-  supported: string[]
-  powered: string[]
+  [key in 'backed' | 'supported' | 'powered']: { img: string; alt?: string; soon?: boolean }[]
 }
 
 const PartnersConfig: PartnersType = {
-  backed: [backedBy1, backedBy2, backedBy3, backedBy4, backedBy5, backedBy6, backedBy7, backedBy8, backedBy9],
-  supported: [
-    supportedBy1,
-    supportedBy2,
-    supportedBy3,
-    supportedBy4,
-    supportedBy5,
-    supportedBy6,
-    supportedBy7,
-    supportedBy8,
-    supportedBy9,
-    supportedBy10,
-    supportedBy12,
+  backed: [
+    { img: backedBy1, alt: 'blocksolfi' },
+    { img: backedBy2, alt: 'dutch crypto investors' },
+    { img: backedBy3, alt: 'a-crypto' },
+    { img: backedBy4, alt: 'OneBlock Labs' },
+    { img: backedBy5, alt: 'tccl ventures' },
+    { img: backedBy6, alt: 'gem mouse' },
+    { img: backedBy7, alt: 'crypto era' },
+    { img: backedBy8 },
+    { img: backedBy9 },
   ],
-  powered: [poweredBy1, poweredBy2, poweredBy3, poweredBy4, poweredBy5, poweredBy6, poweredBy7],
+  supported: [
+    { img: supportedBy1 },
+    { img: supportedBy2, alt: 'coin sixty eight' },
+    { img: supportedBy3, alt: 'blocksolfi' },
+    { img: supportedBy4, alt: 'mads' },
+    { img: supportedBy5 },
+    { img: supportedBy6, alt: 'C' },
+    { img: supportedBy7 },
+    { img: supportedBy8 },
+    { img: supportedBy9 },
+    { img: supportedBy10 },
+    { img: supportedBy12 },
+  ],
+  powered: [
+    { img: poweredBy1, alt: 'polygon' },
+    { img: poweredBy2, alt: 'binance' },
+    { img: poweredBy3, alt: 'huobi' },
+    { img: poweredBy4, soon: true, alt: 'polkadot' },
+    { img: poweredBy5, soon: true, alt: 'near' },
+    { img: poweredBy6, soon: true, alt: 'solana' },
+    { img: poweredBy7, soon: true, alt: 'unknown' },
+  ],
 }
-
-export const comingSoonPartners: string[] = [poweredBy4, poweredBy5, poweredBy6, poweredBy7]
 
 export default PartnersConfig
