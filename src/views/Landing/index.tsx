@@ -156,7 +156,7 @@ const Landing = () => {
   React.useLayoutEffect(() => {
     const canvas = canvasRef.current
     const containerWidth = () => rootRef.current.offsetWidth
-    const containerHeight = () => window.innerHeight
+    const containerHeight = () => layer2Ref.current.offsetHeight
     const resize = () => {
       canvas.width = containerWidth()
       canvas.height = containerHeight()
