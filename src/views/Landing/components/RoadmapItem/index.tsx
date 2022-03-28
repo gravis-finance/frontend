@@ -77,8 +77,9 @@ const RoadmapItem: React.FC<{ item: RoadmapType }> = ({ item }) => {
     threshold: isMobile ? 0.5 : 1,
     rootMargin: '4000px 0px 4000px 0px',
   })
+
   return (
-    <Wrapper ref={ref} inView={inView}>
+    <Wrapper ref={ref} inView={inView} className="roadmap-item">
       <Container>
         <DefaultText fontSize="2.4rem" fontWeight={800} lineHeight="100%" mb={35}>
           {period}
