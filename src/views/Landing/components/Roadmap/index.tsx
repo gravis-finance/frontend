@@ -1,25 +1,29 @@
 import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react'
+import SwiperClass from 'swiper/types/swiper-class'
 import { ChevronLeftIcon, ChevronRightIcon, Flex, Box } from '@gravis.finance/uikit'
-import ScrollContainer from 'react-indiana-drag-scroll'
 import DefaultText from '../../../../components/DefaultText'
 import RoadmapItem from '../RoadmapItem'
 import { roadmapConfig } from '../../../../config/constants/roadmap'
 import useMediaQuery from '../../../../hooks/useMediaQuery'
 import * as styles from '../../styles'
+import 'swiper/swiper.scss'
 
 const Container = styled(Box).attrs(() => ({
   p: { _: '2rem 0', md: '7.7rem 0' },
 }))`
   height: fit-content;
-`
 
-const StyledScrollContainer = styled(ScrollContainer)`
-  display: flex;
-  padding: 0 8rem;
-  scroll-behavior: smooth;
-  > div:not(:last-child) {
-    margin-right: 1rem;
+  .swiper-slide {
+    width: 31.25rem;
+    height: 51.6rem;
+    min-width: 31.25rem;
+    min-height: 51.6rem;
+
+    &:nth-child(n + 2) {
+      margin-left: 1rem;
+    }
   }
 `
 
@@ -34,7 +38,7 @@ const ButtonArrow = styled(Flex)`
   transition: background-color 200ms ease-in-out;
   cursor: pointer;
 
-  :hover {
+  :hover:not[data-disabled='true'] {
     background-color: rgba(255, 255, 255, 0.1);
   }
 
@@ -48,6 +52,7 @@ const Roadmap = () => {
   const scrollRef = useRef(null)
   const isMobile = useMediaQuery(`(max-width: 515px)`)
   const [canScroll, setCanScroll] = React.useState({ left: true, right: true })
+  const swiperRef = React.useRef<SwiperClass>(null)
 
   useEffect(() => {
     const scrollContainer = scrollRef.current?.container?.current
@@ -76,33 +81,10 @@ const Roadmap = () => {
   }, [isMobile, scrollRef])
 
   const makeScroll = (option) => {
-    const childNodes = scrollRef.current?.container?.current?.childNodes
-    const difference = childNodes[1].getBoundingClientRect().left - childNodes[0].getBoundingClientRect().left
-    const currentContainer = scrollRef.current?.container.current
-    const containerScrollLeft = currentContainer.scrollLeft
-
-    const foundNextElement = Object.values(childNodes).find(
-      (el) =>
-        // @ts-ignore
-        containerScrollLeft + 100 + difference >= el.offsetLeft &&
-        // @ts-ignore
-        containerScrollLeft + 100 + difference <= el.offsetLeft + difference,
-    )
-
-    const foundPrevElement = Object.values(childNodes).find(
-      (el) =>
-        // @ts-ignore
-        containerScrollLeft - 100 - difference >= el.offsetLeft &&
-        // @ts-ignore
-        containerScrollLeft - 100 - difference <= el.offsetLeft + difference,
-    )
-
     if (option === 'next') {
-      // @ts-ignore
-      currentContainer.scrollTo(foundNextElement?.offsetLeft - 80, 0)
+      swiperRef.current.slideNext()
     } else {
-      // @ts-ignore
-      currentContainer.scrollTo(foundPrevElement?.offsetLeft + difference - 80, 0)
+      swiperRef.current.slidePrev()
     }
   }
 
@@ -121,12 +103,29 @@ const Roadmap = () => {
           </ButtonArrow>
         </Flex>
       </Flex>
-      <Box mt={{ _: '1.5rem', md: '4.2rem' }}>
-        <StyledScrollContainer vertical={false} ref={scrollRef}>
+      <Box mt={{ _: '1.5rem', md: '4.2rem' }} mx="2rem">
+        <Swiper
+          centeredSlides
+          centeredSlidesBounds
+          centerInsufficientSlides
+          slidesPerView="auto"
+          initialSlide={1}
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper
+          }}
+          onProgress={(swiper) => {
+            setCanScroll({
+              left: !swiper.isBeginning,
+              right: !swiper.isEnd,
+            })
+          }}
+        >
           {roadmapConfig.map((item) => (
-            <RoadmapItem item={item} key={item.period} />
+            <SwiperSlide key={item.period}>
+              <RoadmapItem item={item} />
+            </SwiperSlide>
           ))}
-        </StyledScrollContainer>
+        </Swiper>
       </Box>
     </Container>
   )
