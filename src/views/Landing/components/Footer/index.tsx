@@ -63,26 +63,33 @@ const MailIcon = () => {
 }
 
 export const FooterNetworks = (props: any) => {
+  const { mainScreen } = props
   return (
     <Box alignItems="center" gridGap="1rem" display="flex" {...props}>
-      <LinkItem href="https://github.com/gravis-finance" target="_blank" rel="noopener  noreferrer">
-        <GithubIcon />
-      </LinkItem>
+      {!mainScreen && (
+        <LinkItem href="https://github.com/gravis-finance" target="_blank" rel="noopener  noreferrer">
+          <GithubIcon />
+        </LinkItem>
+      )}
       <LinkItem href="https://t.me/Gravis_Finance_En" target="_blank" rel="noopener  noreferrer">
         <TelegramIcon width="1.6rem" height="1.6rem" />
       </LinkItem>
       <LinkItem href="https://twitter.com/gammarosigma" target="_blank" rel="noopener  noreferrer">
         <TwitterIcon width="1.6rem" height="1.6rem" />
       </LinkItem>
-      <LinkItem href="https://gravis-finance.medium.com/" target="_blank" rel="noopener  noreferrer">
-        <MediumIcon width="1.6rem" height="1.6rem" />
-      </LinkItem>
+      {!mainScreen && (
+        <LinkItem href="https://gravis-finance.medium.com/" target="_blank" rel="noopener  noreferrer">
+          <MediumIcon width="1.6rem" height="1.6rem" />
+        </LinkItem>
+      )}
       <LinkItem href="https://discord.gg/GravisFinance" target="_blank" rel="noopener  noreferrer">
         <DiscordIcon />
       </LinkItem>
-      <LinkItem href="mailto:info@gravis.finance" target="_blank" rel="noopener  noreferrer">
-        <MailIcon />
-      </LinkItem>
+      {!mainScreen && (
+        <LinkItem href="mailto:info@gravis.finance" target="_blank" rel="noopener  noreferrer">
+          <MailIcon />
+        </LinkItem>
+      )}
     </Box>
   )
 }

@@ -78,7 +78,7 @@ const MainInfo = () => {
           game. We provide all the necessary instruments for managing your crypto assets on any chain.
         </Description>
         <Box mt="3.2rem">
-          <FooterNetworks />
+          <FooterNetworks mainScreen />
         </Box>
         <Box
           display={{ _: 'grid', md: 'flex' }}
