@@ -1,6 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex, privacyAndPoliceLink, termsOfUseLink, Box } from '@gravis.finance/uikit'
+import {
+  Flex,
+  privacyAndPoliceLink,
+  termsOfUseLink,
+  Box,
+  SocialNetworksType,
+  socialNetworksLinks,
+} from '@gravis.finance/uikit'
 import DefaultText from '../../../../components/DefaultText'
 import { MediumIcon, TelegramIcon, TwitterIcon } from '../../../../components/Svg'
 import * as styles from '../../styles'
@@ -67,22 +74,22 @@ export const FooterNetworks = (props: any) => {
   return (
     <Box alignItems="center" gridGap="1rem" display="flex" {...props}>
       {!mainScreen && (
-        <LinkItem href="https://github.com/gravis-finance" target="_blank" rel="noopener  noreferrer">
+        <LinkItem href={socialNetworksLinks[SocialNetworksType.GITHUB]} target="_blank" rel="noopener  noreferrer">
           <GithubIcon />
         </LinkItem>
       )}
-      <LinkItem href="https://t.me/Gravis_Finance_En" target="_blank" rel="noopener  noreferrer">
+      <LinkItem href={socialNetworksLinks[SocialNetworksType.TELEGRAM]} target="_blank" rel="noopener  noreferrer">
         <TelegramIcon width="1.6rem" height="1.6rem" />
       </LinkItem>
-      <LinkItem href="https://twitter.com/gammarosigma" target="_blank" rel="noopener  noreferrer">
+      <LinkItem href={socialNetworksLinks[SocialNetworksType.TWITTER]} target="_blank" rel="noopener  noreferrer">
         <TwitterIcon width="1.6rem" height="1.6rem" />
       </LinkItem>
       {!mainScreen && (
-        <LinkItem href="https://gravis-finance.medium.com/" target="_blank" rel="noopener  noreferrer">
+        <LinkItem href={socialNetworksLinks[SocialNetworksType.MEDIUM]} target="_blank" rel="noopener  noreferrer">
           <MediumIcon width="1.6rem" height="1.6rem" />
         </LinkItem>
       )}
-      <LinkItem href="https://discord.gg/GravisFinance" target="_blank" rel="noopener  noreferrer">
+      <LinkItem href={socialNetworksLinks[SocialNetworksType.DISCORD]} target="_blank" rel="noopener  noreferrer">
         <DiscordIcon />
       </LinkItem>
       {!mainScreen && (
