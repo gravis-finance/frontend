@@ -23,7 +23,6 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
     i18next.changeLanguage(selectedLanguage.toLowerCase())
   }, [selectedLanguage])
 
-
   return (
     <UikitMenu
       login={login}
@@ -40,8 +39,6 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
         modalBscScan: t('viewOnBscscan'),
         modelCopyAddress: t('copyAddress'),
       }}
-      betaText=""
-      betaLink="https://beta.exchange.gravis.finance"
       setSelectedLanguage={setSelectedLanguage}
       {...props}
     />
