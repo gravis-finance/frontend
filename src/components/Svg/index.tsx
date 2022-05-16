@@ -24,6 +24,7 @@ export { default as GswapFilledLogo } from './Icons/GswapFilled'
 export { default as GravisBoldLogo } from './Icons/GravisBold'
 export { default as PublicRoundIcon } from './Icons/PublicRound'
 export { default as RoadmapCheckMarkIcon } from './Icons/RoadmapCheckMark'
+export { default as BookmarkIcon } from './Icons/BookMark'
 
 export { default as AprIcon } from './TokenomicsIcons/Apr'
 export { default as CrownIcon } from './TokenomicsIcons/Crown'

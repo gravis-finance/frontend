@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex, Text, Box } from '@gravis.finance/uikit'
-import { GravisBoldLogo, PublicRoundIcon } from '../../../../components/Svg'
+import { BookmarkIcon, GravisBoldLogo, PublicRoundIcon } from '../../../../components/Svg'
 import * as styles from '../../styles'
 import { goTo } from '../MenuItems'
 import { MouseIcon } from '../Icons'
@@ -47,6 +47,21 @@ const StyledMouseIcon = styled(MouseIcon)`
   @media (min-width: ${breakpoints.md}) {
     display: block;
     margin-top: 5.6rem;
+  }
+`
+
+const LinksFlex = styled(Flex)`
+  > div:first-child {
+    margin-right: 24px;
+  }
+  @media (max-width: ${breakpoints.md}) {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 32px;
+    > div:first-child {
+      margin-right: 0;
+      margin-bottom: 16px;
+    }
   }
 `
 
@@ -108,28 +123,60 @@ const MainInfo = () => {
         </Box>
       </Flex>
       <StyledMouseIcon mb="3rem" />
-      <PublicRoundContainer alignItems="center" justifyContent="space-between" width={{ _: '33.5rem', md: '43.2rem' }}>
-        <Flex alignItems="center">
-          <PublicRoundIcon style={{ minWidth: '2rem' }} />
-          <Text
-            fontSize="1.4rem"
-            ml={{ _: '1rem', md: '0.8rem' }}
-            mr={{ _: '4rem', md: 0 }}
-            style={{ letterSpacing: '0' }}
-          >
-            Public Round Whitelist Access
-          </Text>
-        </Flex>
-        <Button
-          p="0 1.6rem"
-          style={{ height: '3.5rem', fontSize: '1.2rem', letterSpacing: '-0.02em', whiteSpace: 'nowrap' }}
-          as="a"
-          href="https://public.gravis.finance"
-          target="_blank"
+      <LinksFlex>
+        <PublicRoundContainer
+          alignItems="center"
+          justifyContent="space-between"
+          width={{ _: '33.5rem', md: '43.2rem' }}
         >
-          Join IDO
-        </Button>
-      </PublicRoundContainer>
+          <Flex alignItems="center">
+            <PublicRoundIcon style={{ minWidth: '2rem' }} />
+            <Text
+              fontSize="1.4rem"
+              ml={{ _: '1rem', md: '0.8rem' }}
+              mr={{ _: '4rem', md: 0 }}
+              style={{ letterSpacing: '0' }}
+            >
+              Public Round Whitelist Access
+            </Text>
+          </Flex>
+          <Button
+            p="0 1.6rem"
+            style={{ height: '3.5rem', fontSize: '1.2rem', letterSpacing: '-0.02em', whiteSpace: 'nowrap' }}
+            as="a"
+            href="https://public.gravis.finance"
+            target="_blank"
+          >
+            Join IDO
+          </Button>
+        </PublicRoundContainer>
+        <PublicRoundContainer
+          alignItems="center"
+          justifyContent="space-between"
+          width={{ _: '33.5rem', md: '43.2rem' }}
+        >
+          <Flex alignItems="center">
+            <BookmarkIcon style={{ minWidth: '2rem' }} />
+            <Text
+              fontSize="1.4rem"
+              ml={{ _: '1rem', md: '0.8rem' }}
+              mr={{ _: '4rem', md: 0 }}
+              style={{ letterSpacing: '0' }}
+            >
+              Interview with CEO of Gravis Finance
+            </Text>
+          </Flex>
+          <Button
+            p="0 1.6rem"
+            style={{ height: '3.5rem', fontSize: '1.2rem', letterSpacing: '-0.02em', whiteSpace: 'nowrap' }}
+            as="a"
+            href="https://bitcourier.co.uk/news/gravis-finance-interview"
+            target="_blank"
+          >
+            Read
+          </Button>
+        </PublicRoundContainer>
+      </LinksFlex>
     </Flex>
   )
 }
