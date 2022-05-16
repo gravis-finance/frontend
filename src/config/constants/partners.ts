@@ -10,7 +10,7 @@ import backedBy9 from 'assets/supporters/backed9.png'
 
 import supportedBy1 from 'assets/supporters/supported1.png'
 import supportedBy2 from 'assets/supporters/supported2.png'
-import supportedBy3 from 'assets/supporters/supported3.png'
+import supportedBy3 from 'assets/supporters/bitcourier.png'
 import supportedBy4 from 'assets/supporters/supported4.png'
 import supportedBy5 from 'assets/supporters/supported5.png'
 import supportedBy6 from 'assets/supporters/supported6.png'
@@ -48,7 +48,7 @@ const PartnersConfig: PartnersType = {
   supported: [
     { img: supportedBy1 },
     { img: supportedBy2, alt: 'coin sixty eight' },
-    { img: supportedBy3, alt: 'blocksolfi' },
+    { img: supportedBy3 },
     { img: supportedBy4, alt: 'mads' },
     { img: supportedBy5 },
     { img: supportedBy6, alt: 'C' },
