@@ -52,6 +52,11 @@ const menuLinks: MenuEntry[] = [
     icon: 'TradeIcon',
     items: [
       {
+        label: 'mainMenu.autofarming',
+        href: `${process.env.REACT_APP_AUTOFARMING_URL}`,
+        external: true,
+      },
+      {
         label: 'swap',
         href: `${process.env.REACT_APP_EXCHANGE_URL}/swap`,
         external: true,
@@ -60,11 +65,6 @@ const menuLinks: MenuEntry[] = [
         label: 'mainMenu.farming',
         href: `${process.env.REACT_APP_FARMING_URL}/farms`,
         external: true,
-        chip: {
-          title: 'HOT',
-          color: 'rgb(235, 149, 0)',
-          animation: true,
-        },
       },
       {
         label: 'mainMenu.liquidity',

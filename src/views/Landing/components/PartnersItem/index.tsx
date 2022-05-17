@@ -4,7 +4,7 @@ import { Box } from '@gravis.finance/uikit'
 import DefaultText from '../../../../components/DefaultText'
 import { breakpoints } from '../../../../contexts/ThemeContext'
 
-const Container = styled(Box)`
+const Container = styled(Box)<{ clickable?: boolean }>`
   background: rgba(255, 255, 255, 0.03);
   display: flex;
   align-items: center;
@@ -13,6 +13,17 @@ const Container = styled(Box)`
   position: relative;
   padding: 2rem;
   border-radius: 10px;
+  ${({ clickable }) =>
+    clickable
+      ? `
+    box-shadow: rgba(0, 156, 225, 0.6) 0 0 3px 2px;
+    transition: transform 200ms ease-in-out, background 200ms ease-in-out;
+    :hover {
+      transform: scale(1.1);
+      background: rgba(255, 255, 255, 0.1);
+    }
+  `
+      : ''}
 
   @media (min-width: ${breakpoints.md}) {
     height: 11rem;
@@ -81,12 +92,21 @@ const Image = styled(Box).attrs((props) => ({
 `
 
 type Props = {
-  image: { img: string; alt?: string; soon?: boolean }
+  image: { img: string; alt?: string; soon?: boolean; clickable?: boolean }
 }
 
 const PartnersItem: React.FC<Props> = ({ image }) => {
+  const linksProps = image.clickable
+    ? {
+        as: 'a',
+        href: 'https://blockspot.io/coin/gravis-finance/',
+        target: '_blank',
+      }
+    : {}
+
   return (
-    <Container>
+    // @ts-ignore
+    <Container clickable={image.clickable} {...linksProps}>
       <Image src={image.img} alt={image.alt} mb={image.soon ? '1rem' : ''} />
       {image.soon ? (
         <DefaultText
