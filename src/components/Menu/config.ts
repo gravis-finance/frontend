@@ -55,6 +55,11 @@ const menuLinks: MenuEntry[] = [
         label: 'mainMenu.autofarming',
         href: `${process.env.REACT_APP_AUTOFARMING_URL}`,
         external: true,
+        chip: {
+          title: 'HOT',
+          color: 'rgb(235, 149, 0)',
+          animation: true,
+        },
       },
       {
         label: 'swap',
