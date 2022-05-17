@@ -8,6 +8,7 @@ import backedBy7 from 'assets/supporters/backed7.png'
 import backedBy8 from 'assets/supporters/backed8.png'
 import backedBy9 from 'assets/supporters/backed9.png'
 
+import supportedBy0 from 'assets/supporters/supported0.png'
 import supportedBy1 from 'assets/supporters/supported1.png'
 import supportedBy2 from 'assets/supporters/supported2.png'
 import supportedBy3 from 'assets/supporters/bitcourier.png'
@@ -30,7 +31,7 @@ import poweredBy6 from 'assets/supporters/powered6.png'
 import poweredBy7 from 'assets/supporters/powered7.png'
 
 type PartnersType = {
-  [key in 'backed' | 'supported' | 'powered']: { img: string; alt?: string; soon?: boolean }[]
+  [key in 'backed' | 'supported' | 'powered']: { img: string; alt?: string; soon?: boolean; clickable?: boolean }[]
 }
 
 const PartnersConfig: PartnersType = {
@@ -46,6 +47,7 @@ const PartnersConfig: PartnersType = {
     { img: backedBy9 },
   ],
   supported: [
+    { img: supportedBy0, clickable: true },
     { img: supportedBy1 },
     { img: supportedBy2, alt: 'coin sixty eight' },
     { img: supportedBy3 },
