@@ -56,7 +56,10 @@ const useTokenomicsConfig = (chain = 'bsc') => {
       links: {
         [TokenomicsTokenType.GRVS]: {
           seeMore: [],
-          buyToken: process.env.REACT_APP_PUBLIC_ROUND_URL,
+          buyToken:
+            chain === 'bsc'
+              ? `${process.env.REACT_APP_EXCHANGE_URL}/swap?network=56&inputCurrency=0x190cec0657a02e9eab1c1df5d59f9139131cf539&outputCurrency=0xa349fD455A457467D31cA8Db59052dAEBBBcc108`
+              : `${process.env.REACT_APP_EXCHANGE_URL}/swap?network=137&inputCurrency=0x190CEC0657a02E9eAB1C1DF5d59f9139131cf539&outputCurrency=0xd322da59c420e0827e31c40f1886346fb19c6687`,
         },
         [TokenomicsTokenType.GRVX]: {
           seeMore: [

@@ -1,15 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Flex, Box } from '@gravis.finance/uikit'
+import { Box, Flex } from '@gravis.finance/uikit'
 import GravisLogo from '../../../../components/Svg/Icons/GravisLogo'
-import TokenInfo from '../../../../components/TokenInfo'
-import {
-  GRVSFilledLogo,
-  // , GRVXFilledLogo
-} from '../../../../components/Svg'
 import Apps from '../Apps'
 // import { useGetTokensData } from '../../../../hooks/useTokenomicsConfig'
-import { MenuItems, MenuItemBase } from '../MenuItems'
+import { MenuItemBase, MenuItems } from '../MenuItems'
 import * as styles from '../../styles'
 import { MobileMenu } from '../MobileMenu'
 import { Button } from '../Button'
@@ -57,17 +52,6 @@ const MenuItem = styled(MenuItemBase)<{ active?: boolean }>`
 const TokensContainer = styled(Flex)`
   > div:not(:last-child) {
     margin-right: 2.2rem;
-  }
-`
-
-const TokenText = styled(MenuItem)`
-  font-size: 1.2rem;
-  line-height: 1.5rem;
-  color: white;
-  cursor: pointer;
-
-  :hover {
-    color: rgba(255, 255, 255, 0.5);
   }
 `
 
@@ -160,15 +144,15 @@ const Header = () => {
             </Flex>
             <Flex>
               <TokensContainer mr="5.1rem">
-                <TokenInfo
-                  logo={<GRVSFilledLogo />}
-                  title="GRVS"
-                  text={
-                    <TokenText as="a" href={process.env.REACT_APP_PUBLIC_ROUND_URL} target="_blank">
-                      Join Sale
-                    </TokenText>
-                  }
-                />
+                {/* <TokenInfo */}
+                {/*   logo={<GRVSFilledLogo />} */}
+                {/*   title="GRVS" */}
+                {/*   text={ */}
+                {/*     <TokenText as="a" href={process.env.REACT_APP_PUBLIC_ROUND_URL} target="_blank"> */}
+                {/*       Join Sale */}
+                {/*     </TokenText> */}
+                {/*   } */}
+                {/* /> */}
                 {/*  <TokenInfo*/}
                 {/*    logo={<GRVXFilledLogo />}*/}
                 {/*    title="GRVX"*/}
