@@ -4,7 +4,9 @@ import { Flex, Text, Box } from '@gravis.finance/uikit'
 import { GravisBoldLogo } from '../../../../components/Svg'
 import * as styles from '../../styles'
 import { goTo } from '../MenuItems'
+import { MouseIcon } from '../Icons'
 import { FooterNetworks } from '../Footer'
+import { breakpoints } from '../../../../contexts/ThemeContext'
 import { Button } from '../Button'
 
 const MainText = styled(Text)`
@@ -24,6 +26,15 @@ const Description = styled(Box).attrs(() => ({
   color: rgba(255, 255, 255, 0.7);
   line-height: 145%;
   letter-spacing: 0;
+`
+
+const StyledMouseIcon = styled(MouseIcon)`
+  display: none;
+
+  @media (min-width: ${breakpoints.md}) {
+    display: block;
+    margin-top: 5.6rem;
+  }
 `
 
 const MainInfo = () => {
