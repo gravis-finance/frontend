@@ -55,7 +55,7 @@ export const GmartScreen = () => {
           >
             <Box ref={animRef} className="will-change" height={{ _: '100%', md: 'initial' }}>
               <Flex
-                backgroundImage={{ md: 'url(/landing/bg2.png)' }}
+                backgroundImage={{ md: 'url(/landing/bg2_1.png)' }}
                 backgroundRepeat="no-repeat"
                 backgroundPosition={{ _: 'right', md: 'left top' }}
                 backgroundSize="cover"
