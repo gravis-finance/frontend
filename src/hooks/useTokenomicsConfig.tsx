@@ -55,7 +55,31 @@ const useTokenomicsConfig = (chain = 'bsc') => {
       isLoading,
       links: {
         [TokenomicsTokenType.GRVS]: {
-          seeMore: [],
+          seeMore: [
+            {
+              text: `CoinGecko (${chainsTitles[chain]} Network)`,
+              link:
+                chain === 'bsc'
+                  ? 'https://www.coingecko.com/en/coins/gravis-finance'
+                  : 'https://dex.guru/token/0xd322da59c420e0827e31c40f1886346fb19c6687-polygon',
+              chainOnly: 'bsc',
+            },
+            {
+              text: `CoinMarketCap (${chainsTitles[chain]} Network)`,
+              link:
+                chain === 'bsc'
+                  ? 'https://coinmarketcap.com/currencies/gravis-finance/'
+                  : 'https://info.gravis.finance/token/0xd322da59c420e0827e31c40f1886346fb19c6687?network=polygon',
+              chainOnly: 'bsc',
+            },
+            {
+              text: `Token statistics on DEX analytics (${chainsTitles[chain]} Network)`,
+              link:
+                chain === 'bsc'
+                  ? 'https://info.gravis.finance/token/0x190cec0657a02e9eab1c1df5d59f9139131cf539?network=binance'
+                  : 'https://info.gravis.finance/token/0x190cec0657a02e9eab1c1df5d59f9139131cf539?network=polygon',
+            },
+          ],
           buyToken:
             chain === 'bsc'
               ? `${process.env.REACT_APP_EXCHANGE_URL}/swap?network=56&inputCurrency=0x190cec0657a02e9eab1c1df5d59f9139131cf539&outputCurrency=0xa349fD455A457467D31cA8Db59052dAEBBBcc108`
@@ -104,7 +128,7 @@ const useTokenomicsConfig = (chain = 'bsc') => {
           },
           {
             title: 'Burned',
-            text: foundGRVS?.burned > 0 ? numberWithSpaces(parseInt(foundGRVS?.burned)) : 'Coming soon',
+            text: numberWithSpaces(parseInt(foundGRVS?.burned)),
           },
         ],
         [TokenomicsTokenType.GRVX]: [

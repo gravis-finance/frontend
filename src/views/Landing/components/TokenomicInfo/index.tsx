@@ -142,7 +142,12 @@ const TokenomicInfo: React.FC<Props> = ({ token = TokenomicsTokenType.GRVS, netw
     }
   }
 
-  const [openLinksModal] = useModal(<LinksModal links={links[token].seeMore} token={token} />)
+  const [openLinksModal] = useModal(
+    <LinksModal
+      links={links[token].seeMore.filter((item: any) => (item.chainOnly ? item.chainOnly === network : true))}
+      token={token}
+    />,
+  )
   return (
     <Container>
       <Header

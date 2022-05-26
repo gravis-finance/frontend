@@ -1,3 +1,4 @@
+import backedBy0 from 'assets/supporters/backed0.png'
 import backedBy1 from 'assets/supporters/backed1.png'
 import backedBy2 from 'assets/supporters/backed2.png'
 import backedBy3 from 'assets/supporters/backed3.png'
@@ -36,6 +37,7 @@ type PartnersType = {
 
 const PartnersConfig: PartnersType = {
   backed: [
+    { img: backedBy0, alt: 'kommunitas' },
     { img: backedBy1, alt: 'blocksolfi' },
     { img: backedBy2, alt: 'dutch crypto investors' },
     { img: backedBy3, alt: 'a-crypto' },

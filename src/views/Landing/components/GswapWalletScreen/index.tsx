@@ -35,7 +35,7 @@ const WalletContent = (props: React.ComponentProps<typeof Box>) => {
         fontWeight={500}
         lineHeight="145%"
       >
-        Secure innovative solution for storing, receiving, sending
+        Secure innovative solution for storing, receiving, sending,
         <Box as="br" display={{ _: 'none', md: 'block' }} />
         and exchanging crypto assets using a smartphone
       </Box>

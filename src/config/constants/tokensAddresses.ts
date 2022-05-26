@@ -7,8 +7,8 @@ export const GRVX_ADDRESSES: { [Number in string]: string } = {
 }
 
 export const GRVS_ADDRESSES: { [Number in string]: string } = {
-  '56': '0xa743f9eeda14b93c0037a8f4c0d57eb2eb1e34fb',
-  '97': '0xa743f9eeda14b93c0037a8f4c0d57eb2eb1e34fb',
-  '80001': '0xa743f9eeda14b93c0037a8f4c0d57eb2eb1e34fb',
-  '137': '0xa743f9eeda14b93c0037a8f4c0d57eb2eb1e34fb',
+  '56': '0x190cec0657a02e9eab1c1df5d59f9139131cf539',
+  '97': '',
+  '80001': '',
+  '137': '0x190cec0657a02e9eab1c1df5d59f9139131cf539',
 }
