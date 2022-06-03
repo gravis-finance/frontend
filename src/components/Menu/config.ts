@@ -103,16 +103,6 @@ const menuLinks: MenuEntry[] = [
         external: true,
       },
       {
-        label: 'sellNFT',
-        href: `${process.env.REACT_APP_GMART_URL}/sell`,
-        external: true,
-      },
-      {
-        label: 'sendNFT',
-        href: `${process.env.REACT_APP_GMART_URL}/transfer`,
-        external: true,
-      },
-      {
         label: 'Activity',
         href: `${process.env.REACT_APP_GMART_URL}/activity`,
         external: true,
